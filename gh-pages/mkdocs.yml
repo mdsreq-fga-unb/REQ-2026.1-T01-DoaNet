@@ -4,6 +4,7 @@ nav:
   - Home: index.md
   - Exemplos de Documentação: example.md
   - Visão De Produto e Projeto: visaodeproduto.md
+  - Como Manter o Git Pages: mkdocs-tutorial.mds
 theme:
   name: material
 
