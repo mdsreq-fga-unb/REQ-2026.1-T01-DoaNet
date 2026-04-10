@@ -1,0 +1,32 @@
+site_name: DoaNet
+site_url:  https://mdsreq-fga-unb.github.io/REQ-2026.1-T01-DoaNet/
+nav:
+  - Home: index.md
+  - Exemplos de Documentação: example.md
+theme:
+  name: material
+
+  palette:
+    - scheme: default
+      primary: black
+      accent: blue
+
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.tabbed
+  - admonition
+  

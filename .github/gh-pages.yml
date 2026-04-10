@@ -1,0 +1,52 @@
+name: Deploy Docs (MkDocs)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'gh-pages/docs/**'
+      - 'gh-pages/mkdocs.yml'
+
+  pull_request:
+    branches: [main]
+    paths:
+      - 'gh-pages/docs/**'
+      - 'gh-pages/mkdocs.yml'
+
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install mkdocs mkdocs-material
+
+      - name: Build docs
+        run: mkdocs build -f gh-pages/mkdocs.yml
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh-pages/site
+
+  deploy:
+    if: github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
