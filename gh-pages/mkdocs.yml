@@ -3,6 +3,7 @@ site_url:  https://mdsreq-fga-unb.github.io/REQ-2026.1-T01-DoaNet/
 nav:
   - Home: index.md
   - Exemplos de Documentação: example.md
+  - Visão De Produto e Projeto: visaodeproduto.md
 theme:
   name: material
 
