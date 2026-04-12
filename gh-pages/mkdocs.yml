@@ -1,19 +1,22 @@
 site_name: DoaNet
-site_url:  https://mdsreq-fga-unb.github.io/REQ-2026.1-T01-DoaNet/
+site_url: https://mdsreq-fga-unb.github.io/REQ-2026.1-T01-DoaNet/
+
 nav:
   - Home: index.md
+  - Visão De Produto e Projeto:
+      - 1. Cenário Atual: visao_produto/1-cenario.md
+      - 2. Solução Proposta: visao_produto/2-solucao.md
+      - 3. Planejamento: visao_produto/3-planejamento.md
+      - 6. Interação com Cliente: visao_produto/6-interacao.md
   - Exemplos de Documentação: example.md
-  - Visão De Produto e Projeto: visaodeproduto.md
-  - Como Manter o Git Pages: mkdocs-tutorial.mds
+  - Como Manter o Git Pages: mkdocs-tutorial.md
+
 theme:
   name: material
-
   palette:
     - scheme: default
       primary: black
       accent: blue
-
-
   features:
     - navigation.tabs
     - navigation.sections
@@ -23,7 +26,6 @@ theme:
     - content.code.copy
     - content.code.annotate
 
-
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
@@ -31,4 +33,3 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed
   - admonition
-  
