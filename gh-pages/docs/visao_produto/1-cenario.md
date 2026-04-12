@@ -36,6 +36,8 @@ Organizações da sociedade civil enfrentam desafios como baixa visibilidade pú
 **Oportunidade:**
 Desenvolver uma plataforma digital que centralize informações, aumente a visibilidade, melhore a transparência e fortaleça o engajamento.
 
+![Diagrama de Ishikawa](../assets/DiagramaIshikawa.png)
+
 ## 1.5 Desafios do Projeto  
 * Implementação de doações em tempo real  
 * Garantia de consistência dos dados financeiros  

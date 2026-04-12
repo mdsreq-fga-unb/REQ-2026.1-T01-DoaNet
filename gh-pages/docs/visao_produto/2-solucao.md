@@ -1,7 +1,7 @@
 # 2. Solução Proposta  
 
 ## 2.1 Objetivo Geral  
-Aumentar a visibilidade de organizações da sociedade civil, centralizando doações, comunicação, gestão e voluntariado. O projeto visa promover transparência, confiança e engajamento entre as partes.
+O objetivo do produto é resolver a falta de informações claras sobre as Organizações da Sociedade Civil e a complexidade nos processos de pagamento ao centralizar a gestão e doações em uma plataforma que aumenta a visibilidade das organizações e promove a transparência e a confiança entre as partes.
 
 ## 2.2 Objetivos Específicos  
 * **OE1:** Gerenciar doações e despesas.
