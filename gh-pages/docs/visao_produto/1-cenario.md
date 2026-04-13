@@ -22,7 +22,8 @@ A MoveEduca atua em parceria com diversos setores da sociedade, buscando ampliar
 
 ## 1.3 Rich Picture  
 > Representação visual do cenário atual e da solução proposta.
-*(Insira a imagem do Rich Picture aqui)*
+
+![RichPicture](../assets/RichPicture.jpeg)
 
 ## 1.4 Identificação do Problema  
 Organizações da sociedade civil enfrentam desafios como baixa visibilidade pública, dificuldade de engajamento da população, limitações na captação de recursos e falta de transparência.

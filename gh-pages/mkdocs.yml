@@ -7,6 +7,7 @@ nav:
       - 1. Cenário Atual: visao_produto/1-cenario.md
       - 2. Solução Proposta: visao_produto/2-solucao.md
       - 3. Estratégias de ES: visao_produto/3-estrategia.md
+      - 4. Engenharia de Requisitos de ES: visao_produto/4-EngenhariadeRequisitos.md
       - 5. Planejamento: visao_produto/5-planejamento.md
       - 6. Interação com Cliente: visao_produto/6-interacao.md
   - Exemplos de Documentação: example.md
