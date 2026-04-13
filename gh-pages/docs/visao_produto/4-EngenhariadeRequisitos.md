@@ -7,7 +7,7 @@ Neste projeto, a Engenharia de Requisitos não é uma fase estática, mas um pro
 
 ---
 
-### 🔍 Elicitação e Descoberta
+### Elicitação e Descoberta
 O foco aqui é alimentar o Product Backlog de forma contínua, garantindo que as necessidades dos doadores e voluntários sejam capturadas em tempo real.
 
 * **Lean Inception:** Realização de sessões rápidas para definir o MVP (Produto Mínimo Viável) dos sistemas de Doação e Patrimônio, alinhando os objetivos de negócio logo no início do projeto.
@@ -16,7 +16,7 @@ O foco aqui é alimentar o Product Backlog de forma contínua, garantindo que as
 
 ---
 
-### 🤝 Análise e Consenso
+### Análise e Consenso
 Envolve a priorização do que gera mais valor para a ONG e a resolução de dúvidas técnicas antes do início do desenvolvimento.
 
 * **Planning Poker:** Técnica de estimativa utilizada durante a Sprint Planning para alcançar consenso sobre a complexidade de cada requisito (ex: o quão difícil é implementar a integração financeira do patrimônio).
@@ -25,7 +25,7 @@ Envolve a priorização do que gera mais valor para a ONG e a resolução de dú
 
 ---
 
-### 📝 Declaração de Requisitos
+### Declaração de Requisitos
 Diferente de documentos extensos, a declaração aqui é viva e reside nas ferramentas de gestão visual.
 
 * **Product Backlog:** A única fonte de verdade para os requisitos, mantida em uma ferramenta visual (como Jira ou Trello), contendo a descrição das User Stories.
@@ -33,7 +33,7 @@ Diferente de documentos extensos, a declaração aqui é viva e reside nas ferra
 
 ---
 
-### 🎨 Representação de Requisitos
+### Representação de Requisitos
 Foca na comunicação rápida e clara da interface e dos fluxos.
 
 * **Protótipos de Baixa/Média Fidelidade:** Wireframes rápidos validados com o cliente para ajustar o fluxo de registro de assembleias e murais de notícias antes de qualquer linha de código.
@@ -41,7 +41,7 @@ Foca na comunicação rápida e clara da interface e dos fluxos.
 
 ---
 
-### ✅ Verificação e Validação de Requisitos
+### Verificação e Validação de Requisitos
 A garantia de qualidade é feita através dos ritos do Scrum e das métricas do Kanban.
 
 * **Definition of Ready (DoR):** Um requisito só entra na Sprint (Board Kanban) se estiver "Pronto": História escrita, Critérios de Aceite definidos, UI anexada e dependências técnicas resolvidas.
@@ -50,7 +50,7 @@ A garantia de qualidade é feita através dos ritos do Scrum e das métricas do 
 
 ---
 
-### 🔄 Organização e Atualização de Requisitos
+### Organização e Atualização de Requisitos
 O Kanban garante que o fluxo de requisitos seja saudável e sem gargalos.
 
 * **Quadro Kanban:** Visualização do status de cada requisito (Backlog, Em Análise, Pronto para Dev, Em Desenvolvimento, Teste, Concluído).
