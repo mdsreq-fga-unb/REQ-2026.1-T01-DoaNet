@@ -56,6 +56,7 @@ Além disso, processos fundamentais, como a realização de doações, a comunic
 | **Voluntários** | Usuários ativos | Participação | Média |
 | **Público geral** | Observadores | Conhecimento | Média |
 | **Equipe dev** | Construtores | Entregar solução | Alta |
+| **George Marsicano** | Avaliador Acadêmico | Qualidade técnica, cumprimento de prazos e critérios pedagógicos | Alta |
 
 ## 1.7 Segmentação de Clientes  
 * **Administradores:** Gerenciam organizações.
