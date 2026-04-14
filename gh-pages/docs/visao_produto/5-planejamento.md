@@ -1,4 +1,4 @@
-# Planejamento e Conclusão
+# Planejamento da Equipe
 
 ## Planejamento de Sprints
 
@@ -23,6 +23,3 @@
 
 ---
 
-## Conclusão
-
-O DoaNet propõe uma solução digital robusta para centralizar as operações operacionais e financeiras de organizações da sociedade civil. Através desta plataforma, busca-se aumentar a transparência das doações, melhorar o engajamento da comunidade e escalar o impacto social das organizações cadastradas. Ao longo das sprints, o sistema evolui de uma base estrutural até a entrega de funcionalidades completas, garantindo validações contínuas com o cliente e entregas incrementais alinhadas aos objetivos do projeto.

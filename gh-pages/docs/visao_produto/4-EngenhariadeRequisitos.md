@@ -44,7 +44,7 @@ Foca na comunicação rápida e clara da interface e dos fluxos.
 A garantia de qualidade é feita através dos ritos do Scrum e das métricas do Kanban.
 
 * **Definition of Ready (DoR):** Um requisito só entra na Sprint (Board Kanban) se estiver "Pronto": História escrita, Critérios de Aceite definidos, UI anexada e dependências técnicas resolvidas.
-* **Definition of Done (DoD):** Garante a qualidade técnica. O requisito só é "Done" após passar por Code Review.
+* **Definition of Done (DoD):** Garante a qualidade técnica. O requisito só é "Done" após passar por Code Review e alcançar todos os critérios de aceitação.
 * **Sprint Review:** Reunião ao final de cada Sprint onde as funcionalidades entregues (ex: sistema de transparência) são validadas.
 
 ---
