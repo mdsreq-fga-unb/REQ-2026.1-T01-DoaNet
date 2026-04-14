@@ -1,4 +1,4 @@
-# 📝 Guia Completo de Markdown (DoaNet)
+# Guia Completo de Markdown (DoaNet)
 
 Este guia mostra como usar Markdown com recursos avançados do Material for MkDocs.
 
