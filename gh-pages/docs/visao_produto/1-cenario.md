@@ -29,23 +29,11 @@ A MoveEduca atua em parceria com diversos setores da sociedade, buscando ampliar
 ![RichPicture](../assets/RichPicture.jpeg)
 
 ## 1.4 Identificação do Problema  
-Organizações da sociedade civil enfrentam, de forma geral, um problema significativo relacionado à 
-falta de informação clara sobre as atividades impacto e gestão de recursos. Esse cenário dificulta que 
-a população conheça, compreenda e se engaje com iniciativas sociais, limitando o alcance dessas 
-organizações e reduzindo seu potencial de captação de recursos e mobilização de voluntários. Nesse 
-contexto, as ONGs se destacam como um exemplo relevante desse tipo de organização que sofre 
-diretamente com essa falta de acesso à informações claras. 
-Além da limitação no acesso à informação, muitas dessas organizações não dispõem de uma 
-plataforma centralizada que permita apresentar, de forma clara e acessível, suas ações, projetos e 
-resultados. Isso compromete não apenas a transparência, mas também a confiança do público, uma 
-vez que doadores e interessados encontram dificuldades para acompanhar como os recursos são 
-utilizados e qual impacto está sendo gerado ao longo do tempo. 
-Outro fator relevante é a falta da centralização das informações dos processos internos e externos, especialmente no que diz 
-respeito às doações, comunicação e gestão de atividades. O processo de doação, por exemplo, muitas 
-vezes não é intuitivo nem integrado, além de não oferecer retorno imediato ou acompanhamento 
-contínuo ao doador. Da mesma forma, a comunicação com o público e entre membros da organização 
-tende a ocorrer de forma dispersa, dificultando a organização de eventos, assembleias e atualizações 
-institucionais. 
+Organizações da sociedade civil na atualidade enfrentam um problema central relacionado à ausência de uma plataforma digital unificada que permita que essa organização centralize suas operações. Essa falta de centralização dificulta que a população conheça, compreenda e se engaje com essas iniciativas, limitando o alcance das organizações e reduzindo seu potencial de captação de recursos e mobilização de voluntários. Nesse contexto, as ONGs se destacam como um dos principais exemplos de organizações da sociedade civil que sofrem com essa problemática 
+
+Atualmente, muitas dessas organizações não possuem um ambiente único onde possam apresentar, de forma clara e acessível, suas ações, projetos e resultados. Informações importantes sobre a gestão de recursos dessas organizações acabam ficando dispersas ou pouco estruturadas, o que compromete a transparência e a confiança do público. Doadores e interessados encontram dificuldades para entender o impacto gerado e acompanhar como os recursos são utilizados ao longo do tempo.
+
+Além disso, processos fundamentais, como a realização de doações, a comunicação com o público e o engajamento de voluntários, ocorrem de forma fragmentada. Dessa forma, a ausência de uma plataforma integrada torna o processo de doação menos intuitivo, dificulta a organização de eventos e limita a divulgação de informações institucionais, evidenciando a necessidade de uma solução centralizada que conecte todos esses elementos de forma eficiente e acessível.
 
 ![Diagrama de Ishikawa](../assets/DiagramaIshikawa.png)
 
