@@ -5,7 +5,7 @@
 ### **Lições Aprendidas e Melhorias no Processo**
 
 * **Compreensão da Solução MoveEduca**: 
-    * **Desafio:** Entender a visão social da MoveEduca, junto com suas necessidades, poderiam ser traduzidas em funcionalidades sistêmicas.
+    * **Desafio:** Entender como a visão social da MoveEduca, junto com suas necessidades, poderiam ser traduzidas em funcionalidades sistêmicas.
     * **Ação de Melhoria:** Realizar imersões no modelo de negócio do terceiro setor para garantir que a solução tecnológica resolva gargalos reais enfrentados por organizações desse tipo.
 * **Definição da Arquitetura Adequada**:
     * **Desafio:** Estabelecer uma estrutura tecnológica que suporte a integração de módulos distintos (financeiro, social e voluntariado) garantindo escalabilidade, segurança de dados à solução e que possa ser adaptada ao contexto e conhecimento técnico do grupo.
