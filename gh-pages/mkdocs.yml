@@ -10,8 +10,7 @@ nav:
       - 4. Engenharia de Requisitos de ES: visao_produto/4-EngenhariadeRequisitos.md
       - 5. Planejamento: visao_produto/5-planejamento.md
       - 6. Interação com Cliente: visao_produto/6-interacao.md
-  - Exemplos de Documentação: example.md
-  - Como Manter o Git Pages: mkdocs-tutorial.md
+
 
 theme:
   name: material
