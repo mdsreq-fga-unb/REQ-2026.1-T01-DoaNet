@@ -1,7 +1,7 @@
 # 2. Solução Proposta  
 
 ## 2.1 Objetivo Geral  
-O objetivo do produto é resolver a falta de informações claras sobre as Organizações da Sociedade Civil e a complexidade nos processos de pagamento ao centralizar a gestão e doações em uma plataforma que aumenta a visibilidade das organizações e promove a transparência e a confiança entre as partes.
+O objetivo do produto é desenvolver uma plataforma unificada que centralize informações claras e impulsione o engajamento com as Organizações da Sociedade Civil, integrando um sistema de doações transparente para fortalecer a confiança e a conexão entre doadores e instituições
 
 ## 2.2 Objetivos Específicos  
 * **OE1:** Gerenciar doações e despesas.
