@@ -1,63 +1,173 @@
-# Guia de Onboarding do Backend: Poetry + Django + PostgreSQL em Docker
+# Setup do Backend (Poetry + Django + Postgres)
 
-Este documento explica como rodar o backend a partir do estado atual do repositorio, sem criar projeto novo.
+Este guia mostra como preparar o ambiente do zero, usando o Poetry para criar o ambiente virtual e executar comandos basicos do Django. O projeto e um backend Django + DRF com Postgres.
 
-## Objetivo
+## 1) Pre-requisitos
 
-- Instalar tudo que o backend atual precisa.
-- Subir PostgreSQL via Docker.
-- Conectar no banco pelo pgAdmin instalado na maquina.
-- Aplicar migracoes e executar a API localmente.
+- Python 3.13+
+- Git
+- Docker Desktop (ou Docker Engine)
+- Poetry
 
-## Estado atual do repositorio
-
-- O backend ja existe na pasta `backend/`.
-- O projeto usa Poetry com `pyproject.toml` e `poetry.lock`.
-- O projeto ja usa Django, DRF e psycopg.
-- O arquivo principal da aplicacao e `backend/manage.py`.
-
-## 1. Pre-requisitos
-
-- Python 3.13+ (o projeto exige `>=3.13`).
-- Git.
-- Poetry.
-- Docker Desktop (com Docker Compose).
-- pgAdmin instalado na maquina (Desktop).
-
-Verifique:
+Verifique se esta tudo instalado:
 
 ```bash
 python --version
 git --version
-poetry --version
 docker --version
-docker compose version
+poetry --version
 ```
 
-## 2. Clonar e entrar no backend
+## 2) Instalar o Poetry com pip/pipx
+
+### Passo 1: garantir pipx
+
+No Windows (PowerShell):
+
+```powershell
+py -m pip install --user pipx
+py -m pipx ensurepath
+```
+
+No Linux (bash):
+
+```bash
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+
+Feche e abra o terminal e confirme:
+
+```powershell
+pipx --version
+```
+
+Se o comando nao aparecer, adicione o caminho do pipx ao PATH:
+
+```
+%USERPROFILE%\.local\bin
+%APPDATA%\Python\Scripts
+```
+
+No Linux, o caminho comum e:
+
+```
+~/.local/bin
+```
+
+### Passo 2: instalar o Poetry via pipx
+
+```powershell
+pipx install poetry
+```
+
+No Linux (bash):
+
+```bash
+pipx install poetry
+```
+
+Confirme:
+
+```powershell
+poetry --version
+```
+
+### Alternativa: instalar via pip (menos recomendado)
+
+```powershell
+py -m pip install --user poetry
+```
+
+No Linux (bash):
+
+```bash
+python3 -m pip install --user poetry
+```
+
+Depois confirme com:
+
+```powershell
+poetry --version
+```
+
+## 3) Clonar o repositorio e entrar no backend
 
 ```bash
 git clone <url-do-repositorio>
 cd REQ-2026.1-T01-DoaNet/backend
 ```
 
-## 3. Instalar dependencias Python do projeto
+## 4) Configurar o ambiente virtual do Poetry
 
-Recomendado para padronizar o ambiente virtual dentro da pasta do backend:
+Crie o venv dentro da pasta do projeto:
 
 ```bash
 poetry config virtualenvs.in-project true
 ```
 
-Instalar dependencias ja travadas no lockfile:
+Instale as dependencias do projeto:
 
 ```bash
 poetry install
 ```
 
-## 4. Criar/validar arquivo .env do backend
+Para abrir o shell do ambiente:
 
-No arquivo `backend/.env`, use:
+```bash
+poetry shell
+```
+
+Ou rode comandos direto com:
+
+```bash
+poetry run <comando>
+```
+
+## 5) Preencher o .env (sem dados sensiveis)
+
+Crie `backend/.env` com este formato:
+
+```env
+DB_NAME=<nome_do_banco>
+DB_USER=<usuario_do_banco>
+DB_PASSWORD=<senha_do_banco>
+DB_HOST=localhost
+DB_PORT=5431
+SECRET_KEY=<sua_secret_key>
+```
+
+Como gerar a SECRET_KEY:
+
+```bash
+poetry run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+Copie o valor gerado para o `SECRET_KEY`.
+
+## 6) Subir o Postgres com Docker (sem compose)
+
+Defina primeiro os valores que voce vai usar. Eles precisam ser os mesmos do `.env`:
+
+- DB_NAME -> nome do banco
+- DB_USER -> usuario do banco
+- DB_PASSWORD -> senha do banco
+- DB_PORT -> porta exposta (ex.: 5431)
+
+Depois, rode o container:
+
+```bash
+docker run -d \
+	--name app_postgres \
+	-e POSTGRES_DB=<nome_do_banco> \
+	-e POSTGRES_USER=<usuario_do_banco> \
+	-e POSTGRES_PASSWORD=<senha_do_banco> \
+	-p 5431:5432 \
+	-v postgres_data:/var/lib/postgresql/data \
+	postgres:16
+```
+
+Relacao com o `.env` (exemplo):
 
 ```env
 DB_NAME=<nome_do_banco>
@@ -67,121 +177,108 @@ DB_HOST=localhost
 DB_PORT=5431
 ```
 
-Observacao:
-
-- Com Django rodando na maquina host e Postgres no Docker, o host e `localhost` e a porta e a publicada no compose (`5431`).
-
-## 5. Criar docker-compose.yml para PostgreSQL
-
-Crie `backend/docker-compose.yml` com:
-
-```yaml
-services:
-  postgres:
-    image: postgres:16
-    container_name: app_postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: [dado a ser preenchido]
-      POSTGRES_USER: [dado a ser preenchido]
-      POSTGRES_PASSWORD: [dado a ser preenchido]
-    ports:
-      - "5431:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U <usuario_do_banco> -d <nome_do_banco>"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-volumes:
-  postgres_data:
-```
-
-Suba o banco:
+Para validar se o container esta rodando:
 
 ```bash
-docker compose up -d
-docker compose ps
+docker ps
 ```
 
-## 6. Conectar no PostgreSQL via pgAdmin Desktop
+Para parar e remover:
 
-No pgAdmin instalado na maquina:
+```bash
+docker stop app_postgres
+docker rm app_postgres
+```
 
-1. Abra o pgAdmin.
-2. Clique em Add New Server.
-3. Em General, defina Name: `DoaNet Local`.
-4. Em Connection, use:
-   - Host name/address: `[dado a ser preenchido]`
-   - Port: `[dado a ser preenchido]`
-   - Maintenance database: `[dado a ser preenchido]`
-   - Username: `[dado a ser preenchido]`
-   - Password: `[dado a ser preenchido]`
-5. Salve.
+Aviso de seguranca: nao coloque senhas reais nem `SECRET_KEY` em arquivos versionados. Guarde segredos apenas no `.env` (que fica no `.gitignore`).
 
-## 7. Validar backend e aplicar migracoes
+## 7) Comandos basicos do Django (com explicacao)
+
+Todos os comandos devem ser rodados com `poetry run` para usar o ambiente do projeto.
+
+### Verificar o projeto
 
 ```bash
 poetry run python manage.py check
+```
+
+- Faz uma validacao geral das configuracoes.
+
+### Criar migracoes
+
+```bash
+poetry run python manage.py makemigrations
+```
+
+- Cria arquivos de migracao quando voce altera Models.
+
+### Aplicar migracoes
+
+```bash
 poetry run python manage.py migrate
 ```
 
-Se quiser criar superusuario:
+- Aplica as migracoes no banco (cria tabelas e altera schemas).
+
+### Criar superusuario
 
 ```bash
 poetry run python manage.py createsuperuser
 ```
 
-## 8. Subir servidor Django
+- Cria um usuario admin para acessar a area administrativa.
+
+### Rodar o servidor local
 
 ```bash
 poetry run python manage.py runserver
 ```
 
-Acesse: `http://127.0.0.1:8000`
+- Sobe o servidor em `http://127.0.0.1:8000`.
 
-## 9. Comandos diarios uteis
+## 8) Fluxo tipico para iniciar o projeto
 
-- Subir banco: `docker compose up -d`
-- Parar banco: `docker compose down`
-- Ver logs do banco: `docker compose logs -f postgres`
-- Rodar comandos Django: `poetry run python manage.py <comando>`
+1. `poetry install`
+2. Preencher o `backend/.env`
+3. `docker run ...` (ver secao 6)
+4. `poetry run python manage.py migrate`
+5. `poetry run python manage.py runserver`
 
-## 10. O que versionar no Git
+## 9) O que versionar no Git
 
 Manter versionado:
 
 - `backend/pyproject.toml`
 - `backend/poetry.lock`
-- migracoes Django das apps
+- Codigo do Django
+- Migracoes das apps
 
 Nao versionar:
 
 - `backend/.env`
 - `backend/.venv/`
 
-## 11. Solucao de problemas
+## 10) Solucao de problemas comuns
 
 ### Erro de autenticacao no Postgres
 
-- Verifique se `DB_USER` e `DB_PASSWORD` no `backend/.env` batem com `POSTGRES_USER` e `POSTGRES_PASSWORD` do compose.
-- Se mudou credencial depois de criar volume, recrie os containers e o volume:
+- Confirme que `DB_USER` e `DB_PASSWORD` no `.env` batem com o `docker run`.
+- Se voce mudou credenciais depois do container criado:
 
 ```bash
-docker compose down -v
-docker compose up -d
+docker stop app_postgres
+docker rm app_postgres
+docker volume rm postgres_data
 ```
+
+Depois rode novamente o comando do `docker run` com os novos valores.
 
 ### Porta 5431 ocupada
 
-- Troque o mapeamento de porta no compose (exemplo: `5433:5432`).
-- Atualize `DB_PORT` no `backend/.env` com a mesma porta.
+- Troque o mapeamento no `docker run`, por exemplo `-p 5433:5432`.
+- Atualize `DB_PORT` no `.env`.
 
 ### Poetry usando Python errado
-
-Use um Python 3.13 explicitamente:
 
 ```bash
 poetry env use 3.13
@@ -194,4 +291,3 @@ poetry install
 - Django: https://docs.djangoproject.com/
 - DRF: https://www.django-rest-framework.org/
 - Docker: https://docs.docker.com/
-- pgAdmin: https://www.pgadmin.org/docs/
