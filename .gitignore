@@ -14,3 +14,4 @@
 /backend/src/models/*.pyc
 
 /backend/test.rest
+backend/tests/__init__.py
