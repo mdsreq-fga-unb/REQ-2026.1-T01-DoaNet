@@ -59,8 +59,10 @@ Além disso, processos fundamentais, como a realização de doações, a comunic
 | **George Marsicano** | Avaliador Acadêmico | Qualidade técnica, cumprimento de prazos e critérios pedagógicos | Alta |
 
 ## 1.7 Segmentação de Clientes  
-* **Administradores:** Gerenciam organizações.
-* **Doadores:** Realizam contribuições.
-* **Voluntários:** Participam de atividades.
-* **Participantes:** Inscrevem-se em eventos.
-* **Observadores:** Acompanham ações publicamente.
+
+| Perfil | Descrição (O que fazem) | Faixa Etária | Letramento Digital | Interesses |
+| :--- | :--- | :--- | :--- | :--- |
+| **Administradores da ONG** | Gerenciam a organização, realizam postagens e cuidam da prestação de contas no painel. | 30 a 60 anos | Alto | Gestão simplificada, transparência e personalização visual da ONG. |
+| **Doadores** | Realizam contribuições financeiras seguras e rápidas através do aplicativo mobile. | 25 a 55 anos | Médio | Facilidade no pagamento (PIX/Cartão) e clareza sobre o destino dos recursos. |
+| **Voluntários** | Inscrevem-se para atividades práticas doando tempo e mão de obra. | 18 a 35 anos | Alto | Engajamento direto na causa, networking e visualização do impacto real no feed. |
+| **Observadores** | Acompanham os resultados e a transparência financeira sem realizar ações de suporte imediatas. | 18 a 60 anos | Básico | Credibilidade institucional e consumo de informações sobre projetos sociais locais. |
