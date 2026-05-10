@@ -14,5 +14,8 @@ class FeedService:
     def add_item(self, item: FeedItem) -> None:
         self.repo.add(item)
 
+    def update_item(self, item_id: str, item: FeedItem) -> bool:
+        return self.repo.update_item(item_id, item)
+
     def delete_item(self, item_id: str) -> bool:
         return self.repo.delete(item_id)

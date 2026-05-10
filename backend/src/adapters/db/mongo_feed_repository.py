@@ -30,6 +30,19 @@ class MongoFeedRepository(FeedRepository):
         payload.pop("id", None)
         self.collection.insert_one(payload)
 
+    def update_item(self, item_id: str, item: FeedItem) -> bool:
+        if hasattr(item, "model_dump"):
+            payload = item.model_dump()
+        else:
+            payload = item.dict()
+
+        payload.pop("id", None)
+        result = self.collection.update_one(
+            {"_id": ObjectId(item_id)},
+            {"$set": payload}
+        )
+        return result.matched_count == 1
+
     def delete(self, item_id: str) -> bool:
         result = self.collection.delete_one({"_id": ObjectId(item_id)})
         return result.deleted_count == 1

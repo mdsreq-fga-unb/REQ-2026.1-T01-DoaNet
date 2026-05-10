@@ -29,6 +29,15 @@ def innit_routes() -> APIRouter:
         feed_service.add_item(feed_item)
         return {"message": "created"}
 
+    @router.put("/feed/{id}")
+    async def update_feed(id: str, feed_item: FeedItem):
+        try: 
+            updated = feed_service.update_item(id, feed_item)
+            if updated:
+                return {"message": "updated"}
+        except Exception as exc:
+            return {"error": str(exc), "status": "failed"}
+
     @router.delete("/feed/{id}")
     async def delete_feed_item(id: str):
         try:
