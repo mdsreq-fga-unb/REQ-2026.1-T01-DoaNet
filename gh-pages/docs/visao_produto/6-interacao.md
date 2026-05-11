@@ -5,7 +5,7 @@ A tabela a seguir apresenta os papéis e atribuições definidos para a equipe d
 
 | Papel | Atribuição | Responsável | Participantes |
 | :--- | :--- | :--- | :--- |
-| **Scrum Master** | Garante a correta aplicação do framework Scrum + kanban. É responsável por facilitar os ritos ágeis da equipe, remover impedimentos operacionais, otimizar o fluxo de tarefas e apoiar a gestão geral do projeto. | Pedro Druck | Pedro Druck |
+| **Scrum Master** | Garante a correta aplicação do Scrum + XP. É responsável por facilitar os ritos ágeis da equipe, remover impedimentos operacionais, otimizar o fluxo de tarefas e apoiar a gestão geral do projeto. | Pedro Druck | Pedro Druck |
 | **Desenvolvedor backend** | Responsável pela arquitetura do banco de dados, lógica de servidor e implementação das rotas de integração do sistema. | João Leles | Davi Ursulino, Pedro Druck, Pedro Augusto, Letícia Vitória |
 | **Desenvolvedor frontend** | Implementação da interface do usuário, garantia da responsividade e integração das funcionalidades no lado do cliente. | Davi Ursulino | Pedro Druck, Pedro Augusto, João Leles, Letícia Vitória |
 | **DevOps** | Gestão da infraestrutura de deploy, configuração de ambientes de desenvolvimento e automação da entrega contínua. | Pedro Augusto | Davi Ursulino, Pedro Druck, João Leles, Letícia Vitória |
