@@ -1,0 +1,1 @@
+"""Database outbound adapters"""
