@@ -19,6 +19,8 @@ nav:
   - Atas de Reunião:
       - Modelo: atas/modelo.md
       - Reunião 1: atas/ata1_27_04_2026.md
+      - Reunião 2: atas/ata2_04_05_2026.md
+      - Reunião 3: atas/ata3_11_05_2026.md
   - Exemplos de Documentação: example.md
   - Como Manter o Git Pages: mkdocs-tutorial.md
 
