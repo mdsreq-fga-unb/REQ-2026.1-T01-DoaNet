@@ -3,29 +3,49 @@
 **Módulo Mobile (Público Geral)**
 
 - RF01: Visualizar o histórico de doações e despesas da organização [CP2 - Transparência Financeira]
+
 - RF02: Visualizar publicações no feed [CP3 - Feed de Comunicação]
+
 - RF03: Visualizar uma descrição da organização [CP6 - Perfil Público da Organização]
+
 - RF04: Visualizar oportunidades de voluntariado [CP4 - Gestão de Voluntários]
+
 - RF05: Contactar administradores da organização [CP6 - Perfil Público da Organização]
+
 - RF06: Filtrar publicações por tipo [CP3 - Feed de Comunicação]
+
 - RF07: Buscar publicações por título [CP3 - Feed de Comunicação]
+
 - RF08: Inscrever-se para colaborar como voluntariado [CP4 - Gestão de Voluntários]
+
 - RF09: Inscrever-se para atender a um evento [CP5 - Gestão de Eventos]
+
 - RF10: Realizar uma doação [CP1 - Doações Online]
 
 **Módulo Administrativo**
 
 - RF11: Autenticar administradores [CP7 - Gestão e Controle de Administradores]
+
 - RF12: Cadastrar um administrador da organização [CP7 - Gestão e Controle de Administradores]
+
 - RF13: Remover administrador da organização [CP7 - Gestão e Controle de Administradores]
+
 - RF14: Configurar dados de customização do aplicativo [CP8 - Customização da Organização]
+
 - RF15: Lançar doação feita de forma externa ao aplicativo [CP2 - Transparência Financeira]
+
 - RF16: Lançar despesa da organização [CP2 - Transparência Financeira]
+
 - RF17: Realizar uma publicação no feed [CP3 - Feed de Comunicação]
+
 - RF18: Deletar uma publicação no feed [CP3 - Feed de Comunicação]
+
 - RF19: Atualizar uma publicação no feed [CP3 - Feed de Comunicação]
+
 - RF20: Registrar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+
 - RF21: Deletar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+
 - RF22: Atualizar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
 # 8.2) Requisitos Não Funcionais 
