@@ -14,12 +14,13 @@ Criada com sede no Distrito Federal, a MoveEduca possui como missão central pro
 Apesar de sua relevância e diversidade de atuação, a MoveEduca enfrenta desafios relacionados à centralização de informações, transparência e visibilidade pública, o que reforça a necessidade de soluções digitais que apoiem sua gestão e ampliem seu impacto.
 
 Seu público inclui:
-* Estudantes  
-* Comunidades vulneráveis  
-* Voluntários  
-* Profissionais da educação  
-* Instituições públicas e privadas  
-* Doadores e parceiros  
+
+* **Estudantes**  
+* **Comunidades vulneráveis**  
+* **Voluntários**  
+* **Profissionais da educação**  
+* **Instituições públicas e privadas**  
+* **Doadores e parceiros**  
 
 A MoveEduca atua em parceria com diversos setores da sociedade, buscando ampliar o alcance de suas iniciativas.
 
