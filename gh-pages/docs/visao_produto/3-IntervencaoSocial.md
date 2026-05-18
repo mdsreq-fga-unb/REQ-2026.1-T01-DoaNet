@@ -36,7 +36,8 @@ Toda intervenção tecnológica gera consequências secundárias no ambiente em 
 
 * **Curva de adaptação:** Necessidade de treinamento dos atuais administradores da MoveEduca para manterem o sistema sempre atualizado.
 * **Gestão híbrida de recursos:** Como a organização manterá o recebimento de doações por meios físicos/tradicionais, haverá o esforço operacional contínuo de registrar manualmente essas entradas e saídas no aplicativo para garantir que o painel de transparência financeira reflita sempre a realidade.
-* **Julgamento público sobre custos:** A transparência financeira total expõe a alocação de recursos. Pessoas de fora podem questionar os gastos operacionais ou administrativos normais da MoveEduca, exigindo que a ONG justifique as despesas estruturais, e não apenas o dinheiro gasto diretamente nas causas.
+* **Barreira tecnológica:** A exclusão digital ou a falta de letramento tecnológico de parte do público (como doadores mais idosos ou pessoas com menos familiaridade com smartphones) pode dificultar a adoção da ferramenta por esses grupos, exigindo campanhas de auxílio ou a manutenção de canais alternativos de doação.
+
 
 ## 3.3 Síntese da Intervenção
 
