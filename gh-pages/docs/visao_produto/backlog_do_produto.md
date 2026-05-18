@@ -31,14 +31,46 @@ A tabela a seguir apresenta cada um dos requisitos funcionais (RFs) declarados u
 
 > **Observação:** O **RNF03** (Implementação das Diferentes Partes da Solução usando Python/FastAPI, Flutter e MongoDB) aplica-se transversalmente a todas as características do produto, requisitos funcionais e user stories, por definir a base tecnológica e o padrão arquitetural do projeto. Assim, ele deve ser considerado válido para todo o escopo do backlog.
 
-
 ## 10.2 Priorização do Backlog e MVP
 
 Para a priorização foram utilizados os seguintes critérios:
 
-- **VN** = valor de negócio (1 a 5)
-- **CT** = complexidade técnica (1 a 5)
+- **VN** = Valor de negócio (1 a 5)
+
+    - **O que significa:** O impacto positivo que a funcionalidade traz para a organização (ONG) ou para o usuário final. Mede o quanto aquela entrega resolve uma dor real, gera engajamento, traz segurança jurídica/financeira ou atende ao objetivo central do aplicativo.
+
+    - **Como mensurar:**
+
+        - **1 a 2 (Baixo):** Recursos cosméticos, relatórios secundários ou funções que poucos usuários vão usar.
+
+        - **3 (Médio):** Funcionalidades de suporte importantes, mas que não impedem a operação principal se estiverem    ausentes.
+
+        - **4 a 5 (Alto):** Funcionalidades críticas e core do sistema (Ex: Autenticação de admins, realização de doações,    transparência financeira). Sem elas, o produto perde o propósito.
+
+- **CT** = Complexidade técnica (1 a 5)
+
+    - **O que significa:** O nível de dificuldade intelectual, incerteza, novidade ou risco envolvido no desenvolvimento da história. Avalia se a equipe já sabe como fazer ou se exigirá muita pesquisa, integrações com terceiros (APIs externas) ou arquiteturas robustas.
+
+    - **Como mensurar:**
+
+        - **1 a 2 (Baixo):** Telas estáticas, cadastros simples (CRUDs) e comportamentos que a equipe já domina amplamente.
+
+        - **3 (Médio):** Regras de negócio moderadas, filtros dinâmicos ou consultas que exigem maior atenção na modelagem.
+
+        - **4 a 5 (Alto):** Recursos que envolvem criptografia, gateway de pagamento externo, regras de White Label dinâmicas ou alta exigência de segurança e performance.
+
 - **EI** = Esforço de implementação (1 a 5)
+
+    - **O que significa:** O volume de trabalho bruto e o tempo necessário para codificar, testar e homologar a funcionalidade. Uma tarefa pode ser conceitualmente simples (baixa complexidade), mas muito repetitiva ou longa (alto esforço).
+
+    - **Como mensurar:**
+
+        - **1 a 2 (Baixo):** Alterações rápidas, mensagens de erro, criação de botões ou fluxos de cliques curtos.
+
+        - **3 (Médio):** Desenvolvimento padrão que consome alguns dias de trabalho de um desenvolvedor focado.
+
+        - **4 a 5 (Alto):** Fluxos longos que exigem muitas telas, validações extensas de dados, e cenários complexos de testes manuais ou automatizados.
+
 
 ### 1. Esforço Técnico
 
@@ -76,14 +108,14 @@ A partir dessas informações, foi gerada a seguinte tabela:
 | US12 | Cadastrar novo administrador | 5 | 4 | 4 | 4 | 1,25 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 |
 | US13 | Remover um administrador | 4 | 4 | 4 | 4 | 1 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 |
 | US03 | Visualizar descrição da ONG | 3 | 1 | 1 | 1 | 3 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US06 | Filtrar publicações do feed | 3 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US07 | Buscar publicações por título | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US08 | Inscrever-se como voluntário | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US09 | Inscrever-se em eventos | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US16 | Lançar despesas operacionais | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US19 | Atualizar uma publicação | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US20 | Registrar oportunidade voluntariado | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US22 | Atualizar oportunidade voluntariado | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
+| US06 | Filtrar publicações do feed | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
+| US07 | Buscar publicações por título | 2 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US04 | Visualizar oportunidades voluntariado | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US05 | Contactar os administradores | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
 | US18 | Deletar uma publicação no feed | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
