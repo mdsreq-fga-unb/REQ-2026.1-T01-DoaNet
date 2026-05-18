@@ -2,7 +2,7 @@
 
 **Módulo Mobile (Público Geral)**
 
-- RF01: Visualizar o histórico de doações e despesas da organização [CP2 - Transparência Financeira]
+- RF01: Visualizar o histórico de doações e despesas da organização [CP2 - Painel de Transparência Financeira]
 
 - RF02: Visualizar publicações no feed [CP3 - Feed de Comunicação]
 
@@ -20,21 +20,21 @@
 
 - RF09: Inscrever-se para atender a um evento [CP5 - Gestão de Eventos]
 
-- RF10: Realizar uma doação [CP1 - Doações Online]
+- RF10: Realizar uma doação [CP1 - Sistema de Doações]
 
 **Módulo Administrativo**
 
-- RF11: Autenticar administradores [CP7 - Gestão e Controle de Administradores]
+- RF11: Autenticar administradores [CP7 - Controle de Acesso Administrativo]
 
-- RF12: Cadastrar um administrador da organização [CP7 - Gestão e Controle de Administradores]
+- RF12: Cadastrar um administrador da organização [CP7 - Controle de Acesso Administrativo]
 
-- RF13: Remover administrador da organização [CP7 - Gestão e Controle de Administradores]
+- RF13: Remover administrador da organização [CP7 - Controle de Acesso Administrativos]
 
 - RF14: Configurar dados de customização do aplicativo [CP8 - Customização da Organização]
 
-- RF15: Lançar doação feita de forma externa ao aplicativo [CP2 - Transparência Financeira]
+- RF15: Lançar doação feita de forma externa ao aplicativo [CP2 - Sistema de Transparência Financeira]
 
-- RF16: Lançar despesa da organização [CP2 - Transparência Financeira]
+- RF16: Lançar despesa da organização [CP2 - Sistema de Transparência Financeira]
 
 - RF17: Realizar uma publicação no feed [CP3 - Feed de Comunicação]
 
