@@ -1,6 +1,6 @@
-# 3 Estratégias de Engenharia de Software
+# 4 Estratégias de Engenharia de Software
 
-## 3.1 Estratégia Priorizada
+## 4.1 Estratégia Priorizada
 
 - **Abordagem:** Ágil
 - **Ciclo de Vida:** Iterativo e Incremental
@@ -9,7 +9,7 @@
 
 ---
 
-## 3.2 Quadro Comparativo
+## 4.2 Quadro Comparativo
 
 | Característica | XP + Scrum (Estratégia Adotada) | OpenUP |
 |--------------|--------------|-------------|
@@ -29,7 +29,7 @@
 
 ---
 
-## 3.3 Justificativa
+## 4.3 Justificativa
 
 A partir das particularidades do projeto DoaNet, a combinação do **Processo XP (eXtreme Programming)** com o **Framework Scrum** constitui a escolha mais eficaz, com base nas seguintes justificativas:
 
