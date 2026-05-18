@@ -15,6 +15,9 @@ nav:
       - 5. Engenharia de Requisitos de ES: visao_produto/5-EngenhariadeRequisitos.md
       - 6. Planejamento: visao_produto/6-planejamento.md
       - 7. Interação com Cliente: visao_produto/7-interacao.md
+      - 8. Requisitos: visao_produto/8-requisitos.md
+      - 9. DOR e DOD: visao_produto/9-DorEDod.md
+      - 10. Backlog: visao_produto/10-backlog_do_produto.md
       - 11. Lições Aprendidas: visao_produto/11-licoes.md
   - Atas de Reunião:
       - Modelo: atas/modelo.md
