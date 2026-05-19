@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
       ),
       home: PageStructure(
-        organizationName: 'Nome da Organizacao',
+        organizationName: 'MoveEduca',
         initialPageName: 'feed',
       ),
     );
