@@ -16,16 +16,16 @@ O objetivo do produto é otimizar a gestão e a comunicação das ações e doa�
 
 ## 2.3 Características do Produto  
 
-| ID | Característica do Produto (CP) | Descrição | Valor | Contribuição principal | Contribuição secundária |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **CP1** | Gestão de doações | Sistema de realização de doações (apenas via PIX) e registro dessas doações na plataforma. | Facilitar o processo de doações e estabelecer confiança e credibilidade com a organização cadastrada | OE2 |  OE3 |
-| **CP2** | Painel de transparência financeira | Sistema de lançamento de doações recebidas dentro e fora da plataforma e de gastos feitos pela organização | Transparência e prestação de contas | OE1 | OE5 |
-| **CP3** | Feed de comunicação | Publicações, notícias e atualizações com mídia | Engajamento e visibilidade | OE6 | OE5 |
-| **CP4** | Gestão de voluntários | Cadastro, agendamento de turnos e controle de horas via formulário externo | Organização de equipes de voluntários para uma organização | OE4 | OE7 | 
-| **CP5** | Gestão de eventos | Divulgação e registro de participação em eventos via formulário externo | Engajamento social e organização de participantes de eventos | OE5 | OE6 |
-| **CP6** | Perfil público da organização | Página da organização cadastrada, onde estará presente as abas de feed, voluntários, eventos e transparência financeira | Visibilidade pública e centralização das informações relevantes de uma organização | OE5 | OE1 |
-| **CP7** | Controle de acesso administrativo | Perfis (admin/viewer) e controle de acesso | Segurança e organização da plataforma | OE7 | OE4 | 
-| **CP8** | Customização da Organização | Permite personalizar a identidade visual (logo, cores) e gerenciar os dados institucionais da organização na plataforma | Fortalecer a identidade da marca perante o público e viabilizar a escalabilidade do sistema (White-Label) | OE5 | OE7 |
+| ID | Característica do Produto (CP) | Descrição | Valor de Negócio (VN) | ID (VN) | Contribuição principal | Contribuição secundária |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **CP1** | Gestão de doações | Sistema de realização de doações (apenas via PIX) e registro dessas doações na plataforma. | Facilitar o processo de doações e estabelecer confiança e credibilidade com a organização cadastrada | VN1 | OE2 | OE3 |
+| **CP2** | Painel de transparência financeira | Sistema de lançamento de doações recebidas dentro e fora da plataforma e de gastos feitos pela organização | Transparência e prestação de contas | VN2 | OE1 | OE5 |
+| **CP3** | Feed de comunicação | Publicações, notícias e atualizações com mídia | Engajamento e visibilidade | VN3 | OE6 | OE5 |
+| **CP4** | Gestão de voluntários | Cadastro, agendamento de turnos e controle de horas via formulário externo | Organização de equipes de voluntários para uma organização | VN4 | OE4 | OE7 | 
+| **CP5** | Gestão de eventos | Divulgação e registro de participação em eventos via formulário externo | Engajamento social e organização de participantes de eventos | VN5 | OE5 | OE6 |
+| **CP6** | Perfil público da organização | Página da organização cadastrada, onde estará presente as abas de feed, voluntários, eventos e transparência financeira | Visibilidade pública e centralização das informações relevantes de uma organização | VN6 | OE5 | OE1 |
+| **CP7** | Controle de acesso administrativo | Perfis (admin/viewer) e controle de acesso | Segurança e organização da plataforma | VN7 | OE7 | OE4 | 
+| **CP8** | Customização da Organização | Permite personalizar a identidade visual (logo, cores) e gerenciar os dados institucionais da organização na plataforma | Fortalecer a identidade da marca perante o público e viabilizar a escalabilidade do sistema (White-Label) | VN8 | OE5 | OE7 |
 
 ## 2.4 Tecnologias a Serem Utilizadas
 
