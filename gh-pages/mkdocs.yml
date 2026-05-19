@@ -3,9 +3,6 @@ site_url: https://mdsreq-fga-unb.github.io/REQ-2026.1-T01-DoaNet/
 
 nav:
   - Home: index.md
-  - Guias Tecnicos:
-      - Backend (Poetry + Django + Postgres): poetry-django-setup.md
-      - Frontend (Flutter): flutter-setup.md
   
   - Visão De Produto e Projeto:
       - 1. Cenário Atual: visao_produto/1-cenario.md
@@ -25,7 +22,6 @@ nav:
       - Reunião 2: atas/ata2_04_05_2026.md
       - Reunião 3: atas/ata3_11_05_2026.md
   - Exemplos de Documentação: example.md
-  - Como Manter o Git Pages: mkdocs-tutorial.md
 
 
 
