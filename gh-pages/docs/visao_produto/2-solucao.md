@@ -3,6 +3,8 @@
 ## 2.1 Objetivo Geral  
 O objetivo do produto é otimizar a gestão e a comunicação das ações e doações da MoveEduca por meio de uma plataforma unificada e transparente, que permita centralizar informações de impacto social e integrar os processos de doação, evitando dados dispersos e garantindo uma experiência de engajamento confiável para os usuários. A solução irá permitir à instituição fortalecer sua credibilidade e ampliar sua captação de recursos, assegurando que o sistema suporte o acompanhamento contínuo dos resultados à medida que a rede de doadores aumenta.
 
+- **Observação:** Foi realizado um pivoteamento do projeto, que trouxe mudanças significativas, como o descontinuamento do Kafka, a utilização de um sistema externo para o processamento de pagamentos, além de ser definido que a doação poderá ser identificada ou anônima. Foram removidos os sistemas de login e cadastro para os usuários finais do aplicativo. Também será utilizado o Streamlit na administração, com acesso por meio de um login simples, pré-definido. Além disso iremos utilizar uma estratégia de white label para permitir a personalização da plataforma por diferentes organizações. E com relação a mudanças técnicas, trocamos o django pelo FastAPI, e o MySQL por MongoDB. Com base nessas mudanças, foram alterados os tópicos 2.2, 2.3, 2.4 e o 6.
+
 ## 2.2 Objetivos Específicos  
 * **OE1: Aumentar a transparência financeira:** Garantir a rastreabilidade e a exposição clara da alocação de recursos, fortalecendo a confiança do público.
 * **OE2: Desburocratizar o processo de doação:** Tornar a jornada de contribuição financeira mais fluida e intuitiva, reduzindo o atrito para novos doadores.
