@@ -20,7 +20,7 @@
 
 - RF09: Inscrever-se para atender a um evento [CP5 - Gestão de Eventos]
 
-- RF10: Realizar uma doação [CP1 - Sistema de Doações]
+- RF10: Realizar uma doação [CP1 - 	Gestão de Doações]
 
 **Módulo Administrativo**
 
@@ -32,9 +32,9 @@
 
 - RF14: Configurar dados de customização do aplicativo [CP8 - Customização da Organização]
 
-- RF15: Lançar doação feita de forma externa ao aplicativo [CP2 - Sistema de Transparência Financeira]
+- RF15: Lançar doação feita de forma externa ao aplicativo [CP2 - Painel de Transparência Financeira]
 
-- RF16: Lançar despesa da organização [CP2 - Sistema de Transparência Financeira]
+- RF16: Lançar despesa da organização [CP2 - Painel de Transparência Financeira]
 
 - RF17: Realizar uma publicação no feed [CP3 - Feed de Comunicação]
 
@@ -50,7 +50,7 @@
 
 # 8.2) Requisitos Não Funcionais 
 
-| Identificador | Nome | Descrição | Classificação |
+| Identificador | Nome | Descrição | Classificação (URPS+) |
 | :--- | :--- | :--- | :--- |
 | **RNF01** | Arquitetura Multi-tenant (White Label) | O back-end deve ser centralizado e exigir o envio de um hash de 32 dígitos (partition key) em cada requisição aos endpoints para identificar a qual organização os dados pertencem, sem necessidade de cadastro da organização via sistema convencional. | Restrições de design |
 | **RNF02** | Configuração e Costumização do Aplicativo | A customização do aplicativo para cada organização (incluindo logo, nome, variáveis de tema da Ul e dados públicos institucionais) deve ser definida e consumida exclusivamente por meio de um arquivo JSON. | Requisitos de Implementação |
