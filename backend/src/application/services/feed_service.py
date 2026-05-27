@@ -1,7 +1,7 @@
 from typing import List
 
-from domain.entities.feed_item import FeedItem
-from domain.ports.feed_repository import FeedRepository
+from src.domain.entities.feed_item import FeedItem
+from src.domain.ports.feed_repository import FeedRepository
 
 
 class FeedService:

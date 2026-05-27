@@ -1,8 +1,8 @@
 from bson import ObjectId
 
-from domain.entities.feed_item import FeedItem
-from domain.ports.feed_repository import FeedRepository
-from adapters.db.mongo_connection import collection
+from src.domain.entities.feed_item import FeedItem
+from src.domain.ports.feed_repository import FeedRepository
+from src.adapters.db.mongo_connection import collection
 
 
 class MongoFeedRepository(FeedRepository):

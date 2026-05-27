@@ -1,9 +1,16 @@
-from fastapi import APIRouter
+from http.client import HTTPException
+from fastapi import APIRouter, Depends
+from pydantic import BaseModel  
+from .security import create_access_token, verify_token
 
-from domain.entities.feed_item import FeedItem
-from adapters.http.serializers import feed_items_to_list
-from adapters.db.mongo_feed_repository import MongoFeedRepository
-from application.services.feed_service import FeedService
+from src.domain.entities.feed_item import FeedItem
+from src.adapters.http.serializers import feed_items_to_list
+from src.adapters.db.mongo_feed_repository import MongoFeedRepository
+from src.application.services.feed_service import FeedService
+
+class LoginData(BaseModel):
+    email: str
+    password: str
 
 def innit_routes() -> APIRouter:
     router = APIRouter()
@@ -48,6 +55,19 @@ def innit_routes() -> APIRouter:
         except Exception as exc:
             return {"error": str(exc), "status": "failed"}
         
+    @router.post("/login")
+    async def login(data: LoginData):
+        # 1. Valide o usuário no MongoDB aqui usando seu domain/services
+        user_is_valid = (data.email == "admin@ong.org" and data.password == "123") # Simulação
+    
+        if not user_is_valid:
+            raise HTTPException(status_code=401, detail="Credenciais incorretas")
+    
+    # 2. Se for válido, crie o token passando os dados que quiser (evite dados sensíveis como senha)
+        token = create_access_token(data={"sub": data.email})
+            
+        return {"access_token": token, "token_type": "bearer"}
+
     return router
 
     

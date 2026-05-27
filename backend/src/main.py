@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from adapters.http.routes import innit_routes
+from src.adapters.http.routes import innit_routes
 
 app = FastAPI(title="DoaNet Backend")
 

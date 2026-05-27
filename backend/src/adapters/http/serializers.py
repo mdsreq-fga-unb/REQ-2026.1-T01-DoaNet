@@ -1,6 +1,6 @@
 from typing import List
 
-from domain.entities.feed_item import FeedItem
+from src.domain.entities.feed_item import FeedItem
 
 
 def feed_item_to_dict(item: FeedItem) -> dict:
