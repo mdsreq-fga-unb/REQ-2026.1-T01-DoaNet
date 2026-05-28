@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/info_fetch/feed/fetch_feed.dart';
 
 import 'pages/colaboracao_page.dart';
 import 'pages/feed_page.dart';
@@ -9,10 +10,12 @@ class PageStructure extends StatefulWidget {
     super.key,
     required this.organizationName,
     required this.initialPageName,
+    this.fetchFeed,
   });
 
   final String organizationName;
   final String initialPageName;
+  final FetchFeed? fetchFeed;
 
   @override
   State<PageStructure> createState() => _PageStructureState();
@@ -43,7 +46,7 @@ class _PageStructureState extends State<PageStructure> {
   Widget _pageForName() {
     switch (_pageName) {
       case 'feed':
-        return const FeedPage();
+        return FeedPage(fetchFeed: widget.fetchFeed);
       case 'colaboracao':
         return const ColaboracaoPage();
       case 'transparencia':

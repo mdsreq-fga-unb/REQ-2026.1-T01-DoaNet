@@ -4,15 +4,19 @@ import 'package:frontend/info_fetch/feed/feed_model.dart';
 import 'package:frontend/widgets/feed_item_card.dart';
 
 class FeedPage extends StatefulWidget {
-  const FeedPage({super.key});
+  FeedPage({super.key, FetchFeed? fetchFeed})
+    : fetchFeed = fetchFeed ?? FetchFeed();
+
+  final FetchFeed fetchFeed;
 
   @override
   State<FeedPage> createState() => FeedPageState();
 }
 
 class FeedPageState extends State<FeedPage> {
-  List<FeedItem>? feedItems;
-  var isLoaded = false;
+  List<FeedItem> feedItems = [];
+  bool isLoading = true;
+  String? errorMessage;
 
   @override
   void initState() {
@@ -21,10 +25,27 @@ class FeedPageState extends State<FeedPage> {
   }
 
   void getData() async {
-    feedItems = await FetchFeed().fetchFeed();
-    if (feedItems != null) {
+    setState(() {
+      isLoading = true;
+      errorMessage = null;
+    });
+
+    try {
+      final items = await widget.fetchFeed.fetchFeed();
+      if (!mounted) {
+        return;
+      }
       setState(() {
-        isLoaded = true;
+        feedItems = items;
+        isLoading = false;
+      });
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        errorMessage = 'Erro ao carregar feed';
+        isLoading = false;
       });
     }
   }
@@ -99,15 +120,28 @@ class FeedPageState extends State<FeedPage> {
           ),
         ),
       ),
-      body: ListView.builder(
-        itemCount: feedItems?.length ?? 1,
-        itemBuilder: (context, index) {
-          return FeedItemCard(
-            title: feedItems?[index].title ?? 'Título sem nome',
-            description: feedItems?[index].description ?? '',
-            profileName: 'Perfil',
-            profileImageUrl: feedItems?[index].profileImageUrl,
-            date: '01/01/2026',
+      body: Builder(
+        builder: (context) {
+          if (isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (errorMessage != null) {
+            return Center(child: Text(errorMessage!));
+          }
+          if (feedItems.isEmpty) {
+            return const Center(child: Text('Nenhum item no feed'));
+          }
+          return ListView.builder(
+            itemCount: feedItems.length,
+            itemBuilder: (context, index) {
+              return FeedItemCard(
+                title: feedItems[index].title,
+                description: feedItems[index].description,
+                profileName: 'Perfil',
+                profileImageUrl: feedItems[index].profileImageUrl,
+                date: '01/01/2026',
+              );
+            },
           );
         },
       ),
