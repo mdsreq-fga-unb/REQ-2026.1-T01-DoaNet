@@ -33,28 +33,34 @@ class FeedPageState extends State<FeedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 2,
-        shape: Border.all(color: Theme.of(context).dividerColor, width: 2),
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
+
         flexibleSpace: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             spacing: 4,
             children: [
+              const Icon(Icons.filter_list, size: 18),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Theme.of(context).dividerColor,
-                    width: 2,
-                  ),
+                  color: Colors.grey[350],
+
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  child: Column(
-                    children: [
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
                       Text(
-                        'Buscar Por Titulo',
+                        'Com eventos',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -66,18 +72,20 @@ class FeedPageState extends State<FeedPage> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Theme.of(context).dividerColor,
-                    width: 2,
-                  ),
+                  color: Colors.grey[350],
+
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  child: Column(
-                    children: [
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
                       Text(
-                        'Filtrar por Tipo',
+                        'Sem Eventos',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
