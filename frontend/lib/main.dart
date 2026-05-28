@@ -14,7 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DoaNet Feed',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.lightBlue,
+          onSecondary: Colors.blueAccent,
+          onPrimaryContainer: Colors.white,
+          primaryContainer: Colors.blueAccent,
+        ),
       ),
       home: PageStructure(
         organizationName: 'MoveEduca',
