@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/info_fetch/feed/fetch_feed.dart';
 
 import 'page_structure.dart';
 
@@ -7,7 +8,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, this.fetchFeed});
+
+  final FetchFeed? fetchFeed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,7 @@ class MyApp extends StatelessWidget {
       home: PageStructure(
         organizationName: 'MoveEduca',
         initialPageName: 'feed',
+        fetchFeed: fetchFeed,
       ),
     );
   }
