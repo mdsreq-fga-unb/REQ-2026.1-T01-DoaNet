@@ -5,7 +5,7 @@ from domain.entities.feed_item import FeedItem
 from adapters.http.serializers import feed_items_to_list
 from adapters.db.mongo_feed_repository import MongoFeedRepository
 from application.services.feed_service import FeedService
-from infrastructure.storage.gcs_storage_service import GCSStorageService
+from adapters.infrastructure.storage.gcs_storage_service import GCSStorageService
 
 def innit_routes() -> APIRouter:
     router = APIRouter()
@@ -31,6 +31,7 @@ def innit_routes() -> APIRouter:
     async def add_feed_item(
         title: Annotated[str, Form()],
         description: Annotated[str, Form()],
+        post_type: Annotated[str, Form()],
         image: Annotated[Optional[UploadFile], File()] = None
         ):
         
@@ -43,6 +44,7 @@ def innit_routes() -> APIRouter:
             feed_item = FeedItem(
                 title = title,
                 description = description,
+                type = post_type,
                 image_url = image_data["image_url"],
                 image_path = image_data["image_path"]
             )
@@ -57,6 +59,7 @@ def innit_routes() -> APIRouter:
         id: str, 
         title: Annotated[str, Form()],
         description: Annotated[str, Form()],
+        post_type: Annotated[str, Form()],
         image: Annotated [Optional[UploadFile], File()] = None
         ):
 
@@ -70,6 +73,7 @@ def innit_routes() -> APIRouter:
             updated_item = FeedItem(
                 title = title,
                 description = description,
+                type = post_type,
                 image_url = image_url,
                 image_path = image_path
             )

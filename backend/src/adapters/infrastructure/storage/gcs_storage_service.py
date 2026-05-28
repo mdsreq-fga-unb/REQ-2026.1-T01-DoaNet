@@ -4,7 +4,7 @@ from fastapi import UploadFile, HTTPException
 
 
 class GCSStorageService:
-    def init(self, bucket_name: str):
+    def __init__(self, bucket_name: str):
         self.bucket_name = bucket_name
         self.client = storage.Client()
         self.bucket = self.client.bucket(self.bucket_name)
@@ -22,8 +22,8 @@ class GCSStorageService:
             blob.upload_from_file(file.file, content_type=file.content_type)
 
             return {
-                "image_url": f"https://storage.googleapis.com/%7Bself.bucket_name%7D/%7Bobject_name%7D",
-                "image_path": object_name,
+                    "image_url": f"https://storage.googleapis.com/{self.bucket_name}/{object_name}",
+                    "image_path": object_name,
             }
         except Exception as exc:
             raise HTTPException(status_code=500, detail=f"Erro ao enviar imagem: {str(exc)}")

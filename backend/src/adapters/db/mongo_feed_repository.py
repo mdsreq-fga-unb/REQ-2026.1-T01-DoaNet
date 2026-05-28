@@ -16,11 +16,11 @@ class MongoFeedRepository(FeedRepository):
             items.append(
                 FeedItem(
                     id=str(item["_id"]),
-                    title=item.get["title"],
-                    type=item.get["type"],
-                    description=item.get["description"],
-                    image_url=item.get["image_url"],
-                    image_path=item.get["image_path"]
+                    title=item.get("title"),
+                    type=item.get("type"),
+                    description=item.get("description"),
+                    image_url=item.get("image_url"),
+                    image_path=item.get("image_path")
                 )
             )
         return items

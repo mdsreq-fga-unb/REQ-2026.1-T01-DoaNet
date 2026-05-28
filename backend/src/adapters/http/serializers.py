@@ -13,6 +13,8 @@ def feed_item_to_dict(item: FeedItem) -> dict:
         "title": data["title"],
         "type": data["type"],
         "description": data["description"],
+        "image_url": data["image_url"],
+        "image_path": data["image_path"]
     }
 
 
