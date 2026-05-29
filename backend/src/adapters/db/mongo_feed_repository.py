@@ -2,17 +2,18 @@ from bson import ObjectId
 
 from domain.entities.feed_item import FeedItem
 from domain.ports.feed_repository import FeedRepository
-from adapters.db.mongo_connection import collection
+from adapters.db.mongo_connection import get_collection
 
 
 class MongoFeedRepository(FeedRepository):
-    def __init__(self, collection_handle=collection) -> None:
-        self.collection = collection_handle
+    def __init__(self, collection_handle=None) -> None:
+        self.collection = collection_handle or get_collection()
 
     def list_all(self):
         items = []
         for item in self.collection.find():
-            items.append(
+            items.append
+            (
                 FeedItem(
                     id=str(item["_id"]),
                     title=item["title"],

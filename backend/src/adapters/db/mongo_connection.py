@@ -9,22 +9,34 @@ from pymongo import MongoClient
 BASE_DIR = Path(__file__).resolve().parents[3]
 load_dotenv(BASE_DIR / ".env")
 
-MONGODB_USERNAME = os.getenv("MONGODB_USERNAME")
-MONGODB_PASSWORD = os.getenv("MONGODB_PASSWORD")
-MONGODB_CLUSTER = os.getenv("MONGODB_CLUSTER")
-MONGODB_APP_NAME = os.getenv("MONGODB_APP_NAME", "doa-net")
-MONGODB_DB_NAME = os.getenv("MONGODB_DB_NAME", "doa_net_db")
+_client = None
+_collection = None
 
-if not all([MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_CLUSTER]):
-    raise RuntimeError(
-        "Missing MongoDB settings. Configure MONGODB_USERNAME, MONGODB_PASSWORD and MONGODB_CLUSTER in backend/.env"
-    )
 
-MONGODB_URI = (
-    f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}"
-    f"@{MONGODB_CLUSTER}/?appName={MONGODB_APP_NAME}"
-)
+def _get_settings():
+    username = os.getenv("MONGODB_USERNAME")
+    password = os.getenv("MONGODB_PASSWORD")
+    cluster = os.getenv("MONGODB_CLUSTER")
+    app_name = os.getenv("MONGODB_APP_NAME", "doa-net")
+    db_name = os.getenv("MONGODB_DB_NAME", "doa_net_db")
 
-client = MongoClient(MONGODB_URI, tlsCAFile=certifi.where())
-db = client[MONGODB_DB_NAME]
-collection = db["org_feed"]
+    if not all([username, password, cluster]):
+        raise RuntimeError(
+            "Missing MongoDB settings. Configure MONGODB_USERNAME, MONGODB_PASSWORD and MONGODB_CLUSTER in backend/.env"
+        )
+
+    uri = f"mongodb+srv://{username}:{password}@{cluster}/?appName={app_name}"
+    return uri, db_name
+
+
+def get_collection():
+    global _client
+    global _collection
+
+    if _collection is None:
+        uri, db_name = _get_settings()
+        _client = MongoClient(uri, tlsCAFile=certifi.where())
+        db = _client[db_name]
+        _collection = db["org_feed"]
+
+    return _collection
