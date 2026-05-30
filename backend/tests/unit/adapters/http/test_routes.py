@@ -1,6 +1,7 @@
 import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
+from unittest.mock import MagicMock
 
 from domain.entities.feed_item import FeedItem
 import adapters.http.routes as routes
@@ -52,6 +53,7 @@ class FakeFeedRepository:
 @pytest.fixture
 def client(monkeypatch):
     monkeypatch.setattr(routes, "MongoFeedRepository", FakeFeedRepository)
+    monkeypatch.setattr(routes, "MongoOportunidadeRepository", MagicMock)
     app = FastAPI()
     app.include_router(routes.innit_routes())
     return TestClient(app)

@@ -40,3 +40,18 @@ def get_collection():
         _collection = db["org_feed"]
 
     return _collection
+
+_oportunidade_collection = None
+
+def get_oportunidade_collection():
+    global _client
+    global _oportunidade_collection
+
+    if _oportunidade_collection is None:
+        uri, db_name = _get_settings()
+        if _client is None:
+            _client = MongoClient(uri, tlsCAFile=certifi.where())
+        db = _client[db_name]
+        _oportunidade_collection = db["oportunidades"] # Nova coleção no banco!
+
+    return _oportunidade_collection
