@@ -50,10 +50,27 @@ class FakeFeedRepository:
         return False
 
 
+class FakeOportunidadeRepository:
+    def __init__(self):
+        self.items = []
+
+    def list_all(self):
+        return self.items
+
+    def add(self, item):  
+        self.items.append(item)
+        return "fake-id-123"
+
+    def update_item(self, item_id, item):  
+        return True
+
+    def delete(self, item_id):
+        return True
+
 @pytest.fixture
 def client(monkeypatch):
     monkeypatch.setattr(routes, "MongoFeedRepository", FakeFeedRepository)
-    monkeypatch.setattr(routes, "MongoOportunidadeRepository", MagicMock)
+    monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
     app = FastAPI()
     app.include_router(routes.innit_routes())
     return TestClient(app)
@@ -117,3 +134,44 @@ def test_delete_feed_item(client):
     response = client.delete("/feed/1")
     assert response.status_code == 200
     assert response.json() == {"message": "item not found"}
+
+
+def test_get_oportunidades(client):
+    response = client.get("/oportunidades")
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)
+
+
+def test_add_oportunidade(client):
+    nova_vaga = {
+        "titulo": "Professor de Reforço",
+        "descricao": "Apoio escolar para alunos",
+        "local": "Asa Norte",
+        "horario": "Sábados, 14h às 16h",
+        "vagas_totais": 10,
+        "vagas_preenchidas": 0,
+        "imagem_url": "http://foto.com/img.png",
+        "ativo": True
+    }
+    response = client.post("/oportunidades", json=nova_vaga)
+    assert response.status_code == 200
+
+
+def test_update_oportunidade(client):
+    vaga_atualizada = {
+        "titulo": "Professor de Reforço Atualizado",
+        "descricao": "Apoio escolar para alunos",
+        "local": "Asa Norte",
+        "horario": "Sábados, 14h às 16h",
+        "vagas_totais": 10,
+        "vagas_preenchidas": 1,
+        "imagem_url": "http://foto.com/img.png",
+        "ativo": True
+    }
+    response = client.put("/oportunidades/fake-id-123", json=vaga_atualizada)
+    assert response.status_code == 200
+
+
+def test_delete_oportunidade(client):
+    response = client.delete("/oportunidades/fake-id-123")
+    assert response.status_code == 200
