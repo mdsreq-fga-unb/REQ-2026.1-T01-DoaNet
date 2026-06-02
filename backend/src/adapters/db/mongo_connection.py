@@ -29,17 +29,14 @@ def _get_settings():
     return uri, db_name
 
 
-def get_collection():
+def get_collection(collection_name: str = "org_feed"):
     global _client
-    global _collection
 
-    if _collection is None:
-        uri, db_name = _get_settings()
+    uri, db_name = _get_settings()
+    if _client is None:
         _client = MongoClient(uri, tlsCAFile=certifi.where())
-        db = _client[db_name]
-        _collection = db["org_feed"]
-
-    return _collection
+    db = _client[db_name]
+    return db[collection_name]
 
 _oportunidade_collection = None
 

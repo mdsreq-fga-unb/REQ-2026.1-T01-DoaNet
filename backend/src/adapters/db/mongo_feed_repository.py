@@ -8,7 +8,7 @@ from adapters.db.mongo_connection import get_collection
 
 class MongoFeedRepository(FeedRepository):
     def __init__(self, collection_handle=None) -> None:
-        self.collection = collection_handle or get_collection()
+        self.collection = collection_handle or get_collection('org_feed')
 
     def list_all(self):
         items = []

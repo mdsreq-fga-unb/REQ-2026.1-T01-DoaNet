@@ -2,12 +2,12 @@ from bson import ObjectId
 
 from domain.entities.oportunidade import OportunidadeVoluntariado
 from domain.ports.oportunidade_repository import OportunidadeRepository
-from adapters.db.mongo_connection import get_oportunidade_collection
+from adapters.db.mongo_connection import get_collection, get_oportunidade_collection
 
 class MongoOportunidadeRepository(OportunidadeRepository):
     def __init__(self, collection_handle=None) -> None:
         # Aqui chamamos a nova função que criamos no Passo 1!
-        self.collection = collection_handle or get_oportunidade_collection()
+        self.collection = collection_handle or get_collection('oportunidade_voluntariado')
 
     def list_all(self):
         items = []
