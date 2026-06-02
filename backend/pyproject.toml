@@ -12,7 +12,9 @@ dependencies = [
     "fastapi (>=0.136.1,<0.137.0)",
     "uvicorn (>=0.46.0,<0.47.0)",
     "python-dotenv (>=1.1.1,<2.0.0)",
-    "certifi (>=2026.4.22,<2027.0.0)"
+    "certifi (>=2026.4.22,<2027.0.0)",
+    "google-cloud-storage (>=3.10.1,<4.0.0)",
+    "python-multipart (>=0.0.29,<0.0.30)"
 ]
 
 [tool.poetry]

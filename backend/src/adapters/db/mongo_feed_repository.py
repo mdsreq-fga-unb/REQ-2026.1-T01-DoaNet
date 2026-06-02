@@ -1,4 +1,5 @@
 from bson import ObjectId
+from bson.errors import InvalidId
 
 from domain.entities.feed_item import FeedItem
 from domain.ports.feed_repository import FeedRepository
@@ -16,9 +17,11 @@ class MongoFeedRepository(FeedRepository):
             (
                 FeedItem(
                     id=str(item["_id"]),
-                    title=item["title"],
-                    type=item["type"],
-                    description=item["description"],
+                    title=item.get("title"),
+                    type=item.get("type"),
+                    description=item.get("description"),
+                    image_url=item.get("image_url"),
+                    image_path=item.get("image_path")
                 )
             )
         return items
@@ -32,6 +35,9 @@ class MongoFeedRepository(FeedRepository):
         self.collection.insert_one(payload)
 
     def update_item(self, item_id: str, item: FeedItem) -> bool:
+        if not ObjectId.is_valid(item_id):
+            return False
+
         if hasattr(item, "model_dump"):
             payload = item.model_dump()
         else:
