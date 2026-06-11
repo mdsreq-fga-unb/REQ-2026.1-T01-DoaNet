@@ -15,6 +15,8 @@ class FeedItem {
   String? profileName;
   String? profileImageUrl;
   String? eventLinkUrl;
+  String? eventDate;
+  String? eventLocation;
 
   FeedItem({
     required this.id,
@@ -25,17 +27,21 @@ class FeedItem {
     this.profileName,
     this.profileImageUrl,
     this.eventLinkUrl,
+    this.eventDate,
+    this.eventLocation,
   });
 
   factory FeedItem.fromJson(Map<String, dynamic> json) => FeedItem(
     id: json["id"],
     title: json["title"],
     description: json["description"],
-    type: json["type"],
+    type: json["post_type"],
     imageUrl: json["image_url"],
     profileName: json["profile_name"],
     profileImageUrl: json["profile_image_url"],
     eventLinkUrl: json["event_link_url"],
+    eventDate: json["event_date"],
+    eventLocation: json["event_location"]
   );
   Map<String, dynamic> toJson() => {
     "id": id,
@@ -46,5 +52,7 @@ class FeedItem {
     "profile_name": profileName,
     "profile_image_url": profileImageUrl,
     "event_link_url": eventLinkUrl,
+    "event_date": eventDate,
+    "event_location": eventLocation,
   };
 }

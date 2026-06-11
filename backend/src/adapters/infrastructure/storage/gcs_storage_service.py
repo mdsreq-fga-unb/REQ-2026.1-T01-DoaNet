@@ -1,12 +1,18 @@
+import os
 import uuid
 from google.cloud import storage
+from google.oauth2 import service_account
 from fastapi import UploadFile, HTTPException
 
 
 class GCSStorageService:
     def __init__(self, bucket_name: str):
         self.bucket_name = bucket_name
-        self.client = storage.Client()
+        credentials = service_account.Credentials.from_service_account_file(
+            os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+        )
+
+        self.client = storage.Client(credentials=credentials)
         self.bucket = self.client.bucket(self.bucket_name)
 
     def upload_image(self, file: UploadFile) -> dict:
