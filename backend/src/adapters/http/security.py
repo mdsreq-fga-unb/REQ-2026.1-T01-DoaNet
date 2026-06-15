@@ -39,3 +39,40 @@ def get_current_user_email(payload: dict = Depends(verify_token)):
     if not email:
         raise HTTPException(status_code=401, detail="Token inválido")
     return email
+
+# Função para obter o repositório (DEFINIDA ANTES DE SER USADA)
+async def get_admin_repository():
+    from src.adapters.db.mongo_admin_repository import MongoAdminRepository
+    from src.adapters.db.mongo_connection import db
+    return MongoAdminRepository(db)
+
+# Agora podemos usar a função get_admin_repository
+async def get_current_admin(
+    credentials: HTTPAuthorizationCredentials = Security(security),
+    admin_repo = Depends(get_admin_repository)
+):
+    """Retorna o admin atual a partir do token"""
+    from src.domain.entities.admin import Admin
+    
+    token = credentials.credentials
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email = payload.get("sub")
+        if not email:
+            raise HTTPException(status_code=401, detail="Token inválido")
+        
+        admin = await admin_repo.find_by_email(email)
+        if not admin or not admin.is_active:
+            raise HTTPException(status_code=401, detail="Admin não encontrado ou inativo")
+        
+        return admin
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token expirado")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Token inválido")
+
+def require_master(admin = Depends(get_current_admin)):
+    """Dependência para verificar se o admin é MASTER"""
+    if admin.role != "master":
+        raise HTTPException(status_code=403, detail="Acesso negado. Apenas administradores principais.")
+    return admin

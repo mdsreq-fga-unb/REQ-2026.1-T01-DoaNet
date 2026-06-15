@@ -27,3 +27,18 @@ class AdminRepository(ABC):
     async def count_admins(self) -> int:
         """Conta quantos administradores existem"""
         pass
+    
+    @abstractmethod
+    async def list_all(self) -> List[Admin]:
+        """Lista todos os administradores"""
+        pass
+    
+    @abstractmethod
+    async def update_role(self, admin_id: str, role: str) -> bool:
+        """Atualiza o papel do administrador"""
+        pass
+    
+    @abstractmethod
+    async def deactivate_admin(self, admin_id: str) -> bool:
+        """Desativa um administrador"""
+        pass

@@ -1,12 +1,12 @@
-from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 from pymongo import MongoClient
 from bson import ObjectId
+from datetime import datetime
 from src.domain.ports.admin_repository import AdminRepository
-from src.domain.entities.admin import Admin
+from src.domain.entities.admin import Admin, AdminRole
 
 class MongoAdminRepository(AdminRepository):
-    def __init__(self, db: MongoClient):
+    def __init__(self, db):
         self.collection = db["admins"]
     
     async def create(self, admin: Admin) -> Admin:
@@ -18,6 +18,8 @@ class MongoAdminRepository(AdminRepository):
     async def find_by_email(self, email: str) -> Optional[Admin]:
         admin_dict = self.collection.find_one({"email": email})
         if admin_dict:
+            if "_id" in admin_dict:
+                admin_dict["_id"] = str(admin_dict["_id"])
             return Admin(**admin_dict)
         return None
     
@@ -25,6 +27,8 @@ class MongoAdminRepository(AdminRepository):
         try:
             admin_dict = self.collection.find_one({"_id": ObjectId(admin_id)})
             if admin_dict:
+                if "_id" in admin_dict:
+                    admin_dict["_id"] = str(admin_dict["_id"])
                 return Admin(**admin_dict)
         except:
             pass
@@ -41,3 +45,31 @@ class MongoAdminRepository(AdminRepository):
     
     async def count_admins(self) -> int:
         return self.collection.count_documents({})
+    
+    async def list_all(self) -> List[Admin]:
+        admins = []
+        for admin_dict in self.collection.find():
+            if "_id" in admin_dict:
+                admin_dict["_id"] = str(admin_dict["_id"])
+            admins.append(Admin(**admin_dict))
+        return admins
+    
+    async def update_role(self, admin_id: str, role: str) -> bool:
+        try:
+            result = self.collection.update_one(
+                {"_id": ObjectId(admin_id)},
+                {"$set": {"role": role}}
+            )
+            return result.modified_count > 0
+        except:
+            return False
+    
+    async def deactivate_admin(self, admin_id: str) -> bool:
+        try:
+            result = self.collection.update_one(
+                {"_id": ObjectId(admin_id)},
+                {"$set": {"is_active": False}}
+            )
+            return result.modified_count > 0
+        except:
+            return False
