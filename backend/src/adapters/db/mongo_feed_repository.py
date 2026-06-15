@@ -21,7 +21,10 @@ class MongoFeedRepository(FeedRepository):
                     type=item.get("type"),
                     description=item.get("description"),
                     image_url=item.get("image_url"),
-                    image_path=item.get("image_path")
+                    image_path=item.get("image_path"),
+                    event_location=item.get("event_location"),
+                    event_date=item.get("event_date"),
+                    event_url=item.get("event_url")
                 )
             )
         return items

@@ -32,11 +32,24 @@ def innit_routes() -> APIRouter:
         title: Annotated[str, Form()],
         description: Annotated[str, Form()],
         post_type: Annotated[str, Form()],
-        image: Annotated[Optional[UploadFile], File()] = None
+        image: Annotated[Optional[UploadFile], File()] = None,
+        event_location: Annotated[Optional[str], Form()] = None,
+        event_date: Annotated [Optional[str], Form()] = None,
+        event_url: Annotated [Optional[str], Form()] = None
         ):
-        
+
         try:
-            image_data = {"image_url": None, "imagem_path": None}
+            
+            if post_type == "evento":
+                missing = [f for f, v in {
+                    "event_location": event_location,
+                    "event_date": event_date,
+                    "event_url": event_url,
+                }.items() if not v]
+                if missing:
+                    return {"error": f"Campos obrigatórios faltando: {', '.join(missing)}", "status": "failed"}
+
+            image_data = {"image_url": None, "image_path": None}
 
             if image:
                 image_data = storage_service.upload_image(image)
@@ -46,7 +59,10 @@ def innit_routes() -> APIRouter:
                 description = description,
                 type = post_type,
                 image_url = image_data["image_url"],
-                image_path = image_data["image_path"]
+                image_path = image_data["image_path"],
+                event_location = event_location if post_type == "evento" else None,
+                event_date = event_date if post_type == "evento" else None,
+                event_url = event_url if post_type == "evento" else None
             )
 
             feed_service.add_item(feed_item)
@@ -60,10 +76,27 @@ def innit_routes() -> APIRouter:
         title: Annotated[str, Form()],
         description: Annotated[str, Form()],
         post_type: Annotated[str, Form()],
-        image: Annotated [Optional[UploadFile], File()] = None
+        image: Annotated [Optional[UploadFile], File()] = None,
+        event_location: Annotated[Optional[str], Form()] = None,
+        event_date: Annotated [Optional[str], Form()] = None,
+        event_url: Annotated [Optional[str], Form()] = None
         ):
 
         try:
+
+            if post_type == "evento":
+                missing = [f for f, v in {
+                    "event_location": event_location,
+                    "event_date": event_date,
+                    "event_url": event_url,
+                }.items() if not v]
+                if missing:
+                    return {"error": f"Campos obrigatórios faltando: {', '.join(missing)}", "status": "failed"}
+
+            current_item = feed_service.get_item(id)
+            image_url = current_item.image_url
+            image_path = current_item.image_path
+                    
             if image:
                 image_data = storage_service.upload_image(image)
 
@@ -75,7 +108,10 @@ def innit_routes() -> APIRouter:
                 description = description,
                 type = post_type,
                 image_url = image_url,
-                image_path = image_path
+                image_path = image_path,
+                event_location = event_location if post_type == "evento" else None,
+                event_date = event_date if post_type == "evento" else None,
+                event_url = event_url if post_type == "evento" else None
             )
 
             updated = feed_service.update_item(id, updated_item)

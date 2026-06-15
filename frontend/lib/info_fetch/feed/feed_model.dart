@@ -35,11 +35,11 @@ class FeedItem {
     id: json["id"],
     title: json["title"],
     description: json["description"],
-    type: json["post_type"],
+    type: json["type"],
     imageUrl: json["image_url"],
     profileName: json["profile_name"],
     profileImageUrl: json["profile_image_url"],
-    eventLinkUrl: json["event_link_url"],
+    eventLinkUrl: json["event_url"],
     eventDate: json["event_date"],
     eventLocation: json["event_location"]
   );
@@ -51,7 +51,7 @@ class FeedItem {
     "image_url": imageUrl,
     "profile_name": profileName,
     "profile_image_url": profileImageUrl,
-    "event_link_url": eventLinkUrl,
+    "event_url": eventLinkUrl,
     "event_date": eventDate,
     "event_location": eventLocation,
   };
