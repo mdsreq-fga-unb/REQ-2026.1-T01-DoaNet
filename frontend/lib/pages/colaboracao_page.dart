@@ -1,31 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart'; 
 import '../widgets/vaga_card.dart';
+import '../info_fetch/oportunidades/fetch_oportunidade.dart';
+import '../info_fetch/oportunidades/oportunidade_model.dart';
 
 class ColaboracaoPage extends StatelessWidget {
   const ColaboracaoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
-    final List<Map<String, String>> vagasMocadas = [
-      {'titulo': 'Professor de Reforço', 'subtitulo': 'Sábado, 14h as 16h'},
-      {'titulo': 'Organizador de Eventos', 'subtitulo': 'Flexível'},
-      {'titulo': 'Designer Gráfico', 'subtitulo': 'Remoto'},
-      {'titulo': 'Mentoria de Carreira', 'subtitulo': 'Terça, 19h as 20h'},
-      {'titulo': 'Apoio Psicológico', 'subtitulo': 'Quarta, 18h as 20h'},
-      {'titulo': 'Desenvolvedor Web', 'subtitulo': 'Remoto'},
-      {'titulo': 'Fotógrafo Voluntário', 'subtitulo': 'Sábado, 09h as 12h'},
-      {'titulo': 'Coordenador de Doações', 'subtitulo': 'Flexível'},
-    ];
-
     return Container(
       color: Colors.white,
       child: ListView(
-        // Tirei o padding horizontal daqui!
         padding: const EdgeInsets.symmetric(vertical: 16.0), 
         children: [
-          // Título com Padding para não encostar na borda
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: Center(
@@ -63,7 +51,6 @@ class ColaboracaoPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // O seu SVG aqui
                         SvgPicture.asset(
                           'assets/icons/doacao.svg', 
                           height: 80, 
@@ -95,10 +82,40 @@ class ColaboracaoPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                ...vagasMocadas.map((vaga) => VagaCard(
-                  titulo: vaga['titulo']!,
-                  subtitulo: vaga['subtitulo']!,
-                )),
+                // Substituímos a lista mocada pela conexão com o Banco
+                FutureBuilder<List<OportunidadeItem>>(
+                  future: FetchOportunidade().fetchOportunidades(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: CircularProgressIndicator(),
+                        )
+                      );
+                    } else if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          'Erro ao carregar vagas: ${snapshot.error}', 
+                          style: const TextStyle(color: Colors.red)
+                        )
+                      );
+                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      return const Center(
+                        child: Text('Nenhuma oportunidade ativa no momento.')
+                      );
+                    }
+
+                    final vagasReais = snapshot.data!;
+                    
+                    return Column(
+                      children: vagasReais.map((vaga) => VagaCard(
+                        titulo: vaga.titulo,
+                        subtitulo: vaga.horario, 
+                      )).toList(),
+                    );
+                  },
+                ),
               ],
             ),
           ),
