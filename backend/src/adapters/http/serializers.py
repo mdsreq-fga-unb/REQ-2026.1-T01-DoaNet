@@ -1,20 +1,15 @@
 from typing import List
-
 from src.domain.entities.feed_item import FeedItem
 
-
-def feed_item_to_dict(item: FeedItem) -> dict:
-    if hasattr(item, "model_dump"):
-        data = item.model_dump()
-    else:
-        data = item.dict()
-    return {
-        "id": data.get("id"),
-        "title": data["title"],
-        "type": data["type"],
-        "description": data["description"],
-    }
-
-
-def feed_items_to_list(items: List[FeedItem]) -> list:
-    return [feed_item_to_dict(item) for item in items]
+def feed_items_to_list(items: List[FeedItem]) -> List[dict]:
+    """Converte lista de FeedItem para lista de dicionários"""
+    return [
+        {
+            "id": item.id,
+            "title": item.title,
+            "type": item.type,
+            "description": item.description,
+            "created_at": item.created_at.isoformat() if item.created_at else None
+        }
+        for item in items
+    ]

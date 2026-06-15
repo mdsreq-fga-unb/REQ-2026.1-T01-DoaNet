@@ -1,10 +1,17 @@
+from datetime import datetime
 from typing import Optional
-
-from pydantic import BaseModel
-
+from pydantic import BaseModel, Field
 
 class FeedItem(BaseModel):
-    id: Optional[str] = None
+    id: Optional[str] = Field(default=None, alias="_id")
     title: str
-    type: str
-    description: str
+    type: str  # evento, noticia, campanha
+    description: str  # Note: seu repositório usa 'description', não 'content'
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    
+    class Config:
+        populate_by_name = True
+        arbitrary_types_allowed = True
+        json_encoders = {
+            datetime: lambda v: v.isoformat()
+        }

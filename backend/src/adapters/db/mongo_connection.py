@@ -1,10 +1,8 @@
 import os
 from pathlib import Path
-
 import certifi
 from dotenv import load_dotenv
 from pymongo import MongoClient
-
 
 BASE_DIR = Path(__file__).resolve().parents[3]
 load_dotenv(BASE_DIR / ".env")
@@ -27,4 +25,6 @@ MONGODB_URI = (
 
 client = MongoClient(MONGODB_URI, tlsCAFile=certifi.where())
 db = client[MONGODB_DB_NAME]
+
+# Exporta a collection para compatibilidade
 collection = db["org_feed"]
