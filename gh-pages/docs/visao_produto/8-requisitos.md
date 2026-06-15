@@ -12,9 +12,9 @@
 
 - RF05: Contactar administradores da organização [CP6 - Perfil Público da Organização]
 
-- RF06: Filtrar publicações por tipo [CP3 - Feed de Comunicação]
+- RF06: Restringir exibição do feed por categoria de publicação [CP3 - Feed de Comunicação]
 
-- RF07: Buscar publicações por título [CP3 - Feed de Comunicação]
+- RF07: Localizar publicação específica pelo título [CP3 - Feed de Comunicação]
 
 - RF08: Inscrever-se para colaborar como voluntariado [CP4 - Gestão de Voluntários]
 
