@@ -275,21 +275,26 @@ def publicacoes_section():
     tab_create, tab_manage = st.tabs(["➕ Nova publicação", "🗂️ Gerenciar"])
 
     with tab_create:
+        # Fora do form para que os campos de evento apareçam/sumam ao trocar o tipo.
+        ptype = st.radio(
+            "Tipo de publicação",
+            FEED_TYPES,
+            horizontal=True,
+            format_func=lambda t: f"{FEED_TYPE_META[t][1]} {FEED_TYPE_META[t][0]}",
+            key="new_feed_type",
+        )
         with st.form("create_feed", clear_on_submit=True):
-            ptype = st.radio(
-                "Tipo de publicação",
-                FEED_TYPES,
-                horizontal=True,
-                format_func=lambda t: f"{FEED_TYPE_META[t][1]} {FEED_TYPE_META[t][0]}",
-            )
             title = st.text_input("Título")
             description = st.text_area("Descrição", height=130)
             image = st.file_uploader("Imagem (opcional)", type=["png", "jpg", "jpeg", "webp"])
-            st.markdown("**Dados do evento** — obrigatórios apenas se o tipo for *evento*:")
-            ec1, ec2 = st.columns(2)
-            event_location = ec1.text_input("Local do evento")
-            event_date = ec2.text_input("Data do evento", placeholder="ex: 2026-06-20")
-            event_url = st.text_input("Link do evento (URL)")
+            if ptype == "evento":
+                st.markdown("**Dados do evento** (obrigatórios):")
+                ec1, ec2 = st.columns(2)
+                event_location = ec1.text_input("Local do evento")
+                event_date = ec2.text_input("Data do evento", placeholder="ex: 2026-06-20")
+                event_url = st.text_input("Link do evento (URL)")
+            else:
+                event_location = event_date = event_url = ""
 
             if st.form_submit_button("Publicar"):
                 if not (title and description):
@@ -372,26 +377,30 @@ def render_feed_card(item):
         )
 
         with st.expander("✏️ Editar / remover"):
+            # Fora do form para que os campos de evento apareçam/sumam ao trocar o tipo.
+            new_type = st.radio(
+                "Tipo",
+                FEED_TYPES,
+                index=FEED_TYPES.index(item["type"]) if item.get("type") in FEED_TYPES else 0,
+                horizontal=True,
+                format_func=lambda t: f"{FEED_TYPE_META[t][1]} {FEED_TYPE_META[t][0]}",
+                key=f"type_{item['id']}",
+            )
             with st.form(f"edit_feed_{item['id']}"):
-                new_type = st.radio(
-                    "Tipo",
-                    FEED_TYPES,
-                    index=FEED_TYPES.index(item["type"]) if item.get("type") in FEED_TYPES else 0,
-                    horizontal=True,
-                    format_func=lambda t: f"{FEED_TYPE_META[t][1]} {FEED_TYPE_META[t][0]}",
-                    key=f"type_{item['id']}",
-                )
                 new_title = st.text_input("Título", value=item.get("title", ""))
                 new_desc = st.text_area("Descrição", value=item.get("description", ""), height=110)
                 new_image = st.file_uploader(
                     "Trocar imagem (opcional — mantém a atual se vazio)",
                     type=["png", "jpg", "jpeg", "webp"], key=f"img_{item['id']}",
                 )
-                st.caption("Dados do evento (obrigatórios se for evento):")
-                ec1, ec2 = st.columns(2)
-                new_loc = ec1.text_input("Local", value=item.get("event_location") or "", key=f"loc_{item['id']}")
-                new_date = ec2.text_input("Data", value=item.get("event_date") or "", key=f"date_{item['id']}")
-                new_url = st.text_input("Link (URL)", value=item.get("event_url") or "", key=f"url_{item['id']}")
+                if new_type == "evento":
+                    st.caption("Dados do evento (obrigatórios):")
+                    ec1, ec2 = st.columns(2)
+                    new_loc = ec1.text_input("Local", value=item.get("event_location") or "", key=f"loc_{item['id']}")
+                    new_date = ec2.text_input("Data", value=item.get("event_date") or "", key=f"date_{item['id']}")
+                    new_url = st.text_input("Link (URL)", value=item.get("event_url") or "", key=f"url_{item['id']}")
+                else:
+                    new_loc = new_date = new_url = ""
                 c1, c2 = st.columns(2)
                 save = c1.form_submit_button("💾 Salvar alterações")
                 delete = c2.form_submit_button("🗑️ Remover")
