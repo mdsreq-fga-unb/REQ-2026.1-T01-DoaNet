@@ -52,3 +52,5 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed
   - admonition
+  - pymdownx.snippets:
+      base_path: ["docs"]

@@ -24,6 +24,7 @@ Nesta sprint, o grupo se propôs a implementar posts de eventos com inscrição,
 > Reunião realizada com a presença do cliente para revisão e validação das entregas da sprint.
 
 ??? success "Validação da Sprint 3 — Feed Completo, Eventos e Admin — 26/05/2026 · Discord"
+
     --8<-- "atas/ata5_26_05_2026.md"
 
 ---
@@ -33,6 +34,7 @@ Nesta sprint, o grupo se propôs a implementar posts de eventos com inscrição,
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
 ??? success "Ata 5 — 26/05/2026 · Discord"
+
     --8<-- "atas/ata5_26_05_2026.md"
 
 ---
