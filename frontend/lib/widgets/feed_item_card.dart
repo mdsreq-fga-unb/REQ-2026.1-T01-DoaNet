@@ -6,9 +6,9 @@ class FeedItemCard extends StatefulWidget {
     super.key,
     this.title = 'Título Padrão',
     this.description = '',
-    this.profileName = 'Perfil',
+    this.profileName = 'MoveEduca',
     this.profileImageUrl,
-    this.date = '01/01/2026',
+    this.date = 'Hoje',
     this.imageUrl,
     this.eventLinkUrl,
     this.type = '',
@@ -83,6 +83,10 @@ class _FeedItemCardState extends State<FeedItemCard> {
               ],
             ),
             const SizedBox(height: 12),
+            
+            Text(widget.title, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+
             if (widget.imageUrl != null && widget.imageUrl!.isNotEmpty) ...[
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
@@ -95,9 +99,8 @@ class _FeedItemCardState extends State<FeedItemCard> {
               ),
               const SizedBox(height: 12),
             ],
-            Text(widget.title, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+            
             if (widget.description.isNotEmpty) ...[
-              const SizedBox(height: 8),
               Text(widget.description, style: theme.textTheme.bodyMedium),
             ],
           ],
@@ -181,7 +184,7 @@ class _FeedItemCardState extends State<FeedItemCard> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF1C824C),
+                      backgroundColor: const Color(0xFF1C824C),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),

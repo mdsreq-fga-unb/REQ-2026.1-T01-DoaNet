@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Optional, List
-from src.domain.entities.admin import Admin
+from domain.entities.admin import Admin
 
 class AdminRepository(ABC):
     @abstractmethod

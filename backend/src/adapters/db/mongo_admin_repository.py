@@ -1,13 +1,13 @@
 from typing import Optional, List
-from pymongo import MongoClient
 from bson import ObjectId
 from datetime import datetime
-from src.domain.ports.admin_repository import AdminRepository
-from src.domain.entities.admin import Admin, AdminRole
+from domain.ports.admin_repository import AdminRepository
+from domain.entities.admin import Admin, AdminRole
+from adapters.db.mongo_connection import get_collection
 
 class MongoAdminRepository(AdminRepository):
-    def __init__(self, db):
-        self.collection = db["admins"]
+    def __init__(self, collection_handle=None):
+        self.collection = collection_handle or get_collection("admins")
     
     async def create(self, admin: Admin) -> Admin:
         admin_dict = admin.dict(by_alias=True, exclude={"id"})

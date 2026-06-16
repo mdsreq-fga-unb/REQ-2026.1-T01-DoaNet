@@ -42,9 +42,8 @@ def get_current_user_email(payload: dict = Depends(verify_token)):
 
 # Função para obter o repositório (DEFINIDA ANTES DE SER USADA)
 async def get_admin_repository():
-    from src.adapters.db.mongo_admin_repository import MongoAdminRepository
-    from src.adapters.db.mongo_connection import db
-    return MongoAdminRepository(db)
+    from adapters.db.mongo_admin_repository import MongoAdminRepository
+    return MongoAdminRepository()
 
 # Agora podemos usar a função get_admin_repository
 async def get_current_admin(
@@ -52,7 +51,7 @@ async def get_current_admin(
     admin_repo = Depends(get_admin_repository)
 ):
     """Retorna o admin atual a partir do token"""
-    from src.domain.entities.admin import Admin
+    from domain.entities.admin import Admin
     
     token = credentials.credentials
     try:

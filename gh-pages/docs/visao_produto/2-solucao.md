@@ -3,6 +3,8 @@
 ## 2.1 Objetivo Geral  
 O objetivo do produto é otimizar a gestão e a comunicação das ações e doações da MoveEduca por meio de uma plataforma unificada e transparente, que permita centralizar informações de impacto social e integrar os processos de doação, evitando dados dispersos e garantindo uma experiência de engajamento confiável para os usuários. A solução irá permitir à instituição fortalecer sua credibilidade e ampliar sua captação de recursos, assegurando que o sistema suporte o acompanhamento contínuo dos resultados à medida que a rede de doadores aumenta.
 
+- **Observação:** Foi realizado um pivoteamento do projeto, que trouxe mudanças significativas, como o descontinuamento do Kafka, a utilização de um sistema externo para o processamento de pagamentos, além de ser definido que a doação poderá ser identificada ou anônima. Foram removidos os sistemas de login e cadastro para os usuários finais do aplicativo. Também será utilizado o Streamlit na administração do aplicativo, com acesso por meio de um login simples, pré-definido ou cadastrado previamente. Além disso iremos utilizar uma estratégia de white label para permitir a personalização da plataforma por diferentes organizações. E com relação a mudanças técnicas, trocamos o django pelo FastAPI, e o MySQL por MongoDB. Com base nessas mudanças, foram alterados os tópicos 2.2, 2.3, 2.4 e o 6.
+
 ## 2.2 Objetivos Específicos  
 * **OE1: Aumentar a transparência financeira:** Garantir a rastreabilidade e a exposição clara da alocação de recursos, fortalecendo a confiança do público.
 * **OE2: Desburocratizar o processo de doação:** Tornar a jornada de contribuição financeira mais fluida e intuitiva, reduzindo o atrito para novos doadores.
@@ -14,16 +16,16 @@ O objetivo do produto é otimizar a gestão e a comunicação das ações e doa�
 
 ## 2.3 Características do Produto  
 
-| ID | Funcionalidade | Descrição | Valor | Contribuição principal | Contribuição secundária |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **CP1** | Sistema de doações | Sistema de realização de doações (apenas via PIX) e registro dessas doações na plataforma. | Facilitar o processo de doações e estabelecer confiança e credibilidade com a organização cadastrada | OE2 |  OE3 |
-| **CP2** | Sistema de transparência financeira | Sistema de lançamento de doações recebidas dentro e fora da plataforma e de gastos feitos pela organização | Transparência e prestação de contas | OE1 | OE5 |
-| **CP3** | Feed e mural de comunicação | Publicações, notícias e atualizações com mídia | Engajamento e visibilidade | OE6 | OE5 |
-| **CP4** | Gestão de voluntários | Cadastro, agendamento de turnos e controle de horas via formulário externo | Organização de equipes de voluntários para uma organização | OE4 | OE7 | 
-| **CP5** | Sistema de eventos | Divulgação e registro de participação em eventos via formulário externo | Engajamento social e organização de participantes de eventos | OE5 | OE6 |
-| **CP6** | Perfil público da organização | Página da organização cadastrada, onde estará presente as abas de feed, voluntários, eventos e transparência financeira | Visibilidade pública e centralização das informações relevantes de uma organização | OE5 | OE1 |
-| **CP7** | Sistema de usuários | Perfis (admin/viewer) e controle de acesso | Segurança e organização da plataforma | OE7 | OE4 | 
-| **CP8** | Cadastro da organização | Permite registrar, configurar e gerenciar dados institucionais da organização na plataforma | Centralizar as informações oficiais, garantindo a governança dos dados e a credibilidade perante o público | OE7 | OE5 |
+| ID | Característica do Produto (CP) | Descrição | Valor de Negócio (VN) | ID (VN) | Contribuição principal | Contribuição secundária |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **CP1** | Gestão de doações | Sistema de realização de doações (apenas via PIX) e registro dessas doações na plataforma. | Facilitar o processo de doações e estabelecer confiança e credibilidade com a organização cadastrada | VN1 | OE2 | OE3 |
+| **CP2** | Painel de transparência financeira | Sistema de lançamento de doações recebidas dentro e fora da plataforma e de gastos feitos pela organização | Transparência e prestação de contas | VN2 | OE1 | OE5 |
+| **CP3** | Feed de comunicação | Publicações, notícias e atualizações com mídia | Engajamento e visibilidade | VN3 | OE6 | OE5 |
+| **CP4** | Gestão de voluntários | Cadastro, agendamento de turnos e controle de horas via formulário externo | Organização de equipes de voluntários para uma organização | VN4 | OE4 | OE7 | 
+| **CP5** | Gestão de eventos | Divulgação e registro de participação em eventos via formulário externo | Engajamento social e organização de participantes de eventos | VN5 | OE5 | OE6 |
+| **CP6** | Perfil público da organização | Página da organização cadastrada, onde estará presente as abas de feed, voluntários, eventos e transparência financeira | Visibilidade pública e centralização das informações relevantes de uma organização | VN6 | OE5 | OE1 |
+| **CP7** | Controle de acesso administrativo | Perfis (admin/viewer) e controle de acesso | Segurança e organização da plataforma | VN7 | OE7 | OE4 | 
+| **CP8** | Customização da Organização | Permite personalizar a identidade visual (logo, cores) e gerenciar os dados institucionais da organização na plataforma | Fortalecer a identidade da marca perante o público e viabilizar a escalabilidade do sistema (White-Label) | VN8 | OE5 | OE7 |
 
 ## 2.4 Tecnologias a Serem Utilizadas
 

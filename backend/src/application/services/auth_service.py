@@ -2,8 +2,8 @@ from typing import Optional, List
 from datetime import datetime
 import bcrypt
 import os
-from src.domain.ports.admin_repository import AdminRepository
-from src.domain.entities.admin import Admin, AdminRole
+from domain.ports.admin_repository import AdminRepository
+from domain.entities.admin import Admin, AdminRole
 
 class AuthService:
     def __init__(self, admin_repo: AdminRepository):

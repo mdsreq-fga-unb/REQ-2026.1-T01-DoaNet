@@ -1,6 +1,6 @@
 from typing import List, Protocol
 
-from src.domain.entities.feed_item import FeedItem
+from domain.entities.feed_item import FeedItem
 
 
 class FeedRepository(Protocol):
