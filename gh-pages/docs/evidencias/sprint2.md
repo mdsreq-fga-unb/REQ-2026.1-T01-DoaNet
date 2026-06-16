@@ -8,6 +8,9 @@ Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da pl
 
 ## Demonstração em Imagens
 
+![Post](../assets/Post.png)
+
+![Gerencia](../assets/Gerencia.png)
 
 ---
 

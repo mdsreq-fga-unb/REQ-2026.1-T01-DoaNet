@@ -13,6 +13,10 @@ Nesta sprint, o grupo se propôs a implementar posts de eventos com inscrição,
 
 ![Feed2](../assets/Feed2.png)
 
+![Adm](../assets/Adm.png)
+
+![Adm2](../assets/Adm2.png)
+
 ---
 
 ##  Reunião com o Cliente
