@@ -9,6 +9,8 @@ def feed_items_to_list(items: List[FeedItem]) -> List[dict]:
             "title": item.title,
             "type": item.type,
             "description": item.description,
+            "image_url": item.image_url,
+            "image_path": item.image_path,
             "created_at": item.created_at.isoformat() if item.created_at else None
         }
         for item in items

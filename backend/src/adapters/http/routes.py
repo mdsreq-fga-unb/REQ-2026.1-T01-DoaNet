@@ -54,8 +54,8 @@ def init_routes() -> APIRouter:
     
     # ============ ROTAS DE FEED ============
     @router.get("/feed")
-    async def get_feed(user: str = Depends(get_current_user_email)):
-        """Lista todos os itens do feed (protegido)"""
+    async def get_feed():
+        """Lista todos os itens do feed (público — usado pelo front-end)"""
         try:
             feed_items = feed_service.list_items()
             return feed_items_to_list(feed_items)
@@ -251,11 +251,8 @@ def init_routes() -> APIRouter:
             raise HTTPException(status_code=500, detail=str(exc))
 
     @router.get("/events")
-    async def list_events(
-        include_inactive: bool = False,
-        current_admin: Admin = Depends(get_current_admin)
-    ):
-        """Lista todos os eventos"""
+    async def list_events(include_inactive: bool = False):
+        """Lista todos os eventos (público — usado pelo front-end)"""
         try:
             events = await event_service.list_events(include_inactive)
             return {"events": [
