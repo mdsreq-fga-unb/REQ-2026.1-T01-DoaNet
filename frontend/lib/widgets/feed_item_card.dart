@@ -8,7 +8,7 @@ class FeedItemCard extends StatefulWidget {
     this.description = '',
     this.profileName = 'Perfil',
     this.profileImageUrl,
-    this.date = '01/01/2026',
+    this.date = 'Hoje',
     this.imageUrl,
     this.eventLinkUrl,
     this.type = '',
