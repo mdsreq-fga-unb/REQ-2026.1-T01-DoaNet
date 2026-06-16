@@ -32,11 +32,7 @@ Nesta sprint, o grupo se propôs a implementar posts de eventos com inscrição,
 
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
-!!! warning "Atas pendentes"
-    As atas das reuniões internas desta sprint ainda não foram adicionadas.
-    Quando disponíveis, substitua este bloco por:
+??? success "Ata 5 — 26/05/2026 · Discord"
+    --8<-- "atas/ata5_26_05_2026.md"
 
-    ```
-    ??? note "Título da Reunião — DD/MM/AAAA · Local"
-        --8<-- "atas/nome_do_arquivo.md"
-    ```
+---

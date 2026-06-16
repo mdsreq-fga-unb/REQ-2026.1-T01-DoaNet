@@ -4,6 +4,8 @@
 
 Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organização, registrando a participação em voluntariados e administração do que foi entregue.
 
+**Obs:** Na parte do voluntariado teve um débito técnico onde não foi completado totalmente o preenchimento de formuláro da opurtunidade de voluntariado.
+
 ---
 
 ## Demonstração em Imagens
@@ -31,11 +33,7 @@ Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organ
 
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
-!!! warning "Atas pendentes"
-    As atas das reuniões internas desta sprint ainda não foram adicionadas.
-    Quando disponíveis, substitua este bloco por:
+??? success "Ata 6 — 09/06/2026 · Discord"
+    --8<-- "atas/ata6_09_06_2026.md"
 
-    ```
-    ??? note "Título da Reunião — DD/MM/AAAA · Local"
-        --8<-- "atas/nome_do_arquivo.md"
-    ```
+---

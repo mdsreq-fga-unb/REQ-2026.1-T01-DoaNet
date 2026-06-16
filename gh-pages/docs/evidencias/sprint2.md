@@ -18,8 +18,15 @@ Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da pl
 
 > Reunião realizada com a presença do cliente para revisão e validação das entregas da sprint.
 
-??? success "Pivoteamento do Projeto com o Cliente — 04/05/2026 · Presencial"
+??? success "Pivoteamento do Projeto — 04/05/2026 · Presencial"
     --8<-- "atas/ata2_04_05_2026.md"
+
+---
+
+??? success "Validação do Story Map pós-pivoteamento — 11/05/2026 · Discord"
+    --8<-- "atas/ata3_11_05_2026.md"
+
+---
 
 ??? success "Validação da Sprint 2 — Aprovação do Feed — 12/05/2026 · Discord"
     --8<-- "atas/ata4_12_05_2026.md"
@@ -30,5 +37,12 @@ Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da pl
 
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
-??? note "Definição de Requisitos e Divisão de Tarefas — 11/05/2026 · Discord"
-    --8<-- "atas/ata3_11_05_2026.md"
+??? success "Ata 2 — 04/05/2026 · Discord"
+    --8<-- "atas/ata2_04_05_2026.md"
+
+---
+
+??? success "Ata 3 — 11/05/2026 · Discord"
+    --8<-- "atas/ata2_11_05_2026.md"
+
+---

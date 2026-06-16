@@ -47,10 +47,7 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
-!!! note "Nenhuma reunião interna registrada nesta sprint."
-    Quando houver atas de reuniões internas, adicione-as aqui no formato:
+??? success "Ata — 27/04/2026 · Discord"
+    --8<-- "atas/ata1_27_04_2026.md"
 
-    ```
-    ??? note "Título da Reunião — DD/MM/AAAA · Local"
-        --8<-- "atas/nome_do_arquivo.md"
-    ```
+---
