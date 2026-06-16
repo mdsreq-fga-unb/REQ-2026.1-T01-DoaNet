@@ -14,13 +14,18 @@ nav:
       - 7. Interação com Cliente: visao_produto/7-interacao.md
       - 8. Requisitos: visao_produto/8-requisitos.md
       - 9. DOR e DOD: visao_produto/9-DorEDod.md
-      - 10. Backlog: visao_produto/10-backlog_do_produto.md
+      - 10. Story Map: visao_produto/10-story_map.md
       - 11. Lições Aprendidas: visao_produto/11-licoes.md
   - Atas de Reunião:
       - Modelo: atas/modelo.md
       - Reunião 1: atas/ata1_27_04_2026.md
       - Reunião 2: atas/ata2_04_05_2026.md
       - Reunião 3: atas/ata3_11_05_2026.md
+  - Evidências:
+      - Sprint 1: evidencias/sprint1.md
+      - Sprint 2: evidencias/sprint2.md
+      - Sprint 3: evidencias/sprint3.md
+      - Sprint 4: evidencias/sprint4.md
   - Exemplos de Documentação: example.md
 
 
@@ -47,3 +52,5 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed
   - admonition
+  - pymdownx.snippets:
+      base_path: ["docs"]

@@ -42,6 +42,4 @@ Copie o template abaixo ao criar uma nova ata:
 | [Descreva a tarefa aqui] | [Nome] | [Data] |
 | [Descreva a tarefa aqui] | [Nome] | [Data] |
 | [Descreva a tarefa aqui] | [Nome] | [Data] |
-
-## Data prevista para a próxima reunião: DD/MM/AAAA
 ~~~

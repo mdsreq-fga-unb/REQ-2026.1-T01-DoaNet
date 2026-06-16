@@ -13,7 +13,7 @@
 
 ***Declaração de Requisitos:***
 
-* **Histórias de Usuário (User Stories) com Critérios de Aceitação (XP):** A principal forma de declarar requisitos no ScrumXP. Os requisitos funcionais serão descritos do ponto de vista do usuário final. Os critérios de aceitação garantirão que restrições como renderização de componentes de eventos no feed (RNF10) sejam validadas.
+* **Histórias de Usuário (User Stories) :** A principal forma de declarar requisitos no ScrumXP. Os requisitos funcionais serão descritos do ponto de vista do usuário final. 
 
 ***Representação de Requisitos:***
 
