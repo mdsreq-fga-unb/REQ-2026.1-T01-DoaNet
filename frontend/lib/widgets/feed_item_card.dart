@@ -83,6 +83,10 @@ class _FeedItemCardState extends State<FeedItemCard> {
               ],
             ),
             const SizedBox(height: 12),
+            
+            Text(widget.title, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+
             if (widget.imageUrl != null && widget.imageUrl!.isNotEmpty) ...[
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
@@ -90,14 +94,13 @@ class _FeedItemCardState extends State<FeedItemCard> {
                   widget.imageUrl!,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
                 ),
               ),
               const SizedBox(height: 12),
             ],
-            Text(widget.title, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+            
             if (widget.description.isNotEmpty) ...[
-              const SizedBox(height: 8),
               Text(widget.description, style: theme.textTheme.bodyMedium),
             ],
           ],
@@ -181,7 +184,7 @@ class _FeedItemCardState extends State<FeedItemCard> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF1C824C),
+                      backgroundColor: const Color(0xFF1C824C),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
