@@ -18,17 +18,19 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
   allowfullscreen>
 </iframe>
 
+![Prototipo](../assets/prototipo.png)
+
 ---
 
 ## Demonstração em Vídeo
 
-!!! warning "Vídeo pendente"
-    O vídeo de demonstração das funcionalidades desta sprint ainda não foi adicionado.
-    Substitua este bloco por um link ou embed do YouTube/Google Drive quando disponível.
-
-<!-- Quando o vídeo estiver disponível, substitua o bloco acima por:
-<iframe width="100%" height="400" src="URL_DO_VIDEO" title="Demo Sprint 1 - DoaNet" frameborder="0" allowfullscreen></iframe>
--->
+<div style="width: 100%; max-width: 800px; margin: 1.5rem auto; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: #000;">
+    <video controls style="width: 100%; display: block;">
+        <source src="assets/evidencia.mp4" type="video/mp4">
+        Seu navegador não suporta a reprodução de vídeos. 
+        <a href="assets/evidencia.mp4">Clique aqui para baixar o vídeo</a>.
+    </video>
+</div>
 
 ---
 

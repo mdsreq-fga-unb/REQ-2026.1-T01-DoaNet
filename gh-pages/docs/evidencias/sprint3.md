@@ -2,19 +2,16 @@
 
 ## Descrição da Entrega
 
-Nesta sprint, o grupo se propôs a desenvolver as funcionalidades de interação entre doadores e ONGs, incluindo o sistema de matching de doações, notificações em tempo real e o fluxo de confirmação de recebimento. O objetivo foi conectar de forma mais direta as partes envolvidas no processo de doação, tornando a experiência mais ágil e transparente.
+Nesta sprint, o grupo se propôs a implementar posts de eventos com inscrição, adicionar imagens em todos os tipos de post e iniciar o módulo de admin. O objetivo foi refinar os posts comuns, adicionar os eventos e as opções de administrador.
+
 
 ---
 
-## Demonstração em Vídeo
+## Demonstração em Imagens
 
-!!! warning "Vídeo pendente"
-    O vídeo de demonstração das funcionalidades desta sprint ainda não foi adicionado.
-    Substitua este bloco por um link ou embed do YouTube/Google Drive quando disponível.
+![Feed](../assets/Feed.png)
 
-<!-- Quando o vídeo estiver disponível, substitua o bloco acima por:
-<iframe width="100%" height="400" src="URL_DO_VIDEO" title="Demo Sprint 3 - DoaNet" frameborder="0" allowfullscreen></iframe>
--->
+![Feed2](../assets/Feed2.png)
 
 ---
 

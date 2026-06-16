@@ -2,19 +2,15 @@
 
 ## Descrição da Entrega
 
-Nesta sprint, o grupo se propôs a finalizar e polir a aplicação DoaNet, com foco em testes, correção de bugs identificados nas entregas anteriores e implementação das funcionalidades restantes de histórico de doações, perfil do usuário e relatórios para ONGs. Esta sprint representou a entrega final do produto, consolidando todas as funcionalidades desenvolvidas ao longo do projeto.
+Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organização, registrando a participação em voluntariados e administração do que foi entregue.
 
 ---
 
-## Demonstração em Vídeo
+## Demonstração em Imagens
 
-!!! warning "Vídeo pendente"
-    O vídeo de demonstração das funcionalidades desta sprint ainda não foi adicionado.
-    Substitua este bloco por um link ou embed do YouTube/Google Drive quando disponível.
+![Colab](../assets/Colab.png)
 
-<!-- Quando o vídeo estiver disponível, substitua o bloco acima por:
-<iframe width="100%" height="400" src="URL_DO_VIDEO" title="Demo Sprint 4 - DoaNet" frameborder="0" allowfullscreen></iframe>
--->
+![Colab2](../assets/Colab2.png)
 
 ---
 

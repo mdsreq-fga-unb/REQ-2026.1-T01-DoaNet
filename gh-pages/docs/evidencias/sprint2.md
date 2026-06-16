@@ -2,19 +2,12 @@
 
 ## Descrição da Entrega
 
-Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da plataforma DoaNet, com foco no cadastro e gerenciamento de itens para doação, bem como na listagem e busca de campanhas ativas. O objetivo foi permitir que doadores pudessem publicar ofertas de doação e que ONGs conseguissem visualizar e gerenciar os itens disponíveis.
+Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da plataforma DoaNet, com foco na criação edição e deleção de postagens normais (sem nenhum evento atrelado). O objetivo foi permitir que os administradores pudessem criar as postagens para que os doadores possam visualizar.
 
 ---
 
-## Demonstração em Vídeo
+## Demonstração em Imagens
 
-!!! warning "Vídeo pendente"
-    O vídeo de demonstração das funcionalidades desta sprint ainda não foi adicionado.
-    Substitua este bloco por um link ou embed do YouTube/Google Drive quando disponível.
-
-<!-- Quando o vídeo estiver disponível, substitua o bloco acima por:
-<iframe width="100%" height="400" src="URL_DO_VIDEO" title="Demo Sprint 2 - DoaNet" frameborder="0" allowfullscreen></iframe>
--->
 
 ---
 
