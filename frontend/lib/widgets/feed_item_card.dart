@@ -6,7 +6,7 @@ class FeedItemCard extends StatefulWidget {
     super.key,
     this.title = 'Título Padrão',
     this.description = '',
-    this.profileName = 'Perfil',
+    this.profileName = 'MoveEduca',
     this.profileImageUrl,
     this.date = 'Hoje',
     this.imageUrl,
