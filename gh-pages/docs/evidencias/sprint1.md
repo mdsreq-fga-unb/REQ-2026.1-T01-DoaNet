@@ -39,6 +39,7 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 > Reunião realizada com a presença do cliente para revisão e validação das entregas da sprint.
 
 ??? success "Revisão da Sprint 1 e Planejamento da Sprint 2 — 27/04/2026 · Discord"
+
     --8<-- "atas/ata1_27_04_2026.md"
 
 ---
@@ -48,6 +49,7 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
 ??? success "Ata — 27/04/2026 · Discord"
+
     --8<-- "atas/ata1_27_04_2026.md"
 
 ---

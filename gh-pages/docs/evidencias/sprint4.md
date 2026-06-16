@@ -29,6 +29,7 @@ Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organ
 > Reunião realizada com a presença do cliente para revisão e validação das entregas da sprint.
 
 ??? success "Validação da Sprint 4 — Voluntariado e Painel Admin — 09/06/2026 · Discord"
+
     --8<-- "atas/ata6_09_06_2026.md"
 
 ---
@@ -38,6 +39,7 @@ Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organ
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
 ??? success "Ata 6 — 09/06/2026 · Discord"
+
     --8<-- "atas/ata6_09_06_2026.md"
 
 ---
