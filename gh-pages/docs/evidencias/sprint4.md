@@ -18,7 +18,7 @@ Nesta sprint, o grupo se propôs a finalizar e polir a aplicação DoaNet, com f
 
 ---
 
-## 🤝 Reunião com o Cliente
+##  Reunião com o Cliente
 
 > Reunião realizada com a presença do cliente para revisão e validação das entregas da sprint.
 
@@ -27,7 +27,7 @@ Nesta sprint, o grupo se propôs a finalizar e polir a aplicação DoaNet, com f
 
 ---
 
-## 👥 Reuniões da Equipe
+##  Reuniões da Equipe
 
 > Reuniões internas realizadas pela equipe durante a sprint, sem presença do cliente.
 
