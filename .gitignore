@@ -1,6 +1,7 @@
 /backend/venv/
 /backend/.venv/
 /backend/.env
+/backend/credentials/
 /backend/**/__pycache__/
 /backend/**/*.py[cod]
 /backend/**/*.pyo

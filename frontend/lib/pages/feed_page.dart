@@ -57,7 +57,6 @@ class FeedPageState extends State<FeedPage> {
         elevation: 0,
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
-
         flexibleSpace: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           child: Row(
@@ -69,24 +68,14 @@ class FeedPageState extends State<FeedPage> {
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[350],
-
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: const [
-                      Text(
-                        'Com eventos',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Text('Com eventos', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
@@ -94,24 +83,14 @@ class FeedPageState extends State<FeedPage> {
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[350],
-
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: const [
-                      Text(
-                        'Sem Eventos',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Text('Sem Eventos', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
@@ -134,12 +113,18 @@ class FeedPageState extends State<FeedPage> {
           return ListView.builder(
             itemCount: feedItems.length,
             itemBuilder: (context, index) {
+              final item = feedItems[index];
               return FeedItemCard(
-                title: feedItems[index].title,
-                description: feedItems[index].description,
-                profileName: 'Perfil',
-                profileImageUrl: feedItems[index].profileImageUrl,
+                title: item.title,
+                description: item.description,
+                profileName: item.profileName ?? 'Perfil',
+                profileImageUrl: item.profileImageUrl,
                 date: '01/01/2026',
+                imageUrl: item.imageUrl,
+                eventLinkUrl: item.eventLinkUrl,
+                type: item.type,
+                eventDate: item.eventDate,
+                eventLocation: item.eventLocation,
               );
             },
           );

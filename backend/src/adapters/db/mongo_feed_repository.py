@@ -13,15 +13,17 @@ class MongoFeedRepository(FeedRepository):
     def list_all(self):
         items = []
         for item in self.collection.find():
-            items.append
-            (
+            items.append(
                 FeedItem(
                     id=str(item["_id"]),
                     title=item.get("title"),
                     type=item.get("type"),
                     description=item.get("description"),
                     image_url=item.get("image_url"),
-                    image_path=item.get("image_path")
+                    image_path=item.get("image_path"),
+                    event_location=item.get("event_location"),
+                    event_date=item.get("event_date"),
+                    event_url=item.get("event_url")
                 )
             )
         return items

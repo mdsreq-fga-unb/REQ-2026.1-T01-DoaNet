@@ -10,3 +10,6 @@ class FeedItem(BaseModel):
     description: str
     image_url: Optional[str] = None
     image_path: Optional[str] = None
+    event_location: Optional[str] = None
+    event_date: Optional[str] = None
+    event_url: Optional[str] = None
