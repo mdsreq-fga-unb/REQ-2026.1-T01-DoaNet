@@ -146,6 +146,35 @@ def error_detail(response):
         return f"Erro {response.status_code}"
 
 
+def make_multipart_request(method, endpoint, data=None, files=None):
+    """Requisição multipart/form-data ao backend (usada pelo /feed)."""
+    url = f"{BACKEND_URL}{endpoint}"
+    try:
+        if method == "POST":
+            return requests.post(url, data=data, files=files, headers=_headers(), timeout=30)
+        if method == "PUT":
+            return requests.put(url, data=data, files=files, headers=_headers(), timeout=30)
+    except requests.exceptions.RequestException:
+        st.error(f"⚠️ Não foi possível conectar ao backend ({BACKEND_URL}). Ele está rodando?")
+        return None
+
+
+def feed_result_ok(resp):
+    """O /feed responde 200 mesmo em falha (corpo {'error':..., 'status':'failed'}).
+    Retorna (ok, mensagem)."""
+    if resp is None:
+        return False, "Sem resposta do servidor"
+    if resp.status_code != 200:
+        return False, error_detail(resp)
+    try:
+        body = resp.json()
+    except Exception:
+        return True, ""
+    if isinstance(body, dict) and (body.get("status") == "failed" or body.get("error")):
+        return False, body.get("error", "Falha na operação")
+    return True, ""
+
+
 # ----------------------------------------------------------------------------
 # Autenticação
 # ----------------------------------------------------------------------------
@@ -241,7 +270,7 @@ def register_first_admin():
 # ----------------------------------------------------------------------------
 def publicacoes_section():
     st.subheader("📋 Publicações")
-    st.caption("Posts e eventos do feed (coleção org_feed). Ambos suportam imagem.")
+    st.caption("Posts e eventos do feed. A imagem é enviada por upload (vai para o GCS).")
 
     tab_create, tab_manage = st.tabs(["➕ Nova publicação", "🗂️ Gerenciar"])
 
@@ -255,25 +284,34 @@ def publicacoes_section():
             )
             title = st.text_input("Título")
             description = st.text_area("Descrição", height=130)
-            image_url = st.text_input("URL da imagem (image_url)")
-            image_path = st.text_input("Caminho da imagem (image_path)")
+            image = st.file_uploader("Imagem (opcional)", type=["png", "jpg", "jpeg", "webp"])
+            st.markdown("**Dados do evento** — obrigatórios apenas se o tipo for *evento*:")
+            ec1, ec2 = st.columns(2)
+            event_location = ec1.text_input("Local do evento")
+            event_date = ec2.text_input("Data do evento", placeholder="ex: 2026-06-20")
+            event_url = st.text_input("Link do evento (URL)")
+
             if st.form_submit_button("Publicar"):
                 if not (title and description):
                     st.error("Preencha título e descrição.")
+                elif ptype == "evento" and not (event_location and event_date and event_url):
+                    st.error("Eventos exigem local, data e link.")
                 else:
-                    payload = {
-                        "title": title,
-                        "type": ptype,
-                        "description": description,
-                        "image_url": image_url or None,
-                        "image_path": image_path or None,
-                    }
-                    resp = make_request("POST", "/feed", payload)
-                    if resp is not None and resp.status_code == 200:
+                    data = {"title": title, "description": description, "post_type": ptype}
+                    if ptype == "evento":
+                        data["event_location"] = event_location
+                        data["event_date"] = event_date
+                        data["event_url"] = event_url
+                    files = None
+                    if image is not None:
+                        files = {"image": (image.name, image.getvalue(), image.type)}
+                    resp = make_multipart_request("POST", "/feed", data=data, files=files)
+                    ok, msg = feed_result_ok(resp)
+                    if ok:
                         st.success("Publicação criada com sucesso!")
                         st.rerun()
                     elif resp is not None:
-                        st.error(error_detail(resp))
+                        st.error(msg)
 
     with tab_manage:
         flt = st.selectbox(
@@ -289,6 +327,10 @@ def publicacoes_section():
             st.error(error_detail(resp))
             return
         items = resp.json()
+        if not isinstance(items, list):
+            st.error(items.get("error", "Resposta inesperada do servidor")
+                     if isinstance(items, dict) else "Resposta inesperada do servidor")
+            return
         if flt != "todas":
             items = [i for i in items if i.get("type") == flt]
         if not items:
@@ -302,17 +344,30 @@ def render_feed_card(item):
     label, emoji, pill_cls = FEED_TYPE_META.get(
         item.get("type", "post"), ("Publicação", "📝", "pill-post")
     )
-    created = (item.get("created_at") or "")[:10]
     image_url = item.get("image_url")
+    is_evento = item.get("type") == "evento"
 
     with st.container(border=True):
         if image_url:
             st.image(image_url, use_container_width=True)
+
+        event_meta = ""
+        if is_evento:
+            partes = []
+            if item.get("event_date"):
+                partes.append(f"🗓️ {item['event_date']}")
+            if item.get("event_location"):
+                partes.append(f"📍 {item['event_location']}")
+            event_meta = " &nbsp;·&nbsp; ".join(partes)
+
         st.markdown(
             f'<span class="pill {pill_cls}">{emoji} {label}</span>'
             f'<div class="card-title">{item.get("title","(sem título)")}</div>'
-            f'<div class="card-meta">Publicado em {created or "—"}</div>'
-            f'<div class="card-body">{item.get("description","")}</div>',
+            + (f'<div class="card-meta">{event_meta}</div>' if event_meta else '')
+            + f'<div class="card-body">{item.get("description","")}</div>'
+            + (f'<div class="card-meta" style="margin-top:6px;">🔗 '
+               f'<a href="{item.get("event_url")}" target="_blank">{item.get("event_url")}</a></div>'
+               if is_evento and item.get("event_url") else ''),
             unsafe_allow_html=True,
         )
 
@@ -328,34 +383,46 @@ def render_feed_card(item):
                 )
                 new_title = st.text_input("Título", value=item.get("title", ""))
                 new_desc = st.text_area("Descrição", value=item.get("description", ""), height=110)
-                new_img_url = st.text_input("URL da imagem", value=item.get("image_url") or "")
-                new_img_path = st.text_input("Caminho da imagem", value=item.get("image_path") or "")
+                new_image = st.file_uploader(
+                    "Trocar imagem (opcional — mantém a atual se vazio)",
+                    type=["png", "jpg", "jpeg", "webp"], key=f"img_{item['id']}",
+                )
+                st.caption("Dados do evento (obrigatórios se for evento):")
+                ec1, ec2 = st.columns(2)
+                new_loc = ec1.text_input("Local", value=item.get("event_location") or "", key=f"loc_{item['id']}")
+                new_date = ec2.text_input("Data", value=item.get("event_date") or "", key=f"date_{item['id']}")
+                new_url = st.text_input("Link (URL)", value=item.get("event_url") or "", key=f"url_{item['id']}")
                 c1, c2 = st.columns(2)
                 save = c1.form_submit_button("💾 Salvar alterações")
                 delete = c2.form_submit_button("🗑️ Remover")
 
             if save:
-                payload = {
-                    "title": new_title,
-                    "type": new_type,
-                    "description": new_desc,
-                    "image_url": new_img_url or None,
-                    "image_path": new_img_path or None,
-                    "created_at": item.get("created_at"),  # preserva a data original
-                }
-                r = make_request("PUT", f"/feed/{item['id']}", payload)
-                if r is not None and r.status_code == 200:
-                    st.success("Publicação atualizada!")
-                    st.rerun()
-                elif r is not None:
-                    st.error(error_detail(r))
+                if new_type == "evento" and not (new_loc and new_date and new_url):
+                    st.error("Eventos exigem local, data e link.")
+                else:
+                    data = {"title": new_title, "description": new_desc, "post_type": new_type}
+                    if new_type == "evento":
+                        data["event_location"] = new_loc
+                        data["event_date"] = new_date
+                        data["event_url"] = new_url
+                    files = None
+                    if new_image is not None:
+                        files = {"image": (new_image.name, new_image.getvalue(), new_image.type)}
+                    r = make_multipart_request("PUT", f"/feed/{item['id']}", data=data, files=files)
+                    ok, msg = feed_result_ok(r)
+                    if ok:
+                        st.success("Publicação atualizada!")
+                        st.rerun()
+                    elif r is not None:
+                        st.error(msg)
             if delete:
                 r = make_request("DELETE", f"/feed/{item['id']}")
-                if r is not None and r.status_code == 200:
+                ok, msg = feed_result_ok(r)
+                if ok:
                     st.success("Publicação removida!")
                     st.rerun()
                 elif r is not None:
-                    st.error(error_detail(r))
+                    st.error(msg)
 
 
 # ----------------------------------------------------------------------------

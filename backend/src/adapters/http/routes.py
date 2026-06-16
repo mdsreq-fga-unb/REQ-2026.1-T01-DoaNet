@@ -135,6 +135,8 @@ def innit_routes() -> APIRouter:
                     return {"error": f"Campos obrigatórios faltando: {', '.join(missing)}", "status": "failed"}
 
             current_item = feed_service.get_item(id)
+            if current_item is None:
+                return {"error": "item not found", "status": "failed"}
             image_url = current_item.image_url
             image_path = current_item.image_path
 
