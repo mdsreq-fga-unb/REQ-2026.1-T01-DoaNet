@@ -5,26 +5,20 @@ from domain.entities.feed_item import FeedItem
 from adapters.http.serializers import feed_items_to_list
 from adapters.db.mongo_feed_repository import MongoFeedRepository
 from application.services.feed_service import FeedService
-<<<<<<< HEAD
 from adapters.infrastructure.storage.gcs_storage_service import GCSStorageService
-=======
 from domain.entities.oportunidade import OportunidadeVoluntariado
 from adapters.http.serializers import oportunidades_to_list
 from adapters.db.mongo_oportunidade_repository import MongoOportunidadeRepository
 from application.services.oportunidade_service import OportunidadeService
->>>>>>> 7d9d013 ("feat: adiciona rotas de oportunidades de voluntariado e ajusta testes")
 
 def innit_routes() -> APIRouter:
     router = APIRouter()
 
     repo = MongoFeedRepository()
     feed_service = FeedService(repo)
-<<<<<<< HEAD
     storage_service = GCSStorageService(bucket_name="feed_imagens")
-=======
     oportunidade_repo = MongoOportunidadeRepository()
     oportunidade_service = OportunidadeService(oportunidade_repo)
->>>>>>> 7d9d013 ("feat: adiciona rotas de oportunidades de voluntariado e ajusta testes")
 
     @router.get("/health")
     async def health():
