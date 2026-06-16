@@ -13,8 +13,7 @@ class MongoFeedRepository(FeedRepository):
     def list_all(self):
         items = []
         for item in self.collection.find():
-            items.append
-            (
+            items.append(
                 FeedItem(
                     id=str(item["_id"]),
                     title=item.get("title"),
