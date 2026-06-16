@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from domain.entities.feed_item import FeedItem
 from domain.ports.feed_repository import FeedRepository
@@ -13,6 +13,9 @@ class FeedService:
 
     def add_item(self, item: FeedItem) -> None:
         self.repo.add(item)
+
+    def get_item(self, item_id: str) -> Optional[FeedItem]:
+        return self.repo.find_by_id(item_id)
 
     def update_item(self, item_id: str, item: FeedItem) -> bool:
         return self.repo.update_item(item_id, item)

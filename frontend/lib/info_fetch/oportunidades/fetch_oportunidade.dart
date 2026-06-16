@@ -1,0 +1,17 @@
+import 'package:http/http.dart' as http;
+import 'oportunidade_model.dart' as model;
+
+class FetchOportunidade {
+  Future<List<model.OportunidadeItem>> fetchOportunidades() async {
+    var client = http.Client();
+    
+    var uri = Uri.parse('http://localhost:8000/oportunidades');
+    
+    var response = await client.get(uri);
+    if (response.statusCode == 200) {
+      return model.oportunidadeFromJson(response.body);
+    } else {
+      throw Exception('Falha ao carregar as oportunidades de voluntariado');
+    }
+  }
+}
