@@ -71,6 +71,7 @@ def inject_css():
             font-size:.70rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase; }
         .pill-post     { background:#E7F0FF; color:#2563EB; }
         .pill-evento   { background:#FFECEC; color:#E11D48; }
+        .pill-vaga     { background:#E7F9EE; color:#16A34A; }
         .pill-inactive { background:#F1F3F7; color:#94A3B8; }
 
         .card-title { font-size:1.06rem; font-weight:700; color:#1F2330; margin:6px 0 2px; }
@@ -358,6 +359,130 @@ def render_feed_card(item):
 
 
 # ----------------------------------------------------------------------------
+# Oportunidades de voluntariado
+# ----------------------------------------------------------------------------
+def oportunidades_section():
+    st.subheader("🤝 Oportunidades de Voluntariado")
+    st.caption("Vagas de voluntariado exibidas no app (coleção oportunidades).")
+
+    tab_create, tab_manage = st.tabs(["➕ Nova oportunidade", "🗂️ Gerenciar"])
+
+    with tab_create:
+        with st.form("create_op", clear_on_submit=True):
+            titulo = st.text_input("Título")
+            descricao = st.text_area("Descrição", height=120)
+            c1, c2 = st.columns(2)
+            local = c1.text_input("Local")
+            horario = c2.text_input("Horário", placeholder="ex: Sáb 9h–12h")
+            c3, c4 = st.columns(2)
+            vagas_totais = c3.number_input("Vagas totais", min_value=1, value=10)
+            vagas_preenchidas = c4.number_input("Vagas preenchidas", min_value=0, value=0)
+            imagem_url = st.text_input("URL da imagem (opcional)")
+            ativo = st.checkbox("Ativa", value=True)
+            if st.form_submit_button("Publicar oportunidade"):
+                if not (titulo and descricao and local and horario):
+                    st.error("Preencha título, descrição, local e horário.")
+                else:
+                    payload = {
+                        "titulo": titulo,
+                        "descricao": descricao,
+                        "local": local,
+                        "horario": horario,
+                        "vagas_totais": int(vagas_totais),
+                        "vagas_preenchidas": int(vagas_preenchidas),
+                        "imagem_url": imagem_url or None,
+                        "ativo": ativo,
+                    }
+                    resp = make_request("POST", "/oportunidades", payload)
+                    if resp is not None and resp.status_code == 200:
+                        st.success("Oportunidade criada com sucesso!")
+                        st.rerun()
+                    elif resp is not None:
+                        st.error(error_detail(resp))
+
+    with tab_manage:
+        resp = make_request("GET", "/oportunidades")
+        if resp is None:
+            return
+        if resp.status_code != 200:
+            st.error(error_detail(resp))
+            return
+        ops = resp.json()
+        if not isinstance(ops, list) or not ops:
+            st.info("Nenhuma oportunidade cadastrada ainda.")
+            return
+        for op in ops:
+            render_oportunidade_card(op)
+
+
+def render_oportunidade_card(op):
+    ativo = op.get("ativo", True)
+    vagas_t = op.get("vagas_totais", 0) or 0
+    vagas_p = op.get("vagas_preenchidas", 0) or 0
+    imagem = op.get("imagem_url")
+
+    with st.container(border=True):
+        if imagem:
+            st.image(imagem, use_container_width=True)
+        status_pill = (
+            '<span class="pill pill-vaga">🤝 Vaga aberta</span>'
+            if ativo
+            else '<span class="pill pill-inactive">Inativa</span>'
+        )
+        st.markdown(
+            f'{status_pill}'
+            f'<div class="card-title">{op.get("titulo","(sem título)")}</div>'
+            f'<div class="card-meta">📍 {op.get("local","")} &nbsp;·&nbsp; 🕒 {op.get("horario","")}</div>'
+            f'<div class="card-body">{op.get("descricao","")}</div>'
+            f'<div style="margin-top:8px;"><span style="display:inline-block;background:#F4F6FA;'
+            f'color:#475569;padding:5px 12px;border-radius:10px;font-size:.82rem;font-weight:600;">'
+            f'👥 {vagas_p}/{vagas_t} vagas preenchidas</span></div>',
+            unsafe_allow_html=True,
+        )
+
+        with st.expander("✏️ Editar / remover"):
+            with st.form(f"edit_op_{op['id']}"):
+                e_titulo = st.text_input("Título", value=op.get("titulo", ""))
+                e_desc = st.text_area("Descrição", value=op.get("descricao", ""), height=110)
+                ec1, ec2 = st.columns(2)
+                e_local = ec1.text_input("Local", value=op.get("local", ""))
+                e_horario = ec2.text_input("Horário", value=op.get("horario", ""))
+                ec3, ec4 = st.columns(2)
+                e_vt = ec3.number_input("Vagas totais", min_value=0, value=int(vagas_t), key=f"vt_{op['id']}")
+                e_vp = ec4.number_input("Vagas preenchidas", min_value=0, value=int(vagas_p), key=f"vp_{op['id']}")
+                e_img = st.text_input("URL da imagem", value=op.get("imagem_url") or "")
+                e_ativo = st.checkbox("Ativa", value=ativo, key=f"at_{op['id']}")
+                oc1, oc2 = st.columns(2)
+                save = oc1.form_submit_button("💾 Salvar alterações")
+                delete = oc2.form_submit_button("🗑️ Remover")
+
+            if save:
+                payload = {
+                    "titulo": e_titulo,
+                    "descricao": e_desc,
+                    "local": e_local,
+                    "horario": e_horario,
+                    "vagas_totais": int(e_vt),
+                    "vagas_preenchidas": int(e_vp),
+                    "imagem_url": e_img or None,
+                    "ativo": e_ativo,
+                }
+                r = make_request("PUT", f"/oportunidades/{op['id']}", payload)
+                if r is not None and r.status_code == 200:
+                    st.success("Oportunidade atualizada!")
+                    st.rerun()
+                elif r is not None:
+                    st.error(error_detail(r))
+            if delete:
+                r = make_request("DELETE", f"/oportunidades/{op['id']}")
+                if r is not None and r.status_code == 200:
+                    st.success("Oportunidade removida!")
+                    st.rerun()
+                elif r is not None:
+                    st.error(error_detail(r))
+
+
+# ----------------------------------------------------------------------------
 # Administradores
 # ----------------------------------------------------------------------------
 def admins_page():
@@ -429,7 +554,7 @@ def main_dashboard():
         st.markdown("---")
         menu = st.radio(
             "Navegação",
-            ["📋 Publicações", "👥 Administradores", "ℹ️ Sobre"],
+            ["📋 Publicações", "🤝 Oportunidades", "👥 Administradores", "ℹ️ Sobre"],
             label_visibility="collapsed",
         )
         st.markdown("---")
@@ -440,11 +565,13 @@ def main_dashboard():
 
     if menu == "📋 Publicações":
         publicacoes_section()
+    elif menu == "🤝 Oportunidades":
+        oportunidades_section()
     elif menu == "👥 Administradores":
         admins_page()
     else:
         st.subheader("ℹ️ Sobre")
-        st.write("Sistema de gerenciamento da ONG — publique posts e eventos no feed.")
+        st.write("Sistema de gerenciamento da ONG — publique posts, eventos e oportunidades de voluntariado.")
 
 
 # ----------------------------------------------------------------------------
