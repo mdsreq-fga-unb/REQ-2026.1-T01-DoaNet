@@ -1,6 +1,5 @@
 from http.client import HTTPException
 from src.application.services import auth_service
-from src.application.services import event_service
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from .security import create_access_token, verify_token, get_current_user_email
@@ -15,9 +14,6 @@ from src.adapters.db.mongo_admin_repository import MongoAdminRepository
 from src.adapters.db.mongo_connection import db
 from src.application.services.feed_service import FeedService
 from src.application.services.auth_service import AuthService
-from src.domain.entities.event import Event
-from src.adapters.db.mongo_event_repository import MongoEventRepository
-from src.application.services.event_service import EventService
 from src.adapters.http.security import get_current_admin, require_master
 from src.domain.entities.admin import AdminRole
 
@@ -44,9 +40,7 @@ def init_routes() -> APIRouter:
     admin_repo = MongoAdminRepository(db)
     feed_service = FeedService(feed_repo)
     auth_service = AuthService(admin_repo)
-    event_repo = MongoEventRepository(db)
-    event_service = EventService(event_repo)
-    
+
     @router.get("/health")
     async def health():
         """Health check endpoint"""
@@ -236,85 +230,6 @@ def init_routes() -> APIRouter:
         
         return {"message": "Administrador desativado com sucesso"}
 
-    # ============ ROTAS DE EVENTOS ============
-    @router.post("/events")
-    async def create_event(
-        event: Event,
-        current_admin: Admin = Depends(get_current_admin)
-    ):
-        """Cria um novo evento (qualquer admin autenticado)"""
-        try:
-            event.created_by = current_admin.id
-            new_event = await event_service.create_event(event)
-            return {"message": "Evento criado com sucesso", "event": new_event}
-        except Exception as exc:
-            raise HTTPException(status_code=500, detail=str(exc))
-
-    @router.get("/events")
-    async def list_events(include_inactive: bool = False):
-        """Lista todos os eventos (público — usado pelo front-end)"""
-        try:
-            events = await event_service.list_events(include_inactive)
-            return {"events": [
-                {
-                    "id": event.id,
-                    "title": event.title,
-                    "description": event.description,
-                    "date": event.date.isoformat(),
-                    "location": event.location,
-                    "max_participants": event.max_participants,
-                    "current_participants": event.current_participants,
-                    "image_url": event.image_url,
-                    "is_active": event.is_active
-                }
-                for event in events
-            ]}
-        except Exception as exc:
-            raise HTTPException(status_code=500, detail=str(exc))
-
-    @router.put("/events/{event_id}")
-    async def update_event(
-        event_id: str,
-        event: Event,
-        current_admin: Admin = Depends(get_current_admin)
-    ):
-        """Atualiza um evento"""
-        try:
-            updated = await event_service.update_event(event_id, event)
-            if not updated:
-                raise HTTPException(status_code=404, detail="Evento não encontrado")
-            return {"message": "Evento atualizado com sucesso"}
-        except Exception as exc:
-            raise HTTPException(status_code=500, detail=str(exc))
-
-    @router.delete("/events/{event_id}")
-    async def delete_event(
-        event_id: str,
-        current_admin: Admin = Depends(require_master)  # Apenas MASTER pode deletar
-    ):
-        """Remove um evento (apenas admin principal)"""
-        try:
-            deleted = await event_service.delete_event(event_id)
-            if not deleted:
-                raise HTTPException(status_code=404, detail="Evento não encontrado")
-            return {"message": "Evento deletado com sucesso"}
-        except Exception as exc:
-            raise HTTPException(status_code=500, detail=str(exc))
-
-    @router.post("/events/{event_id}/register")
-    async def register_for_event(
-        event_id: str,
-        current_admin: Admin = Depends(get_current_admin)
-    ):
-        """Registra um participante no evento"""
-        try:
-            await event_service.register_participant(event_id)
-            return {"message": "Participante registrado com sucesso"}
-        except ValueError as e:
-            raise HTTPException(status_code=400, detail=str(e))
-        except Exception as exc:
-            raise HTTPException(status_code=500, detail=str(exc))
-        
     @router.post("/admin/register-first")
     async def register_first_admin(admin_data: CreateAdminData):
         """Registra o primeiro administrador (sempre será MASTER)"""
