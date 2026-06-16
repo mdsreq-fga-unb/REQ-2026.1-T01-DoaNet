@@ -18,6 +18,19 @@ class FeedPageState extends State<FeedPage> {
   bool isLoading = true;
   String? errorMessage;
 
+  static const List<String> _meses = [
+    '', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun',
+    'jul', 'ago', 'set', 'out', 'nov', 'dez',
+  ];
+
+  String _formatDate(String? iso) {
+    if (iso == null || iso.isEmpty) return '';
+    final dt = DateTime.tryParse(iso);
+    if (dt == null) return '';
+    final local = dt.toLocal();
+    return '${local.day} de ${_meses[local.month]}. de ${local.year}';
+  }
+
   @override
   void initState() {
     super.initState();
@@ -119,7 +132,7 @@ class FeedPageState extends State<FeedPage> {
                 description: item.description,
                 profileName: item.profileName ?? 'Perfil',
                 profileImageUrl: item.profileImageUrl,
-                date: '01/01/2026',
+                date: _formatDate(item.createdAt),
                 imageUrl: item.imageUrl,
                 eventLinkUrl: item.eventLinkUrl,
                 type: item.type,

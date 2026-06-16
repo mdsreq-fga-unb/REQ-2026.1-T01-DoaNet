@@ -17,7 +17,8 @@ def feed_item_to_dict(item: FeedItem) -> dict:
         "image_path": data["image_path"],
         "event_location": data["event_location"],
         "event_date": data["event_date"],
-        "event_url": data["event_url"]
+        "event_url": data["event_url"],
+        "created_at": data["created_at"].isoformat() if data.get("created_at") else None
     }
 
 

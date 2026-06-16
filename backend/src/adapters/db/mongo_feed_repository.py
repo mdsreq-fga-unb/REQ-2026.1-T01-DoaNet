@@ -1,3 +1,5 @@
+from typing import Optional
+
 from bson import ObjectId
 from bson.errors import InvalidId
 
@@ -23,7 +25,8 @@ class MongoFeedRepository(FeedRepository):
                     image_path=item.get("image_path"),
                     event_location=item.get("event_location"),
                     event_date=item.get("event_date"),
-                    event_url=item.get("event_url")
+                    event_url=item.get("event_url"),
+                    created_at=item.get("created_at")
                 )
             )
         return items
@@ -35,6 +38,25 @@ class MongoFeedRepository(FeedRepository):
             payload = item.dict()
         payload.pop("id", None)
         self.collection.insert_one(payload)
+
+    def find_by_id(self, item_id: str) -> Optional[FeedItem]:
+        if not ObjectId.is_valid(item_id):
+            return None
+        item = self.collection.find_one({"_id": ObjectId(item_id)})
+        if not item:
+            return None
+        return FeedItem(
+            id=str(item["_id"]),
+            title=item.get("title"),
+            type=item.get("type"),
+            description=item.get("description"),
+            image_url=item.get("image_url"),
+            image_path=item.get("image_path"),
+            event_location=item.get("event_location"),
+            event_date=item.get("event_date"),
+            event_url=item.get("event_url"),
+            created_at=item.get("created_at")
+        )
 
     def update_item(self, item_id: str, item: FeedItem) -> bool:
         if not ObjectId.is_valid(item_id):
