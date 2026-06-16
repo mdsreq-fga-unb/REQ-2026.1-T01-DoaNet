@@ -35,7 +35,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   http: ^1.6.0
+<<<<<<< HEAD
   url_launcher: ^6.3.2
+=======
+  flutter_svg: ^2.3.0
+>>>>>>> 727f21b ("feat: cria tela de colaboracao, ajusta header, barra de navegacao e add icones svg do figma")
 
 dev_dependencies:
   integration_test:
@@ -60,6 +64,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/icons/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

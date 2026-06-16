@@ -5,14 +5,26 @@ from domain.entities.feed_item import FeedItem
 from adapters.http.serializers import feed_items_to_list
 from adapters.db.mongo_feed_repository import MongoFeedRepository
 from application.services.feed_service import FeedService
+<<<<<<< HEAD
 from adapters.infrastructure.storage.gcs_storage_service import GCSStorageService
+=======
+from domain.entities.oportunidade import OportunidadeVoluntariado
+from adapters.http.serializers import oportunidades_to_list
+from adapters.db.mongo_oportunidade_repository import MongoOportunidadeRepository
+from application.services.oportunidade_service import OportunidadeService
+>>>>>>> 7d9d013 ("feat: adiciona rotas de oportunidades de voluntariado e ajusta testes")
 
 def innit_routes() -> APIRouter:
     router = APIRouter()
 
     repo = MongoFeedRepository()
     feed_service = FeedService(repo)
+<<<<<<< HEAD
     storage_service = GCSStorageService(bucket_name="feed_imagens")
+=======
+    oportunidade_repo = MongoOportunidadeRepository()
+    oportunidade_service = OportunidadeService(oportunidade_repo)
+>>>>>>> 7d9d013 ("feat: adiciona rotas de oportunidades de voluntariado e ajusta testes")
 
     @router.get("/health")
     async def health():
@@ -125,6 +137,38 @@ def innit_routes() -> APIRouter:
     async def delete_feed_item(id: str):
         try:
             deleted = feed_service.delete_item(id)
+            if deleted:
+                return {"message": "deleted"}
+            return {"message": "item not found"}
+        except Exception as exc:
+            return {"error": str(exc), "status": "failed"}
+    
+    @router.get("/oportunidades")
+    async def get_oportunidades():
+        try:
+            items = oportunidade_service.list_items()
+            return oportunidades_to_list(items)
+        except Exception as exc:
+            return {"error": str(exc), "status": "failed"}
+
+    @router.post("/oportunidades")
+    async def add_oportunidade(item: OportunidadeVoluntariado):
+        oportunidade_service.add_item(item)
+        return {"message": "created"}
+
+    @router.put("/oportunidades/{id}")
+    async def update_oportunidade(id: str, item: OportunidadeVoluntariado):
+        try: 
+            updated = oportunidade_service.update_item(id, item)
+            if updated:
+                return {"message": "updated"}
+        except Exception as exc:
+            return {"error": str(exc), "status": "failed"}
+
+    @router.delete("/oportunidades/{id}")
+    async def delete_oportunidade(id: str):
+        try:
+            deleted = oportunidade_service.delete_item(id)
             if deleted:
                 return {"message": "deleted"}
             return {"message": "item not found"}
