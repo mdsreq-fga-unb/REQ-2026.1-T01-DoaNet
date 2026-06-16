@@ -153,7 +153,8 @@ def innit_routes() -> APIRouter:
                 image_path=image_path,
                 event_location=event_location if post_type == "evento" else None,
                 event_date=event_date if post_type == "evento" else None,
-                event_url=event_url if post_type == "evento" else None
+                event_url=event_url if post_type == "evento" else None,
+                created_at=current_item.created_at
             )
 
             updated = feed_service.update_item(id, updated_item)
