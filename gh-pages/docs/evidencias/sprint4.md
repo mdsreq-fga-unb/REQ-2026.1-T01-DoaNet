@@ -14,6 +14,10 @@ Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organ
 
 ![Colab2](../assets/Colab2.png)
 
+![Post](../assets/Post.png)
+
+![Gerencia](../assets/Gerencia.png)
+
 ![Voluntario](../assets/Voluntario.png)
 
 ![Voluntario2](../assets/Voluntario2.png)

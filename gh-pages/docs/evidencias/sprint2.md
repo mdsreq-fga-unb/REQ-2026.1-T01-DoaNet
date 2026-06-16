@@ -2,15 +2,15 @@
 
 ## Descrição da Entrega
 
-Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da plataforma DoaNet, com foco na criação edição e deleção de postagens normais (sem nenhum evento atrelado). O objetivo foi permitir que os administradores pudessem criar as postagens para que os doadores possam visualizar.
+Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da plataforma DoaNet, com foco na criação edição e deleção de postagens normais (sem nenhum evento atrelado).
 
 ---
 
 ## Demonstração em Imagens
 
-![Post](../assets/Post.png)
+![Feed](../assets/Feed.png)
 
-![Gerencia](../assets/Gerencia.png)
+![Feed2](../assets/Feed2.png)
 
 ---
 
