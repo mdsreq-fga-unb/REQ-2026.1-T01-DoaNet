@@ -126,6 +126,8 @@ Critérios INVEST aplicados durante a construção do Story Map para verificar a
 
 !!! success "Sprint Planning Sprint 1 — 14/04/2026 · Presencial · Campus FGA"
 
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_planejamento_s1_14_04_2026.md)._
+
     --8<-- "atas/ata_planejamento_s1_14_04_2026.md"
 
 ### Refinamento do User Story Map
@@ -134,6 +136,8 @@ Critérios INVEST aplicados durante a construção do Story Map para verificar a
 
 !!! info "Refinamento do User Story Map — 21/04/2026 · Discord"
 
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_refinamento_s1_21_04_2026.md)._
+
     --8<-- "atas/ata_refinamento_s1_21_04_2026.md"
 
 ### Validação com o Cliente
@@ -141,6 +145,8 @@ Critérios INVEST aplicados durante a construção do Story Map para verificar a
 > Reunião de apresentação do incremento da sprint ao cliente para coleta de feedback e aprovação formal. Participantes: Letícia Vitória (equipe) e Paulo (stakeholder).
 
 !!! success "Aprovação do USM e Protótipo — 27/04/2026 · Discord · Letícia e Paulo"
+
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_validacao_s1_27_04_2026.md)._
 
     --8<-- "atas/ata_validacao_s1_27_04_2026.md"
 

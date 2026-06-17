@@ -18,18 +18,24 @@ nav:
       - 11. Lições Aprendidas: visao_produto/11-licoes.md
   - Atas de Reunião:
       - Modelo: atas/modelo.md
-      - Reunião 1: atas/ata1_27_04_2026.md
-      - Reunião 2: atas/ata2_04_05_2026.md
-      - Reunião 3: atas/ata3_11_05_2026.md
-      - Reunião 4: atas/ata4_12_05_2026.md
-      - Reunião 5: atas/ata5_26_05_2026.md
-      - Reunião 6: atas/ata6_09_06_2026.md
-      - Refinamento Sprint 1: atas/ata_refinamento_s1_21_04_2026.md
-      - Refinamento Sprint 2: atas/ata_refinamento_s2_05_05_2026.md
-      - Refinamento Sprint 3: atas/ata_refinamento_s3_19_05_2026.md
-      - Refinamento Sprint 4: atas/ata_refinamento_s4_02_06_2026.md
-      - Validação Sprint 1: atas/ata_validacao_s1_27_04_2026.md
-      - Planejamento Sprint 1: atas/ata_planejamento_s1_14_04_2026.md
+      - Sprint 1:
+          - Planejamento (14/04): atas/ata_planejamento_s1_14_04_2026.md
+          - Refinamento (21/04): atas/ata_refinamento_s1_21_04_2026.md
+          - Revisão e Retrospectiva (27/04): atas/ata1_27_04_2026.md
+          - Validação com Cliente (27/04): atas/ata_validacao_s1_27_04_2026.md
+      - Sprint 2:
+          - Planejamento e Pivoteamento (04/05): atas/ata2_04_05_2026.md
+          - Refinamento (05/05): atas/ata_refinamento_s2_05_05_2026.md
+          - Reunião Interna (11/05): atas/ata3_11_05_2026.md
+          - Validação com Cliente (12/05): atas/ata4_12_05_2026.md
+      - Sprint 3:
+          - Planejamento (13/05): atas/ata_planejamento_s3_13_05_2026.md
+          - Refinamento (19/05): atas/ata_refinamento_s3_19_05_2026.md
+          - Validação com Cliente (26/05): atas/ata5_26_05_2026.md
+      - Sprint 4:
+          - Planejamento (27/05): atas/ata_planejamento_s4_27_05_2026.md
+          - Refinamento (02/06): atas/ata_refinamento_s4_02_06_2026.md
+          - Validação com Cliente (09/06): atas/ata6_09_06_2026.md
   - Evidências:
       - Sprint 1: evidencias/sprint1.md
       - Sprint 2: evidencias/sprint2.md

@@ -117,6 +117,8 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 
 !!! success "Alinhamento Estratégico e Pivoteamento — 04/05/2026 · Presencial"
 
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata2_04_05_2026.md)._
+
     --8<-- "atas/ata2_04_05_2026.md"
 
 ---
@@ -127,6 +129,8 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 
 !!! info "Refinamento do User Story Map pós-pivoteamento — 05/05/2026 · Discord"
 
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_refinamento_s2_05_05_2026.md)._
+
     --8<-- "atas/ata_refinamento_s2_05_05_2026.md"
 
 ---
@@ -136,6 +140,8 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 > Reunião de apresentação do incremento da sprint ao cliente para coleta de feedback e aprovação formal. Participantes: Letícia Vitória (equipe) e Paulo (stakeholder).
 
 !!! success "Aprovação do Feed — 12/05/2026 · Discord · Letícia e Paulo"
+
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata4_12_05_2026.md)._
 
     --8<-- "atas/ata4_12_05_2026.md"
 

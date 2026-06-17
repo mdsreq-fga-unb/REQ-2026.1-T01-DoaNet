@@ -143,8 +143,11 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 6
 
 > Reunião de definição do escopo, estimativas e comprometimento do time para a sprint.
 
-!!! note "Não registrado separadamente nesta sprint."
-    O planejamento da Sprint 4 foi definido pelos encaminhamentos da Revisão da Sprint 3 (Ata 5).
+!!! success "Sprint Planning Sprint 4 — 27/05/2026 · Discord"
+
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_planejamento_s4_27_05_2026.md)._
+
+    --8<-- "atas/ata_planejamento_s4_27_05_2026.md"
 
 ---
 
@@ -153,6 +156,8 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 6
 > Reunião interna realizada na semana intermediária da sprint para revisão e detalhamento das histórias do User Story Map.
 
 !!! info "Refinamento do User Story Map — 02/06/2026 · Discord"
+
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_refinamento_s4_02_06_2026.md)._
 
     --8<-- "atas/ata_refinamento_s4_02_06_2026.md"
 
@@ -163,6 +168,8 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 6
 > Reunião de apresentação do incremento da sprint ao cliente para coleta de feedback e aprovação formal. Participantes: Letícia Vitória (equipe) e Paulo (stakeholder).
 
 !!! success "Aprovação do Voluntariado e Painel Admin — 09/06/2026 · Discord · Letícia e Paulo"
+
+    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata6_09_06_2026.md)._
 
     --8<-- "atas/ata6_09_06_2026.md"
 
