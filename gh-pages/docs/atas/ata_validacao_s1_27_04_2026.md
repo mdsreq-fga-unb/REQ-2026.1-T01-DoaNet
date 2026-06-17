@@ -24,9 +24,9 @@ Apresentar e validar os artefatos desenvolvidos durante a Sprint 1: User Story M
 
 O Paulo avaliou o User Story Map construído pela equipe e deu a aprovação oficial para prosseguir com o desenvolvimento. O escopo das histórias de usuário foi considerado adequado ao contexto das organizações.
 
-### Validação do Protótipo de Baixa Fidelidade
+### Validação do Protótipo de Baixa/Média Fidelidade — Tela de Feed
 
-O protótipo de baixa fidelidade desenvolvido no Figma foi apresentado ao cliente, cobrindo os fluxos principais das três abas do aplicativo (Feed, Transparência e Colaboração). O cliente validou a direção do design e da experiência do usuário proposta.
+O protótipo de baixa/média fidelidade desenvolvido no Figma foi apresentado ao cliente, cobrindo o fluxo da tela de Feed da organização — primeira tela prototipada pelo time. O cliente validou a direção do design, o layout da listagem de publicações e a experiência de navegação proposta para essa aba.
 
 ## Encaminhamentos
 

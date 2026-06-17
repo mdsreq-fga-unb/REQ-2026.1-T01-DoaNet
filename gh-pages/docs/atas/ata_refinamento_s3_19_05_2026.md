@@ -21,4 +21,4 @@
 | Implementação das telas de eventos e inscrição no Flutter | Letícia Vitória e Pedro Druck | 26/05/2026 |
 | Apoio na integração do módulo admin com o back-end | Davi Ursulino | 26/05/2026 |
 | Testes manuais do feed completo (posts normais + eventos + admin) | Equipe | 26/05/2026 |
-| Atualização do protótipo final no Figma para apresentação ao cliente | Letícia Vitória | 26/05/2026 |
+| Finalização do protótipo de baixa/média fidelidade completo no Figma para apresentação ao cliente | Letícia Vitória | 26/05/2026 |

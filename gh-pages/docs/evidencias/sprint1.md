@@ -23,7 +23,7 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 #### Elicitação e Descoberta
 
-- Entrevistas com a cliente (Letícia) para levantamento das necessidades reais das ONGs — contexto de domínio e requisitos iniciais coletados e registrados na [Ata 1](../atas/ata1_27_04_2026.md).
+- Entrevistas com o cliente para levantamento das necessidades reais das ONGs — contexto de domínio e requisitos iniciais coletados e registrados na [Ata 1](../atas/ata1_27_04_2026.md).
 - Brainstorming interno de arquitetura e produto: definição da stack tecnológica inicial e dos módulos principais do sistema (feed, transparência, colaboração).
 
 #### Análise e Consenso
@@ -81,9 +81,9 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 > Reunião de definição do escopo, estimativas e comprometimento do time para a sprint.
 
-!!! success "Sprint Planning Sprint 1 — 14/04/2026 · Presencial · Campus FGA"
+📄 _Caso a visualização abaixo não funcione, [acesse a ata diretamente](../atas/ata_planejamento_s1_14_04_2026.md)._
 
-    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_planejamento_s1_14_04_2026.md)._
+!!! success "Sprint Planning Sprint 1 — 14/04/2026 · Presencial · Campus FGA"
 
     --8<-- "atas/ata_planejamento_s1_14_04_2026.md"
 
@@ -91,9 +91,9 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 > Reunião interna realizada na semana intermediária da sprint para revisão e detalhamento das histórias do User Story Map.
 
-!!! info "Refinamento do User Story Map — 21/04/2026 · Discord"
+📄 _Caso a visualização abaixo não funcione, [acesse a ata diretamente](../atas/ata_refinamento_s1_21_04_2026.md)._
 
-    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_refinamento_s1_21_04_2026.md)._
+!!! info "Refinamento do User Story Map — 21/04/2026 · Discord"
 
     --8<-- "atas/ata_refinamento_s1_21_04_2026.md"
 
@@ -101,9 +101,9 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 > Reunião de apresentação do incremento da sprint ao cliente para coleta de feedback e aprovação formal. Participantes: Letícia Vitória (equipe) e Paulo (stakeholder).
 
-!!! success "Aprovação do USM e Protótipo — 27/04/2026 · Discord · Letícia e Paulo"
+📄 _Caso a visualização abaixo não funcione, [acesse a ata diretamente](../atas/ata_validacao_s1_27_04_2026.md)._
 
-    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_validacao_s1_27_04_2026.md)._
+!!! success "Aprovação do USM e Protótipo — 27/04/2026 · Discord · Letícia e Paulo"
 
     --8<-- "atas/ata_validacao_s1_27_04_2026.md"
 

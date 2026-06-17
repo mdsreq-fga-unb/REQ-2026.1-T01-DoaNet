@@ -29,8 +29,8 @@ A equipe alinhou que a Sprint 4 — última sprint do projeto — teria foco em 
 - **US20** — criação de oportunidade de voluntariado (admin)
 - **US21** — exclusão de oportunidade de voluntariado (admin)
 - **US22** — atualização de oportunidade de voluntariado (admin)
-- Integração do módulo de voluntariado com o painel admin do Streamlit
-- Refinamentos finais no protótipo e na documentação para a entrega
+- Expansão do painel admin no Streamlit (login implementado na Sprint 3) com gerenciamento de feed e oportunidades de voluntariado
+- Documentação final da entrega
 
 ### Aplicação dos Critérios INVEST
 
@@ -43,7 +43,7 @@ A equipe manteve a divisão por frentes que vinha funcionando bem desde a Sprint
 - **Back-end:** Pedro Augusto e Davi Ursulino ficaram responsáveis pelos endpoints de voluntariado (visualização, criação, edição e exclusão).
 - **Front-end Flutter:** Pedro Druck ficou responsável pelas telas de visualização e inscrição em voluntariado.
 - **Front-end Admin:** Letícia Vitória ficou responsável pelas telas administrativas de voluntariado.
-- **Integração Admin:** João Leles ficou responsável por integrar o módulo de voluntariado ao painel Streamlit já desenvolvido na Sprint 3.
+- **Expansão Admin:** João Leles ficou responsável por expandir o painel Streamlit (que continha apenas login/acesso de admin ao final da Sprint 3) com as telas de gerenciamento do feed e das oportunidades de voluntariado.
 
 ### Ponto de Atenção
 
@@ -56,7 +56,7 @@ A equipe sinalizou preocupação com a complexidade do formulário de inscriçã
 | Implementação dos endpoints de voluntariado (back-end) | Pedro Augusto e Davi Ursulino | 09/06/2026 |
 | Implementação das telas de visualização e inscrição (Flutter) | Pedro Druck | 09/06/2026 |
 | Implementação das telas administrativas de voluntariado | Letícia Vitória | 09/06/2026 |
-| Integração do módulo de voluntariado com o painel admin (Streamlit) | João Leles | 09/06/2026 |
+| Expansão do painel Streamlit com gerenciamento de feed e voluntariado | João Leles | 09/06/2026 |
 | Acompanhamento próximo do formulário de inscrição (US08) | Pedro Druck e Letícia Vitória | 09/06/2026 |
 | Reunião de refinamento do User Story Map na semana intermediária | Equipe | 02/06/2026 |
 | Preparação da entrega final do projeto e da documentação | Equipe | 09/06/2026 |

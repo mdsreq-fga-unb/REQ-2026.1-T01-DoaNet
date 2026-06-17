@@ -76,6 +76,7 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 5
 - ✅ Usuário consegue se inscrever em evento a partir da publicação no feed
 - ✅ Inscrição registrada e visível para o administrador no painel
 - ✅ Confirmação visual exibida ao usuário após inscrição bem-sucedida
+- ✅ Sistema impede inscrição duplicada no mesmo evento
 
 **US11 — Autenticar administradores**
 
@@ -87,8 +88,9 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 5
 #### Validação de Requisitos — Protótipos e Feedback do Cliente
 
 - Feed completo (posts normais + eventos com inscrição), suporte a imagens e módulo de autenticação admin demonstrados ao cliente (Paulo) por Letícia na reunião de 26/05.
-- Protótipo final apresentado e aprovado pelo cliente como referência para o módulo de admin — ver [Ata de Validação S3](../atas/ata5_26_05_2026.md).
-- Encaminhamentos para Sprint 4 (módulo de voluntariado) definidos com base no feedback registrado na ata.
+- Protótipo de baixa/média fidelidade completo (cobrindo Feed, Transparência e Colaboração) apresentado e aprovado pelo cliente como referência para as próximas entregas — ver [Ata de Validação S3](../atas/ata5_26_05_2026.md).
+- Tela de login e acesso de administradores no Streamlit (US11) demonstrada e aprovada como primeiro módulo funcional do painel de administração.
+- Encaminhamentos para Sprint 4 (módulo de voluntariado e expansão do painel Streamlit) definidos com base no feedback registrado na ata.
 
 #### Organização e Atualização — Refinamento do User Story Map
 
@@ -114,9 +116,9 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 5
 
 > Reunião de definição do escopo, estimativas e comprometimento do time para a sprint.
 
-!!! success "Sprint Planning Sprint 3 — 13/05/2026 · Discord"
+📄 _Caso a visualização abaixo não funcione, [acesse a ata diretamente](../atas/ata_planejamento_s3_13_05_2026.md)._
 
-    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_planejamento_s3_13_05_2026.md)._
+!!! success "Sprint Planning Sprint 3 — 13/05/2026 · Discord"
 
     --8<-- "atas/ata_planejamento_s3_13_05_2026.md"
 
@@ -126,9 +128,9 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 5
 
 > Reunião interna realizada na semana intermediária da sprint para revisão e detalhamento das histórias do User Story Map.
 
-!!! info "Refinamento do User Story Map — 19/05/2026 · Discord"
+📄 _Caso a visualização abaixo não funcione, [acesse a ata diretamente](../atas/ata_refinamento_s3_19_05_2026.md)._
 
-    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata_refinamento_s3_19_05_2026.md)._
+!!! info "Refinamento do User Story Map — 19/05/2026 · Discord"
 
     --8<-- "atas/ata_refinamento_s3_19_05_2026.md"
 
@@ -138,9 +140,9 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 5
 
 > Reunião de apresentação do incremento da sprint ao cliente para coleta de feedback e aprovação formal. Participantes: Letícia Vitória (equipe) e Paulo (stakeholder).
 
-!!! success "Aprovação do Feed Completo, Eventos e Admin — 26/05/2026 · Discord · Letícia e Paulo"
+📄 _Caso a visualização abaixo não funcione, [acesse a ata diretamente](../atas/ata5_26_05_2026.md)._
 
-    > 📄 _Se a visualização abaixo não funcionar, [acesse a ata diretamente](../atas/ata5_26_05_2026.md)._
+!!! success "Aprovação do Feed Completo, Eventos e Admin — 26/05/2026 · Discord · Letícia e Paulo"
 
     --8<-- "atas/ata5_26_05_2026.md"
 

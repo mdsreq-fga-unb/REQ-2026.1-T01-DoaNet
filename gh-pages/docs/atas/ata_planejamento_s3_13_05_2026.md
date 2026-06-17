@@ -28,7 +28,7 @@ A equipe alinhou que a Sprint 3 teria foco em **evolução do feed e início do 
 - **US09** — inscrição de usuários em eventos divulgados
 - **US11** — autenticação de administradores no painel
 - Suporte a imagens em todos os tipos de post
-- Atualização do protótipo final no Figma para apresentação ao cliente
+- Conclusão e finalização do protótipo de baixa/média fidelidade completo no Figma (cobrindo todas as abas: Feed, Transparência e Colaboração)
 
 ### Aplicação dos Critérios INVEST
 
@@ -52,5 +52,5 @@ Com a arquitetura base já consolidada na Sprint 2, a equipe se organizou em fre
 | Implementação das telas de eventos e inscrição no Flutter | Letícia Vitória e Pedro Druck | 26/05/2026 |
 | Implementação do suporte a imagens nos posts | Letícia Vitória | 26/05/2026 |
 | Apoio na integração do módulo admin com o back-end | Davi Ursulino | 26/05/2026 |
-| Atualização do protótipo final no Figma | Letícia Vitória | 26/05/2026 |
+| Conclusão do protótipo de baixa/média fidelidade completo no Figma | Letícia Vitória | 26/05/2026 |
 | Reunião de refinamento do User Story Map na semana intermediária | Equipe | 19/05/2026 |
