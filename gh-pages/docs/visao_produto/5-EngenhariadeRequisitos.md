@@ -17,16 +17,17 @@
 
 ***Representação de Requisitos:***
 
-* **Product Backlog:** Utilizado como o repositório central e vivo de todas as necessidades do produto. Será gerenciado em ferramentas ágeis, ordenando os itens desde a implementação de ponta a ponta em FastAPI/MongoDB até os ajustes de interface do Flutter.
+* **User Story Map:** Utilizado como a representação visual e estruturada de todas as necessidades do produto, organizando as Histórias de Usuário por jornada do usuário e prioridade de entrega. Permite à equipe e ao cliente visualizar o escopo completo do sistema, identificar o MVP e planejar as sprints de forma incremental e orientada ao valor.
 * **Prototipação de UI / Wireframes:** Representação visual e interativa dos requisitos de interface e usabilidade. Será fundamental para materializar as exigências, desenhando e validando a estratégia das três abas inferiores (Feed, Transparência e Colaboração) e a exibição das informações institucionais antes da implementação do código *front-end*.
 
 ***Verificação e Validação de Requisitos:***
 
-* **Testes de Aceitação Automatizados (Prática XP):** Scripts criados para validar se os incrementos atendem rigorosamente aos Critérios de Aceitação declarados. Fundamental para verificar os RNFs que exigem alta confiabilidade, como a imutabilidade e rastreabilidade dos registros de doações (RNF08) e as regras rígidas de acesso hierárquico de administradores (RNF04).
+* **Critérios INVEST (Verificação):** Checklist aplicado durante o Sprint Planning para verificar se cada História de Usuário está bem formada antes de entrar na sprint. Cada US deve ser: **I**ndependente, **N**egociável, **V**aliosa, **E**stimável, **S**uficientemente pequena (*Small*) e **T**estável. Garante que o time só aceita itens que possuem informação suficiente para serem desenvolvidos com qualidade, alinhando-se diretamente ao DoR do projeto.
+* **Protótipos e Feedback do Cliente (Validação):** Utilização dos protótipos de UI desenvolvidos no Figma como base para coleta de feedback direto do cliente nas reuniões de Revisão e Retrospectiva da Sprint. Permite validar se o incremento entregue atende às necessidades reais da organização antes de seguir para o próximo ciclo de desenvolvimento, conferindo rastreabilidade entre o que foi prototipado e o que foi implementado.
 
 ***Organização e Atualização de Requisitos:***
 
-* **Refinamento do Backlog:** Reuniões contínuas ao longo das Sprints onde a equipe técnica revisa as Histórias de Usuário futuras, dividindo tarefas grandes em entregas menores e atualizando requisitos baseados em novos aprendizados técnicos.
+* **Refinamento do User Story Map:** Reunião interna realizada na semana intermediária de cada sprint, onde a equipe revisa e detalha as histórias de usuário pendentes, ajusta prioridades com base no progresso da sprint e atualiza o User Story Map com novos aprendizados técnicos e de produto — garantindo que as histórias da semana seguinte estejam bem formadas e estimadas antes de entrarem em desenvolvimento.
 
 ---
 
@@ -37,7 +38,8 @@
 | Fases do Processo (ScrumXP) | Atividades ER | Prática | Técnica | Resultado Esperado |
 | :--- | :--- | :--- | :--- | :--- |
 | **Planejamento da Release (Visão do Produto)** | Elicitação e Descoberta | Entendimento do Domínio de Negócio das ONGs | Entrevistas com Stakeholders e Brainstorming | Lista inicial de User Stories e levantamento macro das necessidades do app e painel administrativo. |
-| **Planejamento da Sprint (Sprint Planning)** | Análise e Consenso | Estimativa em Equipe e Priorização de Escopo | Priorização Valor x Esforço | *Sprint Backlog* definido e esforço de desenvolvimento alinhado e aprovado pela equipe. |
-| **Planejamento da Sprint (Sprint Planning)** | Declaração | Escrita Ágil e Focada no Usuário | Histórias de Usuário com Critérios de Aceitação | Cartões de requisitos devidamente descritos, refinados e prontos para o desenvolvimento (XP). |
-| **Execução da Sprint (Desenvolvimento XP)** | Organização e Atualização | Manutenção Contínua e Evolutiva dos Requisitos | Refinamento do Backlog | Backlog constantemente limpo, priorizado para a próxima iteração e com código rastreável. |
-| **Revisão e Retrospectiva da Sprint** | Verificação e Validação | Demonstração do Produto e Garantia de Qualidade | Testes de Aceitação Automatizados | Incremento de software entregue, validado tecnicamente e aprovado pelas partes interessadas. |
+| **Planejamento da Release (Visão do Produto)** | Análise e Consenso | Estimativa em Equipe e Priorização de Escopo | Priorização Valor x Esforço | *Sprint Backlog* inicial definido e esforço de desenvolvimento alinhado e aprovado pela equipe. |
+| **Refinamento do User Story Map** | Declaração | Escrita Ágil e Focada no Usuário | Histórias de Usuário com Critérios de Aceitação | Histórias de usuário detalhadas, com critérios de aceite definidos e prontas para o desenvolvimento da semana seguinte. |
+| **Refinamento do User Story Map** | Organização e Atualização | Revisão e Atualização Contínua do Mapa de Histórias | Refinamento do User Story Map | User Story Map atualizado com novos aprendizados, prioridades ajustadas e histórias futuras detalhadas. |
+| **Refinamento do User Story Map** | Verificação de Requisitos | Checagem da Qualidade das Histórias de Usuário | Critérios INVEST | Histórias de Usuário verificadas e aprovadas para desenvolvimento: independentes, negociáveis, valiosas, estimáveis, pequenas e testáveis. |
+| **Revisão e Retrospectiva da Sprint** | Validação de Requisitos | Demonstração do Incremento e Coleta de Feedback | Protótipos e Feedback do Cliente | Incremento validado pelo cliente com base no protótipo de referência; feedbacks registrados em ata e incorporados ao backlog da próxima sprint. |
