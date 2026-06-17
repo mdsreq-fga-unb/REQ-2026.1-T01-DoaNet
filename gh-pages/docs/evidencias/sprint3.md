@@ -26,8 +26,8 @@ Nesta sprint, o grupo se propôs a implementar posts de eventos com inscrição,
 | :--- | :---: | :--- |
 | O requisito possui informação necessária para ser trabalhado? | ✅ | US09, US11 e US17 (extensão para eventos) detalhadas no Story Map com comportamentos de inscrição e autenticação definidos |
 | O requisito cabe em uma Sprint? | ✅ | 3 USs concluídas dentro das 2 semanas; encaminhamentos definidos na Ata 4 |
-| O requisito está representado por uma história de usuário? | ✅ | US09, US11 e US17 formalizadas no Story Map |
-| O requisito está mapeado para uma interface (quando necessário)? | ✅ | Protótipo final apresentado e validado com o cliente na reunião de 26/05 (Ata 5) |
+| Os critérios de aceitação estão definidos? | ✅ | US09, US11 e US17 formalizadas no Story Map |
+| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados pelas histórias de usuário: US09, US11 e US17 |
 | As definições de arquitetura e contratos de API estão claras? | ✅ | Endpoints de eventos e módulo de autenticação Streamlit definidos com base na arquitetura da Sprint 2 |
 
 ### Definition of Done — DoD
@@ -38,14 +38,9 @@ Nesta sprint, o grupo se propôs a implementar posts de eventos com inscrição,
 | :--- | :---: | :--- |
 | Entrega um incremento do produto? | ✅ | Feed completo com eventos e inscrição; início do módulo admin entregues |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou e aprovou o feed completo e o módulo admin na reunião de 26/05 (Ata 5) |
-| Está documentado para uso? | _a preencher_ | _Descrever atualização do Swagger/OpenAPI e comentários relevantes no código_ |
-| Está aderente aos padrões de codificação? | ✅ | Desenvolvido em FastAPI (back-end), Flutter (front-end) e Streamlit (admin) |
-| Mantém os índices de performance do produto? | _a preencher_ | _Descrever métricas ou testes de performance realizados_ |
 | O desenvolvimento foi concluído integralmente? | ✅ | CRUD de eventos, inscrição em eventos e autenticação admin funcionando de ponta a ponta |
-| O isolamento de dados e segurança foram validados? | _a preencher_ | _Descrever validação da partition key e isolamento multi-tenant_ |
-| A conformidade legal e imutabilidade financeira foram aplicadas? | N/A | Não se aplica — sprint sem funcionalidades de pagamento ou doação |
-| Os testes foram executados e aprovados? | _a preencher_ | _Descrever testes unitários e de integração realizados_ |
-| A funcionalidade foi revisada pela equipe? | _a preencher_ | _Registrar número ou link do Pull Request no GitHub_ |
+| Os testes foram executados e aprovados? | ✅ | A cobertura de testes mínima foi alcançada através da pipeline atualizada de testes |
+| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada nos Pull Requests: #36 |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Protótipo final alinhado com equipe e validado pelo cliente; feedback da Ata 5 incorporado |
 
 ---
@@ -161,19 +156,19 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 5
 #### Comentários dos Membros
 
 **Davi Ursulino**
-> A sprint mais tranquila até agora. As tarefas estavam bem definidas desde o início e cada membro sabia exatamente o que fazer. Entregamos tudo o que foi planejado sem grandes imprevistos — isso reflete a maturidade que a equipe ganhou nas sprints anteriores.
+> A sprint mais tranquila até agora. As tarefas estavam bem definidas desde o início e cada membro sabia exatamente o que fazer. Entregamos tudo o que foi planejado sem grandes imprevistos, isso reflete a evolução que a equipe teve nas sprints anteriores.
 
 **João Leles**
-> Senti uma grande evolução da equipe nessa sprint. A definição de tarefas foi muito mais clara e o progresso foi consistente ao longo das duas semanas. Conseguimos entregar os eventos, a inscrição e o módulo admin sem grandes bloqueios — exatamente como planejado.
+> Senti uma grande evolução da equipe nessa sprint. A definição de tarefas foi muito mais clara e o progresso foi consistente ao longo das duas semanas. Conseguimos entregar os eventos, a inscrição e o módulo admin sem grandes bloqueios, exatamente como planejado.
 
 **Letícia Vitória**
-> Essa sprint foi a prova de que aprendemos com os erros anteriores. A organização das tarefas no board estava ótima e a comunicação fluiu bem. Entregar o feed completo com eventos e imagens foi gratificante e mostrou que o time está em um bom ritmo.
+> Essa sprint foi a prova de que aprendemos com as dificuldades das outras sprints. A organização das tarefas estava ótima e a comunicação fluiu bem.
 
 **Pedro Augusto**
-> Muito satisfeito com o resultado dessa sprint. A equipe funcionou de forma coordenada e as entregas foram consistentes. A definição das tarefas no início foi essencial para que todos soubessem suas responsabilidades e pudessem trabalhar sem bloqueios durante a semana.
+> O resultado da sprint foi muito bom, a equipe funcionou de forma coordenada e as entregas foram consistentes. A definição das tarefas no início foi essencial para que todos soubessem suas responsabilidades e pudessem trabalhar sem bloqueios durante a sprint.
 
 **Pedro Druck**
-> Posso dizer que essa foi a sprint em que a equipe mais fluiu. Tudo foi bem planejado, a divisão de tarefas estava clara e as entregas foram feitas sem surpresas. A aprovação do módulo de admin pelo cliente foi um ponto alto e confirmou que estamos no caminho certo.
+> Posso dizer que essa foi a sprint em que a equipe mais fluiu. Tudo foi bem planejado, a divisão de tarefas estava clara e as entregas foram feitas sem maiores problemas.
 
 #### Principais Aprendizados
 

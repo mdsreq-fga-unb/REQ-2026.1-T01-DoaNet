@@ -35,9 +35,6 @@ O DoD é um acordo que demonstra a qualidade do requisito produzido, indicando q
 * **O desenvolvimento foi concluído integralmente?**
   A funcionalidade implementada atende às regras de negócio aplicáveis à respectiva história de usuário, contemplando todos os fluxos previstos e sem dependências pendentes.
 
-* **O isolamento de dados e segurança foram validados?**
-  Quando pertinente, foram verificados os mecanismos de autenticação, autorização, isolamento de dados e restrições de acesso definidos para a funcionalidade implementada.
-
 * **Os testes foram executados e aprovados?**
   Testes unitários, de integração e de validação funcional foram executados com sucesso, obtendo a cobertura mínima de 70% e garantindo que nenhuma regressão foi introduzida no repositório.
 

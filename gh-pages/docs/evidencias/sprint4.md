@@ -32,8 +32,8 @@ Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organ
 | :--- | :---: | :--- |
 | O requisito possui informação necessária para ser trabalhado? | ✅ | US04, US08, US20, US21 e US22 detalhadas no Story Map com fluxos de CRUD e inscrição definidos |
 | O requisito cabe em uma Sprint? | ✅ | 5 USs do módulo de voluntariado planejadas para 2 semanas; encaminhamentos definidos na Ata 5 |
-| O requisito está representado por uma história de usuário? | ✅ | US04, US08, US20, US21 e US22 formalizadas no Story Map |
-| O requisito está mapeado para uma interface (quando necessário)? | ✅ | Interface do módulo de colaboração baseada no protótipo final validado na Sprint 3 |
+| Os critérios de aceitação estão definidos? | ✅ | US04, US08, US20, US21 e US22 formalizadas no Story Map |
+| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados pelas histórias de usuário: US04, US08, US20, US21 e US22 |
 | As definições de arquitetura e contratos de API estão claras? | ✅ | Endpoints de voluntariado e painel admin definidos com base na arquitetura consolidada nas sprints anteriores |
 
 ### Definition of Done — DoD
@@ -44,14 +44,9 @@ Nesta sprint, o grupo se propôs a realizar a parte de colaboração com a organ
 | :--- | :---: | :--- |
 | Entrega um incremento do produto? | ✅ | Módulo de voluntariado (CRUD e inscrição) e painel admin entregues e funcionais |
 | Contempla os critérios de aceite estabelecidos? | ⚠️ | Cliente aprovou as entregas na Ata 6; débito técnico identificado no formulário de inscrição de voluntariado |
-| Está documentado para uso? | _a preencher_ | _Descrever atualização do Swagger/OpenAPI e comentários relevantes no código_ |
-| Está aderente aos padrões de codificação? | ✅ | Desenvolvido em FastAPI (back-end), Flutter (front-end) e Streamlit (admin) |
-| Mantém os índices de performance do produto? | _a preencher_ | _Descrever métricas ou testes de performance realizados_ |
 | O desenvolvimento foi concluído integralmente? | ⚠️ | Fluxo de voluntariado funcional, porém formulário de inscrição incompleto (débito técnico registrado na Ata 6) |
-| O isolamento de dados e segurança foram validados? | _a preencher_ | _Descrever validação da partition key e isolamento multi-tenant_ |
-| A conformidade legal e imutabilidade financeira foram aplicadas? | N/A | Não se aplica — sprint sem funcionalidades de pagamento ou doação |
-| Os testes foram executados e aprovados? | _a preencher_ | _Descrever testes unitários e de integração realizados_ |
-| A funcionalidade foi revisada pela equipe? | _a preencher_ | _Registrar número ou link do Pull Request no GitHub_ |
+| Os testes foram executados e aprovados? | ⚠️ | Ausência da cobertura completa de testes principalmente nas novas alterações feitas no módulo de administrador |
+| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada nos Pull Requests: #37, #38 |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Débito técnico documentado; encaminhamentos para Sprint 5 definidos na Ata 6 |
 
 ---
@@ -185,16 +180,16 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 6
 #### Comentários dos Membros
 
 **Davi Ursulino**
-> As tarefas foram bem definidas e eu entendia exatamente o que precisava ser feito. O que complicou foi a organização pessoal — a semana foi corrida para todo o time e isso gerou alguns atrasos pontuais, o que acabou contribuindo para o débito técnico no formulário.
+> As tarefas foram bem definidas e eu entendia exatamente o que precisava ser feito. O que complicou foi a organização pessoal, a semana foi corrida para todo o time e isso gerou alguns atrasos pontuais, o que acabou contribuindo para o débito técnico no formulário.
 
 **João Leles**
-> O escopo estava claro e bem dividido, o que ajudou muito. A dificuldade foi a gestão de tempo individual — houve momentos em que tarefas ficaram represadas por conta de comprometimentos externos. No geral entregamos o essencial, mas com menos folga do que gostaríamos.
+> O escopo estava claro e bem dividido, o que ajudou muito. A dificuldade foi a gestão de tempo individual, houve momentos em que tarefas ficaram comprometidas por conta de comprometimentos externos. No geral entregamos o essencial, mas com menos folga do que gostaríamos.
 
 **Letícia Vitória**
-> Sabia bem o que precisava ser feito e o módulo de voluntariado estava bem especificado. Porém, a equipe como um todo sofreu um pouco com organização pessoal nessa sprint — os atrasos foram mais por isso do que por falta de clareza nas tarefas em si.
+> Sabia bem o que precisava ser feito e o módulo de voluntariado estava bem especificado. Porém, a equipe como um todo sofreu um pouco com organização pessoal nessa sprint, os atrasos foram mais por isso do que por falta de clareza nas tarefas em si.
 
 **Pedro Augusto**
-> A definição das tarefas estava boa, mas a execução ficou um pouco abaixo do ritmo da sprint anterior. A correria do período afetou a organização pessoal de cada um, o que resultou em algumas entregas chegando perto do limite. O débito técnico foi consequência direta disso.
+> A definição das tarefas estava boa, mas a execução ficou um pouco abaixo do ritmo da sprint anterior. O presença de comprometimentos externos afetou a organização pessoal de cada um, o que resultou em algumas entregas chegando perto do limite. O débito técnico foi consequência direta disso.
 
 **Pedro Druck**
 > A sprint foi bem planejada no nível de tarefas, mas a organização individual da equipe não acompanhou o ritmo necessário. Todos entendiam o que precisava ser feito, mas a execução foi mais lenta por questões pessoais de cada membro. Mesmo assim, entregamos o núcleo do módulo de voluntariado.

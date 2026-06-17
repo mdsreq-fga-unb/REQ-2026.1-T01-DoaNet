@@ -26,8 +26,8 @@ Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da pl
 | :--- | :---: | :--- |
 | O requisito possui informação necessária para ser trabalhado? | ✅ | US17, US18 e US19 detalhadas no Story Map com personas, objetivos e atividades |
 | O requisito cabe em uma Sprint? | ✅ | 3 USs de CRUD de posts normais concluídas dentro das 2 semanas da sprint |
-| O requisito está representado por uma história de usuário? | ✅ | US17, US18 e US19 formalizadas no Story Map |
-| O requisito está mapeado para uma interface (quando necessário)? | ✅ | Interface do feed definida no protótipo de baixa fidelidade validado na Sprint 1 |
+| Os critérios de aceitação estão definidos? | ✅ | US17, US18 e US19 formalizadas no Story Map |
+| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados pelas histórias de usuário: US17, US18 e US19 |
 | As definições de arquitetura e contratos de API estão claras? | ✅ | Stack redefinida pós-pivoteamento (FastAPI + MongoDB + Flutter + Streamlit) documentada na Ata 2 |
 
 ### Definition of Done — DoD
@@ -38,14 +38,9 @@ Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da pl
 | :--- | :---: | :--- |
 | Entrega um incremento do produto? | ✅ | Feed com CRUD de posts normais funcionando ao final da sprint |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou e aprovou o CRUD do feed na reunião de 12/05 (Ata 4) |
-| Está documentado para uso? | _a preencher_ | _Descrever atualização do Swagger/OpenAPI e comentários relevantes no código_ |
-| Está aderente aos padrões de codificação? | ✅ | Desenvolvido em FastAPI (back-end) e Flutter (front-end) conforme stack definida |
-| Mantém os índices de performance do produto? | _a preencher_ | _Descrever métricas ou testes de performance realizados_ |
 | O desenvolvimento foi concluído integralmente? | ✅ | Criação, edição e deleção de postagens normais funcionando de ponta a ponta |
-| O isolamento de dados e segurança foram validados? | _a preencher_ | _Descrever validação da partition key e isolamento multi-tenant_ |
-| A conformidade legal e imutabilidade financeira foram aplicadas? | N/A | Não se aplica — sprint sem funcionalidades de pagamento ou doação |
-| Os testes foram executados e aprovados? | _a preencher_ | _Descrever testes unitários e de integração realizados_ |
-| A funcionalidade foi revisada pela equipe? | _a preencher_ | _Registrar número ou link do Pull Request no GitHub_ |
+| Os testes foram executados e aprovados? | ✅ | A cobertura de testes mínima foi alcançada através da pipeline atualizada de testes |
+| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada nos Pull Requests: #26 |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Ajustes do pivoteamento refletidos na implementação conforme Ata 2 e validação da Ata 4 |
 
 ---
@@ -157,19 +152,19 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 #### Comentários dos Membros
 
 **Davi Ursulino**
-> O pivoteamento foi a decisão certa e ficou evidente ao longo da sprint. A nova direção faz muito mais sentido para o produto. A dificuldade foi que, logo após a mudança, levamos um tempo para redistribuir as tarefas com clareza — mas superamos isso.
+> O pivoteamento foi a decisão certa e ficou evidente ao longo da sprint. A nova direção faz muito mais sentido para o produto. A dificuldade foi que, logo após a mudança, levamos um tempo para redistribuir as tarefas com clareza, mas superamos isso.
 
 **João Leles**
-> Foi um período de muita adaptação, mas saímos mais fortalecidos. O pivoteamento abriu nossa visão sobre o produto como um todo. A confusão inicial na definição do que cada um deveria fazer foi inevitável, porém foi superada ao longo da semana.
+> Foi um período de muita adaptação, mas o pivoteamento abriu nossa visão sobre o produto como um todo. A confusão inicial na definição do que cada um deveria fazer foi inevitável, porém foi superada ao longo da semana.
 
 **Letícia Vitória**
 > Essa sprint foi um marco para o projeto. O pivoteamento nos trouxe uma clareza que faltava na visão do produto. Logo após a reunião de mudança ficamos um pouco perdidos sobre como dividir o novo escopo, mas a equipe se reorganizou bem e entregamos o essencial.
 
 **Pedro Augusto**
-> Gostei muito da decisão de pivotar — ficou claro que era o caminho certo. A visão do time melhorou bastante depois disso. O único ponto negativo foi a confusão inicial para entender as novas responsabilidades dentro do novo escopo, o que custou alguns dias de replanejamento.
+> Achei muito boa a decisão de pivotar, ficou claro que era uma opção melhor. A visão do time melhorou bastante depois disso. O único ponto negativo foi a confusão inicial para entender as novas responsabilidades dentro do novo escopo, o que custou alguns dias de replanejamento.
 
 **Pedro Druck**
-> O pivoteamento foi difícil de absorver no começo, mas foi necessário e muito positivo. Sair da reunião sabendo que tudo mudaria gerou uma certa ansiedade inicial. Com o tempo, a equipe se reorganizou bem e conseguimos entregar o CRUD do feed com boa qualidade.
+> O pivoteamento foi difícil de absorver no começo, mas foi necessário e muito positivo. Sair da reunião sabendo que tudo mudaria gerou uma certa dificuldade inicial. Com o tempo, a equipe se reorganizou bem e conseguimos entregar o CRUD do feed com boa qualidade.
 
 #### Principais Aprendizados
 

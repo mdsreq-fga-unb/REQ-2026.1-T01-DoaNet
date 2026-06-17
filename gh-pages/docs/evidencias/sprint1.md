@@ -13,37 +13,7 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 ---
 
-## DoR e DoD
 
-### Definition of Ready — DoR
-
-> Critérios verificados **antes** do início da sprint para garantir que os artefatos estavam prontos para execução.
-
-| Critério | Status | Evidência |
-| :--- | :---: | :--- |
-| O requisito possui informação necessária para ser trabalhado? | ✅ | Entregáveis (protótipo, USM e ambiente) com escopo claro definidos no planejamento do projeto |
-| O requisito cabe em uma Sprint? | ✅ | Protótipo e USM compatíveis com a duração de 2 semanas |
-| O requisito está representado por uma história de usuário? | N/A | Sprint de planejamento — sem USs de funcionalidade; artefatos representados por entregáveis documentados |
-| O requisito está mapeado para uma interface (quando necessário)? | ✅ | Protótipo de baixa fidelidade criado no Figma como principal artefato da sprint |
-| As definições de arquitetura e contratos de API estão claras? | ✅ | Stack tecnológica inicial definida e documentada antes do início da sprint |
-
-### Definition of Done — DoD
-
-> Critérios verificados **ao final** da sprint para confirmar a qualidade e completude das entregas.
-
-| Critério | Status | Evidência |
-| :--- | :---: | :--- |
-| Entrega um incremento do produto? | ✅ | Protótipo de baixa fidelidade e USM entregues e validados |
-| Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou o USM na reunião de 27/04 (Ata 1) — *"deu a aprovação oficial para seguirmos"* |
-| Está documentado para uso? | ✅ | USM documentado no Story Map; protótipo disponível e acessível no Figma |
-| Está aderente aos padrões de codificação? | N/A | Sprint de planejamento sem desenvolvimento de código |
-| Mantém os índices de performance do produto? | N/A | Sprint de planejamento sem desenvolvimento de código |
-| O desenvolvimento foi concluído integralmente? | ✅ | Protótipo e USM entregues conforme planejado; ambiente configurado |
-| O isolamento de dados e segurança foram validados? | N/A | Sprint de planejamento sem desenvolvimento de código |
-| A conformidade legal e imutabilidade financeira foram aplicadas? | N/A | Não se aplica — sprint sem funcionalidades de pagamento ou doação |
-| Os testes foram executados e aprovados? | N/A | Sprint de planejamento sem desenvolvimento de código |
-| A funcionalidade foi revisada pela equipe? | ✅ | USM revisado coletivamente pela equipe e aprovado pelo cliente na Ata 1 |
-| A documentação e o feedback relevante foram incorporados? | ✅ | Plano de desenvolvimento ajustado conforme feedbacks da Ata 1; Sprint 2 planejada na mesma reunião |
 
 ---
 
@@ -68,19 +38,6 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 - [User Story Map](../visao_produto/10-story_map.md) construído como representação visual e estruturada do escopo completo do produto, organizando as histórias por jornada do usuário e prioridade de entrega.
 - Protótipo de baixa fidelidade desenvolvido no Figma (ver seção abaixo) representando os fluxos das três abas principais — validado com a cliente antes do início do desenvolvimento.
-
-#### Verificação de Requisitos — Critérios INVEST
-
-Critérios INVEST aplicados durante a construção do Story Map para verificar a qualidade de cada história de usuário antes de compor o backlog. As 22 USs foram revisadas conforme os critérios e aprovadas pela cliente na reunião de 27/04 — ver [User Story Map](../visao_produto/10-story_map.md).
-
-| Critério | Descrição aplicada |
-| :--- | :--- |
-| **I**ndependente | Cada US representa uma funcionalidade autônoma, sem dependência de outra US para ser desenvolvida ou testada isoladamente |
-| **N**egociável | Escopo e critérios de aceite de cada US discutidos e ajustados com a cliente durante a construção do Story Map |
-| **V**aliosa | Todas as USs mapeadas entregam valor direto ao usuário final ou ao administrador da ONG |
-| **E**stimável | Tamanho e complexidade das USs avaliados pela equipe como estimáveis dentro de um ciclo de sprint |
-| **S**uficientemente pequena | USs decompostas quando necessário para caber dentro de uma sprint de 2 semanas |
-| **T**estável | Critérios de aceite definidos de forma objetiva para cada US, permitindo verificação de conclusão |
 
 #### Validação de Requisitos — Protótipos e Feedback do Cliente
 
@@ -160,16 +117,16 @@ Critérios INVEST aplicados durante a construção do Story Map para verificar a
 #### Comentários dos Membros
 
 **Davi Ursulino**
-> Conseguimos entregar tudo o que foi planejado, o que foi ótimo dado o período cheio de provas. Mas senti falta de uma definição mais clara de responsabilidades logo no início — em alguns momentos não estava claro quem estava fazendo o quê.
+> Conseguimos entregar tudo o que foi planejado, o que foi ótimo dado o período cheio de provas. Mas senti falta de uma definição mais clara de responsabilidades logo no início, em alguns momentos não estava claro quem estava fazendo o quê.
 
 **João Leles**
 > A entrega foi bem-sucedida, mas a comunicação entre a equipe deixou a desejar. Muita coisa foi combinada informalmente e acabou se perdendo. Precisamos de um canal mais organizado para acompanhar o progresso das tarefas nas próximas sprints.
 
 **Letícia Vitória**
-> Fiquei feliz com a capacidade da equipe de cumprir o planejado mesmo com semanas tão cheias. Mas notei que a organização inicial das tarefas foi um ponto fraco — levamos um tempo até saber exatamente quem era responsável por cada parte do trabalho.
+> Fiquei feliz com a capacidade da equipe de cumprir o planejado mesmo com semanas tão cheias. Mas notei que a organização inicial das tarefas foi um ponto fraco, levamos um tempo até saber exatamente quem era responsável por cada parte do trabalho.
 
 **Pedro Augusto**
-> A sprint foi positiva no geral, conseguimos entregar o que foi proposto. O que precisamos melhorar é a divisão de tarefas desde o início — houve momentos de sobreposição de trabalho e outros em que alguém ficou sem saber o que fazer.
+> A sprint foi positiva no geral, conseguimos entregar o que foi proposto. O que precisamos melhorar é a divisão de tarefas desde o início, houve momentos de sobreposição de trabalho e outros em que alguém ficou sem saber o que fazer.
 
 **Pedro Druck**
 > A equipe se saiu bem diante das circunstâncias. Mas a falta de comunicação clara no começo gerou algum retrabalho. Para as próximas sprints, precisamos definir as tarefas e responsabilidades logo na largada, sem depender de combinados informais.
