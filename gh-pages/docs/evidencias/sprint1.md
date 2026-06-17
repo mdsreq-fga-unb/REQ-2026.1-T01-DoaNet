@@ -1,6 +1,6 @@
 # Evidências — Sprint 1
 
-## User Stories Relacionadas
+## User Stories Concluídas
 
 !!! abstract "Sprint de planejamento e prototipagem"
     Nesta sprint não houve implementação de User Stories funcionais. O foco foi a construção do ambiente de desenvolvimento, elaboração do protótipo de baixa fidelidade no Figma e construção do User Story Map (USM), estabelecendo a base para as sprints de desenvolvimento.
@@ -47,6 +47,49 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 ---
 
+## Evidências do Processo de ER
+
+> Atividades de Engenharia de Requisitos realizadas nesta sprint, conforme o processo ScrumXP definido em [Engenharia de Requisitos](../visao_produto/5-EngenhariadeRequisitos.md).
+
+#### Elicitação e Descoberta
+
+- Entrevistas com a cliente (Letícia) para levantamento das necessidades reais das ONGs — contexto de domínio e requisitos iniciais coletados e registrados na [Ata 1](../atas/ata1_27_04_2026.md).
+- Brainstorming interno de arquitetura e produto: definição da stack tecnológica inicial e dos módulos principais do sistema (feed, transparência, colaboração).
+
+#### Análise e Consenso
+
+- Priorização Valor x Esforço aplicada em conjunto com a cliente para definição do escopo do MVP — aprovação do User Story Map na reunião de 27/04 ([Ata 1](../atas/ata1_27_04_2026.md)).
+
+#### Declaração de Requisitos
+
+- US01–US22 escritas, refinadas e formalizadas no [User Story Map](../visao_produto/10-story_map.md) com personas, objetivos e critérios de aceite.
+
+#### Representação de Requisitos
+
+- [User Story Map](../visao_produto/10-story_map.md) construído como representação visual e estruturada do escopo completo do produto, organizando as histórias por jornada do usuário e prioridade de entrega.
+- Protótipo de baixa fidelidade desenvolvido no Figma (ver seção abaixo) representando os fluxos das três abas principais — validado com a cliente antes do início do desenvolvimento.
+
+#### Verificação de Requisitos — Critérios INVEST
+
+Critérios INVEST aplicados durante a construção do Story Map para verificar a qualidade de cada história de usuário antes de compor o backlog. As 22 USs foram revisadas conforme os critérios e aprovadas pela cliente na reunião de 27/04 — ver [User Story Map](../visao_produto/10-story_map.md).
+
+| Critério | Descrição aplicada |
+| :--- | :--- |
+| **I**ndependente | Cada US representa uma funcionalidade autônoma, sem dependência de outra US para ser desenvolvida ou testada isoladamente |
+| **N**egociável | Escopo e critérios de aceite de cada US discutidos e ajustados com a cliente durante a construção do Story Map |
+| **V**aliosa | Todas as USs mapeadas entregam valor direto ao usuário final ou ao administrador da ONG |
+| **E**stimável | Tamanho e complexidade das USs avaliados pela equipe como estimáveis dentro de um ciclo de sprint |
+| **S**uficientemente pequena | USs decompostas quando necessário para caber dentro de uma sprint de 2 semanas |
+| **T**estável | Critérios de aceite definidos de forma objetiva para cada US, permitindo verificação de conclusão |
+
+#### Validação de Requisitos — Protótipos e Feedback do Cliente
+
+- Protótipo de baixa fidelidade e USM apresentados ao cliente (Paulo) por Letícia na reunião de 27/04.
+- USM validado e aprovado: *"deu a aprovação oficial para seguirmos"* — [Ata de Validação S1](../atas/ata_validacao_s1_27_04_2026.md).
+- Encaminhamentos e ajustes de escopo incorporados ao planejamento da Sprint 2.
+
+---
+
 ## Protótipo de Baixa Fidelidade
 
 > Protótipo interativo desenvolvido no Figma e validado com o cliente durante esta sprint.
@@ -75,59 +118,60 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 ---
 
-## Sprint Planning
+## Reuniões e Cerimônias Realizadas
+
+### Sprint Planning
 
 > Reunião de definição do escopo, estimativas e comprometimento do time para a sprint.
 
-!!! note "Não registrado separadamente nesta sprint."
-    O planejamento da Sprint 1 ocorreu de forma integrada à Revisão e Retrospectiva da sprint anterior, ainda na fase inicial do projeto.
+!!! success "Sprint Planning Sprint 1 — 14/04/2026 · Presencial · Campus FGA"
 
----
+    --8<-- "atas/ata_planejamento_s1_14_04_2026.md"
 
-## Refinamento do Backlog
+### Refinamento do User Story Map
 
-> Reuniões internas para revisão e detalhamento das histórias de usuário durante a execução da sprint.
+> Reunião interna realizada na semana intermediária da sprint para revisão e detalhamento das histórias do User Story Map.
 
-!!! note "Nenhuma reunião de refinamento registrada nesta sprint."
+!!! info "Refinamento do User Story Map — 21/04/2026 · Discord"
 
----
+    --8<-- "atas/ata_refinamento_s1_21_04_2026.md"
 
-## Revisão e Retrospectiva da Sprint
+### Validação com o Cliente
 
-> Demonstração do incremento ao cliente, coleta de feedback e reflexão interna da equipe sobre o processo da sprint.
+> Reunião de apresentação do incremento da sprint ao cliente para coleta de feedback e aprovação formal. Participantes: Letícia Vitória (equipe) e Paulo (stakeholder).
 
-!!! success "Revisão da Sprint 1 · Retrospectiva · Sprint Planning Sprint 2 — 27/04/2026 · Discord"
+!!! success "Aprovação do USM e Protótipo — 27/04/2026 · Discord · Letícia e Paulo"
 
-    --8<-- "atas/ata1_27_04_2026.md"
+    --8<-- "atas/ata_validacao_s1_27_04_2026.md"
 
----
-
-## Retrospectiva da Equipe
+### Retrospectiva da Equipe
 
 > Percepções individuais dos membros sobre a sprint e aprendizados coletivos.
 
 **Data:** 27/04/2026  
 **Participantes:** Davi Ursulino, João Leles, Letícia Vitória, Pedro Augusto e Pedro Druck
 
-### Comentários dos Membros
+#### Comentários dos Membros
 
 **Davi Ursulino**
-> _a preencher_
+> Conseguimos entregar tudo o que foi planejado, o que foi ótimo dado o período cheio de provas. Mas senti falta de uma definição mais clara de responsabilidades logo no início — em alguns momentos não estava claro quem estava fazendo o quê.
 
 **João Leles**
-> _a preencher_
+> A entrega foi bem-sucedida, mas a comunicação entre a equipe deixou a desejar. Muita coisa foi combinada informalmente e acabou se perdendo. Precisamos de um canal mais organizado para acompanhar o progresso das tarefas nas próximas sprints.
 
 **Letícia Vitória**
-> _a preencher_
+> Fiquei feliz com a capacidade da equipe de cumprir o planejado mesmo com semanas tão cheias. Mas notei que a organização inicial das tarefas foi um ponto fraco — levamos um tempo até saber exatamente quem era responsável por cada parte do trabalho.
 
 **Pedro Augusto**
-> _a preencher_
+> A sprint foi positiva no geral, conseguimos entregar o que foi proposto. O que precisamos melhorar é a divisão de tarefas desde o início — houve momentos de sobreposição de trabalho e outros em que alguém ficou sem saber o que fazer.
 
 **Pedro Druck**
-> _a preencher_
+> A equipe se saiu bem diante das circunstâncias. Mas a falta de comunicação clara no começo gerou algum retrabalho. Para as próximas sprints, precisamos definir as tarefas e responsabilidades logo na largada, sem depender de combinados informais.
 
-### Principais Aprendizados
+#### Principais Aprendizados
 
-- A comunicação interna precisa ser mais clara, especialmente na definição de quem é responsável por cada tarefa.
-- A gestão de tarefas deve ser centralizada nas ferramentas do projeto (boards); o WhatsApp deve ser usado apenas para comunicações rápidas.
-- Mesmo com semanas de provas e acúmulo de demandas, é possível cumprir o planejado quando há engajamento coletivo da equipe.
+- A arquitetura inicial precisou ser completamente redefinida logo após esta sprint — o pivoteamento que se seguiu evidenciou que validar premissas técnicas e de escopo com o cliente **antes** de consolidar decisões arquiteturais é fundamental para evitar retrabalho.
+- Entender o modelo de negócio do terceiro setor com profundidade é pré-requisito para traduzir necessidades reais em funcionalidades sistêmicas; não basta levantar requisitos, é preciso compreender como a organização opera na prática.
+- Conciliar agendas entre todos os membros e com o stakeholder é um desafio recorrente que exige calendário fixo de cerimônias definido desde o início do projeto.
+- A comunicação interna precisa ser mais clara, com responsabilidades definidas explicitamente nos boards em vez de combinados informais.
+- A gestão de tarefas deve ser centralizada nas ferramentas do projeto; o WhatsApp deve ser reservado apenas para comunicações rápidas.

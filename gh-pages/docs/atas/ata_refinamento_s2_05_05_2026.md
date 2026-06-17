@@ -13,4 +13,12 @@
 
 ## Encaminhamentos
 
-_a preencher_
+| Atividade | Responsável | Prazo |
+| :--- | :--- | :--- |
+| Configuração da arquitetura base do back-end em FastAPI + MongoDB | Pedro Druck | 12/05/2026 |
+| Implementação dos endpoints de CRUD do feed (US17, US18, US19) | Pedro Augusto | 12/05/2026 |
+| Setup inicial do projeto Flutter e integração com o back-end | Pedro Druck e Letícia Vitória | 12/05/2026 |
+| Estudo e prototipagem inicial do módulo de administração em Streamlit | João Leles | 12/05/2026 |
+| Implementação das telas do feed no front-end (criação, edição e deleção de posts) | Letícia Vitória | 12/05/2026 |
+| Apoio na integração front-back e testes manuais do CRUD do feed | Davi Ursulino | 12/05/2026 |
+| Preparação da demonstração do incremento para a validação com o cliente | Letícia Vitória | 12/05/2026 |

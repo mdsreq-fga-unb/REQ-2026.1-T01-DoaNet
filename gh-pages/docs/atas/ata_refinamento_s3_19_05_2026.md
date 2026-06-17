@@ -13,4 +13,12 @@
 
 ## Encaminhamentos
 
-_a preencher_
+| Atividade | Responsável | Prazo |
+| :--- | :--- | :--- |
+| Conclusão dos endpoints de eventos e inscrição no back-end (US09, extensão de US17) | Pedro Augusto | 26/05/2026 |
+| Finalização do módulo de autenticação de administradores (US11) — atrasos iniciais a serem recuperados | João Leles | 26/05/2026 |
+| Implementação do suporte a imagens nos posts (front-end) | Letícia Vitória | 26/05/2026 |
+| Implementação das telas de eventos e inscrição no Flutter | Letícia Vitória e Pedro Druck | 26/05/2026 |
+| Apoio na integração do módulo admin com o back-end | Davi Ursulino | 26/05/2026 |
+| Testes manuais do feed completo (posts normais + eventos + admin) | Equipe | 26/05/2026 |
+| Atualização do protótipo final no Figma para apresentação ao cliente | Letícia Vitória | 26/05/2026 |

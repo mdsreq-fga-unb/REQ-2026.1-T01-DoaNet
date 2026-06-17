@@ -178,19 +178,19 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 6
 #### Comentários dos Membros
 
 **Davi Ursulino**
-> _a preencher_
+> As tarefas foram bem definidas e eu entendia exatamente o que precisava ser feito. O que complicou foi a organização pessoal — a semana foi corrida para todo o time e isso gerou alguns atrasos pontuais, o que acabou contribuindo para o débito técnico no formulário.
 
 **João Leles**
-> _a preencher_
+> O escopo estava claro e bem dividido, o que ajudou muito. A dificuldade foi a gestão de tempo individual — houve momentos em que tarefas ficaram represadas por conta de comprometimentos externos. No geral entregamos o essencial, mas com menos folga do que gostaríamos.
 
 **Letícia Vitória**
-> _a preencher_
+> Sabia bem o que precisava ser feito e o módulo de voluntariado estava bem especificado. Porém, a equipe como um todo sofreu um pouco com organização pessoal nessa sprint — os atrasos foram mais por isso do que por falta de clareza nas tarefas em si.
 
 **Pedro Augusto**
-> _a preencher_
+> A definição das tarefas estava boa, mas a execução ficou um pouco abaixo do ritmo da sprint anterior. A correria do período afetou a organização pessoal de cada um, o que resultou em algumas entregas chegando perto do limite. O débito técnico foi consequência direta disso.
 
 **Pedro Druck**
-> _a preencher_
+> A sprint foi bem planejada no nível de tarefas, mas a organização individual da equipe não acompanhou o ritmo necessário. Todos entendiam o que precisava ser feito, mas a execução foi mais lenta por questões pessoais de cada membro. Mesmo assim, entregamos o núcleo do módulo de voluntariado.
 
 #### Principais Aprendizados
 

@@ -154,19 +154,19 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 5
 #### Comentários dos Membros
 
 **Davi Ursulino**
-> _a preencher_
+> A sprint mais tranquila até agora. As tarefas estavam bem definidas desde o início e cada membro sabia exatamente o que fazer. Entregamos tudo o que foi planejado sem grandes imprevistos — isso reflete a maturidade que a equipe ganhou nas sprints anteriores.
 
 **João Leles**
-> _a preencher_
+> Senti uma grande evolução da equipe nessa sprint. A definição de tarefas foi muito mais clara e o progresso foi consistente ao longo das duas semanas. Conseguimos entregar os eventos, a inscrição e o módulo admin sem grandes bloqueios — exatamente como planejado.
 
 **Letícia Vitória**
-> _a preencher_
+> Essa sprint foi a prova de que aprendemos com os erros anteriores. A organização das tarefas no board estava ótima e a comunicação fluiu bem. Entregar o feed completo com eventos e imagens foi gratificante e mostrou que o time está em um bom ritmo.
 
 **Pedro Augusto**
-> _a preencher_
+> Muito satisfeito com o resultado dessa sprint. A equipe funcionou de forma coordenada e as entregas foram consistentes. A definição das tarefas no início foi essencial para que todos soubessem suas responsabilidades e pudessem trabalhar sem bloqueios durante a semana.
 
 **Pedro Druck**
-> _a preencher_
+> Posso dizer que essa foi a sprint em que a equipe mais fluiu. Tudo foi bem planejado, a divisão de tarefas estava clara e as entregas foram feitas sem surpresas. A aprovação do módulo de admin pelo cliente foi um ponto alto e confirmou que estamos no caminho certo.
 
 #### Principais Aprendizados
 

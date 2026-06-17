@@ -13,4 +13,11 @@
 
 ## Encaminhamentos
 
-_a preencher_
+| Atividade | Responsável | Prazo |
+| :--- | :--- | :--- |
+| Finalização da construção do User Story Map | Letícia Vitória e Davi Ursulino | 27/04/2026 |
+| Conclusão do protótipo de baixa fidelidade no Figma | Letícia Vitória e Davi Ursulino | 27/04/2026 |
+| Estudo inicial da stack tecnológica e setup do ambiente de desenvolvimento | Pedro Druck | 27/04/2026 |
+| Levantamento de referências para a arquitetura inicial do back-end | Pedro Augusto e Pedro Druck | 27/04/2026 |
+| Pesquisa sobre estrutura do módulo administrativo | João Leles | 27/04/2026 |
+| Preparação da apresentação do USM e protótipo para validação com o cliente | Letícia Vitória | 27/04/2026 |

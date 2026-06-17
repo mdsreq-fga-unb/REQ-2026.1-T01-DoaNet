@@ -13,4 +13,12 @@
 
 ## Encaminhamentos
 
-_a preencher_
+| Atividade | Responsável | Prazo |
+| :--- | :--- | :--- |
+| Conclusão dos endpoints de voluntariado no back-end (US04, US20, US21, US22) | Pedro Augusto e Davi Ursulino | 09/06/2026 |
+| Implementação das telas de visualização e inscrição em voluntariado no Flutter | Pedro Druck | 09/06/2026 |
+| Implementação das telas administrativas de voluntariado no front-end | Letícia Vitória | 09/06/2026 |
+| Integração do painel admin com o módulo de voluntariado (Streamlit) | João Leles | 09/06/2026 |
+| Revisão do formulário de inscrição em voluntariado (US08) — risco de débito técnico identificado | Pedro Druck e Letícia Vitória | 09/06/2026 |
+| Testes integrados do fluxo completo de voluntariado | Equipe | 09/06/2026 |
+| Preparação da apresentação do incremento para validação com o cliente | Letícia Vitória | 09/06/2026 |

@@ -151,19 +151,19 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 #### Comentários dos Membros
 
 **Davi Ursulino**
-> _a preencher_
+> O pivoteamento foi a decisão certa e ficou evidente ao longo da sprint. A nova direção faz muito mais sentido para o produto. A dificuldade foi que, logo após a mudança, levamos um tempo para redistribuir as tarefas com clareza — mas superamos isso.
 
 **João Leles**
-> _a preencher_
+> Foi um período de muita adaptação, mas saímos mais fortalecidos. O pivoteamento abriu nossa visão sobre o produto como um todo. A confusão inicial na definição do que cada um deveria fazer foi inevitável, porém foi superada ao longo da semana.
 
 **Letícia Vitória**
-> _a preencher_
+> Essa sprint foi um marco para o projeto. O pivoteamento nos trouxe uma clareza que faltava na visão do produto. Logo após a reunião de mudança ficamos um pouco perdidos sobre como dividir o novo escopo, mas a equipe se reorganizou bem e entregamos o essencial.
 
 **Pedro Augusto**
-> _a preencher_
+> Gostei muito da decisão de pivotar — ficou claro que era o caminho certo. A visão do time melhorou bastante depois disso. O único ponto negativo foi a confusão inicial para entender as novas responsabilidades dentro do novo escopo, o que custou alguns dias de replanejamento.
 
 **Pedro Druck**
-> _a preencher_
+> O pivoteamento foi difícil de absorver no começo, mas foi necessário e muito positivo. Sair da reunião sabendo que tudo mudaria gerou uma certa ansiedade inicial. Com o tempo, a equipe se reorganizou bem e conseguimos entregar o CRUD do feed com boa qualidade.
 
 #### Principais Aprendizados
 
