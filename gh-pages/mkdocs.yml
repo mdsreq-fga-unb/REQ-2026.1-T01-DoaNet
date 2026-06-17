@@ -21,6 +21,14 @@ nav:
       - Reunião 1: atas/ata1_27_04_2026.md
       - Reunião 2: atas/ata2_04_05_2026.md
       - Reunião 3: atas/ata3_11_05_2026.md
+      - Reunião 4: atas/ata4_12_05_2026.md
+      - Reunião 5: atas/ata5_26_05_2026.md
+      - Reunião 6: atas/ata6_09_06_2026.md
+      - Refinamento Sprint 1: atas/ata_refinamento_s1_21_04_2026.md
+      - Refinamento Sprint 2: atas/ata_refinamento_s2_05_05_2026.md
+      - Refinamento Sprint 3: atas/ata_refinamento_s3_19_05_2026.md
+      - Refinamento Sprint 4: atas/ata_refinamento_s4_02_06_2026.md
+      - Validação Sprint 1: atas/ata_validacao_s1_27_04_2026.md
   - Evidências:
       - Sprint 1: evidencias/sprint1.md
       - Sprint 2: evidencias/sprint2.md
@@ -52,5 +60,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed
   - admonition
+  - toc:
+      toc_depth: "2-4"
   - pymdownx.snippets:
       base_path: ["docs"]

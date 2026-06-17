@@ -43,3 +43,22 @@
 * **Reorganização do planejamento após o pivoteamento**:
     * **Desafio:** Replanejar a ordem das entregas e realinhar as atividades da equipe depois das mudanças de escopo e de tecnologias usadas.
     * **Ação de Melhoria:** Revisar o backlog com o cliente, reestimar as tarefas e ajustar o plano de sprints com base no novo escopo.
+
+## 11.3 Unidade 3
+
+### **Lições Aprendidas e Melhorias no Processo**
+
+* **Definição melhorada de conceitos como requisitos e Story Map**:
+    * **Desafio:** Entender melhor cada conceito, porque isso causou algumas inconsistencias com relação a declaração de alguns elementos do nosso projeto.
+    * **Ação de Melhoria:** Revisar as nomenclaturas utilizadas no nosso documento, para que alguns requisitos ficassem melhor definidos, e revisão da nomenclatura utilizada para o artefato de escopo.
+* **Importância do registro de evidências:**
+    * **Desafio:** Embora houvessem validações realizadas com o cliente, nem sempre elas ficavam registradas de forma explícita, além da falta de evidências do andamento do projeto e dos processos de engenharia de requisitos e software.
+    * **Ação de Melhoria:** Formalizar evidências de validação dos artefatos, evidências das entregas do projeto e evidências relacionadas a aplicação dos processos de engenharia de requisitos e engenharia de software.
+
+### **Dificuldades Enfrentadas e Superação**
+* **Implementação do Streamlit**:
+    * **Desafio:** Construção do Streamlit para os propósitos do nosso projeto.
+    * **Ação de Melhoria:** Colaboração de membros da equipe para o compartilhamento de conhecimento a partir de diferentes estudos feitos individualmente.
+* **Implementação do Google Cloud Storage**:
+    * **Desafio:** Implementar o Google Cloud Storage para armazenar imagens em buckets, lidando com autenticação, permissões e configuração adequada do ambiente para toda a equipe.
+    * **Ação de Melhoria:** Padronizar o processo de configuração das credenciais e definir uma estratégia compartilhada para utilização dos serviços em nuvem.
