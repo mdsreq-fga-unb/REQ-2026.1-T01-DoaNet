@@ -41,7 +41,7 @@ void main() {
     expect(find.text('Sem Eventos'), findsOneWidget);
     expect(find.text('Titulo teste'), findsOneWidget);
     expect(find.text('Descricao teste'), findsOneWidget);
-    expect(find.text('Perfil'), findsOneWidget);
+    expect(find.text('ONG X'), findsOneWidget);
     print('OK: FeedPage renders filters and items');
   });
 
