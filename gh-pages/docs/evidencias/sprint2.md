@@ -1,51 +1,76 @@
 # Evidências — Sprint 2
 
-## User Stories Relacionadas
+---
 
-| US | Descrição |
-| :--- | :--- |
-| **US17** | Como administrador da organização, quero criar uma nova publicação no feed (normal), para me comunicar com os apoiadores. |
-| **US18** | Como administrador da organização, quero deletar uma publicação no feed, para remover um aviso incorreto ou que não seja mais pertinente. |
-| **US19** | Como administrador da organização, quero atualizar uma publicação no feed, para corrigir ou adicionar detalhes importantes. |
+## User Stories
+
+<a id="us02"></a>
+### US02 — Visualizar publicações no feed
+
+> Como usuário, quero visualizar as publicações no feed, para me manter atualizado sobre as ações e eventos da organização.
+
+**Critérios de Aceite:**
+
+- O feed exibe publicações em ordem cronológica decrescente.
+- Cada publicação apresenta título, data de criação e imagem (quando disponível).
+- O feed exibe tanto posts normais quanto posts de eventos.
+- O feed é acessível sem autenticação.
+
+#### Protótipo de Alta Fidelidade da US
 
 ---
 
-## Descrição da Entrega
+<a id="us17"></a>
+### US17 — Criar publicação no feed
 
-Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da plataforma DoaNet, com foco na criação, edição e deleção de postagens normais (sem nenhum evento atrelado).
+> Como administrador da organização, quero criar uma nova publicação no feed (normal ou evento), para me comunicar com os apoiadores.
 
----
+**Critérios de Aceite:**
 
-## DoR e DoD
+- O administrador consegue criar uma publicação normal com título, texto e imagem opcional.
+- O administrador consegue criar uma publicação de evento com título, texto, data do evento e imagem opcional.
+- A publicação é exibida imediatamente no feed após criação.
+- Apenas administradores autenticados conseguem criar publicações.
 
-### Definition of Ready — DoR
-
-> Critérios verificados **antes** do início da sprint para garantir que as histórias estavam prontas para desenvolvimento.
-
-| Critério | Status | Evidência |
-| :--- | :---: | :--- |
-| O requisito possui informação necessária para ser trabalhado? | ✅ | US17, US18 e US19 detalhadas no Story Map com personas, objetivos e atividades |
-| O requisito cabe em uma Sprint? | ✅ | 3 USs de CRUD de posts normais concluídas dentro das 2 semanas da sprint |
-| Os critérios de aceitação estão definidos? | ✅ | US17, US18 e US19 formalizadas no Story Map |
-| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados pelas histórias de usuário: US17, US18 e US19 |
-| As definições de arquitetura e contratos de API estão claras? | ✅ | Stack redefinida pós-pivoteamento (FastAPI + MongoDB + Flutter + Streamlit) documentada na Ata 2 |
-
-### Definition of Done — DoD
-
-> Critérios verificados **ao final** da sprint para confirmar a qualidade e completude das entregas.
-
-| Critério | Status | Evidência |
-| :--- | :---: | :--- |
-| Entrega um incremento do produto? | ✅ | Feed com CRUD de posts normais funcionando ao final da sprint |
-| Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou e aprovou o CRUD do feed na reunião de 12/05 (Ata 4) |
-| O desenvolvimento foi concluído integralmente? | ✅ | Criação, edição e deleção de postagens normais funcionando de ponta a ponta |
-| Os testes foram executados e aprovados? | ✅ | A cobertura de testes mínima foi alcançada através da pipeline atualizada de testes |
-| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada nos Pull Requests: #26 |
-| A documentação e o feedback relevante foram incorporados? | ✅ | Ajustes do pivoteamento refletidos na implementação conforme Ata 2 e validação da Ata 4 |
+#### Protótipo de Alta Fidelidade da US
 
 ---
 
-## Evidências do Processo de ER
+<a id="us18"></a>
+### US18 — Deletar publicação no feed
+
+> Como administrador da organização, quero deletar uma publicação no feed, para remover um aviso incorreto ou que não seja mais pertinente.
+
+**Critérios de Aceite:**
+
+- O administrador consegue excluir qualquer publicação do feed da sua organização.
+- A publicação é removida imediatamente do feed após exclusão.
+- Apenas administradores autenticados conseguem excluir publicações.
+
+#### Protótipo de Alta Fidelidade da US
+
+---
+
+<a id="us19"></a>
+### US19 — Atualizar publicação no feed
+
+> Como administrador da organização, quero atualizar uma publicação no feed, para corrigir ou adicionar detalhes importantes.
+
+**Critérios de Aceite:**
+
+- O administrador consegue editar título, texto e imagem de uma publicação existente.
+- As alterações são refletidas imediatamente no feed após salvar.
+- Apenas administradores autenticados conseguem editar publicações.
+
+#### Protótipo de Alta Fidelidade da US
+
+---
+
+---
+
+## Engenharia de Requisitos
+
+### Evidências do Processo de ER
 
 > Atividades de Engenharia de Requisitos realizadas nesta sprint, conforme o processo ScrumXP definido em [Engenharia de Requisitos](../visao_produto/5-EngenhariadeRequisitos.md).
 
@@ -63,21 +88,21 @@ Aplicado no Sprint Planning para confirmar que as histórias estavam prontas par
 
 #### Critérios de Aceite — Evidências de Cumprimento
 
-Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4](../atas/ata4_12_05_2026.md). Definição completa em [10.3 Critérios de Aceite](../visao_produto/10-story_map.md).
+Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4](../atas/ata4_12_05_2026.md). Definição completa em [US17 - Criar publicação no feed](#us17), [US18 - Deletar publicação no feed](#us18), [US19 - Atualizar publicação no feed](#us19).
 
-**US17 — Criar publicação no feed (post normal)**
+**[US17 - Criar publicação no feed](#us17)**
 
 - ✅ Administrador cria publicação normal com título, texto e imagem opcional
 - ✅ Publicação exibida imediatamente no feed após criação
 - ✅ Criação restrita a administradores autenticados
 
-**US18 — Deletar publicação no feed**
+**[US18 - Deletar publicação no feed](#us18)**
 
 - ✅ Administrador exclui publicação da sua organização
 - ✅ Publicação removida imediatamente do feed após exclusão
 - ✅ Exclusão restrita a administradores autenticados
 
-**US19 — Atualizar publicação no feed**
+**[US19 - Atualizar publicação no feed](#us19)**
 
 - ✅ Administrador edita título, texto e imagem de publicação existente
 - ✅ Alterações refletidas imediatamente no feed após salvar
@@ -97,17 +122,9 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 
 ---
 
-## Demonstração em Imagens
+### Reuniões e Cerimônias Realizadas
 
-![Feed](../assets/Feed.png)
-
-![Feed2](../assets/Feed2.png)
-
----
-
-## Reuniões e Cerimônias Realizadas
-
-### Sprint Planning
+#### Sprint Planning
 
 > Reunião de definição do escopo, estimativas e comprometimento do time para a sprint.
 
@@ -117,9 +134,7 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 
     --8<-- "atas/ata2_04_05_2026.md"
 
----
-
-### Refinamento do User Story Map
+#### Refinamento do User Story Map
 
 > Reunião interna realizada na semana intermediária da sprint para revisão e detalhamento das histórias do User Story Map.
 
@@ -129,9 +144,7 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 
     --8<-- "atas/ata_refinamento_s2_05_05_2026.md"
 
----
-
-### Validação com o Cliente
+#### Validação com o Cliente
 
 > Reunião de apresentação do incremento da sprint ao cliente para coleta de feedback e aprovação formal. Participantes: Letícia Vitória (equipe) e Paulo (stakeholder).
 
@@ -141,34 +154,57 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 
     --8<-- "atas/ata4_12_05_2026.md"
 
----
-
-### Retrospectiva da Equipe
+#### Retrospectiva da Equipe
 
 > Percepções individuais dos membros sobre a sprint e aprendizados coletivos.
 
-**Data:** _a preencher_  
-**Participantes:** Davi Ursulino, João Leles, Letícia Vitória, Pedro Augusto e Pedro Druck
+📄 _Caso a visualização abaixo não funcione, [acesse a ata diretamente](../atas/ata_retrospectiva_s2_12_05_2026.md)._
 
-#### Comentários dos Membros
+!!! info "Retrospectiva Sprint 2 — 12/05/2026 · Discord"
 
-**Davi Ursulino**
-> O pivoteamento foi a decisão certa e ficou evidente ao longo da sprint. A nova direção faz muito mais sentido para o produto. A dificuldade foi que, logo após a mudança, levamos um tempo para redistribuir as tarefas com clareza, mas superamos isso.
+    --8<-- "atas/ata_retrospectiva_s2_12_05_2026.md"
 
-**João Leles**
-> Foi um período de muita adaptação, mas o pivoteamento abriu nossa visão sobre o produto como um todo. A confusão inicial na definição do que cada um deveria fazer foi inevitável, porém foi superada ao longo da semana.
+---
 
-**Letícia Vitória**
-> Essa sprint foi um marco para o projeto. O pivoteamento nos trouxe uma clareza que faltava na visão do produto. Logo após a reunião de mudança ficamos um pouco perdidos sobre como dividir o novo escopo, mas a equipe se reorganizou bem e entregamos o essencial.
+## Engenharia de Software
 
-**Pedro Augusto**
-> Achei muito boa a decisão de pivotar, ficou claro que era uma opção melhor. A visão do time melhorou bastante depois disso. O único ponto negativo foi a confusão inicial para entender as novas responsabilidades dentro do novo escopo, o que custou alguns dias de replanejamento.
+### Descrição da Entrega
 
-**Pedro Druck**
-> O pivoteamento foi difícil de absorver no começo, mas foi necessário e muito positivo. Sair da reunião sabendo que tudo mudaria gerou uma certa dificuldade inicial. Com o tempo, a equipe se reorganizou bem e conseguimos entregar o CRUD do feed com boa qualidade.
+Nesta sprint, o grupo se propôs a implementar as funcionalidades centrais da plataforma DoaNet, com foco na criação, edição e deleção de postagens normais (sem nenhum evento atrelado).
 
-#### Principais Aprendizados
+---
 
-- O pivoteamento realizado nesta sprint confirmou que mudanças de escopo e de arquitetura são inevitáveis quando as premissas iniciais não são suficientemente validadas com o cliente — replanejar o backlog completo com o cliente após a mudança foi essencial para realinhar as entregas.
-- A curva de aprendizado do Flutter e do FastAPI é significativa: realizar provas de conceito e criar guias internos de padronização de endpoints (schemas, dependências) antes de avançar para implementações completas reduz ambiguidade e retrabalho na integração front-back.
-- Construir e revisar o Story Map com o cliente ao longo das sprints garante alinhamento contínuo sobre o escopo e evita que o backlog fique desatualizado em relação às decisões técnicas e de negócio.
+### DoR e DoD
+
+#### Definition of Ready — DoR
+
+> Critérios verificados **antes** do início da sprint para garantir que as histórias estavam prontas para desenvolvimento.
+
+| Critério | Status | Evidência |
+| :--- | :---: | :--- |
+| O requisito possui informação necessária para ser trabalhado? | ✅ | US17, US18 e US19 detalhadas no Story Map com personas, objetivos e atividades |
+| O requisito cabe em uma Sprint? | ✅ | 3 USs de CRUD de posts normais concluídas dentro das 2 semanas da sprint |
+| Os critérios de aceitação estão definidos? | ✅ | US17, US18 e US19 formalizadas no Story Map |
+| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados pelas histórias de usuário: US17, US18 e US19 |
+| As definições de arquitetura e contratos de API estão claras? | ✅ | Stack redefinida pós-pivoteamento (FastAPI + MongoDB + Flutter + Streamlit) documentada na Ata 2 |
+
+#### Definition of Done — DoD
+
+> Critérios verificados **ao final** da sprint para confirmar a qualidade e completude das entregas.
+
+| Critério | Status | Evidência |
+| :--- | :---: | :--- |
+| Entrega um incremento do produto? | ✅ | Feed com CRUD de posts normais funcionando ao final da sprint |
+| Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou e aprovou o CRUD do feed na reunião de 12/05 (Ata 4) |
+| O desenvolvimento foi concluído integralmente? | ✅ | Criação, edição e deleção de postagens normais funcionando de ponta a ponta |
+| Os testes foram executados e aprovados? | ✅ | A cobertura de testes mínima foi alcançada através da pipeline atualizada de testes |
+| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada nos Pull Requests: #26 |
+| A documentação e o feedback relevante foram incorporados? | ✅ | Ajustes do pivoteamento refletidos na implementação conforme Ata 2 e validação da Ata 4 |
+
+---
+
+### Demonstração em Imagens
+
+![Feed](../assets/Feed.png)
+
+![Feed2](../assets/Feed2.png)

@@ -2,51 +2,51 @@
 
 **Módulo Mobile (Público Geral)**
 
-- RF01: Visualizar o histórico de doações e despesas da organização [CP2 - Painel de Transparência Financeira]
+- <a id="rf01"></a>**RF01:** Visualizar o histórico de doações e despesas da organização [CP2 - Painel de Transparência Financeira]
 
-- RF02: Visualizar publicações no feed [CP3 - Feed de Comunicação]
+- <a id="rf02"></a>**RF02:** Visualizar publicações no feed [CP3 - Feed de Comunicação]
 
-- RF03: Visualizar uma descrição da organização [CP6 - Perfil Público da Organização]
+- <a id="rf03"></a>**RF03:** Visualizar uma descrição da organização [CP6 - Perfil Público da Organização]
 
-- RF04: Visualizar oportunidades de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf04"></a>**RF04:** Visualizar oportunidades de voluntariado [CP4 - Gestão de Voluntários]
 
-- RF05: Contactar administradores da organização [CP6 - Perfil Público da Organização]
+- <a id="rf05"></a>**RF05:** Contactar administradores da organização [CP6 - Perfil Público da Organização]
 
-- RF06: Restringir exibição do feed por categoria de publicação [CP3 - Feed de Comunicação]
+- <a id="rf06"></a>**RF06:** Restringir exibição do feed por categoria de publicação [CP3 - Feed de Comunicação]
 
-- RF07: Localizar publicação específica pelo título [CP3 - Feed de Comunicação]
+- <a id="rf07"></a>**RF07:** Localizar publicação específica pelo título [CP3 - Feed de Comunicação]
 
-- RF08: Inscrever-se para colaborar como voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf08"></a>**RF08:** Inscrever-se para colaborar como voluntariado [CP4 - Gestão de Voluntários]
 
-- RF09: Inscrever-se para atender a um evento [CP5 - Gestão de Eventos]
+- <a id="rf09"></a>**RF09:** Inscrever-se para atender a um evento [CP5 - Gestão de Eventos]
 
-- RF10: Realizar uma doação [CP1 - 	Gestão de Doações]
+- <a id="rf10"></a>**RF10:** Realizar uma doação [CP1 - Gestão de Doações]
 
 **Módulo Administrativo**
 
-- RF11: Autenticar administradores [CP7 - Controle de Acesso Administrativo]
+- <a id="rf11"></a>**RF11:** Autenticar administradores [CP7 - Controle de Acesso Administrativo]
 
-- RF12: Cadastrar um administrador da organização [CP7 - Controle de Acesso Administrativo]
+- <a id="rf12"></a>**RF12:** Cadastrar um administrador da organização [CP7 - Controle de Acesso Administrativo]
 
-- RF13: Remover administrador da organização [CP7 - Controle de Acesso Administrativos]
+- <a id="rf13"></a>**RF13:** Remover administrador da organização [CP7 - Controle de Acesso Administrativos]
 
-- RF14: Configurar dados de customização do aplicativo [CP8 - Customização da Organização]
+- <a id="rf14"></a>**RF14:** Configurar dados de customização do aplicativo [CP8 - Customização da Organização]
 
-- RF15: Lançar doação feita de forma externa ao aplicativo [CP2 - Painel de Transparência Financeira]
+- <a id="rf15"></a>**RF15:** Lançar doação feita de forma externa ao aplicativo [CP2 - Painel de Transparência Financeira]
 
-- RF16: Lançar despesa da organização [CP2 - Painel de Transparência Financeira]
+- <a id="rf16"></a>**RF16:** Lançar despesa da organização [CP2 - Painel de Transparência Financeira]
 
-- RF17: Realizar uma publicação no feed [CP3 - Feed de Comunicação]
+- <a id="rf17"></a>**RF17:** Realizar uma publicação no feed [CP3 - Feed de Comunicação]
 
-- RF18: Deletar uma publicação no feed [CP3 - Feed de Comunicação]
+- <a id="rf18"></a>**RF18:** Deletar uma publicação no feed [CP3 - Feed de Comunicação]
 
-- RF19: Atualizar uma publicação no feed [CP3 - Feed de Comunicação]
+- <a id="rf19"></a>**RF19:** Atualizar uma publicação no feed [CP3 - Feed de Comunicação]
 
-- RF20: Registrar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf20"></a>**RF20:** Registrar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
-- RF21: Deletar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf21"></a>**RF21:** Deletar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
-- RF22: Atualizar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf22"></a>**RF22:** Atualizar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
 # 8.2) Requisitos Não Funcionais 
 
@@ -81,4 +81,3 @@ A matriz a seguir apresenta a rastreabilidade entre OE (Objetivos Específicos),
 | **OE5** (Ampliar a visibilidade do impacto social) | **OE1** (Aumentar a transparência financeira) | **CP6** (Perfil público da organização) | **VN6** (Visibilidade pública e centralização das informações relevantes de uma organização) | **RF03** (Visualizar uma descrição da organização), **RF05** (Contactar administradores da organização) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF07** (Navegação e Estrutura de UI), **RNF11** (Ações de Engajamento Dentro do Aplicativo) |
 | **OE7** (Otimizar acesso a informação) | **OE4** (Facilitar a captação e gestão de voluntários) | **CP7** (Controle de acesso administrativo) | **VN7** (Segurança e organização da plataforma) | **RF11** (Autenticar administradores), **RF12** (Cadastrar um administrador da organização), **RF13** (Remover administrador da organização) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF04** (Níveis de Acesso Administrativo) |
 | **OE5** (Ampliar a visibilidade do impacto social) | **OE7** (Otimizar acesso a informação) | **CP8** (Customização da Organização) | **VN8** (Fortalecer a identidade da marca perante o público e viabilizar a escalabilidade do sistema (White-Label)) | **RF14** (Configurar dados de customização do aplicativo) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF02** (Configuração e Costumização do Aplicativo), **RNF04** (Níveis de Acesso Administrativo) |
-
