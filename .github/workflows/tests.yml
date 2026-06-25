@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         working-directory: backend
         run: |
-          poetry lock --no-update
+          poetry lock
           poetry install --with dev
 
       - name: Run tests
