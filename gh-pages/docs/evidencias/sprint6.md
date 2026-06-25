@@ -74,7 +74,31 @@
 
 ## Engenharia de Requisitos
 
-_A preencher._
+### Evidências do Processo de ER
+
+#### Verificação de Requisitos — Critérios INVEST
+
+| User Story | I | N | V | E | S | T |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **US01** — Visualizar histórico financeiro | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| **US03** — Visualizar descrição da ONG | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| **US05** — Contactar a organização | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| **US12** — Cadastrar administrador de organização | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| **US13** — Remover administrador de organização | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| **US14** — Configurar dados institucionais | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+
+> **I** — Independente · **N** — Negociável · **V** — Valiosa · **E** — Estimável · **S** — Suficientemente pequena · **T** — Testável
+
+> ⚠️ Sprint em andamento — verificação a ser concluída na revisão final.
+
+#### Critérios de Aceite — Evidências de Cumprimento
+
+- [US01 — Visualizar histórico financeiro](#us01): ⚠️ Sprint em andamento
+- [US03 — Visualizar descrição da ONG](#us03): ⚠️ Sprint em andamento
+- [US05 — Contactar a organização](#us05): ⚠️ Sprint em andamento
+- [US12 — Cadastrar administrador de organização](#us12): ⚠️ Sprint em andamento
+- [US13 — Remover administrador de organização](#us13): ⚠️ Sprint em andamento
+- [US14 — Configurar dados institucionais](#us14): ⚠️ Sprint em andamento
 
 ---
 

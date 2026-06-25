@@ -13,31 +13,14 @@
 
 ### Evidências do Processo de ER
 
-> Atividades de Engenharia de Requisitos realizadas nesta sprint, conforme o processo ScrumXP definido em [Engenharia de Requisitos](../visao_produto/5-EngenhariadeRequisitos.md).
-
-#### Elicitação e Descoberta
-
-- Entrevistas com o cliente para levantamento das necessidades reais das ONGs — contexto de domínio e requisitos iniciais coletados e registrados na [Ata 1](../atas/ata1_27_04_2026.md).
-- Brainstorming interno de arquitetura e produto: definição da stack tecnológica inicial e dos módulos principais do sistema (feed, transparência, colaboração).
-
-#### Análise e Consenso
-
-- Priorização Valor x Esforço aplicada em conjunto com a cliente para definição do escopo do MVP — aprovação do User Story Map na reunião de 27/04 ([Ata 1](../atas/ata1_27_04_2026.md)).
-
-#### Declaração de Requisitos
-
-- US01–US22 escritas, refinadas e formalizadas no [User Story Map](../visao_produto/10-story_map.md) com personas, objetivos e critérios de aceite.
-
-#### Representação de Requisitos
-
-- [User Story Map](../visao_produto/10-story_map.md) construído como representação visual e estruturada do escopo completo do produto, organizando as histórias por jornada do usuário e prioridade de entrega.
-- Protótipo de baixa fidelidade desenvolvido no Figma (ver seção abaixo) representando os fluxos das três abas principais — validado com a cliente antes do início do desenvolvimento.
-
-#### Validação de Requisitos — Protótipos e Feedback do Cliente
-
-- Protótipo de baixa fidelidade e USM apresentados ao cliente (Paulo) por Letícia na reunião de 27/04.
-- USM validado e aprovado: *"deu a aprovação oficial para seguirmos"* — [Ata de Validação S1](../atas/ata_validacao_s1_27_04_2026.md).
-- Encaminhamentos e ajustes de escopo incorporados ao planejamento da Sprint 2.
+| Atividade de ER | Evidência |
+| :--- | :--- |
+| Elicitação — levantamento de necessidades com o cliente | [Ata 1 — 27/04/2026](../atas/ata1_27_04_2026.md) |
+| Análise e Consenso — priorização Valor × Esforço e escopo do MVP | [Ata de Validação S1 — 27/04/2026](../atas/ata_validacao_s1_27_04_2026.md) |
+| Declaração de Requisitos — US01–US22 formalizadas com critérios de aceite | [User Story Map](../visao_produto/10-story_map.md) |
+| Representação — User Story Map do produto | [User Story Map](../visao_produto/10-story_map.md) |
+| Representação — Protótipo de baixa fidelidade (Figma) | [Seção Engenharia de Software (abaixo)](#prototipo-de-alta-fidelidade) |
+| Validação — aprovação formal do USM e protótipo pelo cliente | [Ata de Validação S1 — 27/04/2026](../atas/ata_validacao_s1_27_04_2026.md) |
 
 ---
 

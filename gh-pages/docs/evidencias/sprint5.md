@@ -84,7 +84,27 @@
 
 ## Engenharia de Requisitos
 
-_A preencher._
+### Evidências do Processo de ER
+
+#### Verificação de Requisitos — Critérios INVEST
+
+| User Story | I | N | V | E | S | T |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **US06** — Filtrar publicações do feed | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **US07** — Buscar publicações por título | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **US10** — Realizar doação | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **US15** — Lançar doações manuais | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **US16** — Lançar despesas operacionais | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+> **I** — Independente · **N** — Negociável · **V** — Valiosa · **E** — Estimável · **S** — Suficientemente pequena · **T** — Testável
+
+#### Critérios de Aceite — Evidências de Cumprimento
+
+- [US06 — Filtrar publicações do feed](#us06): ✅ Todos os critérios verificados
+- [US07 — Buscar publicações por título](#us07): ✅ Todos os critérios verificados
+- [US10 — Realizar doação](#us10): ✅ Todos os critérios verificados
+- [US15 — Lançar doações manuais](#us15): ✅ Todos os critérios verificados
+- [US16 — Lançar despesas operacionais](#us16): ✅ Todos os critérios verificados
 
 ---
 

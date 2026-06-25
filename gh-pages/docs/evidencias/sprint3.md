@@ -42,11 +42,7 @@
 
 ### Evidências do Processo de ER
 
-> Atividades de Engenharia de Requisitos realizadas nesta sprint, conforme o processo ScrumXP definido em [Engenharia de Requisitos](../visao_produto/5-EngenhariadeRequisitos.md).
-
 #### Verificação de Requisitos — Critérios INVEST
-
-Aplicado no Sprint Planning para confirmar que as histórias estavam prontas para desenvolvimento antes de entrar na sprint.
 
 | User Story | I | N | V | E | S | T |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -56,16 +52,14 @@ Aplicado no Sprint Planning para confirmar que as histórias estavam prontas par
 
 > **I** — Independente · **N** — Negociável · **V** — Valiosa · **E** — Estimável · **S** — Suficientemente pequena · **T** — Testável
 
-#### Validação de Requisitos — Protótipos e Feedback do Cliente
+#### Validação com o Cliente
 
-- Feed completo (posts normais + eventos com inscrição), suporte a imagens e módulo de autenticação admin demonstrados ao cliente (Paulo) por Letícia na reunião de 26/05.
-- Protótipo de baixa/média fidelidade completo (cobrindo Feed, Transparência e Colaboração) apresentado e aprovado pelo cliente como referência para as próximas entregas — ver [Ata de Validação S3](../atas/ata5_26_05_2026.md).
-- Tela de login e acesso de administradores no Streamlit (US11) demonstrada e aprovada como primeiro módulo funcional do painel de administração.
-- Encaminhamentos para Sprint 4 (módulo de voluntariado e expansão do painel Streamlit) definidos com base no feedback registrado na ata.
+- [Ata de Validação S3 — 26/05/2026](../atas/ata5_26_05_2026.md): aprovação do feed completo (posts normais + eventos), inscrição em eventos (US09) e módulo de autenticação admin (US11); protótipo final aprovado como referência para as entregas seguintes.
 
-#### Organização e Atualização — Refinamento do User Story Map
+#### Organização do Backlog
 
-- Backlog atualizado com os encaminhamentos da revisão da Sprint 2 ([Ata 4](../atas/ata4_12_05_2026.md)) como insumo para o planejamento desta sprint.
+- [Ata de Validação S2 — 12/05/2026](../atas/ata4_12_05_2026.md): encaminhamentos da Sprint 2 utilizados como insumo para o planejamento desta sprint.
+- [Ata de Refinamento S3 — 19/05/2026](../atas/ata_refinamento_s3_19_05_2026.md): refinamento do User Story Map e detalhamento das tarefas da sprint.
 
 ---
 

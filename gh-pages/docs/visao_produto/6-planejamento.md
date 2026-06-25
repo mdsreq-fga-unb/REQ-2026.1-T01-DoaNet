@@ -68,12 +68,12 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 
   var ST={
     PROB:'am',
-    OE1:'am',OE2:'vd',OE3:'vd',OE4:'am',OE5:'am',OE6:'vd',OE7:'am',
-    CP1:'vd',CP2:'am',CP3:'vd',CP4:'am',CP5:'vd',CP6:'vm',CP7:'am',CP8:'vm',
-    RF01:'vm',RF02:'vd',RF03:'vm',RF04:'vd',RF05:'vm',RF06:'vd',RF07:'vd',
+    OE1:'am',OE2:'vd',OE3:'vd',OE4:'am',OE5:'am',OE6:'am',OE7:'am',
+    CP1:'vd',CP2:'am',CP3:'am',CP4:'am',CP5:'vd',CP6:'vm',CP7:'am',CP8:'vm',
+    RF01:'vm',RF02:'vd',RF03:'vm',RF04:'vd',RF05:'vm',RF06:'am',RF07:'am',
     RF08:'am',RF09:'vd',RF10:'vd',RF11:'vd',RF12:'vm',RF13:'vm',RF14:'vm',
     RF15:'vd',RF16:'vd',RF17:'vd',RF18:'vd',RF19:'vd',RF20:'vd',RF21:'vd',RF22:'vd',
-    US01:'vm',US02:'vd',US03:'vm',US04:'vd',US05:'vm',US06:'vd',US07:'vd',
+    US01:'vm',US02:'vd',US03:'vm',US04:'vd',US05:'vm',US06:'am',US07:'am',
     US08:'am',US09:'vd',US10:'vd',US11:'vd',US12:'vm',US13:'vm',US14:'vm',
     US15:'vd',US16:'vd',US17:'vd',US18:'vd',US19:'vd',US20:'vd',US21:'vd',US22:'vd'
   };
@@ -343,7 +343,7 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 - **Declaração de Requisitos:** US01–US22 escritas, refinadas e formalizadas com personas, objetivos e critérios de aceite.
 - **Representação de Requisitos:** User Story Map (USM) construído como representação visual e estruturada do escopo completo, organizando as histórias por jornada do usuário e prioridade de entrega; protótipo de baixa fidelidade no Figma cobrindo os fluxos das três abas principais.
 - **Análise e Consenso:** Priorização Valor × Esforço aplicada com a cliente para definição do escopo do MVP.
-- **Validação de Requisitos:** USM e protótipo apresentados ao cliente em 27/04 — aprovação formal registrada na [Ata de Validação S1](../atas/ata_validacao_s1_27_04_2026.md).
+- **Validação de Requisitos:** USM e protótipo apresentados ao cliente em 27/04 — aprovação formal registrada em reunião com o stakeholder.
 
 ---
 
@@ -363,9 +363,9 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 **Engenharia de Requisitos — Técnicas Aplicadas:**
 
 - **Verificação de Requisitos (INVEST):** Critérios INVEST aplicados no Sprint Planning para confirmar prontidão das histórias antes do início do desenvolvimento.
-- **Critérios de Aceite:** Verificação formal dos critérios de [US17 - Criar publicação no feed](../evidencias/sprint2.md#us17), [US18 - Deletar publicação no feed](../evidencias/sprint2.md#us18) e [US19 - Atualizar publicação no feed](../evidencias/sprint2.md#us19) na revisão da sprint.
-- **Organização e Atualização do Backlog:** Escopo redefinido após pivoteamento (nova stack: FastAPI + MongoDB + Flutter + Streamlit) — registrado na [Ata 2](../atas/ata2_04_05_2026.md); refinamento do USM na [Ata 3](../atas/ata3_11_05_2026.md).
-- **Validação de Requisitos:** Feed com CRUD de posts demonstrado ao cliente em 12/05 — aprovação formal registrada na [Ata de Validação S2](../atas/ata4_12_05_2026.md).
+- **Critérios de Aceite:** Verificação formal dos critérios de US17, US18 e US19 na revisão da sprint.
+- **Organização e Atualização do Backlog:** Escopo redefinido após pivoteamento (nova stack: FastAPI + MongoDB + Flutter + Streamlit); refinamento do USM realizado na semana intermediária da sprint.
+- **Validação de Requisitos:** Feed com CRUD de posts demonstrado ao cliente em 12/05 — aprovação formal do incremento pelo stakeholder.
 
 ---
 
@@ -385,9 +385,9 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 **Engenharia de Requisitos — Técnicas Aplicadas:**
 
 - **Verificação de Requisitos (INVEST):** Critérios INVEST aplicados no Sprint Planning para as três histórias da sprint.
-- **Critérios de Aceite:** Verificação formal dos critérios de [US17 - Criar publicação no feed](../evidencias/sprint2.md#us17) (evento), [US09 - Inscrever-se em evento](../evidencias/sprint3.md#us09) e [US11 - Autenticar administradores](../evidencias/sprint3.md#us11) na revisão da sprint.
-- **Organização e Atualização do Backlog:** Backlog atualizado com encaminhamentos da revisão da Sprint 2 ([Ata 4](../atas/ata4_12_05_2026.md)); refinamento do USM na [Ata de Refinamento S3](../atas/ata_refinamento_s3_19_05_2026.md).
-- **Validação de Requisitos:** Feed completo (posts normais + eventos), inscrição e módulo de autenticação admin demonstrados ao cliente em 26/05; protótipo final aprovado como referência para as próximas entregas — registrado na [Ata de Validação S3](../atas/ata5_26_05_2026.md).
+- **Critérios de Aceite:** Verificação formal dos critérios de US17 (evento), US09 e US11 na revisão da sprint.
+- **Organização e Atualização do Backlog:** Backlog atualizado com encaminhamentos da revisão da Sprint 2; refinamento do USM realizado na semana intermediária da sprint.
+- **Validação de Requisitos:** Feed completo (posts normais + eventos), inscrição e módulo de autenticação admin demonstrados ao cliente em 26/05; protótipo final aprovado como referência para as próximas entregas.
 
 ---
 
@@ -409,9 +409,9 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 **Engenharia de Requisitos — Técnicas Aplicadas:**
 
 - **Verificação de Requisitos (INVEST):** Critérios INVEST aplicados no Sprint Planning para as cinco histórias da sprint.
-- **Critérios de Aceite:** Verificação formal dos critérios de [US04 - Visualizar oportunidades de voluntariado](../evidencias/sprint4.md#us04), [US08 - Inscrever-se como voluntário](../evidencias/sprint4.md#us08), [US20 - Registrar oportunidade de voluntariado](../evidencias/sprint4.md#us20), [US21 - Deletar oportunidade de voluntariado](../evidencias/sprint4.md#us21) e [US22 - Atualizar oportunidade de voluntariado](../evidencias/sprint4.md#us22) na revisão da sprint; débito técnico identificado no formulário de inscrição de [US08 - Inscrever-se como voluntário](../evidencias/sprint4.md#us08).
-- **Organização e Atualização do Backlog:** Backlog atualizado com encaminhamentos da revisão da Sprint 3 ([Ata 5](../atas/ata5_26_05_2026.md)); débito técnico formalizado na [Ata 6](../atas/ata6_09_06_2026.md) e encaminhado para a próxima sprint.
-- **Validação de Requisitos:** Módulo de voluntariado (CRUD) e painel admin demonstrados ao cliente em 09/06 — aprovação do incremento e registro do débito técnico na [Ata de Validação S4](../atas/ata6_09_06_2026.md).
+- **Critérios de Aceite:** Verificação formal dos critérios de US04, US08, US20, US21 e US22 na revisão da sprint; débito técnico identificado no formulário de inscrição de US08.
+- **Organização e Atualização do Backlog:** Backlog atualizado com encaminhamentos da revisão da Sprint 3; débito técnico formalizado e encaminhado para a sprint seguinte.
+- **Validação de Requisitos:** Módulo de voluntariado (CRUD) e painel admin demonstrados ao cliente em 09/06 — aprovação formal do incremento e registro do débito técnico.
 
 ---
 
@@ -432,7 +432,10 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 
 **Engenharia de Requisitos — Técnicas Aplicadas:**
 
-- Verificação de Requisitos (INVEST), critérios de aceite, refinamento do backlog e validação com o cliente ao final da sprint.
+- **Verificação de Requisitos (INVEST):** Critérios INVEST aplicados no Sprint Planning para as cinco histórias da sprint (US06, US07, US10, US15, US16).
+- **Critérios de Aceite:** Verificação formal dos critérios de US06, US07, US10, US15 e US16 na revisão da sprint.
+- **Organização e Atualização do Backlog:** Backlog atualizado com encaminhamentos da revisão da Sprint 4, incluindo o débito técnico herdado de US08; escopo refinado para histórias de filtro, busca, doação e transparência financeira.
+- **Validação de Requisitos:** Funcionalidades de filtro, busca, doação e lançamento de registros de transparência demonstradas ao cliente ao final da sprint.
 
 ---
 
@@ -454,7 +457,10 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 
 **Engenharia de Requisitos — Técnicas Aplicadas:**
 
-- Verificação de Requisitos (INVEST), critérios de aceite, refinamento do backlog e validação com o cliente ao final da sprint.
+- **Verificação de Requisitos (INVEST):** Critérios INVEST aplicados no Sprint Planning para as seis histórias da sprint (US01, US03, US05, US12, US13, US14).
+- **Critérios de Aceite:** Verificação formal dos critérios de US01, US03, US05, US12, US13 e US14 a ser concluída na revisão da sprint.
+- **Organização e Atualização do Backlog:** Backlog ajustado com base nos encaminhamentos da Sprint 5; escopo da sprint contempla o fechamento das funcionalidades de transparência, perfil da organização e gestão administrativa.
+- **Validação de Requisitos:** Painel de transparência, tela de descrição e contato, e gestão de administradores a serem demonstrados ao cliente ao final da sprint.
 
 ---
 

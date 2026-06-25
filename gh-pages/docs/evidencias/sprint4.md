@@ -94,11 +94,7 @@
 
 ### Evidências do Processo de ER
 
-> Atividades de Engenharia de Requisitos realizadas nesta sprint, conforme o processo ScrumXP definido em [Engenharia de Requisitos](../visao_produto/5-EngenhariadeRequisitos.md).
-
 #### Verificação de Requisitos — Critérios INVEST
-
-Aplicado no Sprint Planning para confirmar que as histórias estavam prontas para desenvolvimento antes de entrar na sprint.
 
 | User Story | I | N | V | E | S | T |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -110,16 +106,22 @@ Aplicado no Sprint Planning para confirmar que as histórias estavam prontas par
 
 > **I** — Independente · **N** — Negociável · **V** — Valiosa · **E** — Estimável · **S** — Suficientemente pequena · **T** — Testável
 
-#### Validação de Requisitos — Protótipos e Feedback do Cliente
+#### Critérios de Aceite — Evidências de Cumprimento
 
-- Módulo de voluntariado (CRUD) e painel de admin demonstrados ao cliente (Paulo) por Letícia na reunião de 09/06.
-- Protótipo final (Sprint 3) utilizado como referência para validação da interface do módulo de colaboração.
-- Aprovação do incremento e registro do débito técnico no formulário de inscrição documentados na [Ata de Validação S4](../atas/ata6_09_06_2026.md).
+- [US04 — Visualizar oportunidades de voluntariado](#us04): ✅ Todos os critérios verificados
+- [US08 — Inscrever-se como voluntário](#us08): ⚠️ Critérios parcialmente atendidos — débito técnico no formulário de inscrição
+- [US20 — Registrar oportunidade de voluntariado](#us20): ✅ Todos os critérios verificados
+- [US21 — Deletar oportunidade de voluntariado](#us21): ✅ Todos os critérios verificados
+- [US22 — Atualizar oportunidade de voluntariado](#us22): ✅ Todos os critérios verificados
 
-#### Organização e Atualização — Refinamento do User Story Map
+#### Validação com o Cliente
 
-- Backlog atualizado com os encaminhamentos da revisão da Sprint 3 ([Ata 5](../atas/ata5_26_05_2026.md)) como insumo para o planejamento desta sprint.
-- Débito técnico identificado (formulário de voluntariado incompleto) formalizado na [Ata 6](../atas/ata6_09_06_2026.md) e encaminhado para a próxima sprint.
+- [Ata de Validação S4 — 09/06/2026](../atas/ata6_09_06_2026.md): aprovação do módulo de voluntariado (CRUD) e do painel admin; débito técnico de US08 formalmente registrado.
+
+#### Organização do Backlog
+
+- [Ata de Validação S3 — 26/05/2026](../atas/ata5_26_05_2026.md): encaminhamentos da Sprint 3 utilizados como insumo para o planejamento desta sprint.
+- [Ata de Validação S4 — 09/06/2026](../atas/ata6_09_06_2026.md): débito técnico de US08 formalizado e encaminhado para a Sprint 5.
 
 ---
 

@@ -72,11 +72,7 @@
 
 ### Evidências do Processo de ER
 
-> Atividades de Engenharia de Requisitos realizadas nesta sprint, conforme o processo ScrumXP definido em [Engenharia de Requisitos](../visao_produto/5-EngenhariadeRequisitos.md).
-
 #### Verificação de Requisitos — Critérios INVEST
-
-Aplicado no Sprint Planning para confirmar que as histórias estavam prontas para desenvolvimento antes de entrar na sprint.
 
 | User Story | I | N | V | E | S | T |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -87,8 +83,6 @@ Aplicado no Sprint Planning para confirmar que as histórias estavam prontas par
 > **I** — Independente · **N** — Negociável · **V** — Valiosa · **E** — Estimável · **S** — Suficientemente pequena · **T** — Testável
 
 #### Critérios de Aceite — Evidências de Cumprimento
-
-Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4](../atas/ata4_12_05_2026.md). Definição completa em [US17 - Criar publicação no feed](#us17), [US18 - Deletar publicação no feed](#us18), [US19 - Atualizar publicação no feed](#us19).
 
 **[US17 - Criar publicação no feed](#us17)**
 
@@ -108,17 +102,14 @@ Critérios verificados na revisão da sprint e validados com o cliente na [Ata 4
 - ✅ Alterações refletidas imediatamente no feed após salvar
 - ✅ Edição restrita a administradores autenticados
 
-#### Validação de Requisitos — Protótipos e Feedback do Cliente
+#### Validação com o Cliente
 
-- Incremento do feed com CRUD de posts demonstrado à cliente (Letícia) e a Paulo na reunião de 12/05.
-- Protótipo de baixa/média fidelidade da tela de Feed (Sprint 1) utilizado como referência visual para validação do layout e fluxo.
-- Protótipo de baixa/média fidelidade da tela de Colaboração/Voluntariado apresentado e validado pelo cliente na mesma reunião — ver [Ata de Validação S2](../atas/ata4_12_05_2026.md).
-- Aprovação formal documentada na [Ata de Validação S2](../atas/ata4_12_05_2026.md) — funcionalidades de criar, editar e deletar posts e protótipo da tela de voluntariado aprovados sem ressalvas.
+- [Ata de Validação S2 — 12/05/2026](../atas/ata4_12_05_2026.md): aprovação formal do CRUD de posts (US17, US18, US19) e do protótipo da tela de voluntariado.
 
-#### Organização e Atualização — Refinamento do User Story Map
+#### Organização do Backlog
 
-- Backlog revisado e tarefas da sprint detalhadas na reunião interna de 11/05 — ver [Ata 3](../atas/ata3_11_05_2026.md).
-- Escopo redefinido após pivoteamento registrado na [Ata 2](../atas/ata2_04_05_2026.md): nova stack (FastAPI + MongoDB + Flutter + Streamlit) e replanejamento completo das histórias de usuário.
+- [Ata 2 — 04/05/2026](../atas/ata2_04_05_2026.md): redefinição de escopo após pivoteamento (nova stack: FastAPI + MongoDB + Flutter + Streamlit).
+- [Ata 3 — 11/05/2026](../atas/ata3_11_05_2026.md): refinamento do User Story Map e detalhamento das tarefas da sprint.
 
 ---
 
