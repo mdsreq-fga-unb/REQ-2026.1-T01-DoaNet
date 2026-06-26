@@ -6,7 +6,7 @@ authors = [
     {name = "pedruck",email = "pedrodmreis@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "pymongo[srv] (>=4.17.0,<5.0.0)",
     "fastapi (>=0.136.1,<0.137.0)",
@@ -21,6 +21,10 @@ dependencies = [
 ]
 
 [tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["pedruck <pedrodmreis@gmail.com>"]
 packages = [
     {include = "adapters", from = "src"},
     {include = "application", from = "src"},

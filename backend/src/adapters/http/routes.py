@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import Annotated, Optional
 
+# pyrefly: ignore [missing-import]
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel
 
@@ -14,16 +15,23 @@ from .security import (
 from domain.entities.feed_item import FeedItem
 from domain.entities.admin import Admin, AdminRole
 from domain.entities.oportunidade import OportunidadeVoluntariado
+from domain.entities.transparencia_record import TransparenciaRecord, TipoRegistro
 
-from adapters.http.serializers import feed_items_to_list, oportunidades_to_list
+from adapters.http.serializers import (
+    feed_items_to_list,
+    oportunidades_to_list,
+    transparencia_records_to_list,
+)
 from adapters.db.mongo_feed_repository import MongoFeedRepository
 from adapters.db.mongo_admin_repository import MongoAdminRepository
 from adapters.db.mongo_oportunidade_repository import MongoOportunidadeRepository
+from adapters.db.mongo_transparencia_repository import MongoTransparenciaRepository
 from adapters.infrastructure.storage.gcs_storage_service import GCSStorageService
 
 from application.services.feed_service import FeedService
 from application.services.auth_service import AuthService
 from application.services.oportunidade_service import OportunidadeService
+from application.services.transparencia_service import TransparenciaService
 
 
 class LoginData(BaseModel):
@@ -31,17 +39,23 @@ class LoginData(BaseModel):
     password: str
 
 
-class AdminCreateData(BaseModel):
-    email: str
-    name: str
-    password: str
-    secret_key: str = None
-
 
 class CreateAdminData(BaseModel):
     email: str
     name: str
     password: str
+
+
+class DoacaoData(BaseModel):
+    valor: float
+    data: str
+    descricao: str
+
+
+class DespesaData(BaseModel):
+    valor: float
+    data: str
+    categoria: str
 
 
 def innit_routes() -> APIRouter:
@@ -53,6 +67,10 @@ def innit_routes() -> APIRouter:
     storage_service = GCSStorageService(bucket_name="feed_imagens")
     oportunidade_repo = MongoOportunidadeRepository()
     oportunidade_service = OportunidadeService(oportunidade_repo)
+
+    # ----- Transparência -----
+    transparencia_repo = MongoTransparenciaRepository()
+    transparencia_service = TransparenciaService(transparencia_repo)
 
     # ----- Admin / autenticação (streamlit) -----
     admin_repo = MongoAdminRepository()
@@ -206,29 +224,6 @@ def innit_routes() -> APIRouter:
         except Exception as exc:
             return {"error": str(exc), "status": "failed"}
 
-    # ============ ROTAS DE AUTENTICAÇÃO / ADMIN ============
-    @router.post("/admin/register")
-    async def register_admin(admin_data: AdminCreateData):
-        """Registra um novo administrador"""
-        try:
-            admin = await auth_service.create_admin(
-                email=admin_data.email,
-                name=admin_data.name,
-                password=admin_data.password,
-                secret_key=admin_data.secret_key
-            )
-            return {
-                "message": "Administrador criado com sucesso",
-                "admin": {
-                    "id": admin.id,
-                    "email": admin.email,
-                    "name": admin.name
-                }
-            }
-        except ValueError as e:
-            raise HTTPException(status_code=400, detail=str(e))
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Erro ao criar administrador: {str(e)}")
 
     @router.post("/login")
     async def login(data: LoginData):
@@ -365,5 +360,64 @@ def innit_routes() -> APIRouter:
             raise HTTPException(status_code=400, detail=str(e))
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Erro ao criar admin: {str(e)}")
+
+    # ============ ROTAS DE TRANSPARÊNCIA ============
+    @router.get("/transparencia")
+    async def get_transparencia():
+        """Lista histórico financeiro (doações e despesas).
+        Acesso público — sem autenticação (CA-03).
+        Ordenado por data decrescente (CA-01).
+        """
+        try:
+            records = transparencia_service.list_records()
+            return transparencia_records_to_list(records)
+        except Exception as exc:
+            return {"error": str(exc), "status": "failed"}
+
+    @router.post("/transparencia/doacao")
+    async def add_doacao(
+        doacao: DoacaoData,
+        current_admin: Admin = Depends(get_current_admin),
+    ):
+        """Lança doação manual (US15). Somente administradores.
+        Registro imutável após confirmação (CA-07).
+        """
+        try:
+            record = TransparenciaRecord(
+                tipo=TipoRegistro.DOACAO,
+                valor=doacao.valor,
+                data=datetime.fromisoformat(doacao.data),
+                descricao=doacao.descricao,
+                created_by=current_admin.email,
+            )
+            transparencia_service.add_record(record)
+            return {"message": "Doação registrada com sucesso"}
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=str(exc))
+
+    @router.post("/transparencia/despesa")
+    async def add_despesa(
+        despesa: DespesaData,
+        current_admin: Admin = Depends(get_current_admin),
+    ):
+        """Lança despesa operacional (US16). Somente administradores.
+        Registro imutável após confirmação (CA-10).
+        """
+        try:
+            record = TransparenciaRecord(
+                tipo=TipoRegistro.DESPESA,
+                valor=despesa.valor,
+                data=datetime.fromisoformat(despesa.data),
+                descricao=despesa.categoria,
+                created_by=current_admin.email,
+            )
+            transparencia_service.add_record(record)
+            return {"message": "Despesa registrada com sucesso"}
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=str(exc))
 
     return router
