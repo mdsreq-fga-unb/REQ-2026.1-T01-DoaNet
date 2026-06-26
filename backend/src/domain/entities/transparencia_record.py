@@ -6,7 +6,8 @@ from pydantic import BaseModel, Field, field_validator
 
 
 class TipoRegistro(str, Enum):
-    DOACAO = "doacao"
+    DOACAO_EXTERNA = "doacao_externa"
+    DOACAO_INTERNA = "doacao_interna"
     DESPESA = "despesa"
 
 

@@ -88,7 +88,7 @@ def innit_routes() -> APIRouter:
             feed_items = feed_service.list_items()
             return feed_items_to_list(feed_items)
         except Exception as exc:
-            return {"error": str(exc), "status": "failed"}
+            raise HTTPException(status_code=500, detail=str(exc))
 
     @router.post("/feed")
     async def add_feed_item(
@@ -198,7 +198,7 @@ def innit_routes() -> APIRouter:
             items = oportunidade_service.list_items()
             return oportunidades_to_list(items)
         except Exception as exc:
-            return {"error": str(exc), "status": "failed"}
+            raise HTTPException(status_code=500, detail=str(exc))
 
     @router.post("/oportunidades")
     async def add_oportunidade(item: OportunidadeVoluntariado):
@@ -212,7 +212,7 @@ def innit_routes() -> APIRouter:
             if updated:
                 return {"message": "updated"}
         except Exception as exc:
-            return {"error": str(exc), "status": "failed"}
+            raise HTTPException(status_code=500, detail=str(exc))
 
     @router.delete("/oportunidades/{id}")
     async def delete_oportunidade(id: str):
@@ -222,7 +222,7 @@ def innit_routes() -> APIRouter:
                 return {"message": "deleted"}
             return {"message": "item not found"}
         except Exception as exc:
-            return {"error": str(exc), "status": "failed"}
+            raise HTTPException(status_code=500, detail=str(exc))
 
 
     @router.post("/login")
@@ -372,26 +372,45 @@ def innit_routes() -> APIRouter:
             records = transparencia_service.list_records()
             return transparencia_records_to_list(records)
         except Exception as exc:
-            return {"error": str(exc), "status": "failed"}
+            raise HTTPException(status_code=500, detail=str(exc))
 
-    @router.post("/transparencia/doacao")
-    async def add_doacao(
+    @router.post("/transparencia/doacao-externa")
+    async def add_doacao_externa(
         doacao: DoacaoData,
         current_admin: Admin = Depends(get_current_admin),
     ):
-        """Lança doação manual (US15). Somente administradores.
-        Registro imutável após confirmação (CA-07).
-        """
+        """Lança doação externa manual. Somente administradores."""
         try:
             record = TransparenciaRecord(
-                tipo=TipoRegistro.DOACAO,
+                tipo=TipoRegistro.DOACAO_EXTERNA,
                 valor=doacao.valor,
                 data=datetime.fromisoformat(doacao.data),
                 descricao=doacao.descricao,
                 created_by=current_admin.email,
             )
             transparencia_service.add_record(record)
-            return {"message": "Doação registrada com sucesso"}
+            return {"message": "Doação externa registrada com sucesso"}
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=str(exc))
+
+    @router.post("/transparencia/doacao-interna")
+    async def add_doacao_interna(
+        doacao: DoacaoData,
+        current_admin: Admin = Depends(get_current_admin),
+    ):
+        """Lança doação interna. Somente administradores."""
+        try:
+            record = TransparenciaRecord(
+                tipo=TipoRegistro.DOACAO_INTERNA,
+                valor=doacao.valor,
+                data=datetime.fromisoformat(doacao.data),
+                descricao=doacao.descricao,
+                created_by=current_admin.email,
+            )
+            transparencia_service.add_record(record)
+            return {"message": "Doação interna registrada com sucesso"}
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
         except Exception as exc:

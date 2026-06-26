@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:frontend/api_config.dart';
 import 'feed_model.dart' as model;
 
 class FetchFeed {
@@ -10,7 +11,7 @@ class FetchFeed {
     if (useMock) return _mockItems();
 
     var client = http.Client();
-    var uri = Uri.parse('http://localhost:8000/feed');
+    var uri = Uri.parse('${ApiConfig.baseUrl}/feed');
     var response = await client.get(uri);
     if (response.statusCode == 200) {
       return model.feedFromJson(response.body);

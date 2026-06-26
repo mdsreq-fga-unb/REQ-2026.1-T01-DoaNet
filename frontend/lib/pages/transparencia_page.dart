@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
-
-class Transacao {
-  final String titulo;
-  final String dataString;
-  final DateTime dataReal;
-  final double valor;
-  final String tipo;
-
-  Transacao({
-    required this.titulo,
-    required this.dataString,
-    required this.dataReal,
-    required this.valor,
-    required this.tipo,
-  });
-}
+import '../info_fetch/transparencia/fetch_transparencia.dart';
+import '../info_fetch/transparencia/transparencia_model.dart';
 
 class TransparenciaPage extends StatefulWidget {
   const TransparenciaPage({super.key});
@@ -24,25 +10,14 @@ class TransparenciaPage extends StatefulWidget {
 }
 
 class _TransparenciaPageState extends State<TransparenciaPage> {
-  // Dados temporários para a interface
-  final List<Transacao> transacoes = [
-    Transacao(titulo: 'Doação anônima', dataString: '20 Maio de 2026', dataReal: DateTime(2026, 5, 20), valor: 50.00, tipo: 'entrada'),
-    Transacao(titulo: 'Compra de materiais', dataString: '8 Agosto de 2026', dataReal: DateTime(2026, 8, 8), valor: 423.00, tipo: 'saida'),
-    Transacao(titulo: 'Eduardo Franscisco', dataString: '2 Setembro de 2026', dataReal: DateTime(2026, 9, 2), valor: 854.00, tipo: 'entrada'),
-    Transacao(titulo: 'Compra de Roupas', dataString: '27 Abril de 2026', dataReal: DateTime(2026, 4, 27), valor: 570.00, tipo: 'saida'),
-  ];
-
   String _filtroSelecionado = 'todos';
 
-  @override
-  void initState() {
-    super.initState();
-    _ordenarTransacoes();
-  }
-
-  // Ordenação cronológica decrescente
-  void _ordenarTransacoes() {
-    transacoes.sort((a, b) => b.dataReal.compareTo(a.dataReal));
+  String _formatarData(DateTime data) {
+    const meses = [
+      '', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+    ];
+    return '${data.day} ${meses[data.month]} de ${data.year}';
   }
 
   @override
@@ -53,102 +28,163 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Center(
-                child: Text(
-                  'Transparência',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
-                ),
+      body: FutureBuilder<List<TransacaoModel>>(
+        future: FetchTransparencia().fetchTransacoes(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text(
+                'Erro ao carregar transações: ${snapshot.error}',
+                style: const TextStyle(color: Colors.red),
               ),
-              const SizedBox(height: 32),
+            );
+          }
 
-              Row(
+          List<TransacaoModel> transacoes = snapshot.data ?? [];
+          
+          // Ordenação cronológica decrescente
+          transacoes.sort((a, b) => b.data.compareTo(a.data));
+
+          double totalArrecadado = 0;
+          double totalGasto = 0;
+
+          for (var t in transacoes) {
+            if (t.tipo == 'doacao_externa' || t.tipo == 'doacao_interna') {
+              totalArrecadado += t.valor;
+            } else if (t.tipo == 'despesa') {
+              totalGasto += t.valor;
+            }
+          }
+
+          // Filtragem
+          List<TransacaoModel> transacoesFiltradas = transacoes.where((t) {
+            if (_filtroSelecionado == 'entrada') {
+              return t.tipo == 'doacao_externa' || t.tipo == 'doacao_interna';
+            } else if (_filtroSelecionado == 'saida') {
+              return t.tipo == 'despesa';
+            }
+            return true;
+          }).toList();
+
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: _buildResumoCard(
-                      titulo: 'Arrecadado',
-                      valor: 'R\$ 15.251,45',
-                      corValor: corVerdeEntrada,
-                      isSelecionado: _filtroSelecionado == 'entrada',
-                      corBorda: corAzulMoveEduca,
-                      onTap: () => setState(() => _filtroSelecionado = 'entrada'),
+                  const Center(
+                    child: Text(
+                      'Transparência',
+                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
                     ),
                   ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: _buildResumoCard(
-                      titulo: 'Gasto',
-                      valor: 'R\$ 4.887,68',
-                      corValor: corVermelhoSaida,
-                      isSelecionado: _filtroSelecionado == 'saida',
-                      corBorda: corAzulMoveEduca,
-                      onTap: () => setState(() => _filtroSelecionado = 'saida'),
+                  const SizedBox(height: 32),
+
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildResumoCard(
+                          titulo: 'Arrecadado',
+                          valor: 'R\$ ${totalArrecadado.toStringAsFixed(2).replaceAll('.', ',')}',
+                          corValor: corVerdeEntrada,
+                          isSelecionado: _filtroSelecionado == 'entrada' || _filtroSelecionado == 'todos',
+                          corBorda: corAzulMoveEduca,
+                          onTap: () {
+                            setState(() {
+                              _filtroSelecionado = _filtroSelecionado == 'entrada' ? 'todos' : 'entrada';
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: _buildResumoCard(
+                          titulo: 'Gasto',
+                          valor: 'R\$ ${totalGasto.toStringAsFixed(2).replaceAll('.', ',')}',
+                          corValor: corVermelhoSaida,
+                          isSelecionado: _filtroSelecionado == 'saida' || _filtroSelecionado == 'todos',
+                          corBorda: corAzulMoveEduca,
+                          onTap: () {
+                            setState(() {
+                              _filtroSelecionado = _filtroSelecionado == 'saida' ? 'todos' : 'saida';
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 32),
+
+                  const Text(
+                    'Últimas Transações',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Times New Roman',
                     ),
                   ),
+                  const SizedBox(height: 16),
+
+                  if (transacoesFiltradas.isEmpty)
+                    const Padding(
+                      padding: EdgeInsets.only(top: 20.0),
+                      child: Center(
+                        child: Text(
+                          'Nenhuma transação encontrada.',
+                          style: TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                    )
+                  else
+                    ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: transacoesFiltradas.length,
+                      separatorBuilder: (context, index) => const Divider(height: 1, color: Colors.black12),
+                      itemBuilder: (context, index) {
+                        final transacao = transacoesFiltradas[index];
+                        final isEntrada = transacao.tipo == 'doacao_externa' || transacao.tipo == 'doacao_interna';
+                        final cor = isEntrada ? corVerdeEntrada : corVermelhoSaida;
+                        
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            leading: CircleAvatar(
+                              backgroundColor: cor.withValues(alpha: 0.1),
+                              child: Icon(
+                                isEntrada ? Icons.arrow_upward : Icons.arrow_downward,
+                                color: cor,
+                                size: 20,
+                              ),
+                            ),
+                            title: Text(
+                              transacao.descricao,
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                            ),
+                            subtitle: Text(
+                              _formatarData(transacao.data),
+                              style: const TextStyle(fontSize: 12, color: Colors.black54),
+                            ),
+                            trailing: Text(
+                              '${isEntrada ? '+' : '-'} R\$ ${transacao.valor.toStringAsFixed(2).replaceAll('.', ',')}',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                color: cor,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                 ],
               ),
-              const SizedBox(height: 32),
-
-              const Text(
-                'Últimas Transações',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Times New Roman',
-                ),
-              ),
-              const SizedBox(height: 16),
-
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: transacoes.length,
-                separatorBuilder: (context, index) => const Divider(height: 1, color: Colors.black12),
-                itemBuilder: (context, index) {
-                  final transacao = transacoes[index];
-                  final isEntrada = transacao.tipo == 'entrada';
-                  final cor = isEntrada ? corVerdeEntrada : corVermelhoSaida;
-
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      leading: CircleAvatar(
-                        backgroundColor: cor.withValues(alpha: 0.1),
-                        child: Icon(
-                          isEntrada ? Icons.arrow_upward : Icons.arrow_downward,
-                          color: cor,
-                          size: 20,
-                        ),
-                      ),
-                      title: Text(
-                        transacao.titulo,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      ),
-                      subtitle: Text(
-                        transacao.dataString,
-                        style: const TextStyle(fontSize: 12, color: Colors.black54),
-                      ),
-                      trailing: Text(
-                        '${isEntrada ? '+' : '-'} R\$ ${transacao.valor.toStringAsFixed(2).replaceAll('.', ',')}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          color: cor,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
