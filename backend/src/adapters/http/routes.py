@@ -14,16 +14,19 @@ from .security import (
 from domain.entities.feed_item import FeedItem
 from domain.entities.admin import Admin, AdminRole
 from domain.entities.oportunidade import OportunidadeVoluntariado
+from domain.entities.organization import Organization
 
 from adapters.http.serializers import feed_items_to_list, oportunidades_to_list
 from adapters.db.mongo_feed_repository import MongoFeedRepository
 from adapters.db.mongo_admin_repository import MongoAdminRepository
 from adapters.db.mongo_oportunidade_repository import MongoOportunidadeRepository
+from adapters.db.mongo_organization_repository import MongoOrganizationRepository
 from adapters.infrastructure.storage.gcs_storage_service import GCSStorageService
 
 from application.services.feed_service import FeedService
 from application.services.auth_service import AuthService
 from application.services.oportunidade_service import OportunidadeService
+from application.services.organization_service import OrganizationService
 
 
 class LoginData(BaseModel):
@@ -42,6 +45,7 @@ class CreateAdminData(BaseModel):
     email: str
     name: str
     password: str
+    org_id: Optional[str] = None
 
 
 def innit_routes() -> APIRouter:
@@ -53,6 +57,8 @@ def innit_routes() -> APIRouter:
     storage_service = GCSStorageService(bucket_name="feed_imagens")
     oportunidade_repo = MongoOportunidadeRepository()
     oportunidade_service = OportunidadeService(oportunidade_repo)
+    organization_repo = MongoOrganizationRepository()
+    organization_service = OrganizationService(organization_repo)
 
     # ----- Admin / autenticação (streamlit) -----
     admin_repo = MongoAdminRepository()
@@ -206,6 +212,57 @@ def innit_routes() -> APIRouter:
         except Exception as exc:
             return {"error": str(exc), "status": "failed"}
 
+    # ============ ROTAS DE CONFIGURAÇÃO DA ORG ============
+
+    @router.get("/orgs/{org_id}/config")
+    async def get_org_config(org_id: str):
+        org = organization_service.get_config(org_id)
+        if not org:
+            raise HTTPException(status_code=404, detail="Organização não encontrada")
+        return {
+            "name": org.name,
+            "description": org.description,
+            "primary_color": org.primary_color,
+            "background_color": org.background_color,
+            "logo_url": org.logo_url,
+        }
+
+    @router.post("/orgs")
+    async def create_or_update_org(
+        org_id: Annotated[str, Form()],
+        name: Annotated[str, Form()],
+        description: Annotated[str, Form()],
+        primary_color: Annotated[str, Form()],
+        background_color: Annotated[str, Form()] = '#FFFFFF',
+        logo: Annotated[Optional[UploadFile], File()] = None,
+        current_admin: Admin = Depends(get_current_admin),
+    ):
+
+        if current_admin.role != "master" and current_admin.org_id != org_id:
+            raise HTTPException(status_code=403, detail="Você só pode configurar a sua própria organização")
+
+        existing = organization_service.get_config(org_id)
+        logo_url = existing.logo_url if existing else None
+
+        if logo:
+            logo_data = storage_service.upload_logo(logo)
+            logo_url = logo_data["logo_url"]
+
+        org = Organization(
+            org_id=org_id,
+            name=name,
+            description=description,
+            primary_color=primary_color,
+            background_color=background_color,
+            logo_url=logo_url,
+        )
+
+        try:
+            result = organization_service.create_or_update(org)
+            return {"message": "Organização salva com sucesso", "org_id": result.org_id}
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=str(e))
+
     # ============ ROTAS DE AUTENTICAÇÃO / ADMIN ============
     @router.post("/admin/register")
     async def register_admin(admin_data: AdminCreateData):
@@ -254,7 +311,8 @@ def innit_routes() -> APIRouter:
                 "id": str(admin.id),
                 "email": admin.email,
                 "name": admin.name,
-                "role": admin.role if admin.role else "admin"
+                "role": admin.role if admin.role else "admin",
+                "org_id": admin.org_id,
             }
         }
 
@@ -284,6 +342,7 @@ def innit_routes() -> APIRouter:
                 email=admin_data.email,
                 name=admin_data.name,
                 password=admin_data.password,
+                org_id=admin_data.org_id,
                 created_by=current_admin.id,
                 creator_role=current_admin.role
             )

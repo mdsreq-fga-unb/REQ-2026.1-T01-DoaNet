@@ -10,8 +10,10 @@ Future<void> main() async {
 
   OrgConfig config;
   try {
-    config = await FetchOrgConfig(orgId: 'move-educa').fetchConfig();
-  } catch (_) {
+    config = await FetchOrgConfig(orgId: 'testtte').fetchConfig();
+    print('✅ Config carregada: ${config.name}');
+  } catch (e) {
+    print('❌ Erro ao carregar config: $e');
     config = OrgConfig.fallback;
   }
 
@@ -37,9 +39,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: config.primaryColor,
-          onSecondary: config.primaryColor,
-          onPrimaryContainer: Colors.white,
-          primaryContainer: config.primaryColor,
+          primary: config.primaryColor,
+          primaryContainer: config.primaryColor.withAlpha(38),
+          onPrimaryContainer: config.primaryColor,
+          surface: config.backgroundColor,
         ),
       ),
       home: PageStructure(

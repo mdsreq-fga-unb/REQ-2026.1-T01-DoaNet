@@ -9,7 +9,7 @@ class FetchOrgConfig {
 
   Future<OrgConfig> fetchConfig() async {
     final response = await http.get(
-      Uri.parse('https://sua-api.com/orgs/$orgId/config'),
+      Uri.parse('http://127.0.0.1:8000/orgs/$orgId/config'),
     );
 
     if (response.statusCode == 200) {

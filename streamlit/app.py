@@ -28,6 +28,7 @@ _defaults = {
     "admin_name": None,
     "admin_email": None,
     "admin_role": None,
+    "admin_org_id": None,
 }
 for _k, _v in _defaults.items():
     st.session_state.setdefault(_k, _v)
@@ -229,6 +230,7 @@ def login_page():
                         admin_name=admin.get("name"),
                         admin_email=admin.get("email"),
                         admin_role=admin.get("role"),
+                        admin_org_id=admin.get("org_id"),
                     )
                     st.rerun()
                 else:
@@ -574,9 +576,15 @@ def admins_page():
             name = st.text_input("Nome")
             email = st.text_input("E-mail")
             password = st.text_input("Senha", type="password")
+            org_id = st.text_input("ID da organização", placeholder="ex: move-educa")
+            st.caption("O admin só poderá configurar a organização com esse ID.")
             if st.form_submit_button("Criar administrador"):
-                resp = make_request("POST", "/admin/create",
-                                    {"name": name, "email": email, "password": password})
+                if not org_id:
+                    st.error("Informe o ID da organização.")
+                else:
+                    resp = make_request("POST", "/admin/create",
+                                    {"name": name, "email": email,
+                                     "password": password, "org_id": org_id})
                 if resp is not None and resp.status_code == 200:
                     st.success("Administrador criado!")
                     st.rerun()
@@ -599,7 +607,9 @@ def admins_page():
                 c1.markdown(
                     f'<span class="pill {role_pill}">{admin["role"]}</span>'
                     f'<div class="card-title">{admin["name"]}</div>'
-                    f'<div class="card-meta">{admin["email"]} · {status}</div>',
+                    f'<div class="card-meta">{admin["email"]} · {status}</div>'
+                    + (f' · 🏢 {admin["org_id"]}' if admin.get("org_id") else '')
+                    + '</div>',
                     unsafe_allow_html=True,
                 )
                 if admin["role"] != "master" and admin["is_active"]:
@@ -611,6 +621,82 @@ def admins_page():
                         elif r is not None:
                             st.error(error_detail(r))
 
+def organizacao_section():
+    st.subheader("🏢 Minha Organização")
+    
+    role = st.session_state.get("admin_role")
+    if role == "master":
+        org_id = st.text_input("ID da organização a configurar", placeholder="ex: move-educa")
+        if not org_id:
+            st.info("Informe o ID da organização para carregar ou criar as configurações.")
+            return
+    else:
+        org_id = st.session_state.get("admin_org_id")
+        if not org_id:
+            st.error("Sua conta não está vinculada a nenhuma organização. Contate o administrador principal.")
+            return
+        st.caption(f"Configurando: **{org_id}**")
+
+    resp = requests.get(f"{BACKEND_URL}/orgs/{org_id}/config", timeout=10)
+    current = resp.json() if resp.status_code == 200 else {}
+
+    with st.form("org_config_form"):
+        name = st.text_input("Nome da organização", value=current.get("name", ""))
+        description = st.text_area("Descrição", value=current.get("description", ""), height=120)
+        
+        col1, col2 = st.columns(2)
+        primary_color = col1.text_input(
+            "Cor primária (hex)",
+            value=current.get("primary_color", "#0088FF"),
+            placeholder="#0088FF"
+        )
+        background_color = col2.text_input(
+            "Cor de fundo (hex)",
+            value=current.get("background_color", "#FFFFFF"),
+            placeholder="#FFFFFF"
+        )
+
+        if primary_color:
+            st.markdown(
+                f'<div style="display:flex;gap:12px;margin:8px 0;">'
+                f'<div style="background:{primary_color};width:36px;height:36px;'
+                f'border-radius:8px;border:1px solid #eee;"></div>'
+                f'<div style="background:{background_color};width:36px;height:36px;'
+                f'border-radius:8px;border:1px solid #eee;"></div>'
+                f'<span style="color:#6B7280;font-size:.85rem;align-self:center;">'
+                f'Primária · Fundo</span></div>',
+                unsafe_allow_html=True,
+            )
+
+        if current.get("logo_url"):
+            st.image(current["logo_url"], width=120, caption="Logo atual")
+
+        logo = st.file_uploader(
+            "Logo da organização (opcional — mantém o atual se vazio)",
+            type=["png", "jpg", "jpeg", "webp"],
+        )
+
+        data = {
+            "org_id": org_id,
+            "name": name,
+            "description": description,
+            "primary_color": primary_color,
+            "background_color": background_color or "#FFFFFF",
+        }
+        files = None
+        if logo is not None:
+            files = {"logo": (logo.name, logo.getvalue(), logo.type)}
+
+        if st.form_submit_button("💾 Salvar configurações"):
+            if not (name and description and primary_color):
+                st.error("Preencha nome, descrição e cor primária.")
+            else:
+                r = make_multipart_request("POST", "/orgs", data=data, files=files)
+                if r is not None and r.status_code == 200:
+                    st.success("Configurações salvas! O app já reflete as mudanças.")
+                    st.rerun()
+                elif r is not None:
+                    st.error(error_detail(r))
 
 # ----------------------------------------------------------------------------
 # Dashboard
@@ -630,7 +716,7 @@ def main_dashboard():
         st.markdown("---")
         menu = st.radio(
             "Navegação",
-            ["📋 Publicações", "🤝 Oportunidades", "👥 Administradores", "ℹ️ Sobre"],
+            ["📋 Publicações", "🤝 Oportunidades", "🏢 Organização", "👥 Administradores", "ℹ️ Sobre"],
             label_visibility="collapsed",
         )
         st.markdown("---")
@@ -643,6 +729,8 @@ def main_dashboard():
         publicacoes_section()
     elif menu == "🤝 Oportunidades":
         oportunidades_section()
+    elif menu == "🏢 Organização":
+        organizacao_section()
     elif menu == "👥 Administradores":
         admins_page()
     else:
