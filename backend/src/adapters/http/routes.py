@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Annotated, Optional
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, UploadFile
 from pydantic import BaseModel
 
 from .security import (
@@ -19,11 +19,21 @@ from adapters.http.serializers import feed_items_to_list, oportunidades_to_list
 from adapters.db.mongo_feed_repository import MongoFeedRepository
 from adapters.db.mongo_admin_repository import MongoAdminRepository
 from adapters.db.mongo_oportunidade_repository import MongoOportunidadeRepository
+from adapters.db.mongo_doacao_repository import MongoDoacaoRepository
 from adapters.infrastructure.storage.gcs_storage_service import GCSStorageService
 
 from application.services.feed_service import FeedService
 from application.services.auth_service import AuthService
 from application.services.oportunidade_service import OportunidadeService
+from application.services.doacao_service import DoacaoService
+
+
+class CheckoutRequest(BaseModel):
+    valor: float
+    is_anonima: bool = False
+    nome_doador: Optional[str] = None
+    direcao: str = "instituicao"
+    nome_projeto: Optional[str] = None
 
 
 class LoginData(BaseModel):
@@ -53,6 +63,10 @@ def innit_routes() -> APIRouter:
     storage_service = GCSStorageService(bucket_name="feed_imagens")
     oportunidade_repo = MongoOportunidadeRepository()
     oportunidade_service = OportunidadeService(oportunidade_repo)
+
+    # ----- Doações / Stripe -----
+    doacao_repo = MongoDoacaoRepository()
+    doacao_service = DoacaoService(doacao_repo)
 
     # ----- Admin / autenticação (streamlit) -----
     admin_repo = MongoAdminRepository()
@@ -205,6 +219,33 @@ def innit_routes() -> APIRouter:
             return {"message": "item not found"}
         except Exception as exc:
             return {"error": str(exc), "status": "failed"}
+
+    # ============ ROTAS DE DOAÇÕES ============
+    @router.post("/doacoes/checkout")
+    async def criar_checkout(body: CheckoutRequest):
+        try:
+            checkout_url = doacao_service.criar_checkout_session(body.model_dump())
+            return {"checkout_url": checkout_url}
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=str(exc))
+
+    @router.post("/doacoes/webhook")
+    async def stripe_webhook(request: Request):
+        payload = await request.body()
+        sig_header = request.headers.get("stripe-signature", "")
+        try:
+            doacao_service.processar_webhook(payload, sig_header)
+            return {"status": "ok"}
+        except Exception as exc:
+            raise HTTPException(status_code=400, detail=str(exc))
+
+    @router.get("/doacoes/sucesso")
+    async def doacao_sucesso():
+        return {"message": "Doação realizada com sucesso! Obrigado pelo apoio."}
+
+    @router.get("/doacoes/cancelado")
+    async def doacao_cancelada():
+        return {"message": "Doação cancelada."}
 
     # ============ ROTAS DE AUTENTICAÇÃO / ADMIN ============
     @router.post("/admin/register")

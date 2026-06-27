@@ -1,0 +1,21 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'doacao_model.dart';
+
+class DoacaoService {
+  static const _baseUrl = 'http://localhost:8000';
+
+  Future<String> criarCheckoutSession(DoacaoRequest doacao) async {
+    final response = await http.post(
+      Uri.parse('$_baseUrl/doacoes/checkout'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(doacao.toJson()),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['checkout_url'] as String;
+    }
+    throw Exception('Erro ao criar sessão de pagamento: ${response.body}');
+  }
+}
