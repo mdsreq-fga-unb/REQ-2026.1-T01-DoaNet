@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; 
+import 'package:flutter_svg/flutter_svg.dart';
 import '../config/org_config_provider.dart';
 import '../widgets/vaga_card.dart';
+import '../widgets/doacao_dialog.dart';
 import '../info_fetch/oportunidades/fetch_oportunidade.dart';
 import '../info_fetch/oportunidades/oportunidade_model.dart';
 
@@ -41,7 +42,7 @@ class ColaboracaoPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () => mostrarDoacaoDialog(context),
                   borderRadius: BorderRadius.circular(25),
                   child: Container(
                     width: double.infinity, 
