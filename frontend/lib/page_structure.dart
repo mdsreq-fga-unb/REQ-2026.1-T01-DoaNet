@@ -99,7 +99,11 @@ class _PageStructureState extends State<PageStructure> {
           ),
         ],
       ),
-      body: _pageForName(),
+      
+      body: ColoredBox(
+        color: config.backgroundColor,
+        child: _pageForName(),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex(),
         selectedItemColor: config.primaryColor,
