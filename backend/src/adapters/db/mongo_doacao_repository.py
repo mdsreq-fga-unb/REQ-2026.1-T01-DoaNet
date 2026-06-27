@@ -6,8 +6,8 @@ from adapters.db.mongo_connection import get_collection
 
 
 class MongoDoacaoRepository(DoacaoRepository):
-    def __init__(self):
-        self.collection = get_collection("doacoes")
+    def __init__(self, collection_handle=None):
+        self.collection = collection_handle or get_collection("doacoes")
 
     def save(self, doacao: Doacao) -> Doacao:
         payload = doacao.model_dump()
