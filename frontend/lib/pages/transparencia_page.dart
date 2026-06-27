@@ -26,9 +26,9 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
     final corVerdeEntrada = const Color(0xFF4CAF50);
     final corVermelhoSaida = const Color(0xFFE53935);
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: FutureBuilder<List<TransacaoModel>>(
+    return Container(
+      color: Colors.white,
+      child: FutureBuilder<List<TransacaoModel>>(
         future: FetchTransparencia().fetchTransacoes(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -90,7 +90,7 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                           valor: 'R\$ ${totalArrecadado.toStringAsFixed(2).replaceAll('.', ',')}',
                           corValor: corVerdeEntrada,
                           isSelecionado: _filtroSelecionado == 'entrada' || _filtroSelecionado == 'todos',
-                          corBorda: corAzulMoveEduca,
+                          corBorda: const Color(0xFFD9D9D9),
                           onTap: () {
                             setState(() {
                               _filtroSelecionado = _filtroSelecionado == 'entrada' ? 'todos' : 'entrada';
@@ -105,7 +105,7 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                           valor: 'R\$ ${totalGasto.toStringAsFixed(2).replaceAll('.', ',')}',
                           corValor: corVermelhoSaida,
                           isSelecionado: _filtroSelecionado == 'saida' || _filtroSelecionado == 'todos',
-                          corBorda: corAzulMoveEduca,
+                          corBorda: const Color(0xFFD9D9D9),
                           onTap: () {
                             setState(() {
                               _filtroSelecionado = _filtroSelecionado == 'saida' ? 'todos' : 'saida';
@@ -123,6 +123,7 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
                       fontFamily: 'Times New Roman',
+                      color: Color(0xFF171616),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -142,7 +143,7 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: transacoesFiltradas.length,
-                      separatorBuilder: (context, index) => const Divider(height: 1, color: Colors.black12),
+                      separatorBuilder: (context, index) => const Divider(height: 1, color: Color(0xFFD9D9D9)),
                       itemBuilder: (context, index) {
                         final transacao = transacoesFiltradas[index];
                         final isEntrada = transacao.tipo == 'doacao_externa' || transacao.tipo == 'doacao_interna';
@@ -162,11 +163,11 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                             ),
                             title: Text(
                               transacao.descricao,
-                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF171616)),
                             ),
                             subtitle: Text(
                               _formatarData(transacao.data),
-                              style: const TextStyle(fontSize: 12, color: Colors.black54),
+                              style: const TextStyle(fontSize: 12, color: Color(0xFF505050)),
                             ),
                             trailing: Text(
                               '${isEntrada ? '+' : '-'} R\$ ${transacao.valor.toStringAsFixed(2).replaceAll('.', ',')}',
@@ -205,7 +206,7 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelecionado ? corBorda : Colors.grey[200]!,
+            color: isSelecionado ? corBorda : const Color(0xFFD9D9D9),
             width: isSelecionado ? 2 : 1,
           ),
           boxShadow: [
@@ -219,7 +220,7 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
         ),
         child: Column(
           children: [
-            Text(titulo, style: TextStyle(color: Colors.grey[600], fontSize: 14)),
+            Text(titulo, style: const TextStyle(color: Color(0xFF171616), fontSize: 14)),
             const SizedBox(height: 8),
             Text(valor, style: TextStyle(color: corValor, fontSize: 18, fontWeight: FontWeight.bold)),
           ],
