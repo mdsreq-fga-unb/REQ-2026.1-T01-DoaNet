@@ -557,7 +557,163 @@ def render_oportunidade_card(op):
                 elif r is not None:
                     st.error(error_detail(r))
 
+#financeiro
+def formatar_real(valor):
+    return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
+
+def financeiro_section():
+    st.subheader("💵 Financeiro")
+    st.caption("Lance doações externas e despesas. Registros são permanentes e não podem ser editados.")
+
+    if "success_msg" in st.session_state:
+        st.success(st.session_state["success_msg"])
+        del st.session_state["success_msg"]
+
+    aba_opcoes = ["Lançar Doação Externa", "Lançar Despesa", "Histórico"]
+    if "financeiro_aba_ativa" not in st.session_state:
+        st.session_state["financeiro_aba_ativa"] = aba_opcoes[0]
+
+    aba_selecionada = st.radio(
+        "Seção financeira",
+        aba_opcoes,
+        horizontal=True,
+        key="financeiro_aba_ativa",
+        label_visibility="collapsed",
+    )
+
+    # doacao externa
+    if aba_selecionada == "Lançar Doação Externa":
+        with st.form("form_doacao", clear_on_submit=True):
+            col1, col2 = st.columns(2)
+            valor = col1.number_input("Valor (R$)", min_value=0.01, step=0.01, format="%.2f")
+            data = col2.date_input("Data da doação")
+            descricao = st.text_area("Descrição", placeholder="ex: Doação em dinheiro recebida no evento de Maio")
+
+            if st.form_submit_button("Confirmar doação"):
+                if not descricao:
+                    st.error("Preencha a descrição.")
+                else:
+                    st.session_state["pending_doacao"] = {
+                        "valor": valor,
+                        "data": data.isoformat(),
+                        "descricao": descricao,
+                    }
+
+        pending = st.session_state.get("pending_doacao")
+        if pending:
+            st.warning(
+                f"⚠️ Tem certeza que deseja registrar a doação de "
+                f"**R$ {pending['valor']:,.2f}** — \"{pending['descricao']}\"?\n\n"
+                "Essa ação não pode ser desfeita."
+            )
+            c1, c2 = st.columns(2)
+            if c1.button("✅ Sim, confirmar doação", type="primary", use_container_width=True, key="btn_confirma_doacao"):
+                resp = make_request("POST", "/transparencia/doacao-externa", data=pending)
+                if resp is not None and resp.status_code == 200:
+                    del st.session_state["pending_doacao"]
+                    st.session_state["success_msg"] = "Doação registrada com sucesso!"
+                    st.rerun()
+                elif resp is not None:
+                    st.error(error_detail(resp))
+            if c2.button("✖️ Cancelar", use_container_width=True, key="btn_cancela_doacao"):
+                del st.session_state["pending_doacao"]
+                st.rerun()
+
+   # despesa
+    if aba_selecionada == "Lançar Despesa":
+        with st.form("form_despesa", clear_on_submit=True):
+            col1, col2 = st.columns(2)
+            valor = col1.number_input("Valor (R$)", min_value=0.01, step=0.01, format="%.2f", key="valor_despesa")
+            data = col2.date_input("Data da despesa", key="data_despesa")
+            categoria = st.text_input("Categoria", placeholder="ex: Aluguel, Material, Transporte")
+
+            if st.form_submit_button("Confirmar despesa"):
+                if not categoria:
+                    st.error("Preencha a categoria.")
+                else:
+                    st.session_state["pending_despesa"] = {
+                        "valor": valor,
+                        "data": data.isoformat(),
+                        "categoria": categoria,
+                    }
+
+        pending = st.session_state.get("pending_despesa")
+        if pending:
+            st.warning(
+                f"⚠️ Tem certeza que deseja registrar a despesa de "
+                f"**R$ {pending['valor']:,.2f}** — \"{pending['categoria']}\"?\n\n"
+                "Essa ação não pode ser desfeita."
+            )
+            c1, c2 = st.columns(2)
+            if c1.button("✅ Sim, confirmar despesa", type="primary", use_container_width=True, key="btn_confirma_despesa"):
+                resp = make_request("POST", "/transparencia/despesa", data=pending)
+                if resp is not None and resp.status_code == 200:
+                    del st.session_state["pending_despesa"]
+                    st.session_state["success_msg"] = "Despesa registrada com sucesso!"
+                    st.rerun()
+                elif resp is not None:
+                    st.error(error_detail(resp))
+            if c2.button("✖️ Cancelar", use_container_width=True, key="btn_cancela_despesa"):
+                del st.session_state["pending_despesa"]
+                st.rerun()
+
+    # historico
+    if aba_selecionada == "Histórico":
+        resp = make_request("GET", "/transparencia")
+        if resp is None:
+            return
+        if resp.status_code != 200:
+            st.error(error_detail(resp))
+            return
+
+        records = resp.json()
+        if not isinstance(records, list):
+            st.error("Resposta inesperada do servidor")
+            return
+        if not records:
+            st.info("Nenhum registro encontrado.")
+            return
+
+        total_in = sum(r["valor"] for r in records if r["tipo"] != "despesa")
+        total_out = sum(r["valor"] for r in records if r["tipo"] == "despesa")
+        c1, c2, c3 = st.columns(3)
+        c1.metric("Total arrecadado", formatar_real(total_in))
+        c2.metric("Total de despesas", formatar_real(total_out))
+        c3.metric("Saldo", formatar_real(total_in - total_out))
+
+        st.divider()
+
+        for r in records:
+            render_transparencia_card(r)
+
+
+def render_transparencia_card(r):
+    tipo_meta = {
+        "doacao_externa": ("Doação externa", "🟢", "pill-vaga"),
+        "doacao_interna": ("Doação interna", "🔵", "pill-post"),
+        "despesa":        ("Despesa",        "🔴", "pill-evento"),
+    }
+    label, emoji, pill_cls = tipo_meta.get(r["tipo"], ("Registro", "⚪", "pill-inactive"))
+    sinal = "-" if r["tipo"] == "despesa" else "+"
+    cor_valor = "#E11D48" if r["tipo"] == "despesa" else "#16A34A"
+    data_fmt = r["data"][:10] if r.get("data") else "—"
+
+    with st.container(border=True):
+        col_info, col_valor = st.columns([4, 1])
+        with col_info:
+            st.markdown(
+                f'<span class="pill {pill_cls}">{emoji} {label}</span>',
+                unsafe_allow_html=True,
+            )
+            st.markdown(f'<div class="card-title">{r["descricao"]}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="card-meta">{data_fmt}</div>', unsafe_allow_html=True)
+        with col_valor:
+            st.markdown(
+                f'<div style="text-align:right; font-weight:800; font-size:1.1rem; '
+                f'color:{cor_valor}; padding-top:8px;">{sinal} {formatar_real(r["valor"])}</div>',
+                unsafe_allow_html=True,
+            )
 # ----------------------------------------------------------------------------
 # Administradores
 # ----------------------------------------------------------------------------
@@ -630,7 +786,7 @@ def main_dashboard():
         st.markdown("---")
         menu = st.radio(
             "Navegação",
-            ["📋 Publicações", "🤝 Oportunidades", "👥 Administradores", "ℹ️ Sobre"],
+            ["📋 Publicações", "🤝 Oportunidades", "💵 Financeiro", "👥 Administradores", "ℹ️ Sobre"],
             label_visibility="collapsed",
         )
         st.markdown("---")
@@ -643,6 +799,8 @@ def main_dashboard():
         publicacoes_section()
     elif menu == "🤝 Oportunidades":
         oportunidades_section()
+    elif menu == "💵 Financeiro":
+        financeiro_section()
     elif menu == "👥 Administradores":
         admins_page()
     else:
