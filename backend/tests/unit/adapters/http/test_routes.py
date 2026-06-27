@@ -42,6 +42,12 @@ class FakeFeedRepository:
                 return True
         return False
 
+    def find_by_id(self, item_id: str):
+        for item in self.items:
+            if item.id == item_id:
+                return item
+        return None
+
     def delete(self, item_id: str) -> bool:
         for idx, existing in enumerate(self.items):
             if existing.id == item_id:
@@ -67,10 +73,54 @@ class FakeOportunidadeRepository:
     def delete(self, item_id):
         return True
 
+
+class FakeGCSStorageService:
+    def __init__(self, bucket_name: str):
+        self.bucket_name = bucket_name
+
+    def upload_image(self, file) -> dict:
+        return {
+            "image_url": "http://fake-storage.com/fake-image.jpg",
+            "image_path": "feed/fake-image.jpg",
+        }
+
+
+class FakeAdminRepository:
+    def __init__(self, collection_handle=None):
+        self.admins = []
+
+    async def create(self, admin):
+        admin.id = "fake-admin-id"
+        self.admins.append(admin)
+        return admin
+
+    async def find_by_email(self, email):
+        return None
+
+    async def find_by_id(self, admin_id):
+        return None
+
+    async def update_last_login(self, admin_id):
+        pass
+
+    async def count_admins(self):
+        return 0
+
+    async def list_all(self):
+        return []
+
+    async def update_role(self, admin_id, role):
+        return True
+
+    async def deactivate_admin(self, admin_id):
+        return True
+
 @pytest.fixture
 def client(monkeypatch):
     monkeypatch.setattr(routes, "MongoFeedRepository", FakeFeedRepository)
     monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
+    monkeypatch.setattr(routes, "GCSStorageService", FakeGCSStorageService)
+    monkeypatch.setattr(routes, "MongoAdminRepository", FakeAdminRepository)
     app = FastAPI()
     app.include_router(routes.innit_routes())
     return TestClient(app)
@@ -97,11 +147,11 @@ def test_get_feed(client):
 def test_add_feed_item(client):
     payload = {
         "title": "Mutirao de doacoes",
-        "type": "com_evento",
+        "post_type": "com_evento",
         "description": "Campanha com evento",
     }
 
-    response = client.post("/feed", json=payload)
+    response = client.post("/feed", data=payload)
     assert response.status_code == 200
     assert response.json() == {"message": "created"}
 
@@ -113,11 +163,11 @@ def test_add_feed_item(client):
 def test_update_feed_item(client):
     payload = {
         "title": "Cesta basica atualizada",
-        "type": "com_evento",
+        "post_type": "com_evento",
         "description": "Atualizado",
     }
 
-    response = client.put("/feed/1", json=payload)
+    response = client.put("/feed/1", data=payload)
     assert response.status_code == 200
     assert response.json() == {"message": "updated"}
 

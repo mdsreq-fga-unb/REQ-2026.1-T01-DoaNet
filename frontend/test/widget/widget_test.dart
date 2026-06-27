@@ -13,16 +13,16 @@ void main() {
       ),
     );
 
-    expect(find.text('MoveEduca'), findsOneWidget);
-    expect(find.text('Colaboracao'), findsOneWidget);
-    expect(find.byIcon(Icons.home_outlined), findsOneWidget);
-    expect(find.byIcon(Icons.volunteer_activism_outlined), findsOneWidget);
-    expect(find.byIcon(Icons.grade_sharp), findsOneWidget);
+    await tester.pumpAndSettle();
 
-    await tester.tap(find.byIcon(Icons.grade_sharp));
+    expect(find.byType(BottomNavigationBar), findsOneWidget);
+    expect(find.text('Feed'), findsWidgets);
+    expect(find.text('Colaboração'), findsWidgets);
+    expect(find.text('Transparência'), findsWidgets);
+
+    await tester.tap(find.text('Transparência').first);
     await tester.pumpAndSettle();
 
     expect(find.text('Transparencia'), findsOneWidget);
-    print('OK: PageStructure switches tabs');
   });
 }
