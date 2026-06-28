@@ -15,8 +15,10 @@ import adapters.http.routes as routes
 class FakeFeedRepository:
     def __init__(self) -> None:
         self.items = [
-            FeedItem(id="1", title="Cesta basica", type="sem_evento", description="Doacao sem evento"),
-            FeedItem(id="2", title="Campanha do agasalho", type="com_evento", description="Doacao com evento vinculado"),
+            FeedItem(id="1", title="Cesta basica", type="sem_evento",
+                     description="Doacao sem evento", org_id="org-a"),
+            FeedItem(id="2", title="Campanha do agasalho", type="com_evento",
+                     description="Doacao com evento vinculado", org_id="org-b"),
         ]
 
     def list_all(self):
@@ -183,6 +185,26 @@ def test_get_feed(client):
     assert payload[1]["type"] == "com_evento"
 
 
+def test_get_feed_filtered_by_org_id(client):
+    response = client.get("/feed?org_id=org-a")
+    assert response.status_code == 200
+    payload = response.json()
+    assert len(payload) == 1
+    assert payload[0]["title"] == "Cesta basica"
+
+
+def test_get_feed_without_org_id_returns_all(client):
+    response = client.get("/feed")
+    assert response.status_code == 200
+    assert len(response.json()) == 2
+
+
+def test_get_feed_with_unknown_org_id_returns_empty(client):
+    response = client.get("/feed?org_id=org-inexistente")
+    assert response.status_code == 200
+    assert response.json() == []
+
+
 def test_add_feed_item(client):
     payload = {
         "title": "Mutirao de doacoes",
@@ -232,6 +254,28 @@ def test_get_oportunidades(client):
     response = client.get("/oportunidades")
     assert response.status_code == 200
     assert isinstance(response.json(), list)
+
+
+def test_get_oportunidades_filtered_by_org_id(client):
+    response = client.get("/oportunidades?org_id=org-inexistente")
+    assert response.status_code == 200
+    assert response.json() == []
+
+
+def test_get_oportunidades_without_org_id_returns_all(client):
+    client.post("/oportunidades", json={
+        "titulo": "Vaga Teste",
+        "descricao": "Desc",
+        "local": "Local",
+        "horario": "Sáb 9h",
+        "vagas_totais": 5,
+        "vagas_preenchidas": 0,
+        "ativo": True,
+    })
+
+    response = client.get("/oportunidades")
+    assert response.status_code == 200
+    assert len(response.json()) == 1
 
 
 def test_add_oportunidade(client):
@@ -321,9 +365,6 @@ def test_update_org_config(client):
 
 def test_org_admin_cannot_configure_other_org(monkeypatch):
     """Admin comum não pode configurar org diferente da sua."""
-    from domain.entities.admin import Admin, AdminRole
-    from adapters.http.security import get_current_admin
-
     monkeypatch.setattr(routes, "MongoFeedRepository", FakeFeedRepository)
     monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)
@@ -353,9 +394,6 @@ def test_org_admin_cannot_configure_other_org(monkeypatch):
 
 def test_org_admin_can_configure_own_org(monkeypatch):
     """Admin comum pode configurar a própria org."""
-    from domain.entities.admin import Admin, AdminRole
-    from adapters.http.security import get_current_admin
-
     monkeypatch.setattr(routes, "MongoFeedRepository", FakeFeedRepository)
     monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)

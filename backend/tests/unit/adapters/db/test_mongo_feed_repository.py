@@ -1,7 +1,5 @@
 from types import SimpleNamespace
-
 from bson import ObjectId
-
 from adapters.db.mongo_feed_repository import MongoFeedRepository
 from domain.entities.feed_item import FeedItem
 
@@ -42,16 +40,13 @@ class FakeCollection:
 
 def test_list_all_returns_feed_items():
     oid = ObjectId()
-    collection = FakeCollection(
-        [
-            {
-                "_id": oid,
-                "title": "Cesta basica",
-                "type": "sem_evento",
-                "description": "Doacao",
-            }
-        ]
-    )
+    collection = FakeCollection([{
+        "_id": oid,
+        "title": "Cesta basica",
+        "type": "sem_evento",
+        "description": "Doacao",
+        "org_id": "test-org",
+    }])
 
     repo = MongoFeedRepository(collection_handle=collection)
     items = repo.list_all()
@@ -59,39 +54,47 @@ def test_list_all_returns_feed_items():
     assert len(items) == 1
     assert items[0].id == str(oid)
     assert items[0].title == "Cesta basica"
+    assert items[0].org_id == "test-org"  # <- adicionar
+
+
+def test_list_all_maps_org_id():
+    collection = FakeCollection([
+        {"_id": ObjectId(), "title": "Post A", "type": "post", "description": "Desc", "org_id": "org-a"},
+        {"_id": ObjectId(), "title": "Post B", "type": "post", "description": "Desc", "org_id": "org-b"},
+    ])
+
+    repo = MongoFeedRepository(collection_handle=collection)
+    items = repo.list_all()
+
+    assert items[0].org_id == "org-a"
+    assert items[1].org_id == "org-b"
 
 
 def test_add_inserts_payload_without_id():
     collection = FakeCollection()
     repo = MongoFeedRepository(collection_handle=collection)
 
-    item = FeedItem(id="123", title="Cesta basica", type="sem_evento", description="Doacao")
+    item = FeedItem(id="123", title="Cesta basica", type="sem_evento", description="Doacao", org_id="test-org")
     repo.add(item)
 
     assert len(collection.items) == 1
     assert "id" not in collection.items[0]
     assert collection.items[0]["title"] == "Cesta basica"
+    assert collection.items[0]["org_id"] == "test-org"  # <- adicionar
 
 
 def test_update_item_returns_true_when_found():
     oid = ObjectId()
-    collection = FakeCollection(
-        [
-            {
-                "_id": oid,
-                "title": "Cesta basica",
-                "type": "sem_evento",
-                "description": "Doacao",
-            }
-        ]
-    )
+    collection = FakeCollection([{
+        "_id": oid,
+        "title": "Cesta basica",
+        "type": "sem_evento",
+        "description": "Doacao",
+        "org_id": "test-org",
+    }])
 
     repo = MongoFeedRepository(collection_handle=collection)
-    updated = FeedItem(
-        title="Cesta basica atualizada",
-        type="com_evento",
-        description="Atualizado",
-    )
+    updated = FeedItem(title="Cesta basica atualizada", type="com_evento", description="Atualizado", org_id="test-org")
 
     result = repo.update_item(str(oid), updated)
 
@@ -111,16 +114,13 @@ def test_update_item_returns_false_when_missing():
 
 def test_delete_returns_true_when_found():
     oid = ObjectId()
-    collection = FakeCollection(
-        [
-            {
-                "_id": oid,
-                "title": "Cesta basica",
-                "type": "sem_evento",
-                "description": "Doacao",
-            }
-        ]
-    )
+    collection = FakeCollection([{
+        "_id": oid,
+        "title": "Cesta basica",
+        "type": "sem_evento",
+        "description": "Doacao",
+        "org_id": "test-org",
+    }])
 
     repo = MongoFeedRepository(collection_handle=collection)
     result = repo.delete(str(oid))
