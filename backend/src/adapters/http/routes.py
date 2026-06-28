@@ -71,9 +71,9 @@ def innit_routes() -> APIRouter:
 
     # ============ ROTAS DE FEED ============
     @router.get("/feed")
-    async def get_feed():
+    async def get_feed(org_id: Optional[str] = None):
         try:
-            feed_items = feed_service.list_items()
+            feed_items = feed_service.list_items(org_id=org_id)
             return feed_items_to_list(feed_items)
         except Exception as exc:
             return {"error": str(exc), "status": "failed"}
@@ -86,7 +86,8 @@ def innit_routes() -> APIRouter:
         image: Annotated[Optional[UploadFile], File()] = None,
         event_location: Annotated[Optional[str], Form()] = None,
         event_date: Annotated[Optional[str], Form()] = None,
-        event_url: Annotated[Optional[str], Form()] = None
+        event_url: Annotated[Optional[str], Form()] = None,
+        current_admin: Admin = Depends(get_current_admin)
     ):
         try:
             if post_type == "evento":
@@ -111,7 +112,8 @@ def innit_routes() -> APIRouter:
                 image_path=image_data["image_path"],
                 event_location=event_location if post_type == "evento" else None,
                 event_date=event_date if post_type == "evento" else None,
-                event_url=event_url if post_type == "evento" else None
+                event_url=event_url if post_type == "evento" else None,
+                org_id=current_admin.org_id
             )
 
             feed_service.add_item(feed_item)
@@ -181,15 +183,16 @@ def innit_routes() -> APIRouter:
 
     # ============ ROTAS DE OPORTUNIDADES ============
     @router.get("/oportunidades")
-    async def get_oportunidades():
+    async def get_oportunidades(org_id: Optional[str] = None):
         try:
-            items = oportunidade_service.list_items()
+            items = oportunidade_service.list_items(org_id=org_id)
             return oportunidades_to_list(items)
         except Exception as exc:
             return {"error": str(exc), "status": "failed"}
 
     @router.post("/oportunidades")
-    async def add_oportunidade(item: OportunidadeVoluntariado):
+    async def add_oportunidade(item: OportunidadeVoluntariado, current_admin: Admin = Depends(get_current_admin)):
+        item.org_id = current_admin.org_id
         oportunidade_service.add_item(item)
         return {"message": "created"}
 
@@ -220,6 +223,7 @@ def innit_routes() -> APIRouter:
         if not org:
             raise HTTPException(status_code=404, detail="Organização não encontrada")
         return {
+            "org_id": org.org_id,
             "name": org.name,
             "description": org.description,
             "primary_color": org.primary_color,

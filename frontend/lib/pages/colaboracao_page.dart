@@ -86,7 +86,9 @@ class ColaboracaoPage extends StatelessWidget {
 
                 // Substituímos a lista mocada pela conexão com o Banco
                 FutureBuilder<List<OportunidadeItem>>(
-                  future: FetchOportunidade().fetchOportunidades(),
+                  future: FetchOportunidade(
+                    orgId: OrgConfigProvider.of(context).orgId,
+                  ).fetchOportunidades(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(
