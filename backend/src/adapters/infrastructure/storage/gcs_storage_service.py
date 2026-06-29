@@ -8,12 +8,16 @@ from fastapi import UploadFile, HTTPException
 class GCSStorageService:
     def __init__(self, bucket_name: str):
         self.bucket_name = bucket_name
-        credentials = service_account.Credentials.from_service_account_file(
-            os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-        )
-
-        self.client = storage.Client(credentials=credentials)
-        self.bucket = self.client.bucket(self.bucket_name)
+        self.client = None
+        self.bucket = None
+        
+        credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+        if credentials_path:
+            credentials = service_account.Credentials.from_service_account_file(credentials_path)
+            self.client = storage.Client(credentials=credentials)
+            self.bucket = self.client.bucket(self.bucket_name)
+        else:
+            print("Aviso: GOOGLE_APPLICATION_CREDENTIALS não configurado. Upload de imagens falhará.")
 
     def upload_image(self, file: UploadFile) -> dict:
         allowed_types = {"image/png", "image/jpeg", "image/jpg", "image/webp"}
@@ -22,6 +26,9 @@ class GCSStorageService:
 
         extension = file.filename.split(".")[-1].lower() if file.filename else "jpg"
         object_name = f"feed/{uuid.uuid4()}.{extension}"
+
+        if self.bucket is None:
+            raise HTTPException(status_code=500, detail="Serviço de upload não configurado (credenciais do GCS ausentes).")
 
         try:
             blob = self.bucket.blob(object_name)
