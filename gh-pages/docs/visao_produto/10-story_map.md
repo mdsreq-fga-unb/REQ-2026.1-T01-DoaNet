@@ -95,27 +95,176 @@ Sendo:
 
 A partir dessas informações, foi gerada a seguinte tabela:
 
-| US | Descrição | VN | CT | EI | ET | IP | Quadrante | Prioridade sugerida |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | 
-| US11 | Autenticar administradores | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1|
-| US01 | Visualizar histórico financeiro | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 |
-| US02 | Visualizar publicações | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 |
-| US10 | Realizar doação | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 |
-| US14 | Configurar dados institucionais | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 |
-| US15 | Lançar doações e despesas | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 |
-| US17 | Criar nova publicação no feed | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 |
-| US12 | Cadastrar novo administrador | 5 | 4 | 4 | 4 | 1,25 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 |
-| US13 | Remover um administrador | 4 | 4 | 4 | 4 | 1 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 |
+| US | Descrição | VN | CT | EI | ET | IP | Quadrante | Prioridade sugerida | MVP |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |  :--- |
+| US11 | Autenticar administradores | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1| X |
+| US01 | Visualizar histórico financeiro | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
+| US02 | Visualizar publicações | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
+| US10 | Realizar doação | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
+| US14 | Configurar dados institucionais | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
+| US15 | Lançar doações e despesas | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
+| US17 | Criar nova publicação no feed | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
+| US12 | Cadastrar novo administrador | 5 | 4 | 4 | 4 | 1,25 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 | X |
+| US13 | Remover um administrador | 4 | 4 | 4 | 4 | 1 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 | X |
 | US03 | Visualizar descrição da ONG | 3 | 1 | 1 | 1 | 3 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US08 | Inscrever-se como voluntário | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US09 | Inscrever-se em eventos | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
+| US08 | Inscrever-se como voluntário | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
+| US09 | Inscrever-se em eventos | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
 | US16 | Lançar despesas operacionais | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US19 | Atualizar uma publicação | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US20 | Registrar oportunidade voluntariado | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US22 | Atualizar oportunidade voluntariado | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US06 | Filtrar publicações do feed | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US07 | Buscar publicações por título | 2 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US04 | Visualizar oportunidades voluntariado | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
+| US19 | Atualizar uma publicação | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
+| US20 | Registrar oportunidade voluntariado | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
+| US22 | Atualizar oportunidade voluntariado | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
+| US04 | Visualizar oportunidades voluntariado | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
 | US05 | Contactar os administradores | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US18 | Deletar uma publicação no feed | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| US21 | Deletar oportunidade voluntariado | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
+| US18 | Deletar uma publicação no feed | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
+| US21 | Deletar oportunidade voluntariado | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
+| US07 | Buscar publicações por título | 2 | 2 | 2 | 2 | 1,5 | Q4 Baixo valor / Baixa carga técnica | Prioridade 4 |
+| US06 | Filtrar publicações do feed | 2 | 2 | 2 | 2 | 1 | Q4 Baixo valor / Baixa carga técnica | Prioridade 4 |
+
+## 10.3 Critérios de Aceite
+
+Os critérios abaixo definem as condições mínimas que cada história de usuário deve satisfazer para ser considerada concluída. São verificados durante a revisão da sprint e servem de base para a validação com o cliente.
+
+#### US01 — Visualizar histórico financeiro
+
+- O histórico exibe doações e despesas em ordem cronológica decrescente.
+- Cada registro apresenta tipo (doação/despesa), valor, data e descrição.
+- O histórico é acessível sem autenticação pelo usuário comum.
+- Os registros são imutáveis após lançamento — não podem ser editados ou excluídos.
+
+#### US02 — Visualizar publicações no feed
+
+- O feed exibe publicações em ordem cronológica decrescente.
+- Cada publicação apresenta título, data de criação e imagem (quando disponível).
+- O feed exibe tanto posts normais quanto posts de eventos.
+- O feed é acessível sem autenticação.
+
+#### US03 — Visualizar descrição da ONG
+
+- A tela exibe nome, missão e descrição da organização.
+- As informações refletem os dados configurados pelo administrador.
+- A página é acessível sem autenticação.
+
+#### US04 — Visualizar oportunidades de voluntariado
+
+- A listagem exibe todas as oportunidades de voluntariado ativas.
+- Cada oportunidade apresenta título, descrição e requisitos.
+- A listagem é acessível sem autenticação.
+
+#### US05 — Contactar os administradores
+
+- O usuário acessa um canal de contato direto com a organização a partir da tela de perfil.
+- O canal redireciona corretamente para o meio configurado (ex: WhatsApp, e-mail).
+
+#### US06 — Filtrar publicações do feed
+
+- O usuário consegue filtrar o feed por tipo de publicação (normal ou evento).
+- O filtro é aplicado sem recarregar a tela.
+- Ao remover o filtro, o feed retorna ao estado padrão com todas as publicações.
+
+#### US07 — Buscar publicações por título
+
+- O campo de busca filtra publicações em tempo real conforme o usuário digita.
+- A busca não diferencia maiúsculas de minúsculas.
+- Quando nenhum resultado é encontrado, uma mensagem informativa é exibida.
+
+#### US08 — Inscrever-se como voluntário
+
+- O formulário de inscrição coleta nome, contato e motivação do candidato.
+- A inscrição é registrada e visível para o administrador no painel Streamlit.
+- O usuário recebe confirmação visual após envio bem-sucedido.
+
+#### US09 — Inscrever-se em evento
+
+- O usuário consegue se inscrever em um evento a partir da publicação no feed.
+- A inscrição é registrada e visível para o administrador.
+- O usuário recebe confirmação visual após inscrição bem-sucedida.
+- O sistema impede inscrição duplicada no mesmo evento.
+
+#### US10 — Realizar doação
+
+- O fluxo permite selecionar valor e direcionamento da doação.
+- O doador escolhe entre visibilidade pública (nome exibido) ou anônima.
+- O registro é imutável após confirmação do pagamento.
+- A transação é processada por gateway de pagamento com criptografia.
+
+#### US11 — Autenticar administradores
+
+- O administrador consegue fazer login com credenciais válidas (e-mail + senha).
+- Credenciais inválidas retornam mensagem de erro sem expor detalhes técnicos.
+- Após autenticação, o painel exibe apenas as funcionalidades do nível hierárquico do admin.
+- A sessão é encerrada após logout explícito.
+
+#### US12 — Cadastrar novo administrador
+
+- O administrador geral consegue cadastrar um novo admin informando nome, e-mail e organização vinculada.
+- O novo administrador acessa o painel imediatamente com as credenciais criadas.
+- O sistema impede o cadastro de dois administradores com o mesmo e-mail.
+
+#### US13 — Remover um administrador
+
+- O administrador geral consegue remover qualquer administrador de organização.
+- O acesso do administrador removido é revogado imediatamente após a remoção.
+- A remoção não afeta dados históricos criados pelo administrador removido.
+
+#### US14 — Configurar dados institucionais
+
+- O administrador consegue configurar nome, logotipo e cores da organização.
+- As alterações são refletidas na interface do aplicativo em tempo real.
+- Apenas administradores autenticados conseguem alterar os dados institucionais.
+
+#### US15 — Lançar doações manuais
+
+- O administrador consegue registrar uma doação informando valor, data e descrição.
+- O registro é imediatamente visível no histórico de transparência para os usuários.
+- O registro é imutável após confirmação — não pode ser editado ou excluído.
+
+#### US16 — Lançar despesas operacionais
+
+- O administrador consegue registrar uma despesa informando valor, data e categoria.
+- O registro é imediatamente visível no histórico de transparência para os usuários.
+- O registro é imutável após confirmação — não pode ser editado ou excluído.
+
+#### US17 — Criar publicação no feed
+
+- O administrador consegue criar uma publicação normal com título, texto e imagem opcional.
+- O administrador consegue criar uma publicação de evento com título, texto, data do evento e imagem opcional.
+- A publicação é exibida imediatamente no feed após criação.
+- Apenas administradores autenticados conseguem criar publicações.
+
+#### US18 — Deletar publicação no feed
+
+- O administrador consegue excluir qualquer publicação do feed da sua organização.
+- A publicação é removida imediatamente do feed após exclusão.
+- Apenas administradores autenticados conseguem excluir publicações.
+
+#### US19 — Atualizar publicação no feed
+
+- O administrador consegue editar título, texto e imagem de uma publicação existente.
+- As alterações são refletidas imediatamente no feed após salvar.
+- Apenas administradores autenticados conseguem editar publicações.
+
+#### US20 — Registrar oportunidade de voluntariado
+
+- O administrador consegue criar uma oportunidade informando título, descrição e requisitos.
+- A oportunidade é exibida imediatamente na listagem de voluntariado após criação.
+- Apenas administradores autenticados conseguem registrar oportunidades.
+
+#### US21 — Deletar oportunidade de voluntariado
+
+- O administrador consegue excluir qualquer oportunidade de voluntariado da sua organização.
+- A oportunidade é removida imediatamente da listagem após exclusão.
+- Apenas administradores autenticados conseguem excluir oportunidades.
+
+#### US22 — Atualizar oportunidade de voluntariado
+
+- O administrador consegue editar título, descrição e requisitos de uma oportunidade existente.
+- As alterações são refletidas imediatamente na listagem após salvar.
+- Apenas administradores autenticados conseguem editar oportunidades.
+
+---
+
+### Sobre o MVP
+
+A coluna **MVP** identifica as histórias de usuário selecionadas para compor o **Produto Mínimo Viável** do DoaNet — o conjunto mínimo de funcionalidades que entrega valor real ao usuário e à organização, validando as premissas centrais do produto.
+
+A seleção foi feita com base no Índice de Prioridade (IP) calculado acima: foram incluídas no MVP as USs com maior relação valor de negócio / esforço técnico, priorizando os fluxos essenciais de cada módulo (feed, transparência, voluntariado e administração). As USs **sem marcação** no MVP representam incrementos futuros — funcionalidades de valor complementar que podem ser desenvolvidas após a validação do núcleo do produto com os usuários reais.
