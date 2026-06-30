@@ -3,8 +3,8 @@ from domain.entities.organization import Organization
 from adapters.db.mongo_connection import get_collection
 
 class MongoOrganizationRepository:
-    def __init__(self):
-        self.collection = get_collection("organizations")
+    def __init__(self, collection_handle=None):
+        self.collection = collection_handle or get_collection("organizations")
 
     def find_by_org_id(self, org_id: str) -> Optional[Organization]:
         doc = self.collection.find_one({"org_id": org_id})

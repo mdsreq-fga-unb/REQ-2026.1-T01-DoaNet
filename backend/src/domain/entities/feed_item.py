@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from pydantic import BaseModel, Field
@@ -14,5 +14,5 @@ class FeedItem(BaseModel):
     event_location: Optional[str] = None
     event_date: Optional[str] = None
     event_url: Optional[str] = None
-    created_at: Optional[datetime] = Field(default_factory=datetime.utcnow)
+    created_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(timezone.utc))
     org_id: Optional[str] = None

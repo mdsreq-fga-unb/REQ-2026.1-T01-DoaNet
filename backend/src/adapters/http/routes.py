@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Annotated, Optional
 
 # pyrefly: ignore [missing-import]
@@ -429,7 +429,7 @@ def innit_routes() -> APIRouter:
                 hashed_password=hashed_password,
                 role="master",
                 is_active=True,
-                created_at=datetime.utcnow()
+                created_at=datetime.now(timezone.utc)
             )
 
             created_admin = await admin_repo.create(admin)

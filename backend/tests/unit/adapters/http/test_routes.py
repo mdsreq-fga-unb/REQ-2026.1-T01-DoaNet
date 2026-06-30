@@ -135,6 +135,17 @@ class FakeOrganizationRepository:
         return False
 
 
+class FakeTransparenciaRepository:
+    def __init__(self):
+        self.items = []
+
+    def list_all(self):
+        return list(self.items)
+
+    def add(self, record) -> None:
+        self.items.append(record)
+
+
 # ----------------------------------------------------------------------------
 # Fixture
 # ----------------------------------------------------------------------------
@@ -145,6 +156,7 @@ def client(monkeypatch):
     monkeypatch.setattr(routes, "GCSStorageService", FakeGCSStorageService)
     monkeypatch.setattr(routes, "MongoAdminRepository", FakeAdminRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)
+    monkeypatch.setattr(routes, "MongoTransparenciaRepository", FakeTransparenciaRepository)
 
     fake_admin = Admin(
         email="master@test.com",
@@ -368,6 +380,9 @@ def test_org_admin_cannot_configure_other_org(monkeypatch):
     monkeypatch.setattr(routes, "MongoFeedRepository", FakeFeedRepository)
     monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)
+    monkeypatch.setattr(routes, "MongoTransparenciaRepository", FakeTransparenciaRepository)
+    monkeypatch.setattr(routes, "MongoAdminRepository", FakeAdminRepository)
+    monkeypatch.setattr(routes, "GCSStorageService", FakeGCSStorageService)
 
     restricted_admin = Admin(
         email="admin@test.com",
@@ -397,6 +412,9 @@ def test_org_admin_can_configure_own_org(monkeypatch):
     monkeypatch.setattr(routes, "MongoFeedRepository", FakeFeedRepository)
     monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)
+    monkeypatch.setattr(routes, "MongoTransparenciaRepository", FakeTransparenciaRepository)
+    monkeypatch.setattr(routes, "MongoAdminRepository", FakeAdminRepository)
+    monkeypatch.setattr(routes, "GCSStorageService", FakeGCSStorageService)
 
     own_admin = Admin(
         email="admin@test.com",

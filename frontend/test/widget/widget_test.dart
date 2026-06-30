@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:frontend/config/org_config.dart';
 import 'package:frontend/config/org_config_provider.dart';
 import 'package:frontend/page_structure.dart';
+import 'package:frontend/pages/transparencia_page.dart';
 
 void main() {
   testWidgets('PageStructure switches tabs', (WidgetTester tester) async {
@@ -28,6 +29,6 @@ void main() {
     await tester.tap(find.text('Transparência').first);
     await tester.pumpAndSettle();
 
-    expect(find.text('Transparencia'), findsOneWidget);
+    expect(find.byType(TransparenciaPage), findsOneWidget);
   });
 }

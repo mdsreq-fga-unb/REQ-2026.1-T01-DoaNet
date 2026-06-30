@@ -1,5 +1,5 @@
 from typing import Optional, List
-from datetime import datetime
+from datetime import datetime, timezone
 import bcrypt
 import os
 from domain.ports.admin_repository import AdminRepository
@@ -50,7 +50,7 @@ class AuthService:
             name=name,
             hashed_password=hashed_password,
             role=AdminRole.MASTER,  # Primeiro admin é MASTER
-            created_at=datetime.utcnow()
+            created_at=datetime.now(timezone.utc)
         )
         
         return await self.admin_repo.create(admin)
@@ -72,7 +72,7 @@ class AuthService:
             hashed_password=hashed_password,
             role=AdminRole.ADMIN,  # Novos admins são ADMIN por padrão
             created_by=created_by,
-            created_at=datetime.utcnow(),
+            created_at=datetime.now(timezone.utc),
             org_id=org_id,
         )
         

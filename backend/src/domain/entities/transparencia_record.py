@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from typing import Optional
 
@@ -17,7 +17,7 @@ class TransparenciaRecord(BaseModel):
     valor: float
     data: datetime
     descricao: str
-    created_at: Optional[datetime] = Field(default_factory=datetime.utcnow)
+    created_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(timezone.utc))
     created_by: Optional[str] = None
 
     @field_validator("valor")

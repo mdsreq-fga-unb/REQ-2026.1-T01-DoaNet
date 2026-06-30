@@ -22,7 +22,7 @@ def test_list_records_returns_repo_items():
     repo.items = [
         TransparenciaRecord(
             id="1",
-            tipo=TipoRegistro.DOACAO,
+            tipo=TipoRegistro.DOACAO_EXTERNA,
             valor=100.0,
             data=datetime(2025, 6, 15),
             descricao="Doação via Pix",
@@ -57,7 +57,7 @@ def test_add_record_delegates_to_repo():
     service = TransparenciaService(repo)
 
     record = TransparenciaRecord(
-        tipo=TipoRegistro.DOACAO,
+        tipo=TipoRegistro.DOACAO_EXTERNA,
         valor=250.0,
         data=datetime(2025, 6, 20),
         descricao="Doação em dinheiro",
