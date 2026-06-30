@@ -66,12 +66,10 @@ class FeedPageState extends State<FeedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        surfaceTintColor: Colors.transparent,
-        flexibleSpace: Padding(
+    return Column(
+      children: [
+        Container(
+          color: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -84,11 +82,11 @@ class FeedPageState extends State<FeedPage> {
                   color: Colors.grey[350],
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Text('Com eventos', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                     ],
                   ),
@@ -99,11 +97,11 @@ class FeedPageState extends State<FeedPage> {
                   color: Colors.grey[350],
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Text('Sem Eventos', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                     ],
                   ),
@@ -112,41 +110,43 @@ class FeedPageState extends State<FeedPage> {
             ],
           ),
         ),
-      ),
-      body: Builder(
-        builder: (context) {
-          if (isLoading) {
-            final config = OrgConfigProvider.of(context);
-              return Center(
-                child: CircularProgressIndicator(color: config.primaryColor),
-              );
-          }
-          if (errorMessage != null) {
-            return Center(child: Text(errorMessage!));
-          }
-          if (feedItems.isEmpty) {
-            return const Center(child: Text('Nenhum item no feed'));
-          }
-          return ListView.builder(
-            itemCount: feedItems.length,
-            itemBuilder: (context, index) {
-              final item = feedItems[index];
-              return FeedItemCard(
-                title: item.title,
-                description: item.description,
-                profileName: item.profileName ?? 'Perfil',
-                profileImageUrl: item.profileImageUrl,
-                date: _formatDate(item.createdAt),
-                imageUrl: item.imageUrl,
-                eventLinkUrl: item.eventLinkUrl,
-                type: item.type,
-                eventDate: item.eventDate,
-                eventLocation: item.eventLocation,
+        Expanded(
+          child: Builder(
+            builder: (context) {
+              if (isLoading) {
+                final config = OrgConfigProvider.of(context);
+                return Center(
+                  child: CircularProgressIndicator(color: config.primaryColor),
+                );
+              }
+              if (errorMessage != null) {
+                return Center(child: Text(errorMessage!));
+              }
+              if (feedItems.isEmpty) {
+                return const Center(child: Text('Nenhum item no feed'));
+              }
+              return ListView.builder(
+                itemCount: feedItems.length,
+                itemBuilder: (context, index) {
+                  final item = feedItems[index];
+                  return FeedItemCard(
+                    title: item.title,
+                    description: item.description,
+                    profileName: item.profileName ?? 'Perfil',
+                    profileImageUrl: item.profileImageUrl,
+                    date: _formatDate(item.createdAt),
+                    imageUrl: item.imageUrl,
+                    eventLinkUrl: item.eventLinkUrl,
+                    type: item.type,
+                    eventDate: item.eventDate,
+                    eventLocation: item.eventLocation,
+                  );
+                },
               );
             },
-          );
-        },
-      ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from domain.entities.oportunidade import OportunidadeVoluntariado
 from domain.ports.oportunidade_repository import OportunidadeRepository

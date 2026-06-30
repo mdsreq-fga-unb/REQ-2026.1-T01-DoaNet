@@ -41,6 +41,11 @@ class LoginData(BaseModel):
     email: str
     password: str
 
+class AdminCreateData(BaseModel):
+    email: str
+    name: str
+    password: str
+    secret_key: str
 
 
 class CreateAdminData(BaseModel):
