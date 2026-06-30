@@ -149,6 +149,11 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                         final isEntrada = transacao.tipo == 'doacao_externa' || transacao.tipo == 'doacao_interna';
                         final cor = isEntrada ? corVerdeEntrada : corVermelhoSaida;
                         
+                        String tipoLabel = '';
+                        if (transacao.tipo == 'doacao_externa') tipoLabel = 'Doação Externa';
+                        else if (transacao.tipo == 'doacao_interna') tipoLabel = 'Doação Interna';
+                        else if (transacao.tipo == 'despesa') tipoLabel = 'Despesa';
+                        
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: ListTile(
@@ -166,7 +171,7 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF171616)),
                             ),
                             subtitle: Text(
-                              _formatarData(transacao.data),
+                              '$tipoLabel • ${_formatarData(transacao.data)}',
                               style: const TextStyle(fontSize: 12, color: Color(0xFF505050)),
                             ),
                             trailing: Text(

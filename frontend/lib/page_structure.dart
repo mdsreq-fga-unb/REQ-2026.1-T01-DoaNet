@@ -74,7 +74,19 @@ class _PageStructureState extends State<PageStructure> {
         elevation: 1,
         shadowColor: const Color(0xFFD9D9D9),
         title: config.logoUrl != null
-            ? Image.network(config.logoUrl!, height: 32)
+            ? Image.network(
+                config.logoUrl!,
+                height: 32,
+                errorBuilder: (context, error, stackTrace) => Text(
+                  config.name,
+                  style: TextStyle(
+                    color: config.primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 26,
+                    fontFamily: 'Roboto',
+                  ),
+                ),
+              )
             : Text(
                 config.name,
                 style: TextStyle(
@@ -104,8 +116,10 @@ class _PageStructureState extends State<PageStructure> {
         ],
       ),
       
-      body: ColoredBox(
+      body: Container(
         color: config.backgroundColor,
+        width: double.infinity,
+        height: double.infinity,
         child: _pageForName(),
       ),
       bottomNavigationBar: BottomNavigationBar(

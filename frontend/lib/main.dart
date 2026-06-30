@@ -10,7 +10,7 @@ Future<void> main() async {
 
   OrgConfig config;
   try {
-    config = await FetchOrgConfig(orgId: 'testtte').fetchConfig();
+    config = await FetchOrgConfig(orgId: 'move-educa').fetchConfig();
     print('✅ Config carregada: ${config.name}');
   } catch (e) {
     print('❌ Erro ao carregar config: $e');
