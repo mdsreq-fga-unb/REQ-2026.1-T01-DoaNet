@@ -97,6 +97,10 @@ def innit_routes() -> APIRouter:
     doacao_repo = MongoDoacaoRepository()
     doacao_service = DoacaoService(doacao_repo)
 
+    # ----- Doações / Stripe -----
+    doacao_repo = MongoDoacaoRepository()
+    doacao_service = DoacaoService(doacao_repo)
+
     # ----- Admin / autenticação (streamlit) -----
     admin_repo = MongoAdminRepository()
     auth_service = AuthService(admin_repo)
@@ -304,33 +308,6 @@ def innit_routes() -> APIRouter:
             return {"message": "Organização salva com sucesso", "org_id": result.org_id}
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
-
-    # ============ ROTAS DE DOAÇÕES ============
-    @router.post("/doacoes/checkout")
-    async def criar_checkout(body: CheckoutRequest):
-        try:
-            checkout_url = doacao_service.criar_checkout_session(body.model_dump())
-            return {"checkout_url": checkout_url}
-        except Exception as exc:
-            raise HTTPException(status_code=500, detail=str(exc))
-
-    @router.post("/doacoes/webhook")
-    async def stripe_webhook(request: Request):
-        payload = await request.body()
-        sig_header = request.headers.get("stripe-signature", "")
-        try:
-            doacao_service.processar_webhook(payload, sig_header)
-            return {"status": "ok"}
-        except Exception as exc:
-            raise HTTPException(status_code=400, detail=str(exc))
-
-    @router.get("/doacoes/sucesso")
-    async def doacao_sucesso():
-        return {"message": "Doação realizada com sucesso! Obrigado pelo apoio."}
-
-    @router.get("/doacoes/cancelado")
-    async def doacao_cancelada():
-        return {"message": "Doação cancelada."}
 
     # ============ ROTAS DE DOAÇÕES ============
     @router.post("/doacoes/checkout")
