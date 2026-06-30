@@ -15,3 +15,4 @@ class FeedItem(BaseModel):
     event_date: Optional[str] = None
     event_url: Optional[str] = None
     created_at: Optional[datetime] = Field(default_factory=datetime.utcnow)
+    org_id: Optional[str] = None

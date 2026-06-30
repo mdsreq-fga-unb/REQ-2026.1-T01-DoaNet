@@ -55,7 +55,7 @@ class AuthService:
         
         return await self.admin_repo.create(admin)
     
-    async def create_admin(self, email: str, name: str, password: str, created_by: str, creator_role: str) -> Admin:
+    async def create_admin(self, email: str, name: str, password: str, created_by: str, creator_role: str, org_id: Optional[str] = None) -> Admin:
         """Cria um novo administrador (apenas MASTER pode criar)"""
         if creator_role != AdminRole.MASTER:
             raise ValueError("Apenas administradores principais podem criar novos administradores")
@@ -72,7 +72,8 @@ class AuthService:
             hashed_password=hashed_password,
             role=AdminRole.ADMIN,  # Novos admins são ADMIN por padrão
             created_by=created_by,
-            created_at=datetime.utcnow()
+            created_at=datetime.utcnow(),
+            org_id=org_id,
         )
         
         return await self.admin_repo.create(admin)

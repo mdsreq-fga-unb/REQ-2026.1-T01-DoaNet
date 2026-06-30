@@ -18,6 +18,7 @@ class Admin(BaseModel):
     created_at: datetime = datetime.utcnow()
     created_by: Optional[str] = None  # ID do admin que criou
     last_login: Optional[datetime] = None
+    org_id: Optional[str] = None
     
     @field_validator("id", mode="before")
     @classmethod

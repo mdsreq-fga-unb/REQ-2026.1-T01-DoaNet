@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/info_fetch/feed/fetch_feed.dart';
 import 'package:frontend/info_fetch/feed/feed_model.dart';
 import 'package:frontend/widgets/feed_item_card.dart';
+import 'package:frontend/config/org_config_provider.dart';
 
 class FeedPage extends StatefulWidget {
   FeedPage({super.key, FetchFeed? fetchFeed})
@@ -115,7 +116,10 @@ class FeedPageState extends State<FeedPage> {
       body: Builder(
         builder: (context) {
           if (isLoading) {
-            return const Center(child: CircularProgressIndicator());
+            final config = OrgConfigProvider.of(context);
+              return Center(
+                child: CircularProgressIndicator(color: config.primaryColor),
+              );
           }
           if (errorMessage != null) {
             return Center(child: Text(errorMessage!));
