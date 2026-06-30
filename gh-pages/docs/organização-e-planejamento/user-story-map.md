@@ -349,8 +349,3 @@
 | 🟢 Verde | **Totalmente concluído** — entregue e validado com o cliente |
 | 🟡 Amarelo | **Parcialmente concluído** — entregue com débito técnico |
 | 🔴 Vermelho | **Não iniciado / Em andamento** — previsto em sprint em andamento ou futura |
-
----
-
-## Quadro de Planejamento
-

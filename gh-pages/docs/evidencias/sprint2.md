@@ -106,7 +106,7 @@
 
 - [Ata de Validação S2 — 12/05/2026](../atas/ata4_12_05_2026.md): aprovação formal do CRUD de posts (US17, US18, US19) e do protótipo da tela de voluntariado.
 
-#### Organização do Backlog
+#### Organização do User Story Map
 
 - [Ata 2 — 04/05/2026](../atas/ata2_04_05_2026.md): redefinição de escopo após pivoteamento (nova stack: FastAPI + MongoDB + Flutter + Streamlit).
 - [Ata 3 — 11/05/2026](../atas/ata3_11_05_2026.md): refinamento do User Story Map e detalhamento das tarefas da sprint.

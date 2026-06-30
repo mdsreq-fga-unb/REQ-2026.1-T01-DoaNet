@@ -383,7 +383,7 @@ A tabela a seguir apresenta cada um dos requisitos funcionais (RFs) declarados u
 
 ---
 
-## 10.2 Priorização do Backlog e MVP
+## 10.2 Priorização do User Story Map e MVP
 
 Para a priorização foram utilizados os seguintes critérios:
 

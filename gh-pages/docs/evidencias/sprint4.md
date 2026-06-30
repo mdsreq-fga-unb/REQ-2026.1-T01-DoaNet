@@ -118,7 +118,7 @@
 
 - [Ata de Validação S4 — 09/06/2026](../atas/ata6_09_06_2026.md): aprovação do módulo de voluntariado (CRUD) e do painel admin; débito técnico de US08 formalmente registrado.
 
-#### Organização do Backlog
+#### Organização do User Story Map
 
 - [Ata de Validação S3 — 26/05/2026](../atas/ata5_26_05_2026.md): encaminhamentos da Sprint 3 utilizados como insumo para o planejamento desta sprint.
 - [Ata de Validação S4 — 09/06/2026](../atas/ata6_09_06_2026.md): débito técnico de US08 formalizado e encaminhado para a Sprint 5.

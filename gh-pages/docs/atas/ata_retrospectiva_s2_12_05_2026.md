@@ -39,9 +39,9 @@ Nenhum.
 
 ### Principais Aprendizados
 
-- O pivoteamento realizado nesta sprint confirmou que mudanças de escopo e de arquitetura são inevitáveis quando as premissas iniciais não são suficientemente validadas com o cliente — replanejar o backlog completo com o cliente após a mudança foi essencial para realinhar as entregas.
+- O pivoteamento realizado nesta sprint confirmou que mudanças de escopo e de arquitetura são inevitáveis quando as premissas iniciais não são suficientemente validadas com o cliente — replanejar o User Story Map completo com o cliente após a mudança foi essencial para realinhar as entregas.
 - A curva de aprendizado do Flutter e do FastAPI é significativa: realizar provas de conceito e criar guias internos de padronização de endpoints (schemas, dependências) antes de avançar para implementações completas reduz ambiguidade e retrabalho na integração front-back.
-- Construir e revisar o Story Map com o cliente ao longo das sprints garante alinhamento contínuo sobre o escopo e evita que o backlog fique desatualizado em relação às decisões técnicas e de negócio.
+- Construir e revisar o User Story Map com o cliente ao longo das sprints garante alinhamento contínuo sobre o escopo e evita que o User Story Map fique desatualizado em relação às decisões técnicas e de negócio.
 
 ## Encaminhamentos e Responsabilidades
 

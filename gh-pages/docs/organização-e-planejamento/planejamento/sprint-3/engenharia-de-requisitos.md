@@ -20,9 +20,9 @@ Critérios INVEST aplicados no Sprint Planning para as três histórias da sprin
 
 Verificação formal dos critérios de US17 (evento), US09 e US11 na revisão da sprint. Os critérios de aceite de cada história estão detalhados em [User Stories](user-stories.md).
 
-## Organização e Atualização do Backlog
+## Organização e Atualização do User Story Map
 
-Backlog atualizado com encaminhamentos da revisão da Sprint 2; refinamento do USM realizado na semana intermediária da sprint.
+User Story Map atualizado com encaminhamentos da revisão da Sprint 2; refinamento do USM realizado na semana intermediária da sprint.
 
 **Evidências:** [Ata de Validação S2 (12/05)](../../../atas/ata4_12_05_2026.md) · [Ata de Refinamento S3 (19/05)](../../../atas/ata_refinamento_s3_19_05_2026.md)
 

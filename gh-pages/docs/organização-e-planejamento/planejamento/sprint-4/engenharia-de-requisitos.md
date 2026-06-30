@@ -30,9 +30,9 @@ Verificação formal dos critérios na revisão da sprint; débito técnico iden
 
 > Critérios de aceite completos de cada US em [User Stories](user-stories.md). Detalhes do débito técnico em [Engenharia de Software](engenharia-de-software.md#débito-técnico).
 
-## Organização e Atualização do Backlog
+## Organização e Atualização do User Story Map
 
-Backlog atualizado com encaminhamentos da revisão da Sprint 3; débito técnico formalizado e encaminhado para a sprint seguinte.
+User Story Map atualizado com encaminhamentos da revisão da Sprint 3; débito técnico formalizado e encaminhado para a sprint seguinte.
 
 **Evidências:** [Ata de Validação S3 (26/05)](../../../atas/ata5_26_05_2026.md) · [Ata de Validação S4 (09/06)](../../../atas/ata6_09_06_2026.md)
 

@@ -37,9 +37,9 @@ Verificação formal dos critérios a ser concluída na revisão da sprint.
 
 > Critérios de aceite completos de cada US em [User Stories](user-stories.md).
 
-## Organização e Atualização do Backlog
+## Organização e Atualização do User Story Map
 
-Backlog ajustado com base nos encaminhamentos da Sprint 5; escopo contempla o fechamento das funcionalidades de transparência, perfil da organização e gestão administrativa.
+User Story Map ajustado com base nos encaminhamentos da Sprint 5; escopo contempla o fechamento das funcionalidades de transparência, perfil da organização e gestão administrativa.
 
 **Evidências:** Escopo final descrito em [Planejamento (visão geral)](../../../visao_produto/6-planejamento.md).
 

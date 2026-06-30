@@ -30,9 +30,9 @@ Verificação formal dos critérios na revisão da sprint.
 
 > Critérios de aceite completos de cada US em [User Stories](user-stories.md).
 
-## Organização e Atualização do Backlog
+## Organização e Atualização do User Story Map
 
-Backlog atualizado com encaminhamentos da revisão da Sprint 4, incluindo o **débito técnico herdado de US08**; escopo refinado para histórias de filtro, busca, doação e transparência financeira.
+User Story Map atualizado com encaminhamentos da revisão da Sprint 4, incluindo o **débito técnico herdado de US08**; escopo refinado para histórias de filtro, busca, doação e transparência financeira.
 
 **Evidências:** [Ata de Validação S4 (09/06)](../../../atas/ata6_09_06_2026.md) — débito técnico encaminhado para esta sprint.
 

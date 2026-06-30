@@ -42,7 +42,7 @@
     * **Ação de Melhoria:** Criar um guia interno com exemplos de endpoints e padronizar o uso de schemas e dependências.
 * **Reorganização do planejamento após o pivoteamento**:
     * **Desafio:** Replanejar a ordem das entregas e realinhar as atividades da equipe depois das mudanças de escopo e de tecnologias usadas.
-    * **Ação de Melhoria:** Revisar o backlog com o cliente, reestimar as tarefas e ajustar o plano de sprints com base no novo escopo.
+    * **Ação de Melhoria:** Revisar o User Story Map com o cliente, reestimar as tarefas e ajustar o plano de sprints com base no novo escopo.
 
 ## 11.3 Unidade 3
 

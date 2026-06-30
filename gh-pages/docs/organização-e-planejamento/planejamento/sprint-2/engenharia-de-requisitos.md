@@ -40,7 +40,7 @@ Verificação formal dos critérios das histórias na revisão da sprint.
 
 > Critérios de aceite completos de cada US em [User Stories](user-stories.md).
 
-## Organização e Atualização do Backlog
+## Organização e Atualização do User Story Map
 
 Escopo redefinido após pivoteamento (nova stack: FastAPI + MongoDB + Flutter + Streamlit); refinamento do USM realizado na semana intermediária da sprint.
 

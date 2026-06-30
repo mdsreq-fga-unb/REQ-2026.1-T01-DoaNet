@@ -56,7 +56,7 @@
 
 - [Ata de Validação S3 — 26/05/2026](../atas/ata5_26_05_2026.md): aprovação do feed completo (posts normais + eventos), inscrição em eventos (US09) e módulo de autenticação admin (US11); protótipo final aprovado como referência para as entregas seguintes.
 
-#### Organização do Backlog
+#### Organização do User Story Map
 
 - [Ata de Validação S2 — 12/05/2026](../atas/ata4_12_05_2026.md): encaminhamentos da Sprint 2 utilizados como insumo para o planejamento desta sprint.
 - [Ata de Refinamento S3 — 19/05/2026](../atas/ata_refinamento_s3_19_05_2026.md): refinamento do User Story Map e detalhamento das tarefas da sprint.

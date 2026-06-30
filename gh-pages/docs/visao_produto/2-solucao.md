@@ -34,7 +34,7 @@ Considerando as exigências arquiteturais e as características da solução pro
 
 * *Python:* Linguagem de programação utilizada no desenvolvimento do back-end.
 * *FastAPI:* Framework web moderno e de alto desempenho utilizado no back-end para a construção da API REST.
-* *PostgreSQL:* Banco de dados relacional.
+* *MongoDB:* Banco de dados NoSQL orientado a documentos.
 * *Flutter:* Framework multiplataforma adotado para o desenvolvimento do front-end e construção da interface com o usuário.
 * *GitHub:* Repositório de integração contínua.
 
