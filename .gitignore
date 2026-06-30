@@ -29,6 +29,9 @@ frontend/build/
 .vscode/
 *.iml
 
+# MkDocs build output
+gh-pages/site/
+
 # Misc
 /backend/test.rest
 backend/tests/__init__.py

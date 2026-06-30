@@ -16,6 +16,62 @@ nav:
       - 9. DOR e DOD: visao_produto/9-DorEDod.md
       - 10. Story Map: visao_produto/10-story_map.md
       - 11. Lições Aprendidas: visao_produto/11-licoes.md
+
+  - Organização e Planejamento:
+      - Rastreabilidade: organização-e-planejamento/rastreabilidade.md
+      - User Story Map: organização-e-planejamento/user-story-map.md
+      - Planejamento:
+          - Sprint 0:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-0/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-0/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-0/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-0/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-0/engenharia-de-software.md
+          - Sprint 1:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-1/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-1/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-1/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-1/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-1/engenharia-de-software.md
+          - Sprint 2:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-2/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-2/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-2/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-2/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-2/engenharia-de-software.md
+          - Sprint 3:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-3/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-3/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-3/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-3/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-3/engenharia-de-software.md
+          - Sprint 4:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-4/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-4/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-4/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-4/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-4/engenharia-de-software.md
+          - Sprint 5:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-5/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-5/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-5/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-5/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-5/engenharia-de-software.md
+          - Sprint 6:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-6/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-6/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-6/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-6/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-6/engenharia-de-software.md
+
+  - Evidências:
+      - Sprint 1: evidencias/sprint1.md
+      - Sprint 2: evidencias/sprint2.md
+      - Sprint 3: evidencias/sprint3.md
+      - Sprint 4: evidencias/sprint4.md
+      - Sprint 5: evidencias/sprint5.md
+      - Sprint 6: evidencias/sprint6.md
+    
   - Atas de Reunião:
       - Modelo: atas/modelo.md
       - Sprint 1:
@@ -40,13 +96,7 @@ nav:
           - Refinamento (02/06): atas/ata_refinamento_s4_02_06_2026.md
           - Validação com Cliente (09/06): atas/ata6_09_06_2026.md
           - Retrospectiva (09/06): atas/ata_retrospectiva_s4_09_06_2026.md
-  - Evidências:
-      - Sprint 1: evidencias/sprint1.md
-      - Sprint 2: evidencias/sprint2.md
-      - Sprint 3: evidencias/sprint3.md
-      - Sprint 4: evidencias/sprint4.md
-      - Sprint 5: evidencias/sprint5.md
-      - Sprint 6: evidencias/sprint6.md
+
   - Exemplos de Documentação: example.md
 
 
