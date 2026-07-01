@@ -6,15 +6,16 @@ import '../info_fetch/doacao/doacao_service.dart';
 import '../info_fetch/oportunidades/fetch_oportunidade.dart';
 import '../info_fetch/oportunidades/oportunidade_model.dart';
 
-void mostrarDoacaoDialog(BuildContext context) {
+void mostrarDoacaoDialog(BuildContext context, {required String orgId}) {
   showDialog(
     context: context,
-    builder: (_) => const _DoacaoDialog(),
+    builder: (_) => _DoacaoDialog(orgId: orgId),
   );
 }
 
 class _DoacaoDialog extends StatefulWidget {
-  const _DoacaoDialog();
+  final String orgId;
+  const _DoacaoDialog({required this.orgId});
 
   @override
   State<_DoacaoDialog> createState() => _DoacaoDialogState();
@@ -24,6 +25,13 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
   final _formKey = GlobalKey<FormState>();
   final _valorController = TextEditingController();
   final _nomeDoadorController = TextEditingController();
+  final _cpfController = TextEditingController();
+  final _logradouroController = TextEditingController();
+  final _complementoController = TextEditingController();
+  final _cidadeController = TextEditingController();
+  final _estadoController = TextEditingController();
+  final _cepController = TextEditingController();
+  final _paisController = TextEditingController();
 
   VisibilidadeDoacao _visibilidade = VisibilidadeDoacao.publica;
   DirecaoDoacao _direcao = DirecaoDoacao.instituicao;
@@ -49,6 +57,13 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
   void dispose() {
     _valorController.dispose();
     _nomeDoadorController.dispose();
+    _cpfController.dispose();
+    _logradouroController.dispose();
+    _complementoController.dispose();
+    _cidadeController.dispose();
+    _estadoController.dispose();
+    _cepController.dispose();
+    _paisController.dispose();
     super.dispose();
   }
 
@@ -58,7 +73,7 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
       _erroOportunidades = null;
     });
     try {
-      final lista = await FetchOportunidade().fetchOportunidades();
+      final lista = await FetchOportunidade(orgId: widget.orgId).fetchOportunidades();
       if (mounted) {
         setState(() {
           _oportunidades = lista.where((o) => o.ativo).toList();
@@ -84,9 +99,17 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
       final doacao = DoacaoRequest(
         valor: double.parse(_valorController.text.replaceAll(',', '.')),
         visibilidade: _visibilidade,
-        nomeDoador: _visibilidade == VisibilidadeDoacao.publica
-            ? _nomeDoadorController.text.trim()
-            : null,
+        // Nome sempre enviado (para transparência), independente do anonimato
+        nomeDoador: _nomeDoadorController.text.trim(),
+        cpf: _cpfController.text.trim(),
+        endereco: EnderecoDoacao(
+          logradouro: _logradouroController.text.trim(),
+          complemento: _complementoController.text.trim(),
+          cidade: _cidadeController.text.trim(),
+          estado: _estadoController.text.trim(),
+          cep: _cepController.text.trim(),
+          pais: _paisController.text.trim(),
+        ),
         direcao: _direcao,
         nomeProjeto: _direcao == DirecaoDoacao.projeto
             ? _oportunidadeSelecionada?.titulo
@@ -231,6 +254,164 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
                       ),
                       const SizedBox(height: 20),
 
+                      // ── Nome do doador (sempre visível) ───────────────
+                      const Text(
+                        'Seu nome',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: _textoPrincipal,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      TextFormField(
+                        controller: _nomeDoadorController,
+                        textCapitalization: TextCapitalization.words,
+                        decoration: _inputDecoration('Digite seu nome'),
+                        validator: (v) {
+                          if (v == null || v.trim().isEmpty) {
+                            return 'Informe seu nome';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 6),
+                      const Text(
+                        'Usado no registro de transparência. Selecione "Anônima" abaixo para não exibir seu nome publicamente.',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: _textoSecundario,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      // ── CPF ──────────────────────────────────────────
+                      const Text(
+                        'CPF',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: _textoPrincipal,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      TextFormField(
+                        controller: _cpfController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'[0-9.\-]')),
+                        ],
+                        decoration: _inputDecoration('000.000.000-00'),
+                        validator: (v) {
+                          if (v == null || v.trim().isEmpty) {
+                            return 'Informe o CPF';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 20),
+
+                      // ── Endereço ─────────────────────────────────────
+                      const Text(
+                        'Endereço',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: _textoPrincipal,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      TextFormField(
+                        controller: _logradouroController,
+                        textCapitalization: TextCapitalization.words,
+                        decoration: _inputDecoration('Endereço (rua, número)'),
+                        validator: (v) {
+                          if (v == null || v.trim().isEmpty) {
+                            return 'Informe o endereço';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 12),
+                      TextFormField(
+                        controller: _complementoController,
+                        textCapitalization: TextCapitalization.words,
+                        decoration:
+                            _inputDecoration('Complemento (opcional)'),
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: _cidadeController,
+                              textCapitalization: TextCapitalization.words,
+                              decoration: _inputDecoration('Cidade'),
+                              validator: (v) {
+                                if (v == null || v.trim().isEmpty) {
+                                  return 'Informe a cidade';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: TextFormField(
+                              controller: _estadoController,
+                              textCapitalization: TextCapitalization.words,
+                              decoration: _inputDecoration('Estado / Região'),
+                              validator: (v) {
+                                if (v == null || v.trim().isEmpty) {
+                                  return 'Informe o estado';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: _cepController,
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9\-]')),
+                              ],
+                              decoration: _inputDecoration('CEP'),
+                              validator: (v) {
+                                if (v == null || v.trim().isEmpty) {
+                                  return 'Informe o CEP';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: TextFormField(
+                              controller: _paisController,
+                              textCapitalization: TextCapitalization.words,
+                              decoration: _inputDecoration('País'),
+                              validator: (v) {
+                                if (v == null || v.trim().isEmpty) {
+                                  return 'Informe o país';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+
                       // ── Visibilidade ─────────────────────────────────
                       const Text(
                         'Visibilidade',
@@ -252,31 +433,6 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
                             () => _visibilidade = VisibilidadeDoacao.anonima),
                       ),
 
-                      // ── Nome do doador (condicional) ──────────────────
-                      if (_visibilidade == VisibilidadeDoacao.publica) ...[
-                        const SizedBox(height: 16),
-                        const Text(
-                          'Seu nome',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: _textoPrincipal,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        TextFormField(
-                          controller: _nomeDoadorController,
-                          textCapitalization: TextCapitalization.words,
-                          decoration: _inputDecoration('Digite seu nome'),
-                          validator: (v) {
-                            if (_visibilidade == VisibilidadeDoacao.publica &&
-                                (v == null || v.trim().isEmpty)) {
-                              return 'Informe seu nome ou escolha anônima';
-                            }
-                            return null;
-                          },
-                        ),
-                      ],
                       const SizedBox(height: 20),
 
                       // ── Direcionamento ───────────────────────────────

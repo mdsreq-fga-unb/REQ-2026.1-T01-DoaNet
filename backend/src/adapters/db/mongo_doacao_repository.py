@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime, timezone
+from typing import Optional
 from bson import ObjectId
 from domain.entities.doacao import Doacao
 from domain.ports.doacao_repository import DoacaoRepository
@@ -12,7 +13,7 @@ class MongoDoacaoRepository(DoacaoRepository):
     def save(self, doacao: Doacao) -> Doacao:
         payload = doacao.model_dump()
         payload.pop("id", None)
-        payload["created_at"] = datetime.utcnow().isoformat()
+        payload["created_at"] = datetime.now(timezone.utc).isoformat()
         result = self.collection.insert_one(payload)
         doacao.id = str(result.inserted_id)
         return doacao
@@ -21,5 +22,19 @@ class MongoDoacaoRepository(DoacaoRepository):
         result = self.collection.update_one(
             {"stripe_session_id": stripe_session_id},
             {"$set": {"status": status}},
+        )
+        return result.matched_count == 1
+
+    def find_by_session_id(self, stripe_session_id: str) -> Optional[Doacao]:
+        doc = self.collection.find_one({"stripe_session_id": stripe_session_id})
+        if not doc:
+            return None
+        doc["id"] = str(doc.pop("_id"))
+        return Doacao(**doc)
+
+    def update_by_session_id(self, stripe_session_id: str, campos: dict) -> bool:
+        result = self.collection.update_one(
+            {"stripe_session_id": stripe_session_id},
+            {"$set": campos},
         )
         return result.matched_count == 1

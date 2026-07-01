@@ -84,11 +84,18 @@ class FakeGCSStorageService:
             "image_path": "feed/fake-image.jpg",
         }
 
+    def upload_json(self, data, prefix="doacoes") -> dict:
+        return {
+            "worm_url": "http://fake-storage.com/worm/fake.json",
+            "worm_path": "doacoes/fake.json",
+        }
+
 
 class FakeDoacaoRepository:
     def __init__(self, collection_handle=None):
         self.saved = []
         self.updates = []
+        self.status_updates = []
 
     def save(self, doacao: Doacao) -> Doacao:
         doacao.id = "fake-doacao-id"
@@ -96,7 +103,20 @@ class FakeDoacaoRepository:
         return doacao
 
     def update_status(self, stripe_session_id: str, status: str) -> bool:
-        self.updates.append((stripe_session_id, status))
+        self.status_updates.append((stripe_session_id, status))
+        return True
+
+    def find_by_session_id(self, stripe_session_id: str):
+        return Doacao(
+            valor=50.0,
+            is_anonima=False,
+            nome_doador="Doador Teste",
+            direcao="instituicao",
+            stripe_session_id=stripe_session_id,
+        )
+
+    def update_by_session_id(self, stripe_session_id: str, campos: dict) -> bool:
+        self.updates.append((stripe_session_id, campos))
         return True
 
 
@@ -502,6 +522,16 @@ def test_webhook_evento_valido(client, monkeypatch):
     }
     monkeypatch.setattr(stripe.Webhook, "construct_event", lambda p, s, sec: fake_event)
 
+    fake_session = {
+        "payment_status": "paid",
+        "amount_total": 5000,
+        "currency": "brl",
+        "payment_intent": {"id": "pi_123", "status": "succeeded",
+                           "payment_method": {"type": "card",
+                                              "card": {"brand": "visa", "last4": "4242"}}},
+    }
+    monkeypatch.setattr(stripe.checkout.Session, "retrieve", lambda sid, **kw: fake_session)
+
     response = client.post(
         "/doacoes/webhook",
         content=b"payload",
@@ -529,6 +559,21 @@ def test_webhook_assinatura_invalida_retorna_400(client, monkeypatch):
 
 def test_doacao_sucesso(client):
     response = client.get("/doacoes/sucesso")
+    assert response.status_code == 200
+
+
+def test_doacao_sucesso_com_session_id_confirma(client, monkeypatch):
+    fake_session = {
+        "payment_status": "paid",
+        "amount_total": 5000,
+        "currency": "brl",
+        "payment_intent": {"id": "pi_redirect", "status": "succeeded",
+                           "payment_method": {"type": "card",
+                                              "card": {"brand": "visa", "last4": "4242"}}},
+    }
+    monkeypatch.setattr(stripe.checkout.Session, "retrieve", lambda sid, **kw: fake_session)
+
+    response = client.get("/doacoes/sucesso?session_id=cs_test_redirect")
     assert response.status_code == 200
 
 

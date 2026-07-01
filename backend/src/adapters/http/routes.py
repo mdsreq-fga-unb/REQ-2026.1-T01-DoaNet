@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timezone
 from typing import Annotated, Optional
 
@@ -39,10 +40,21 @@ from application.services.organization_service import OrganizationService
 from application.services.doacao_service import DoacaoService
 
 
+class EnderecoData(BaseModel):
+    logradouro: Optional[str] = None       # Street Address
+    complemento: Optional[str] = None      # Street Address Line 2
+    cidade: Optional[str] = None           # City
+    estado: Optional[str] = None           # Region/State/Province
+    cep: Optional[str] = None              # Postal / Zip code (CEP)
+    pais: Optional[str] = None             # Country
+
+
 class CheckoutRequest(BaseModel):
     valor: float
     is_anonima: bool = False
     nome_doador: Optional[str] = None
+    cpf: Optional[str] = None
+    endereco: Optional[EnderecoData] = None
     direcao: str = "instituicao"
     nome_projeto: Optional[str] = None
 
@@ -94,12 +106,15 @@ def innit_routes() -> APIRouter:
     transparencia_service = TransparenciaService(transparencia_repo)
 
     # ----- Doações / Stripe -----
+    worm_storage = GCSStorageService(
+        bucket_name=os.getenv("GCS_WORM_BUCKET_NAME", "worm-storage")
+    )
     doacao_repo = MongoDoacaoRepository()
-    doacao_service = DoacaoService(doacao_repo)
-
-    # ----- Doações / Stripe -----
-    doacao_repo = MongoDoacaoRepository()
-    doacao_service = DoacaoService(doacao_repo)
+    doacao_service = DoacaoService(
+        doacao_repo,
+        worm_storage=worm_storage,
+        transparencia_service=transparencia_service,
+    )
 
     # ----- Admin / autenticação (streamlit) -----
     admin_repo = MongoAdminRepository()
@@ -329,7 +344,14 @@ def innit_routes() -> APIRouter:
             raise HTTPException(status_code=400, detail=str(exc))
 
     @router.get("/doacoes/sucesso")
-    async def doacao_sucesso():
+    async def doacao_sucesso(session_id: Optional[str] = None):
+        # Confirma o pagamento a partir do redirect do Stripe. Complementa o
+        # webhook (essencial em ambiente local, onde o webhook não chega).
+        if session_id:
+            try:
+                doacao_service.confirmar_pagamento(session_id)
+            except Exception as exc:
+                print(f"Erro ao confirmar pagamento no redirect: {exc}")
         return {"message": "Doação realizada com sucesso! Obrigado pelo apoio."}
 
     @router.get("/doacoes/cancelado")

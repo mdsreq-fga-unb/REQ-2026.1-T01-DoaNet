@@ -42,7 +42,7 @@ class ColaboracaoPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  onTap: () => mostrarDoacaoDialog(context),
+                  onTap: () => mostrarDoacaoDialog(context, orgId: config.orgId),
                   borderRadius: BorderRadius.circular(25),
                   child: Container(
                     width: double.infinity, 
