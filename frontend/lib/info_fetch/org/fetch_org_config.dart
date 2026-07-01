@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../../api_config.dart';
 import '../../config/org_config.dart';
 
 class FetchOrgConfig {
@@ -9,7 +10,7 @@ class FetchOrgConfig {
 
   Future<OrgConfig> fetchConfig() async {
     final response = await http.get(
-      Uri.parse('http://127.0.0.1:8000/orgs/$orgId/config'),
+      Uri.parse('${ApiConfig.baseUrl}/orgs/$orgId/config'),
     );
 
     if (response.statusCode == 200) {

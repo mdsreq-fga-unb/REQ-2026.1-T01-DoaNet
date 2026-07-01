@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../../api_config.dart';
 import 'doacao_model.dart';
 
 class DoacaoService {
-  static const _baseUrl = 'http://localhost:8000';
-
   Future<String> criarCheckoutSession(DoacaoRequest doacao) async {
     final response = await http.post(
-      Uri.parse('$_baseUrl/doacoes/checkout'),
+      Uri.parse('${ApiConfig.baseUrl}/doacoes/checkout'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(doacao.toJson()),
     );
