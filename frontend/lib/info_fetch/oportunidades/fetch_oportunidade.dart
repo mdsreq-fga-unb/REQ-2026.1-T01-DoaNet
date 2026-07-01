@@ -14,7 +14,7 @@ class FetchOportunidade {
     
     var uri = Uri.parse('${ApiConfig.baseUrl}/oportunidades?org_id=$orgId');
     
-    var response = await client.get(uri);
+    var response = await client.get(uri).timeout(ApiConfig.requestTimeout);
     if (response.statusCode == 200) {
       return model.oportunidadeFromJson(response.body);
     } else {

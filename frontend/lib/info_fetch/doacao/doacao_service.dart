@@ -9,7 +9,7 @@ class DoacaoService {
       Uri.parse('${ApiConfig.baseUrl}/doacoes/checkout'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(doacao.toJson()),
-    );
+    ).timeout(ApiConfig.requestTimeout);
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);

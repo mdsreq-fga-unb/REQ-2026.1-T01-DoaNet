@@ -12,7 +12,7 @@ class FetchFeed {
 
     var client = http.Client();
     var uri = Uri.parse('${ApiConfig.baseUrl}/feed?org_id=$orgId');
-    var response = await client.get(uri);
+    var response = await client.get(uri).timeout(ApiConfig.requestTimeout);
     if (response.statusCode == 200) {
       return model.feedFromJson(response.body);
     } else {

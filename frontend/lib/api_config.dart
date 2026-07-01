@@ -6,4 +6,8 @@ class ApiConfig {
     'BASE_URL',
     defaultValue: 'http://10.0.2.2:8000',
   );
+
+  // Timeout generoso para tolerar o "cold start" do Render free tier, que
+  // pode levar ~45s para acordar o container na primeira requisição.
+  static const Duration requestTimeout = Duration(seconds: 60);
 }

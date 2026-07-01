@@ -11,7 +11,7 @@ class FetchOrgConfig {
   Future<OrgConfig> fetchConfig() async {
     final response = await http.get(
       Uri.parse('${ApiConfig.baseUrl}/orgs/$orgId/config'),
-    );
+    ).timeout(ApiConfig.requestTimeout);
 
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body) as Map<String, dynamic>;

@@ -155,7 +155,13 @@ class _FeedItemCardState extends State<FeedItemCard> {
                             children: [
                               Icon(Icons.location_on_outlined, size: 14, color: theme.colorScheme.primary),
                               const SizedBox(width: 4),
-                              Text(widget.eventLocation!, style: theme.textTheme.labelMedium),
+                              Flexible(
+                                child: Text(
+                                  widget.eventLocation!,
+                                  style: theme.textTheme.labelMedium,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
                             ],
                           ),
                         ],
