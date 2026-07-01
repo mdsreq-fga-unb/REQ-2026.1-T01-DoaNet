@@ -47,9 +47,8 @@ class _PageStructureState extends State<PageStructure> {
     switch (_pageName) {
       case 'feed':
         return FeedPage(
-          fetchFeed: widget.fetchFeed ?? FetchFeed(
-            orgId: OrgConfigProvider.of(context).orgId, // <- adicionar
-          ),
+          // org_id padronizado (kDefaultOrgId) já é o default do FetchFeed.
+          fetchFeed: widget.fetchFeed ?? FetchFeed(),
         );
       case 'colaboracao':
         return const ColaboracaoPage();

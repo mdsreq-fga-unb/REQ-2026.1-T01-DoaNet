@@ -42,7 +42,7 @@ class ColaboracaoPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  onTap: () => mostrarDoacaoDialog(context, orgId: config.orgId),
+                  onTap: () => mostrarDoacaoDialog(context),
                   borderRadius: BorderRadius.circular(25),
                   child: Container(
                     width: double.infinity, 
@@ -87,9 +87,8 @@ class ColaboracaoPage extends StatelessWidget {
 
                 // Substituímos a lista mocada pela conexão com o Banco
                 FutureBuilder<List<OportunidadeItem>>(
-                  future: FetchOportunidade(
-                    orgId: OrgConfigProvider.of(context).orgId,
-                  ).fetchOportunidades(),
+                  // Sem filtro por org (igual ao feed): retorna todas.
+                  future: FetchOportunidade().fetchOportunidades(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(
@@ -116,7 +115,10 @@ class ColaboracaoPage extends StatelessWidget {
                     return Column(
                       children: vagasReais.map((vaga) => VagaCard(
                         titulo: vaga.titulo,
-                        subtitulo: vaga.horario, 
+                        subtitulo: vaga.horario,
+                        descricao: vaga.descricao,
+                        local: vaga.local,
+                        linkInscricao: vaga.linkInscricao,
                       )).toList(),
                     );
                   },

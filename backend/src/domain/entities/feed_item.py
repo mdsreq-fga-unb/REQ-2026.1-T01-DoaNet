@@ -3,6 +3,8 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
+from domain.constants import DEFAULT_ORG_ID
+
 
 class FeedItem(BaseModel):
     id: Optional[str] = None
@@ -15,4 +17,4 @@ class FeedItem(BaseModel):
     event_date: Optional[str] = None
     event_url: Optional[str] = None
     created_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(timezone.utc))
-    org_id: Optional[str] = None
+    org_id: Optional[str] = DEFAULT_ORG_ID

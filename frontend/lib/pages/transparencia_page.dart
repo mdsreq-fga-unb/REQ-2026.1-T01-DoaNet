@@ -126,6 +126,24 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                       color: Color(0xFF171616),
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF4F7FB),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _legendaItem(const Color(0xFF16A34A), 'Doação externa', 'recebida de terceiros (pessoa, empresa ou evento)'),
+                        const SizedBox(height: 5),
+                        _legendaItem(const Color(0xFF2563EB), 'Doação interna', 'gerada dentro do aplicativo'),
+                        const SizedBox(height: 5),
+                        _legendaItem(const Color(0xFFE53935), 'Despesa', 'saída de recurso da organização'),
+                      ],
+                    ),
+                  ),
                   const SizedBox(height: 16),
 
                   if (transacoesFiltradas.isEmpty)
@@ -148,12 +166,20 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                         final transacao = transacoesFiltradas[index];
                         final isEntrada = transacao.tipo == 'doacao_externa' || transacao.tipo == 'doacao_interna';
                         final cor = isEntrada ? corVerdeEntrada : corVermelhoSaida;
-                        
+
                         String tipoLabel = '';
-                        if (transacao.tipo == 'doacao_externa') tipoLabel = 'Doação Externa';
-                        else if (transacao.tipo == 'doacao_interna') tipoLabel = 'Doação Interna';
-                        else if (transacao.tipo == 'despesa') tipoLabel = 'Despesa';
-                        
+                        Color corTipo;
+                        if (transacao.tipo == 'doacao_externa') {
+                          tipoLabel = 'Doação Externa';
+                          corTipo = const Color(0xFF16A34A);
+                        } else if (transacao.tipo == 'doacao_interna') {
+                          tipoLabel = 'Doação Interna';
+                          corTipo = const Color(0xFF2563EB);
+                        } else {
+                          tipoLabel = 'Despesa';
+                          corTipo = const Color(0xFFE53935);
+                        }
+
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: ListTile(
@@ -170,9 +196,42 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                               transacao.descricao,
                               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF171616)),
                             ),
-                            subtitle: Text(
-                              '$tipoLabel • ${_formatarData(transacao.data)}',
-                              style: const TextStyle(fontSize: 12, color: Color(0xFF505050)),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (transacao.destino != null && transacao.destino!.isNotEmpty) ...[
+                                  const SizedBox(height: 4),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.place_outlined, size: 13, color: Color(0xFF505050)),
+                                      const SizedBox(width: 3),
+                                      Flexible(
+                                        child: Text(
+                                          transacao.destino!,
+                                          style: const TextStyle(fontSize: 12, color: Color(0xFF505050)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                                const SizedBox(height: 4),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                  decoration: BoxDecoration(
+                                    color: corTipo.withValues(alpha: 0.12),
+                                    borderRadius: BorderRadius.circular(999),
+                                  ),
+                                  child: Text(
+                                    tipoLabel,
+                                    style: TextStyle(fontSize: 11, color: corTipo, fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                                const SizedBox(height: 3),
+                                Text(
+                                  _formatarData(transacao.data),
+                                  style: const TextStyle(fontSize: 12, color: Color(0xFF505050)),
+                                ),
+                              ],
                             ),
                             trailing: Text(
                               '${isEntrada ? '+' : '-'} R\$ ${transacao.valor.toStringAsFixed(2).replaceAll('.', ',')}',
@@ -192,6 +251,30 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
           );
         },
       ),
+    );
+  }
+
+  Widget _legendaItem(Color cor, String label, String descricao) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 3),
+          child: CircleAvatar(radius: 4, backgroundColor: cor),
+        ),
+        const SizedBox(width: 6),
+        Expanded(
+          child: RichText(
+            text: TextSpan(
+              style: const TextStyle(fontSize: 11, color: Color(0xFF505050)),
+              children: [
+                TextSpan(text: '$label ', style: TextStyle(fontWeight: FontWeight.w700, color: cor)),
+                TextSpan(text: '— $descricao'),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 

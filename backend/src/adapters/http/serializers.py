@@ -40,8 +40,7 @@ def oportunidade_to_dict(item: OportunidadeVoluntariado) -> dict:
         "horario": data.get("horario"),
         "vagas_totais": data.get("vagas_totais"),
         "vagas_preenchidas": data.get("vagas_preenchidas"),
-        "imagem_url": data.get("imagem_url"),
-        "ativo": data.get("ativo"),
+        "link_inscricao": data.get("link_inscricao"),
     }
 
 def oportunidades_to_list(items: List[OportunidadeVoluntariado]) -> list:
@@ -62,6 +61,7 @@ def transparencia_record_to_dict(record: TransparenciaRecord) -> dict:
         "valor": data.get("valor"),
         "data": data["data"].isoformat() if data.get("data") else None,
         "descricao": data.get("descricao"),
+        "destino": data.get("destino"),
         "created_at": data["created_at"].isoformat() if data.get("created_at") else None,
         "created_by": data.get("created_by"),
     }

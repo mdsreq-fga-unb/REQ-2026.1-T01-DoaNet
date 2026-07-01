@@ -177,18 +177,23 @@ class DoacaoService:
             valor = valor_total
 
         if is_anonima or not nome_doador:
-            descricao = "Doação interna anônima"
+            descricao = "Doação Anônima"
         else:
-            descricao = f"Doação interna de {nome_doador}"
+            descricao = f"Doação de {nome_doador}"
 
         if direcao == "projeto" and nome_projeto:
-            descricao += f" — Projeto: {nome_projeto}"
+            destino = f"Projeto: {nome_projeto}"
+        elif direcao == "projeto":
+            destino = "Projeto"
+        else:
+            destino = "Instituição"
 
         record = TransparenciaRecord(
             tipo=TipoRegistro.DOACAO_INTERNA,
             valor=valor,
             data=datetime.now(timezone.utc),
             descricao=descricao,
+            destino=destino,
             created_by="stripe-webhook",
         )
         self.transparencia_service.add_record(record)
