@@ -4,6 +4,8 @@ from typing import Annotated, Optional
 
 # pyrefly: ignore [missing-import]
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, UploadFile
+# pyrefly: ignore [missing-import]
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
 from .security import (
@@ -88,6 +90,72 @@ class DespesaData(BaseModel):
     valor: float
     data: str
     categoria: str
+
+
+def _render_doacao_page(accent: str, icon: str, title: str, message: str, note: str) -> str:
+    """Página HTML de retorno do checkout de doação (sucesso ou cancelamento)."""
+    return f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title}</title>
+    <style>
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #F4F7FB;
+            color: #1F2937;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }}
+        .card {{
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(16, 24, 40, .10);
+            padding: 40px 32px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }}
+        .badge {{
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            color: #fff;
+            background: {accent};
+            box-shadow: 0 8px 20px {accent}44;
+        }}
+        h1 {{ font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -.4px; }}
+        p.message {{ font-size: 1rem; line-height: 1.6; color: #4B5563; margin-bottom: 20px; }}
+        p.note {{
+            font-size: .88rem;
+            color: #6B7280;
+            background: #F4F7FB;
+            border-radius: 12px;
+            padding: 14px 16px;
+        }}
+        .brand {{ margin-top: 28px; font-size: .8rem; color: #9CA3AF; font-weight: 600; }}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="badge">{icon}</div>
+        <h1>{title}</h1>
+        <p class="message">{message}</p>
+        <p class="note">{note}</p>
+        <div class="brand">DoaNet</div>
+    </div>
+</body>
+</html>"""
 
 
 def innit_routes() -> APIRouter:
@@ -344,7 +412,7 @@ def innit_routes() -> APIRouter:
         except Exception as exc:
             raise HTTPException(status_code=400, detail=str(exc))
 
-    @router.get("/doacoes/sucesso")
+    @router.get("/doacoes/sucesso", response_class=HTMLResponse)
     async def doacao_sucesso(session_id: Optional[str] = None):
         # Confirma o pagamento a partir do redirect do Stripe. Complementa o
         # webhook (essencial em ambiente local, onde o webhook não chega).
@@ -353,11 +421,29 @@ def innit_routes() -> APIRouter:
                 doacao_service.confirmar_pagamento(session_id)
             except Exception as exc:
                 print(f"Erro ao confirmar pagamento no redirect: {exc}")
-        return {"message": "Doação realizada com sucesso! Obrigado pelo apoio."}
+        return HTMLResponse(content=_render_doacao_page(
+            accent="#16A34A",
+            icon="&#10003;",
+            title="Doação concluída!",
+            message=(
+                "Muito obrigado pelo seu apoio. Sua doação já foi "
+                "processada com sucesso e fará a diferença."
+            ),
+            note="Você já pode fechar esta janela e voltar ao aplicativo.",
+        ))
 
-    @router.get("/doacoes/cancelado")
+    @router.get("/doacoes/cancelado", response_class=HTMLResponse)
     async def doacao_cancelada():
-        return {"message": "Doação cancelada."}
+        return HTMLResponse(content=_render_doacao_page(
+            accent="#E11D48",
+            icon="&#10005;",
+            title="Doação cancelada",
+            message=(
+                "Nenhuma cobrança foi realizada. Se mudou de ideia, "
+                "você pode tentar novamente quando quiser."
+            ),
+            note="Você já pode fechar esta janela e voltar ao aplicativo.",
+        ))
 
     # ============ ROTAS DE AUTENTICAÇÃO / ADMIN ============
     @router.post("/admin/register")
