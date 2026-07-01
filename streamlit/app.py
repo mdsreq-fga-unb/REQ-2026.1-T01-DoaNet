@@ -578,7 +578,6 @@ def oportunidades_section():
             horario = c2.text_input("Horário", placeholder="ex: Sáb 9h–12h")
             link_inscricao = st.text_input("Link de inscrição (URL)")
             imagem_url = st.text_input("URL da imagem (opcional)")
-            ativo = st.checkbox("Ativa", value=True)
             if st.form_submit_button("Publicar oportunidade"):
                 if not (titulo and descricao and local and horario):
                     st.error("Preencha título, descrição, local e horário.")
@@ -590,7 +589,6 @@ def oportunidades_section():
                         "horario": horario,
                         "link_inscricao": link_inscricao or None,
                         "imagem_url": imagem_url or None,
-                        "ativo": ativo,
                     }
                     resp = make_request("POST", "/oportunidades", payload)
                     if resp is not None and resp.status_code == 200:
@@ -615,20 +613,13 @@ def oportunidades_section():
 
 
 def render_oportunidade_card(op):
-    ativo = op.get("ativo", True)
     imagem = op.get("imagem_url")
     link = op.get("link_inscricao")
 
     with st.container(border=True):
         if imagem:
             st.image(imagem, use_container_width=True)
-        status_pill = (
-            '<span class="pill pill-vaga">Vaga aberta</span>'
-            if ativo
-            else '<span class="pill pill-inactive">Inativa</span>'
-        )
         st.markdown(
-            f'{status_pill}'
             f'<div class="card-title">{op.get("titulo","(sem título)")}</div>'
             f'<div class="card-meta">{op.get("local","")} &nbsp;·&nbsp; {op.get("horario","")}</div>'
             f'<div class="card-body">{op.get("descricao","")}</div>'
@@ -646,7 +637,6 @@ def render_oportunidade_card(op):
                 e_horario = ec2.text_input("Horário", value=op.get("horario", ""))
                 e_link = st.text_input("Link de inscrição (URL)", value=op.get("link_inscricao") or "", key=f"link_{op['id']}")
                 e_img = st.text_input("URL da imagem", value=op.get("imagem_url") or "")
-                e_ativo = st.checkbox("Ativa", value=ativo, key=f"at_{op['id']}")
                 oc1, oc2 = st.columns(2)
                 save = oc1.form_submit_button("Salvar alterações")
                 delete = oc2.form_submit_button("Remover")
@@ -659,7 +649,6 @@ def render_oportunidade_card(op):
                     "horario": e_horario,
                     "link_inscricao": e_link or None,
                     "imagem_url": e_img or None,
-                    "ativo": e_ativo,
                 }
                 r = make_request("PUT", f"/oportunidades/{op['id']}", payload)
                 if r is not None and r.status_code == 200:
@@ -778,6 +767,10 @@ def financeiro_section():
 
     # historico
     if aba_selecionada == "Histórico":
+        st.caption(
+            "🟢 **Doação externa** — recurso recebido de fora da organização (pessoa física, empresa ou evento). "
+            "🔵 **Doação interna** — recurso originado internamente por meio de doações realizadas dentro do aplicativo."
+        )
         resp = make_request("GET", "/transparencia")
         if resp is None:
             return

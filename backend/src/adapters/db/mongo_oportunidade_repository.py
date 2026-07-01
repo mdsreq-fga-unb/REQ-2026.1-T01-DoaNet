@@ -24,7 +24,6 @@ class MongoOportunidadeRepository(OportunidadeRepository):
                     vagas_preenchidas=item.get("vagas_preenchidas", 0),
                     link_inscricao=item.get("link_inscricao"),
                     imagem_url=item.get("imagem_url"),
-                    ativo=item.get("ativo", True),
                     org_id=item.get("org_id") or DEFAULT_ORG_ID
                 )
             )

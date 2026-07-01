@@ -82,6 +82,7 @@ class FeedPageState extends State<FeedPage> {
     final resultado = await showModalBottomSheet<FeedFilter>(
       context: context,
       backgroundColor: Colors.white,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -128,7 +129,11 @@ class FeedPageState extends State<FeedPage> {
               );
             }
 
-            return Padding(
+            return SingleChildScrollView(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(sheetContext).viewInsets.bottom,
+              ),
+              child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -185,6 +190,7 @@ class FeedPageState extends State<FeedPage> {
                   ),
                 ],
               ),
+            ),
             );
           },
         );
