@@ -1,11 +1,16 @@
 import 'package:http/http.dart' as http;
+import 'package:frontend/api_config.dart';
 import 'oportunidade_model.dart' as model;
 
 class FetchOportunidade {
+  final String orgId;
+
+  FetchOportunidade({required this.orgId});
+
   Future<List<model.OportunidadeItem>> fetchOportunidades() async {
     var client = http.Client();
     
-    var uri = Uri.parse('http://localhost:8000/oportunidades');
+    var uri = Uri.parse('${ApiConfig.baseUrl}/oportunidades?org_id=$orgId');
     
     var response = await client.get(uri);
     if (response.statusCode == 200) {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:frontend/config/org_config.dart';
+import 'package:frontend/config/org_config_provider.dart';
 import 'package:frontend/info_fetch/feed/feed_model.dart';
 import 'package:frontend/info_fetch/feed/fetch_feed.dart';
 import 'package:frontend/pages/feed_page.dart';
@@ -14,6 +16,13 @@ class FakeFetchFeed extends FetchFeed {
   Future<List<FeedItem>> fetchFeed() async {
     return items;
   }
+}
+
+Widget _withProvider(Widget child) {
+  return OrgConfigProvider(
+    config: OrgConfig.fallback,
+    child: MaterialApp(home: child),
+  );
 }
 
 void main() {
@@ -32,7 +41,7 @@ void main() {
     ];
 
     await tester.pumpWidget(
-      MaterialApp(home: FeedPage(fetchFeed: FakeFetchFeed(items))),
+      _withProvider(FeedPage(fetchFeed: FakeFetchFeed(items))),
     );
 
     await tester.pumpAndSettle();
@@ -41,13 +50,13 @@ void main() {
     expect(find.text('Sem Eventos'), findsOneWidget);
     expect(find.text('Titulo teste'), findsOneWidget);
     expect(find.text('Descricao teste'), findsOneWidget);
-    expect(find.text('Perfil'), findsOneWidget);
+    expect(find.text('ONG X'), findsOneWidget);
     print('OK: FeedPage renders filters and items');
   });
 
   testWidgets('FeedPage renders filters with empty feed', (tester) async {
     await tester.pumpWidget(
-      MaterialApp(home: FeedPage(fetchFeed: FakeFetchFeed(const []))),
+      _withProvider(FeedPage(fetchFeed: FakeFetchFeed(const []))),
     );
 
     await tester.pumpAndSettle();

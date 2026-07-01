@@ -1,6 +1,6 @@
 from typing import Optional, List
 from bson import ObjectId
-from datetime import datetime
+from datetime import datetime, timezone
 from domain.ports.admin_repository import AdminRepository
 from domain.entities.admin import Admin, AdminRole
 from adapters.db.mongo_connection import get_collection
@@ -38,7 +38,7 @@ class MongoAdminRepository(AdminRepository):
         try:
             self.collection.update_one(
                 {"_id": ObjectId(admin_id)},
-                {"$set": {"last_login": datetime.utcnow()}}
+                {"$set": {"last_login": datetime.now(timezone.utc)}}
             )
         except:
             pass

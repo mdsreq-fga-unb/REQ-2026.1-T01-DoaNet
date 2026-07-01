@@ -13,7 +13,7 @@ void main() {
         '    "image_url": "http://example.com/image.png",\n'
         '    "profile_name": "ONG X",\n'
         '    "profile_image_url": "http://example.com/profile.png",\n'
-        '    "event_link_url": "http://example.com/event"\n'
+        '    "event_url": "http://example.com/event"\n'
         '  }\n'
         ']';
 

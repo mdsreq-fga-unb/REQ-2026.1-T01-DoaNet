@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; 
+import 'package:flutter_svg/flutter_svg.dart';
+import '../config/org_config_provider.dart';
 import '../widgets/vaga_card.dart';
+import '../widgets/doacao_dialog.dart';
 import '../info_fetch/oportunidades/fetch_oportunidade.dart';
 import '../info_fetch/oportunidades/oportunidade_model.dart';
 
@@ -9,8 +11,9 @@ class ColaboracaoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final config = OrgConfigProvider.of(context);
+
     return Container(
-      color: Colors.white,
       child: ListView(
         padding: const EdgeInsets.symmetric(vertical: 16.0), 
         children: [
@@ -39,13 +42,13 @@ class ColaboracaoPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () => mostrarDoacaoDialog(context, orgId: config.orgId),
                   borderRadius: BorderRadius.circular(25),
                   child: Container(
                     width: double.infinity, 
                     height: 165, 
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0088FF), 
+                      color: config.primaryColor, 
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Row(
@@ -84,13 +87,15 @@ class ColaboracaoPage extends StatelessWidget {
 
                 // Substituímos a lista mocada pela conexão com o Banco
                 FutureBuilder<List<OportunidadeItem>>(
-                  future: FetchOportunidade().fetchOportunidades(),
+                  future: FetchOportunidade(
+                    orgId: OrgConfigProvider.of(context).orgId,
+                  ).fetchOportunidades(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(
+                      return Center(
                         child: Padding(
                           padding: EdgeInsets.all(20.0),
-                          child: CircularProgressIndicator(),
+                          child: CircularProgressIndicator(color: config.primaryColor),
                         )
                       );
                     } else if (snapshot.hasError) {

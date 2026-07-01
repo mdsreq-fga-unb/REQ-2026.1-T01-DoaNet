@@ -8,8 +8,11 @@ class FeedService:
     def __init__(self, repo: FeedRepository) -> None:
         self.repo = repo
 
-    def list_items(self) -> List[FeedItem]:
-        return self.repo.list_all()
+    def list_items(self, org_id: Optional[str] = None):
+        items = self.repo.list_all()
+        if org_id:
+            items = [i for i in items if i.org_id == org_id]
+        return items
 
     def add_item(self, item: FeedItem) -> None:
         self.repo.add(item)
