@@ -56,8 +56,8 @@ void main() {
     await tester.pumpWidget(MyApp(fetchFeed: FakeFetchFeed(items)));
     await tester.pumpAndSettle();
 
-    expect(find.text('Com eventos'), findsOneWidget);
-    expect(find.text('Sem Eventos'), findsOneWidget);
+    expect(find.text('Buscar publicações e eventos'), findsOneWidget);
+    expect(find.byIcon(Icons.tune), findsOneWidget);
     expect(find.text('Titulo teste'), findsOneWidget);
     expect(find.text('Descricao teste'), findsOneWidget);
     expect(find.byType(FeedItemCard), findsOneWidget);
@@ -67,8 +67,8 @@ void main() {
     await tester.pumpWidget(MyApp(fetchFeed: FakeFetchFeed(const [])));
     await tester.pumpAndSettle();
 
-    expect(find.text('Com eventos'), findsOneWidget);
-    expect(find.text('Sem Eventos'), findsOneWidget);
+    expect(find.text('Buscar publicações e eventos'), findsOneWidget);
+    expect(find.byIcon(Icons.tune), findsOneWidget);
     expect(find.text('Nenhum item no feed'), findsOneWidget);
     expect(find.byType(FeedItemCard), findsNothing);
   });
