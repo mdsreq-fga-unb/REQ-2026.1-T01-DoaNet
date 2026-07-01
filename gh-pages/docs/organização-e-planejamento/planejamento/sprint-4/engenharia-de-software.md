@@ -49,3 +49,11 @@ Implementação da parte de colaboração com a organização — registro de pa
 ![Colab](../../../assets/Colab.png)
 
 ![Colab2](../../../assets/Colab2.png)
+
+![PostR](../../../assets/postreal.png)
+
+![EventoR](../../../assets/eventoreal.png)
+
+![Editar Post](../../../assets/editarpost.png)
+
+![Editar Evento](../../../assets/editarevento.png)

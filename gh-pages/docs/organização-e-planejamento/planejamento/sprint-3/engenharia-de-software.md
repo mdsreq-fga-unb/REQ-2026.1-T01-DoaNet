@@ -33,6 +33,6 @@ Implementação de posts de eventos com inscrição, adição de imagens em todo
 
 ## Demonstração em Imagens
 
-![Feed](../../../assets/Feed.png)
-
 ![Feed2](../../../assets/Feed2.png)
+
+![LoginR](../../../assets/loginreal.png)

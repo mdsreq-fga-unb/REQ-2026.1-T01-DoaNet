@@ -36,4 +36,8 @@ Fechamento do painel de transparência (visualização do histórico financeiro 
 
 ## Demonstração em Imagens
 
-> _Capturas de tela da Sprint 6 a serem inseridas._
+![Criar Adm](../../../assets/criaradm.png)
+
+![Remover Adm](../../../assets/removeradm.png)
+
+![Customizacao2](../../../assets/customizacao2.png)

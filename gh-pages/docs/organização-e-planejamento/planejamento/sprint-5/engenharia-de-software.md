@@ -33,4 +33,6 @@ Implementação do fluxo de doações no aplicativo, da rastreabilidade e do reg
 
 ## Demonstração em Imagens
 
-> _Capturas de tela da Sprint 5 a serem inseridas._
+![Doação](../../../assets/doacao.png)
+
+![Despesa](../../../assets/despesa.png)

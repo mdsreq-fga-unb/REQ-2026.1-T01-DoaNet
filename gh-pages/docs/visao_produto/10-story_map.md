@@ -2,35 +2,6 @@
 
 ## 10.1 User Story Map
 
-A tabela a seguir apresenta cada um dos requisitos funcionais (RFs) declarados utilizando a técnica de *user story* (US), detalhando a **Persona**, o **Objetivo** e a **Atividade** correspondentes no *Story Map*, assim como a rastreabilidade com os requisitos não funcionais (RNFs).
-
-| RF | Persona | Objetivo | Atividade | User Story derivada | RNFs relacionados |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **RF01** | Usuário | Transparência da organização | Visualizar histórico financeiro | [US01 - Visualizar histórico financeiro](../evidencias/sprint6.md#us01) | RNF01, RNF07, RNF08 |
-| **RF02** | Usuário | Feed de Post das Organizações | Visualizar publicações | [US02 - Visualizar publicações no feed](../evidencias/sprint2.md#us02) | RNF01, RNF07, RNF10 |
-| **RF03** | Usuário | Perfil geral da organização | Visualizar descrição da ONG | [US03 - Visualizar descrição da ONG](../evidencias/sprint6.md#us03) | RNF01, RNF07 |
-| **RF04** | Usuário | Colaboração com a Organização | Visualizar voluntariado | [US04 - Visualizar oportunidades de voluntariado](../evidencias/sprint4.md#us04) | RNF01, RNF07 |
-| **RF05** | Usuário | Perfil geral da organização | Contactar a organização | [US05 - Contactar a organização](../evidencias/sprint6.md#us05) | RNF01, RNF11 |
-| **RF06** | Usuário | Feed de Post das Organizações | Restringir exibição do feed por categoria de publicação | [US06 - Filtrar publicações do feed](../evidencias/sprint5.md#us06) | RNF01, RNF10 |
-| **RF07** | Usuário | Feed de Post das Organizações | Localizar publicação específica pelo título | [US07 - Buscar publicações por título](../evidencias/sprint5.md#us07) | RNF01 |
-| **RF08** | Usuário | Colaboração com a Organização | Inscrever-se para voluntariado | [US08 - Inscrever-se como voluntário](../evidencias/sprint4.md#us08) | RNF01, RNF11 |
-| **RF09** | Usuário | Colaboração com a Organização | Inscrever-se em eventos | [US09 - Inscrever-se em evento](../evidencias/sprint3.md#us09) | RNF01, RNF10, RNF11 |
-| **RF10** | Usuário | Colaboração com a Organização | Realizar doação | [US10 - Realizar doação](../evidencias/sprint5.md#us10) | RNF01, RNF05, RNF06, RNF08, RNF09, RNF12 |
-| **RF11** | Admin da organização / Admin geral | Gerenciar o funcionamento da organização | Autenticar administradores | [US11 - Autenticar administradores](../evidencias/sprint3.md#us11) | RNF01, RNF04 |
-| **RF12** | Administrador geral | Gerenciar o funcionamento da organização | Gerenciar administradores | [US12 - Cadastrar administrador de organização](../evidencias/sprint6.md#us12) | RNF01, RNF04 |
-| **RF13** | Administrador geral | Gerenciar o funcionamento da organização | Gerenciar administradores | [US13 - Remover administrador de organização](../evidencias/sprint6.md#us13) | RNF01, RNF04 |
-| **RF14** | Administrador da organização | Perfil geral da organização | Configurar dados institucionais | [US14 - Configurar dados institucionais](../evidencias/sprint6.md#us14) | RNF01, RNF02, RNF04 |
-| **RF15** | Administrador da organização | Transparência da organização | Lançar doações e despesas | [US15 - Lançar doações manuais](../evidencias/sprint5.md#us15) | RNF01, RNF04, RNF08, RNF09 |
-| **RF16** | Administrador da organização | Transparência da organização | Lançar doações e despesas | [US16 - Lançar despesas operacionais](../evidencias/sprint5.md#us16) | RNF01, RNF04, RNF08 |
-| **RF17** | Administrador da organização | Feed de Post das Organizações | Gerenciar publicações | [US17 - Criar publicação no feed](../evidencias/sprint2.md#us17) | RNF01, RNF04, RNF10 |
-| **RF18** | Administrador da organização | Feed de Post das Organizações | Gerenciar publicações | [US18 - Deletar publicação no feed](../evidencias/sprint2.md#us18) | RNF01, RNF04 |
-| **RF19** | Administrador da organização | Feed de Post das Organizações | Gerenciar publicações | [US19 - Atualizar publicação no feed](../evidencias/sprint2.md#us19) | RNF01, RNF04 |
-| **RF20** | Administrador da organização | Colaboração com a Organização | Gestão de voluntários | [US20 - Registrar oportunidade de voluntariado](../evidencias/sprint4.md#us20) | RNF01, RNF04 |
-| **RF21** | Administrador da organização | Colaboração com a Organização | Gestão de voluntários | [US21 - Deletar oportunidade de voluntariado](../evidencias/sprint4.md#us21) | RNF01, RNF04 |
-| **RF22** | Administrador da organização | Colaboração com a Organização | Gestão de voluntários | [US22 - Atualizar oportunidade de voluntariado](../evidencias/sprint4.md#us22) | RNF01, RNF04 |
-
----
-
 ### Visualização Interativa
 
 <div style="position:relative;width:100%;max-width:100%;font-family:sans-serif;user-select:none;margin-top:8px;">
@@ -131,28 +102,28 @@ A tabela a seguir apresenta cada um dos requisitos funcionais (RFs) declarados u
   GROUPS[4].tasks[0].label=LABEL.T_G5_0; GROUPS[4].tasks[1].label=LABEL.T_G5_1;
 
   var UI={
-    US01:{rf:'RF01',sprint:6,desc:'Visualizar histórico financeiro',link:'../../evidencias/sprint6/#us01',st:'vm',persona:'Usuário',cl:['Histórico','financeiro']},
-    US02:{rf:'RF02',sprint:2,desc:'Visualizar publicações no feed',link:'../../evidencias/sprint2/#us02',st:'vd',persona:'Usuário',cl:['Visualizar','publicações']},
-    US03:{rf:'RF03',sprint:6,desc:'Visualizar descrição da ONG',link:'../../evidencias/sprint6/#us03',st:'vm',persona:'Usuário',cl:['Descrição','da ONG']},
-    US04:{rf:'RF04',sprint:4,desc:'Visualizar oportunidades de voluntariado',link:'../../evidencias/sprint4/#us04',st:'vd',persona:'Usuário',cl:['Visualizar','voluntariado']},
-    US05:{rf:'RF05',sprint:6,desc:'Contactar a organização',link:'../../evidencias/sprint6/#us05',st:'vm',persona:'Usuário',cl:['Contactar','organização']},
-    US06:{rf:'RF06',sprint:5,desc:'Filtrar publicações do feed',link:'../../evidencias/sprint5/#us06',st:'am',persona:'Usuário',cl:['Filtrar','publicações']},
-    US07:{rf:'RF07',sprint:5,desc:'Buscar publicações por título',link:'../../evidencias/sprint5/#us07',st:'am',persona:'Usuário',cl:['Buscar','publicações']},
-    US08:{rf:'RF08',sprint:4,desc:'Inscrever-se como voluntário',link:'../../evidencias/sprint4/#us08',st:'am',persona:'Usuário',cl:['Inscrever-se','voluntário']},
-    US09:{rf:'RF09',sprint:3,desc:'Inscrever-se em evento',link:'../../evidencias/sprint3/#us09',st:'vd',persona:'Usuário',cl:['Inscrever-se','em evento']},
-    US10:{rf:'RF10',sprint:5,desc:'Realizar doação',link:'../../evidencias/sprint5/#us10',st:'vd',persona:'Usuário',cl:['Realizar','doação']},
-    US11:{rf:'RF11',sprint:3,desc:'Autenticar administradores',link:'../../evidencias/sprint3/#us11',st:'vd',persona:'Admin da org.',cl:['Autenticar','admins']},
-    US12:{rf:'RF12',sprint:6,desc:'Cadastrar administrador de organização',link:'../../evidencias/sprint6/#us12',st:'vm',persona:'Admin geral',cl:['Cadastrar','administrador']},
-    US13:{rf:'RF13',sprint:6,desc:'Remover administrador de organização',link:'../../evidencias/sprint6/#us13',st:'vm',persona:'Admin geral',cl:['Remover','administrador']},
-    US14:{rf:'RF14',sprint:6,desc:'Configurar dados institucionais',link:'../../evidencias/sprint6/#us14',st:'vm',persona:'Admin da org.',cl:['Configurar','dados inst.']},
-    US15:{rf:'RF15',sprint:5,desc:'Lançar doações manuais',link:'../../evidencias/sprint5/#us15',st:'vd',persona:'Admin da org.',cl:['Lançar','doações manuais']},
-    US16:{rf:'RF16',sprint:5,desc:'Lançar despesas operacionais',link:'../../evidencias/sprint5/#us16',st:'vd',persona:'Admin da org.',cl:['Lançar','despesas']},
-    US17:{rf:'RF17',sprint:2,desc:'Criar publicação no feed',link:'../../evidencias/sprint2/#us17',st:'vd',persona:'Admin da org.',cl:['Criar','publicação']},
-    US18:{rf:'RF18',sprint:2,desc:'Deletar publicação no feed',link:'../../evidencias/sprint2/#us18',st:'vd',persona:'Admin da org.',cl:['Deletar','publicação']},
-    US19:{rf:'RF19',sprint:2,desc:'Atualizar publicação no feed',link:'../../evidencias/sprint2/#us19',st:'vd',persona:'Admin da org.',cl:['Atualizar','publicação']},
-    US20:{rf:'RF20',sprint:4,desc:'Registrar oportunidade de voluntariado',link:'../../evidencias/sprint4/#us20',st:'vd',persona:'Admin da org.',cl:['Registrar','voluntariado']},
-    US21:{rf:'RF21',sprint:4,desc:'Deletar oportunidade de voluntariado',link:'../../evidencias/sprint4/#us21',st:'vd',persona:'Admin da org.',cl:['Deletar','voluntariado']},
-    US22:{rf:'RF22',sprint:4,desc:'Atualizar oportunidade de voluntariado',link:'../../evidencias/sprint4/#us22',st:'vd',persona:'Admin da org.',cl:['Atualizar','voluntariado']}
+    US01:{rf:'RF01',sprint:6,desc:'Visualizar histórico financeiro',link:'../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us01',st:'vd',persona:'Usuário',cl:['Histórico','financeiro']},
+    US02:{rf:'RF02',sprint:2,desc:'Visualizar publicações no feed',link:'../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us02',st:'vd',persona:'Usuário',cl:['Visualizar','publicações']},
+    US03:{rf:'RF03',sprint:6,desc:'Visualizar descrição da ONG',link:'../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us03',st:'vm',persona:'Usuário',cl:['Descrição','da ONG']},
+    US04:{rf:'RF04',sprint:4,desc:'Visualizar oportunidades de voluntariado',link:'../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us04',st:'vd',persona:'Usuário',cl:['Visualizar','voluntariado']},
+    US05:{rf:'RF05',sprint:6,desc:'Contactar a organização',link:'../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us05',st:'vm',persona:'Usuário',cl:['Contactar','organização']},
+    US06:{rf:'RF06',sprint:5,desc:'Filtrar publicações do feed',link:'../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us06',st:'vd',persona:'Usuário',cl:['Filtrar','publicações']},
+    US07:{rf:'RF07',sprint:5,desc:'Buscar publicações por título',link:'../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us07',st:'vd',persona:'Usuário',cl:['Buscar','publicações']},
+    US08:{rf:'RF08',sprint:4,desc:'Inscrever-se como voluntário',link:'../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us08',st:'vd',persona:'Usuário',cl:['Inscrever-se','voluntário']},
+    US09:{rf:'RF09',sprint:3,desc:'Inscrever-se em evento',link:'../../organização-e-planejamento/planejamento/sprint-3/user-stories/#us09',st:'vd',persona:'Usuário',cl:['Inscrever-se','em evento']},
+    US10:{rf:'RF10',sprint:5,desc:'Realizar doação',link:'../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us10',st:'vd',persona:'Usuário',cl:['Realizar','doação']},
+    US11:{rf:'RF11',sprint:3,desc:'Autenticar administradores',link:'../../organização-e-planejamento/planejamento/sprint-3/user-stories/#us11',st:'vd',persona:'Admin da org.',cl:['Autenticar','admins']},
+    US12:{rf:'RF12',sprint:6,desc:'Cadastrar administrador de organização',link:'../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us12',st:'vd',persona:'Admin geral',cl:['Cadastrar','administrador']},
+    US13:{rf:'RF13',sprint:6,desc:'Remover administrador de organização',link:'../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us13',st:'vd',persona:'Admin geral',cl:['Remover','administrador']},
+    US14:{rf:'RF14',sprint:6,desc:'Configurar dados institucionais',link:'../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us14',st:'vd',persona:'Admin da org.',cl:['Configurar','dados inst.']},
+    US15:{rf:'RF15',sprint:5,desc:'Lançar doações manuais',link:'../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us15',st:'vd',persona:'Admin da org.',cl:['Lançar','doações manuais']},
+    US16:{rf:'RF16',sprint:5,desc:'Lançar despesas operacionais',link:'../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us16',st:'vd',persona:'Admin da org.',cl:['Lançar','despesas']},
+    US17:{rf:'RF17',sprint:2,desc:'Criar publicação no feed',link:'../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us17',st:'vd',persona:'Admin da org.',cl:['Criar','publicação']},
+    US18:{rf:'RF18',sprint:2,desc:'Deletar publicação no feed',link:'../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us18',st:'vd',persona:'Admin da org.',cl:['Deletar','publicação']},
+    US19:{rf:'RF19',sprint:2,desc:'Atualizar publicação no feed',link:'../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us19',st:'vd',persona:'Admin da org.',cl:['Atualizar','publicação']},
+    US20:{rf:'RF20',sprint:4,desc:'Registrar oportunidade de voluntariado',link:'../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us20',st:'vd',persona:'Admin da org.',cl:['Registrar','voluntariado']},
+    US21:{rf:'RF21',sprint:4,desc:'Deletar oportunidade de voluntariado',link:'../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us21',st:'vd',persona:'Admin da org.',cl:['Deletar','voluntariado']},
+    US22:{rf:'RF22',sprint:4,desc:'Atualizar oportunidade de voluntariado',link:'../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us22',st:'vd',persona:'Admin da org.',cl:['Atualizar','voluntariado']}
   };
 
   var CL={vd:{f:'#4CAF50',s:'#388E3C',t:'#fff'},am:{f:'#FFC107',s:'#F9A825',t:'#333'},vm:{f:'#F44336',s:'#C62828',t:'#fff'}};
@@ -448,27 +419,52 @@ Sendo:
 
 A partir dessas informações, foi gerada a seguinte tabela:
 
-| US | Descrição | VN | CT | EI | ET | IP | Quadrante | Prioridade sugerida | MVP |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |  :--- |
-| [US11](../evidencias/sprint3.md#us11) | [Autenticar administradores](../evidencias/sprint3.md#us11) | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1| X |
-| [US01](../evidencias/sprint6.md#us01) | [Visualizar histórico financeiro](../evidencias/sprint6.md#us01) | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
-| [US02](../evidencias/sprint2.md#us02) | [Visualizar publicações no feed](../evidencias/sprint2.md#us02) | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
-| [US10](../evidencias/sprint5.md#us10) | [Realizar doação](../evidencias/sprint5.md#us10) | 5 | 2 | 2 | 2 | 2,5 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
-| [US14](../evidencias/sprint6.md#us14) | [Configurar dados institucionais](../evidencias/sprint6.md#us14) | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
-| [US15](../evidencias/sprint5.md#us15) | [Lançar doações manuais](../evidencias/sprint5.md#us15) | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
-| [US17](../evidencias/sprint2.md#us17) | [Criar publicação no feed](../evidencias/sprint2.md#us17) | 4 | 2 | 2 | 2 | 2 | Q1 Alto valor / Baixa carga técnica | Prioridade 1 | X |
-| [US12](../evidencias/sprint6.md#us12) | [Cadastrar administrador de organização](../evidencias/sprint6.md#us12) | 5 | 4 | 4 | 4 | 1,25 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 | X |
-| [US13](../evidencias/sprint6.md#us13) | [Remover administrador de organização](../evidencias/sprint6.md#us13) | 4 | 4 | 4 | 4 | 1 |  Q2 Alto valor / Alta carga técnica | Prioridade 2 | X |
-| [US03](../evidencias/sprint6.md#us03) | [Visualizar descrição da ONG](../evidencias/sprint6.md#us03) | 3 | 1 | 1 | 1 | 3 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| [US08](../evidencias/sprint4.md#us08) | [Inscrever-se como voluntário](../evidencias/sprint4.md#us08) | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US09](../evidencias/sprint3.md#us09) | [Inscrever-se em evento](../evidencias/sprint3.md#us09) | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US16](../evidencias/sprint5.md#us16) | [Lançar despesas operacionais](../evidencias/sprint5.md#us16) | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US19](../evidencias/sprint2.md#us19) | [Atualizar publicação no feed](../evidencias/sprint2.md#us19) | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US20](../evidencias/sprint4.md#us20) | [Registrar oportunidade de voluntariado](../evidencias/sprint4.md#us20) | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US22](../evidencias/sprint4.md#us22) | [Atualizar oportunidade de voluntariado](../evidencias/sprint4.md#us22) | 3 | 2 | 2 | 2 | 1,5 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US04](../evidencias/sprint4.md#us04) | [Visualizar oportunidades de voluntariado](../evidencias/sprint4.md#us04) | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US05](../evidencias/sprint6.md#us05) | [Contactar a organização](../evidencias/sprint6.md#us05) | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 |
-| [US18](../evidencias/sprint2.md#us18) | [Deletar publicação no feed](../evidencias/sprint2.md#us18) | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US21](../evidencias/sprint4.md#us21) | [Deletar oportunidade de voluntariado](../evidencias/sprint4.md#us21) | 2 | 2 | 2 | 2 | 1 | Q3 Baixo valor / Baixa carga técnica | Prioridade 3 | X |
-| [US07](../evidencias/sprint5.md#us07) | [Buscar publicações por título](../evidencias/sprint5.md#us07) | 2 | 2 | 2 | 2 | 1,5 | Q4 Baixo valor / Baixa carga técnica | Prioridade 4 |
-| [US06](../evidencias/sprint5.md#us06) | [Filtrar publicações do feed](../evidencias/sprint5.md#us06) | 2 | 2 | 2 | 2 | 1 | Q4 Baixo valor / Baixa carga técnica | Prioridade 4 |
+<style>
+.usmap-table{border-collapse:collapse;width:100%;font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:13px;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.12);}
+.usmap-table thead tr{background:#1f2937;color:#fff;}
+.usmap-table th{padding:8px 6px;text-align:center;font-weight:600;}
+.usmap-table td{padding:6px;text-align:center;border-bottom:1px solid #e5e7eb;}
+.usmap-table tbody tr:nth-child(even){background:#f9fafb;}
+.usmap-table tbody tr:hover{background:#eef2ff;}
+.usmap-table a{color:#4f46e5;text-decoration:none;font-weight:600;}
+.usmap-table a:hover{text-decoration:underline;}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;color:#fff;}
+.q1{background:#16a34a;}
+.q2{background:#2563eb;}
+.q3{background:#eab308;color:#1f2937;}
+.q4{background:#f22824;}
+.mvp-yes{color:#16a34a;font-weight:700;}
+.mvp-no{color:#d1d5db;}
+</style>
+
+<table class="usmap-table">
+<thead>
+<tr>
+<th>US</th><th>VN</th><th>CT</th><th>EI</th><th>ET</th><th>IP</th><th>Quad.</th><th>Prior.</th><th>MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-3/user-stories/#us11">US11</a></td><td>5</td><td>2</td><td>2</td><td>2</td><td>2,5</td><td><span class="badge q1" title="Alto valor / Baixa carga técnica">Q1</span></td><td>1</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us01">US01</a></td><td>5</td><td>2</td><td>2</td><td>2</td><td>2,5</td><td><span class="badge q1" title="Alto valor / Baixa carga técnica">Q1</span></td><td>1</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us02">US02</a></td><td>5</td><td>2</td><td>2</td><td>2</td><td>2,5</td><td><span class="badge q1" title="Alto valor / Baixa carga técnica">Q1</span></td><td>1</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us10">US10</a></td><td>5</td><td>2</td><td>2</td><td>2</td><td>2,5</td><td><span class="badge q1" title="Alto valor / Baixa carga técnica">Q1</span></td><td>1</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us14">US14</a></td><td>4</td><td>2</td><td>2</td><td>2</td><td>2</td><td><span class="badge q1" title="Alto valor / Baixa carga técnica">Q1</span></td><td>1</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us15">US15</a></td><td>4</td><td>2</td><td>2</td><td>2</td><td>2</td><td><span class="badge q1" title="Alto valor / Baixa carga técnica">Q1</span></td><td>1</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us17">US17</a></td><td>4</td><td>2</td><td>2</td><td>2</td><td>2</td><td><span class="badge q1" title="Alto valor / Baixa carga técnica">Q1</span></td><td>1</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us12">US12</a></td><td>5</td><td>4</td><td>4</td><td>4</td><td>1,25</td><td><span class="badge q2" title="Alto valor / Alta carga técnica">Q2</span></td><td>2</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us13">US13</a></td><td>4</td><td>4</td><td>4</td><td>4</td><td>1</td><td><span class="badge q2" title="Alto valor / Alta carga técnica">Q2</span></td><td>2</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us03">US03</a></td><td>3</td><td>1</td><td>1</td><td>1</td><td>3</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-no">—</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us08">US08</a></td><td>3</td><td>2</td><td>2</td><td>2</td><td>1,5</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-3/user-stories/#us09">US09</a></td><td>3</td><td>2</td><td>2</td><td>2</td><td>1,5</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us16">US16</a></td><td>3</td><td>2</td><td>2</td><td>2</td><td>1,5</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us19">US19</a></td><td>3</td><td>2</td><td>2</td><td>2</td><td>1,5</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us20">US20</a></td><td>3</td><td>2</td><td>2</td><td>2</td><td>1,5</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us22">US22</a></td><td>3</td><td>2</td><td>2</td><td>2</td><td>1,5</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us04">US04</a></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-6/user-stories/#us05">US05</a></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-no">—</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-2/user-stories/#us18">US18</a></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-4/user-stories/#us21">US21</a></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td><span class="badge q3" title="Baixo valor / Baixa carga técnica">Q3</span></td><td>3</td><td class="mvp-yes">✔</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us07">US07</a></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1,5</td><td><span class="badge q4" title="Baixo valor / Baixa carga técnica">Q4</span></td><td>4</td><td class="mvp-no">—</td></tr>
+<tr><td><a href="../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us06">US06</a></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td><span class="badge q4" title="Baixo valor / Baixa carga técnica">Q4</span></td><td>4</td><td class="mvp-no">—</td></tr>
+</tbody>
+</table>
