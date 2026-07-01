@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [main, developer]
+    branches: [main]
   pull_request:
-    branches: [main, developer]
+    branches: [main]
 
 jobs:
   backend-tests:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.14'
 
       - name: Install Poetry
         run: |
@@ -27,9 +27,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: backend
-        run: |
-          poetry lock
-          poetry install --with dev
+        run: poetry install --with dev
 
       - name: Run tests
         working-directory: backend
@@ -56,6 +54,6 @@ jobs:
         working-directory: frontend
         run: flutter test
 
-      # - name: Run integration tests
-      #   working-directory: frontend
-      #   run: flutter test integration_test
+      - name: Run integration tests
+        working-directory: frontend
+        run: flutter test integration_test

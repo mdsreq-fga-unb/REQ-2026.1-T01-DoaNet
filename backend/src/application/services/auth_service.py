@@ -1,5 +1,5 @@
 from typing import Optional, List
-from datetime import datetime, timezone
+from datetime import datetime
 import bcrypt
 import os
 from domain.ports.admin_repository import AdminRepository
@@ -50,12 +50,12 @@ class AuthService:
             name=name,
             hashed_password=hashed_password,
             role=AdminRole.MASTER,  # Primeiro admin é MASTER
-            created_at=datetime.now(timezone.utc)
+            created_at=datetime.utcnow()
         )
         
         return await self.admin_repo.create(admin)
     
-    async def create_admin(self, email: str, name: str, password: str, created_by: str, creator_role: str, org_id: Optional[str] = None) -> Admin:
+    async def create_admin(self, email: str, name: str, password: str, created_by: str, creator_role: str) -> Admin:
         """Cria um novo administrador (apenas MASTER pode criar)"""
         if creator_role != AdminRole.MASTER:
             raise ValueError("Apenas administradores principais podem criar novos administradores")
@@ -72,8 +72,7 @@ class AuthService:
             hashed_password=hashed_password,
             role=AdminRole.ADMIN,  # Novos admins são ADMIN por padrão
             created_by=created_by,
-            created_at=datetime.now(timezone.utc),
-            org_id=org_id,
+            created_at=datetime.utcnow()
         )
         
         return await self.admin_repo.create(admin)

@@ -1,28 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/info_fetch/feed/fetch_feed.dart';
-import 'package:frontend/config/org_config.dart';
-import 'package:frontend/config/org_config_provider.dart';
-import 'package:frontend/info_fetch/org/fetch_org_config.dart';
-import 'package:frontend/page_structure.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'page_structure.dart';
 
-  OrgConfig config;
-  try {
-    config = await FetchOrgConfig(orgId: 'move-educa').fetchConfig();
-    print('✅ Config carregada: ${config.name}');
-  } catch (e) {
-    print('❌ Erro ao carregar config: $e');
-    config = OrgConfig.fallback;
-  }
-
-  runApp(
-    OrgConfigProvider(
-      config: config,
-      child: MyApp(),
-    ),
-  );
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -32,20 +14,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final config = OrgConfigProvider.of(context);
-
     return MaterialApp(
-      title: config.name,
+      title: 'DoaNet Feed',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: config.primaryColor,
-          primary: config.primaryColor,
-          primaryContainer: config.primaryColor.withAlpha(38),
-          onPrimaryContainer: config.primaryColor,
-          surface: config.backgroundColor,
+          seedColor: Colors.lightBlue,
+          onSecondary: Colors.blueAccent,
+          onPrimaryContainer: Colors.white,
+          primaryContainer: Colors.blueAccent,
         ),
       ),
       home: PageStructure(
+        organizationName: 'MoveEduca',
         initialPageName: 'feed',
         fetchFeed: fetchFeed,
       ),

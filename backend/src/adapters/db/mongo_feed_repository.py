@@ -26,8 +26,7 @@ class MongoFeedRepository(FeedRepository):
                     event_location=item.get("event_location"),
                     event_date=item.get("event_date"),
                     event_url=item.get("event_url"),
-                    created_at=item.get("created_at"),
-                    org_id=item.get("org_id")
+                    created_at=item.get("created_at")
                 )
             )
         return items
@@ -56,8 +55,7 @@ class MongoFeedRepository(FeedRepository):
             event_location=item.get("event_location"),
             event_date=item.get("event_date"),
             event_url=item.get("event_url"),
-            created_at=item.get("created_at"),
-            org_id=item.get("org_id")
+            created_at=item.get("created_at")
         )
 
     def update_item(self, item_id: str, item: FeedItem) -> bool:

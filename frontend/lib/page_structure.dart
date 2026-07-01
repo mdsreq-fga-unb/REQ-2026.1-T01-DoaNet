@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:frontend/config/org_config_provider.dart';
 import 'package:frontend/info_fetch/feed/fetch_feed.dart';
 
 import 'pages/colaboracao_page.dart';
@@ -10,10 +9,12 @@ import 'pages/transparencia_page.dart';
 class PageStructure extends StatefulWidget {
   const PageStructure({
     super.key,
+    required this.organizationName,
     required this.initialPageName,
     this.fetchFeed,
   });
 
+  final String organizationName;
   final String initialPageName;
   final FetchFeed? fetchFeed;
 
@@ -46,11 +47,7 @@ class _PageStructureState extends State<PageStructure> {
   Widget _pageForName() {
     switch (_pageName) {
       case 'feed':
-        return FeedPage(
-          fetchFeed: widget.fetchFeed ?? FetchFeed(
-            orgId: OrgConfigProvider.of(context).orgId, // <- adicionar
-          ),
-        );
+        return FeedPage(fetchFeed: widget.fetchFeed);
       case 'colaboracao':
         return const ColaboracaoPage();
       case 'transparencia':
@@ -62,50 +59,37 @@ class _PageStructureState extends State<PageStructure> {
 
   @override
   Widget build(BuildContext context) {
-    final config = OrgConfigProvider.of(context);
-    final String firstLetter = config.name.isNotEmpty
-        ? config.name[0].toUpperCase()
-        : '?';
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         elevation: 1,
         shadowColor: const Color(0xFFD9D9D9),
-        title: config.logoUrl != null
-            ? Image.network(
-                config.logoUrl!,
-                height: 32,
-                errorBuilder: (context, error, stackTrace) => Text(
-                  config.name,
-                  style: TextStyle(
-                    color: config.primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 26,
-                    fontFamily: 'Roboto',
-                  ),
-                ),
-              )
-            : Text(
-                config.name,
-                style: TextStyle(
-                  color: config.primaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 26,
-                  fontFamily: 'Roboto',
-                ),
+        title: const Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: 'Move',
+                style: TextStyle(color: Color(0xFF0088FF), fontWeight: FontWeight.bold),
               ),
-        actions: [
+              TextSpan(
+                text: 'Educa',
+                style: TextStyle(color: Color(0xFF171616), fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          style: TextStyle(fontSize: 26, fontFamily: 'Roboto'),
+        ),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 24.0),
+            padding: EdgeInsets.only(right: 24.0),
             child: CircleAvatar(
-              backgroundColor: const Color(0xFFF5F5F5),
+              backgroundColor: Color(0xFFF5F5F5),
               radius: 18,
               child: Text(
-                firstLetter,
+                'M',
                 style: TextStyle(
-                  color: config.primaryColor,
+                  color: Color(0xFF0088FF),
                   fontFamily: 'Abyssinica SIL',
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -115,17 +99,11 @@ class _PageStructureState extends State<PageStructure> {
           ),
         ],
       ),
-      
-      body: Container(
-        color: config.backgroundColor,
-        width: double.infinity,
-        height: double.infinity,
-        child: _pageForName(),
-      ),
+      body: _pageForName(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex(),
-        selectedItemColor: config.primaryColor,
-        unselectedItemColor: const Color(0xFF505050),
+        selectedItemColor: const Color(0xFF0088FF), 
+        unselectedItemColor: const Color(0xFF505050), 
         backgroundColor: Colors.white,
         onTap: (index) {
           setState(() {
@@ -147,40 +125,40 @@ class _PageStructureState extends State<PageStructure> {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/feed.svg',
-              height: 24,
+              'assets/icons/feed.svg', 
+              height: 24, 
               colorFilter: const ColorFilter.mode(Color(0xFF505050), BlendMode.srcIn),
             ),
             activeIcon: SvgPicture.asset(
-              'assets/icons/feed.svg',
-              height: 24,
-              colorFilter: ColorFilter.mode(config.primaryColor, BlendMode.srcIn),
+              'assets/icons/feed.svg', 
+              height: 24, 
+              colorFilter: const ColorFilter.mode(Color(0xFF0088FF), BlendMode.srcIn),
             ),
             label: 'Feed',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/colaboracao.svg',
-              height: 24,
+              'assets/icons/colaboracao.svg', 
+              height: 24, 
               colorFilter: const ColorFilter.mode(Color(0xFF505050), BlendMode.srcIn),
             ),
             activeIcon: SvgPicture.asset(
-              'assets/icons/colaboracao.svg',
-              height: 24,
-              colorFilter: ColorFilter.mode(config.primaryColor, BlendMode.srcIn),
+              'assets/icons/colaboracao.svg', 
+              height: 24, 
+              colorFilter: const ColorFilter.mode(Color(0xFF0088FF), BlendMode.srcIn),
             ),
             label: 'Colaboração',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/icons/transparencia.svg',
-              height: 24,
+              'assets/icons/transparencia.svg', 
+              height: 24, 
               colorFilter: const ColorFilter.mode(Color(0xFF505050), BlendMode.srcIn),
             ),
             activeIcon: SvgPicture.asset(
-              'assets/icons/transparencia.svg',
-              height: 24,
-              colorFilter: ColorFilter.mode(config.primaryColor, BlendMode.srcIn),
+              'assets/icons/transparencia.svg', 
+              height: 24, 
+              colorFilter: const ColorFilter.mode(Color(0xFF0088FF), BlendMode.srcIn),
             ),
             label: 'Transparência',
           ),

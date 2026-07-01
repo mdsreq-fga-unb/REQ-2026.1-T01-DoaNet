@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:frontend/info_fetch/feed/fetch_feed.dart';
 import 'package:frontend/info_fetch/feed/feed_model.dart';
 import 'package:frontend/widgets/feed_item_card.dart';
-import 'package:frontend/config/org_config_provider.dart';
 
 class FeedPage extends StatefulWidget {
   FeedPage({super.key, FetchFeed? fetchFeed})
@@ -66,10 +65,12 @@ class FeedPageState extends State<FeedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          color: Colors.white,
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
+        flexibleSpace: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -82,11 +83,11 @@ class FeedPageState extends State<FeedPage> {
                   color: Colors.grey[350],
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
+                    children: const [
                       Text('Com eventos', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                     ],
                   ),
@@ -97,11 +98,11 @@ class FeedPageState extends State<FeedPage> {
                   color: Colors.grey[350],
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
+                    children: const [
                       Text('Sem Eventos', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                     ],
                   ),
@@ -110,43 +111,38 @@ class FeedPageState extends State<FeedPage> {
             ],
           ),
         ),
-        Expanded(
-          child: Builder(
-            builder: (context) {
-              if (isLoading) {
-                final config = OrgConfigProvider.of(context);
-                return Center(
-                  child: CircularProgressIndicator(color: config.primaryColor),
-                );
-              }
-              if (errorMessage != null) {
-                return Center(child: Text(errorMessage!));
-              }
-              if (feedItems.isEmpty) {
-                return const Center(child: Text('Nenhum item no feed'));
-              }
-              return ListView.builder(
-                itemCount: feedItems.length,
-                itemBuilder: (context, index) {
-                  final item = feedItems[index];
-                  return FeedItemCard(
-                    title: item.title,
-                    description: item.description,
-                    profileName: item.profileName ?? 'Perfil',
-                    profileImageUrl: item.profileImageUrl,
-                    date: _formatDate(item.createdAt),
-                    imageUrl: item.imageUrl,
-                    eventLinkUrl: item.eventLinkUrl,
-                    type: item.type,
-                    eventDate: item.eventDate,
-                    eventLocation: item.eventLocation,
-                  );
-                },
+      ),
+      body: Builder(
+        builder: (context) {
+          if (isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (errorMessage != null) {
+            return Center(child: Text(errorMessage!));
+          }
+          if (feedItems.isEmpty) {
+            return const Center(child: Text('Nenhum item no feed'));
+          }
+          return ListView.builder(
+            itemCount: feedItems.length,
+            itemBuilder: (context, index) {
+              final item = feedItems[index];
+              return FeedItemCard(
+                title: item.title,
+                description: item.description,
+                profileName: item.profileName ?? 'Perfil',
+                profileImageUrl: item.profileImageUrl,
+                date: _formatDate(item.createdAt),
+                imageUrl: item.imageUrl,
+                eventLinkUrl: item.eventLinkUrl,
+                type: item.type,
+                eventDate: item.eventDate,
+                eventLocation: item.eventLocation,
               );
             },
-          ),
-        ),
-      ],
+          );
+        },
+      ),
     );
   }
 }
