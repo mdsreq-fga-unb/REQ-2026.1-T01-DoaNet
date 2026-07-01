@@ -2,6 +2,7 @@ from bson import ObjectId
 
 from domain.entities.oportunidade import OportunidadeVoluntariado
 from domain.ports.oportunidade_repository import OportunidadeRepository
+from domain.constants import DEFAULT_ORG_ID
 from adapters.db.mongo_connection import get_collection, get_oportunidade_collection
 
 class MongoOportunidadeRepository(OportunidadeRepository):
@@ -24,7 +25,7 @@ class MongoOportunidadeRepository(OportunidadeRepository):
                     link_inscricao=item.get("link_inscricao"),
                     imagem_url=item.get("imagem_url"),
                     ativo=item.get("ativo", True),
-                    org_id=item.get("org_id")
+                    org_id=item.get("org_id") or DEFAULT_ORG_ID
                 )
             )
         return items

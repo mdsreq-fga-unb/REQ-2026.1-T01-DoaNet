@@ -13,6 +13,7 @@ from .security import (
     require_master,
 )
 
+from domain.constants import DEFAULT_ORG_ID
 from domain.entities.feed_item import FeedItem
 from domain.entities.admin import Admin, AdminRole
 from domain.entities.oportunidade import OportunidadeVoluntariado
@@ -169,7 +170,7 @@ def innit_routes() -> APIRouter:
                 event_location=event_location if post_type == "evento" else None,
                 event_date=event_date if post_type == "evento" else None,
                 event_url=event_url if post_type == "evento" else None,
-                org_id=current_admin.org_id
+                org_id=current_admin.org_id or DEFAULT_ORG_ID
             )
 
             feed_service.add_item(feed_item)
@@ -248,7 +249,7 @@ def innit_routes() -> APIRouter:
 
     @router.post("/oportunidades")
     async def add_oportunidade(item: OportunidadeVoluntariado, current_admin: Admin = Depends(get_current_admin)):
-        item.org_id = current_admin.org_id
+        item.org_id = current_admin.org_id or DEFAULT_ORG_ID
         oportunidade_service.add_item(item)
         return {"message": "created"}
 
@@ -502,7 +503,7 @@ def innit_routes() -> APIRouter:
                 role="master",
                 is_active=True,
                 created_at=datetime.now(timezone.utc),
-                org_id= "move-educa"
+                org_id=DEFAULT_ORG_ID
             )
 
             created_admin = await admin_repo.create(admin)

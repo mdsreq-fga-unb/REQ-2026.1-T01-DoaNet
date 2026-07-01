@@ -4,6 +4,9 @@ from datetime import datetime
 
 BACKEND_URL = "http://127.0.0.1:8000"
 
+# Single-org por enquanto: id único padronizado (ver domain/constants.py no backend).
+DEFAULT_ORG_ID = "move-educa"
+
 # A coleção org_feed guarda 2 tipos de publicação: "post" e "evento".
 # Ambos compartilham os mesmos campos (title, type, description, image_url, image_path).
 FEED_TYPES = ["post", "evento"]
@@ -854,7 +857,7 @@ def admins_page():
                         "name": name,
                         "email": email,
                         "password": password,
-                        "org_id": "move-educa",
+                        "org_id": DEFAULT_ORG_ID,
                     })
                     if resp is not None and resp.status_code == 200:
                         st.success("Administrador criado!")
@@ -894,7 +897,7 @@ def admins_page():
 def organizacao_section():
     st.subheader("Minha Organização")
 
-    org_id = st.session_state.get("admin_org_id") or "move-educa"  # <- fallback
+    org_id = st.session_state.get("admin_org_id") or DEFAULT_ORG_ID  # <- fallback
     st.caption(f"Configurando: **{org_id}**")
 
 

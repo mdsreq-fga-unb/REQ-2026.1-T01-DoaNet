@@ -5,6 +5,7 @@ from bson.errors import InvalidId
 
 from domain.entities.feed_item import FeedItem
 from domain.ports.feed_repository import FeedRepository
+from domain.constants import DEFAULT_ORG_ID
 from adapters.db.mongo_connection import get_collection
 
 
@@ -27,7 +28,7 @@ class MongoFeedRepository(FeedRepository):
                     event_date=item.get("event_date"),
                     event_url=item.get("event_url"),
                     created_at=item.get("created_at"),
-                    org_id=item.get("org_id")
+                    org_id=item.get("org_id") or DEFAULT_ORG_ID
                 )
             )
         return items
@@ -57,7 +58,7 @@ class MongoFeedRepository(FeedRepository):
             event_date=item.get("event_date"),
             event_url=item.get("event_url"),
             created_at=item.get("created_at"),
-            org_id=item.get("org_id")
+            org_id=item.get("org_id") or DEFAULT_ORG_ID
         )
 
     def update_item(self, item_id: str, item: FeedItem) -> bool:

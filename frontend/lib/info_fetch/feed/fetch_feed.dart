@@ -1,11 +1,12 @@
 import 'package:http/http.dart' as http;
 import 'package:frontend/api_config.dart';
+import 'package:frontend/config/app_config.dart';
 import 'feed_model.dart' as model;
 
 class FetchFeed {
   final String orgId;
 
-  FetchFeed({this.orgId = ''});
+  FetchFeed({this.orgId = kDefaultOrgId});
 
   Future<List<model.FeedItem>> fetchFeed() async {
 

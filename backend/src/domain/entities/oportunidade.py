@@ -1,6 +1,8 @@
 from typing import Optional
 from pydantic import BaseModel
 
+from domain.constants import DEFAULT_ORG_ID
+
 class OportunidadeVoluntariado(BaseModel):
     id: Optional[str] = None
     titulo: str
@@ -12,4 +14,4 @@ class OportunidadeVoluntariado(BaseModel):
     link_inscricao: Optional[str] = None
     imagem_url: Optional[str] = None
     ativo: bool = True
-    org_id: Optional[str] = None
+    org_id: Optional[str] = DEFAULT_ORG_ID

@@ -1,13 +1,13 @@
 import 'package:http/http.dart' as http;
 import 'package:frontend/api_config.dart';
+import 'package:frontend/config/app_config.dart';
 import 'oportunidade_model.dart' as model;
 
 class FetchOportunidade {
   final String orgId;
 
-  // Igual ao FetchFeed: org_id vazio faz o backend retornar todas as
-  // oportunidades (sem filtrar por organização).
-  FetchOportunidade({this.orgId = ''});
+  // org_id padronizado (single-org). Ver kDefaultOrgId.
+  FetchOportunidade({this.orgId = kDefaultOrgId});
 
   Future<List<model.OportunidadeItem>> fetchOportunidades() async {
     var client = http.Client();

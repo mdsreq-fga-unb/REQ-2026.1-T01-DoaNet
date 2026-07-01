@@ -277,7 +277,9 @@ class FeedPageState extends State<FeedPage> {
                   return FeedItemCard(
                     title: item.title,
                     description: item.description,
-                    profileName: item.profileName ?? 'Perfil',
+                    profileName: (item.profileName == null || item.profileName!.isEmpty)
+                        ? config.name
+                        : item.profileName!,
                     profileImageUrl: item.profileImageUrl,
                     date: _formatDate(item.createdAt),
                     imageUrl: item.imageUrl,
