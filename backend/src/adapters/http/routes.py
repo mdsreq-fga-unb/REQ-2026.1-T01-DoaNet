@@ -164,7 +164,9 @@ def innit_routes() -> APIRouter:
     # ----- Feed e oportunidades (developer) -----
     feed_repo = MongoFeedRepository()
     feed_service = FeedService(feed_repo)
-    storage_service = GCSStorageService(bucket_name="feed_imagens")
+    storage_service = GCSStorageService(
+        bucket_name=os.getenv("GCS_BUCKET_NAME", "feed_imagens")
+    )
     oportunidade_repo = MongoOportunidadeRepository()
     oportunidade_service = OportunidadeService(oportunidade_repo)
     organization_repo = MongoOrganizationRepository()

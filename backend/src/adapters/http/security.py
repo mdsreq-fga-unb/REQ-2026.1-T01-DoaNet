@@ -8,7 +8,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configurações do JWT
-SECRET_KEY = os.getenv("JWT_SECRET_KEY", "sua_chave_secreta_aqui_mude_em_producao")
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+if not SECRET_KEY:
+    raise RuntimeError(
+        "JWT_SECRET_KEY não configurada. Defina-a no .env (dev) ou nas variáveis "
+        "de ambiente (produção). Gere uma com: "
+        "python -c \"import secrets; print(secrets.token_urlsafe(64))\""
+    )
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
 
