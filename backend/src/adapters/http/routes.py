@@ -1,8 +1,9 @@
+import os
 from datetime import datetime, timezone
 from typing import Annotated, Optional
 
 # pyrefly: ignore [missing-import]
-from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, UploadFile
 from pydantic import BaseModel
 
 from .security import (
@@ -28,6 +29,7 @@ from adapters.db.mongo_admin_repository import MongoAdminRepository
 from adapters.db.mongo_oportunidade_repository import MongoOportunidadeRepository
 from adapters.db.mongo_transparencia_repository import MongoTransparenciaRepository
 from adapters.db.mongo_organization_repository import MongoOrganizationRepository
+from adapters.db.mongo_doacao_repository import MongoDoacaoRepository
 from adapters.infrastructure.storage.gcs_storage_service import GCSStorageService
 
 from application.services.feed_service import FeedService
@@ -35,6 +37,26 @@ from application.services.auth_service import AuthService
 from application.services.oportunidade_service import OportunidadeService
 from application.services.transparencia_service import TransparenciaService
 from application.services.organization_service import OrganizationService
+from application.services.doacao_service import DoacaoService
+
+
+class EnderecoData(BaseModel):
+    logradouro: Optional[str] = None       # Street Address
+    complemento: Optional[str] = None      # Street Address Line 2
+    cidade: Optional[str] = None           # City
+    estado: Optional[str] = None           # Region/State/Province
+    cep: Optional[str] = None              # Postal / Zip code (CEP)
+    pais: Optional[str] = None             # Country
+
+
+class CheckoutRequest(BaseModel):
+    valor: float
+    is_anonima: bool = False
+    nome_doador: Optional[str] = None
+    cpf: Optional[str] = None
+    endereco: Optional[EnderecoData] = None
+    direcao: str = "instituicao"
+    nome_projeto: Optional[str] = None
 
 
 class LoginData(BaseModel):
@@ -82,6 +104,17 @@ def innit_routes() -> APIRouter:
     # ----- Transparência -----
     transparencia_repo = MongoTransparenciaRepository()
     transparencia_service = TransparenciaService(transparencia_repo)
+
+    # ----- Doações / Stripe -----
+    worm_storage = GCSStorageService(
+        bucket_name=os.getenv("GCS_WORM_BUCKET_NAME", "worm-storage")
+    )
+    doacao_repo = MongoDoacaoRepository()
+    doacao_service = DoacaoService(
+        doacao_repo,
+        worm_storage=worm_storage,
+        transparencia_service=transparencia_service,
+    )
 
     # ----- Admin / autenticação (streamlit) -----
     admin_repo = MongoAdminRepository()
@@ -290,6 +323,40 @@ def innit_routes() -> APIRouter:
             return {"message": "Organização salva com sucesso", "org_id": result.org_id}
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
+
+    # ============ ROTAS DE DOAÇÕES ============
+    @router.post("/doacoes/checkout")
+    async def criar_checkout(body: CheckoutRequest):
+        try:
+            checkout_url = doacao_service.criar_checkout_session(body.model_dump())
+            return {"checkout_url": checkout_url}
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=str(exc))
+
+    @router.post("/doacoes/webhook")
+    async def stripe_webhook(request: Request):
+        payload = await request.body()
+        sig_header = request.headers.get("stripe-signature", "")
+        try:
+            doacao_service.processar_webhook(payload, sig_header)
+            return {"status": "ok"}
+        except Exception as exc:
+            raise HTTPException(status_code=400, detail=str(exc))
+
+    @router.get("/doacoes/sucesso")
+    async def doacao_sucesso(session_id: Optional[str] = None):
+        # Confirma o pagamento a partir do redirect do Stripe. Complementa o
+        # webhook (essencial em ambiente local, onde o webhook não chega).
+        if session_id:
+            try:
+                doacao_service.confirmar_pagamento(session_id)
+            except Exception as exc:
+                print(f"Erro ao confirmar pagamento no redirect: {exc}")
+        return {"message": "Doação realizada com sucesso! Obrigado pelo apoio."}
+
+    @router.get("/doacoes/cancelado")
+    async def doacao_cancelada():
+        return {"message": "Doação cancelada."}
 
     # ============ ROTAS DE AUTENTICAÇÃO / ADMIN ============
     @router.post("/admin/register")

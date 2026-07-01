@@ -1,9 +1,12 @@
 import pytest
+import stripe
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
+from unittest.mock import MagicMock
 
 from domain.entities.feed_item import FeedItem
 from domain.entities.organization import Organization
+from domain.entities.doacao import Doacao
 from adapters.http.security import get_current_admin
 from domain.entities.admin import Admin, AdminRole
 import adapters.http.routes as routes
@@ -81,6 +84,41 @@ class FakeGCSStorageService:
             "image_path": "feed/fake-image.jpg",
         }
 
+    def upload_json(self, data, prefix="doacoes") -> dict:
+        return {
+            "worm_url": "http://fake-storage.com/worm/fake.json",
+            "worm_path": "doacoes/fake.json",
+        }
+
+
+class FakeDoacaoRepository:
+    def __init__(self, collection_handle=None):
+        self.saved = []
+        self.updates = []
+        self.status_updates = []
+
+    def save(self, doacao: Doacao) -> Doacao:
+        doacao.id = "fake-doacao-id"
+        self.saved.append(doacao)
+        return doacao
+
+    def update_status(self, stripe_session_id: str, status: str) -> bool:
+        self.status_updates.append((stripe_session_id, status))
+        return True
+
+    def find_by_session_id(self, stripe_session_id: str):
+        return Doacao(
+            valor=50.0,
+            is_anonima=False,
+            nome_doador="Doador Teste",
+            direcao="instituicao",
+            stripe_session_id=stripe_session_id,
+        )
+
+    def update_by_session_id(self, stripe_session_id: str, campos: dict) -> bool:
+        self.updates.append((stripe_session_id, campos))
+        return True
+
 
 class FakeAdminRepository:
     def __init__(self, collection_handle=None):
@@ -157,6 +195,7 @@ def client(monkeypatch):
     monkeypatch.setattr(routes, "MongoAdminRepository", FakeAdminRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)
     monkeypatch.setattr(routes, "MongoTransparenciaRepository", FakeTransparenciaRepository)
+    monkeypatch.setattr(routes, "MongoDoacaoRepository", FakeDoacaoRepository)
 
     fake_admin = Admin(
         email="master@test.com",
@@ -165,7 +204,6 @@ def client(monkeypatch):
         role=AdminRole.MASTER,
         org_id=None,
     )
-
 
     app = FastAPI()
     app.dependency_overrides[get_current_admin] = lambda: fake_admin
@@ -381,6 +419,7 @@ def test_org_admin_cannot_configure_other_org(monkeypatch):
     monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)
     monkeypatch.setattr(routes, "MongoTransparenciaRepository", FakeTransparenciaRepository)
+    monkeypatch.setattr(routes, "MongoDoacaoRepository", FakeDoacaoRepository)
     monkeypatch.setattr(routes, "MongoAdminRepository", FakeAdminRepository)
     monkeypatch.setattr(routes, "GCSStorageService", FakeGCSStorageService)
 
@@ -413,6 +452,7 @@ def test_org_admin_can_configure_own_org(monkeypatch):
     monkeypatch.setattr(routes, "MongoOportunidadeRepository", FakeOportunidadeRepository)
     monkeypatch.setattr(routes, "MongoOrganizationRepository", FakeOrganizationRepository)
     monkeypatch.setattr(routes, "MongoTransparenciaRepository", FakeTransparenciaRepository)
+    monkeypatch.setattr(routes, "MongoDoacaoRepository", FakeDoacaoRepository)
     monkeypatch.setattr(routes, "MongoAdminRepository", FakeAdminRepository)
     monkeypatch.setattr(routes, "GCSStorageService", FakeGCSStorageService)
 
@@ -436,4 +476,107 @@ def test_org_admin_can_configure_own_org(monkeypatch):
         "primary_color": "#0088FF",
         "background_color": "#FFFFFF",
     })
+    assert response.status_code == 200
+
+
+# ----------------------------------------------------------------------------
+# Doações (Stripe)
+# ----------------------------------------------------------------------------
+def test_checkout_retorna_url(client, monkeypatch):
+    fake_session = MagicMock()
+    fake_session.id = "cs_test_123"
+    fake_session.url = "https://checkout.stripe.com/pay/cs_test_123"
+    monkeypatch.setattr(stripe.checkout.Session, "create", lambda **kw: fake_session)
+
+    response = client.post("/doacoes/checkout", json={
+        "valor": 50.0,
+        "is_anonima": False,
+        "direcao": "instituicao",
+    })
+
+    assert response.status_code == 200
+    assert response.json()["checkout_url"] == "https://checkout.stripe.com/pay/cs_test_123"
+
+
+def test_checkout_com_projeto(client, monkeypatch):
+    fake_session = MagicMock()
+    fake_session.id = "cs_test_456"
+    fake_session.url = "https://checkout.stripe.com/pay/cs_test_456"
+    monkeypatch.setattr(stripe.checkout.Session, "create", lambda **kw: fake_session)
+
+    response = client.post("/doacoes/checkout", json={
+        "valor": 100.0,
+        "is_anonima": True,
+        "direcao": "projeto",
+        "nome_projeto": "Aulas de Reforco",
+    })
+
+    assert response.status_code == 200
+    assert "checkout_url" in response.json()
+
+
+def test_webhook_evento_valido(client, monkeypatch):
+    fake_event = {
+        "type": "checkout.session.completed",
+        "data": {"object": {"id": "cs_test_789"}},
+    }
+    monkeypatch.setattr(stripe.Webhook, "construct_event", lambda p, s, sec: fake_event)
+
+    fake_session = {
+        "payment_status": "paid",
+        "amount_total": 5000,
+        "currency": "brl",
+        "payment_intent": {"id": "pi_123", "status": "succeeded",
+                           "payment_method": {"type": "card",
+                                              "card": {"brand": "visa", "last4": "4242"}}},
+    }
+    monkeypatch.setattr(stripe.checkout.Session, "retrieve", lambda sid, **kw: fake_session)
+
+    response = client.post(
+        "/doacoes/webhook",
+        content=b"payload",
+        headers={"stripe-signature": "sig_valida"},
+    )
+
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
+
+
+def test_webhook_assinatura_invalida_retorna_400(client, monkeypatch):
+    def construir_com_erro(payload, sig, secret):
+        raise stripe.error.SignatureVerificationError("invalido", sig)
+
+    monkeypatch.setattr(stripe.Webhook, "construct_event", construir_com_erro)
+
+    response = client.post(
+        "/doacoes/webhook",
+        content=b"payload_invalido",
+        headers={"stripe-signature": "sig_errada"},
+    )
+
+    assert response.status_code == 400
+
+
+def test_doacao_sucesso(client):
+    response = client.get("/doacoes/sucesso")
+    assert response.status_code == 200
+
+
+def test_doacao_sucesso_com_session_id_confirma(client, monkeypatch):
+    fake_session = {
+        "payment_status": "paid",
+        "amount_total": 5000,
+        "currency": "brl",
+        "payment_intent": {"id": "pi_redirect", "status": "succeeded",
+                           "payment_method": {"type": "card",
+                                              "card": {"brand": "visa", "last4": "4242"}}},
+    }
+    monkeypatch.setattr(stripe.checkout.Session, "retrieve", lambda sid, **kw: fake_session)
+
+    response = client.get("/doacoes/sucesso?session_id=cs_test_redirect")
+    assert response.status_code == 200
+
+
+def test_doacao_cancelado(client):
+    response = client.get("/doacoes/cancelado")
     assert response.status_code == 200
