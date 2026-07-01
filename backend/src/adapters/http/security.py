@@ -1,11 +1,12 @@
 import jwt
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from fastapi import HTTPException, Security, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parents[3] / ".env", override=False)
 
 # Configurações do JWT
 SECRET_KEY = os.getenv("JWT_SECRET_KEY")
