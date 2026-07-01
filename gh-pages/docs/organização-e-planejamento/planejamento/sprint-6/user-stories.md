@@ -2,6 +2,7 @@
 
 [← Voltar ao Objetivo Geral](objetivo-geral.md)
 
+<a id="us01"></a>
 ## US01 — Visualizar histórico financeiro
 
 > Como usuário, quero visualizar o histórico de doações e despesas da organização, para acompanhar a transparência financeira de forma auditável.
@@ -13,18 +14,17 @@
 - O histórico é acessível sem autenticação pelo usuário comum.
 - Os registros são imutáveis após lançamento — não podem ser editados ou excluídos.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Transparência → Histórico de doações e despesas`
-
-**Protótipo:**
+**Protótipo da US:**
 
 ![Transparência](../../../assets/transparencia.png)
+
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Transparência → Histórico de doações e despesas`
 
 **PR associado:** 🔗[Pull Request #47](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/47)
 
 ---
 
+<a id="us03"></a>
 ## US03 — Visualizar descrição da ONG
 
 > Como usuário, quero visualizar uma descrição institucional da organização, para entender seu propósito e áreas de atuação.
@@ -35,16 +35,15 @@
 - As informações refletem os dados configurados pelo administrador.
 - A página é acessível sem autenticação.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Descrição institucional`
-
-**Protótipo:**
+**Protótipo da US:**
 
 ![Perfil](../../../assets/perfil.png)
 
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Descrição institucional`
+
 ---
 
+<a id="us05"></a>
 ## US05 — Contactar a organização
 
 > Como usuário, quero contactar os administradores da organização de forma integrada, para tirar dúvidas ou buscar mais informações.
@@ -54,16 +53,15 @@
 - O usuário acessa um canal de contato direto com a organização a partir da tela de perfil.
 - O canal redireciona corretamente para o meio configurado (ex: WhatsApp, e-mail).
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Contato (WhatsApp/e-mail)`
-
-**Protótipo:**
+**Protótipo da US:** 
 
 ![Perfil](../../../assets/perfil.png)
 
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Contato (WhatsApp/e-mail)`
+
 ---
 
+<a id="us12"></a>
 ## US12 — Cadastrar administrador de organização (admin)
 
 > Como Administrador Geral, quero cadastrar um novo administrador para uma organização, para provisionar seu acesso ao painel de gestão.
@@ -74,7 +72,9 @@
 - O novo administrador acessa o painel imediatamente com as credenciais criadas.
 - O sistema impede o cadastro de dois administradores com o mesmo e-mail.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:** 
+
+![Cadastro de Administrador](../../../assets/novoadm.png)
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **👥 Administradores** → aba **➕ Novo admin**
 
@@ -82,6 +82,7 @@
 
 ---
 
+<a id="us13"></a>
 ## US13 — Remover administrador de organização (admin)
 
 > Como Administrador Geral, quero remover um administrador de organização, para revogar seu acesso e controle sobre o painel.
@@ -92,7 +93,9 @@
 - O acesso do administrador removido é revogado imediatamente após a remoção.
 - A remoção não afeta dados históricos criados pelo administrador removido.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
+
+![Remover Administrador](../../../assets/gerenciaradm.png)
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **👥 Administradores** → aba **🗂️ Gerenciar** → **Desativar**
 
@@ -100,6 +103,7 @@
 
 ---
 
+<a id="us14"></a>
 ## US14 — Configurar dados institucionais (admin)
 
 > Como administrador da organização, quero configurar os dados de customização, para manter a interface do aplicativo alinhada ao branding da ONG (White Label).
@@ -110,7 +114,9 @@
 - As alterações são refletidas na interface do aplicativo em tempo real.
 - Apenas administradores autenticados conseguem alterar os dados institucionais.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
+
+![Configurar dados institucionais](../../../assets/customizacao.png)
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🏢 Organização**
 

@@ -12,10 +12,10 @@ Implementação das funcionalidades centrais da plataforma DoaNet, com foco na c
 
 | Critério | Status | Evidência |
 | :--- | :---: | :--- |
-| O requisito possui informação necessária para ser trabalhado? | ✅ | US17, US18 e US19 detalhadas no Story Map com personas, objetivos e atividades |
-| O requisito cabe em uma Sprint? | ✅ | 3 USs de CRUD de posts normais concluídas dentro das 2 semanas |
-| Os critérios de aceitação estão definidos? | ✅ | US17, US18 e US19 formalizadas no Story Map |
-| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados por US17, US18 e US19 |
+| O requisito possui informação necessária para ser trabalhado? | ✅ | US02, US17, US18 e US19 detalhadas no Story Map com personas, objetivos e atividades |
+| O requisito cabe em uma Sprint? | ✅ | 4 USs de CRUD de posts concluídas dentro das 2 semanas |
+| Os critérios de aceitação estão definidos? | ✅ | US02, US17, US18 e US19 formalizadas no Story Map |
+| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados por US02, US17, US18 e US19 |
 | As definições de arquitetura e contratos de API estão claras? | ✅ | Stack redefinida pós-pivoteamento documentada na [Ata 2](../../../atas/ata2_04_05_2026.md) |
 
 ## Definition of Done — DoD
@@ -28,7 +28,7 @@ Implementação das funcionalidades centrais da plataforma DoaNet, com foco na c
 | Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou e aprovou o CRUD do feed na [Ata 4 (12/05)](../../../atas/ata4_12_05_2026.md) |
 | O desenvolvimento foi concluído integralmente? | ✅ | Criação, edição e deleção de postagens normais funcionando de ponta a ponta |
 | Os testes foram executados e aprovados? | ✅ | Cobertura de testes mínima alcançada pela pipeline atualizada |
-| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no Pull Request #26 |
+| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #26](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/26) e [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37) |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Ajustes do pivoteamento refletidos conforme [Ata 2](../../../atas/ata2_04_05_2026.md) e validação da [Ata 4](../../../atas/ata4_12_05_2026.md) |
 
 ## Demonstração em Imagens

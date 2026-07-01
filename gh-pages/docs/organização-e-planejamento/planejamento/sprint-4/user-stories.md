@@ -2,6 +2,7 @@
 
 [← Voltar ao Objetivo Geral](objetivo-geral.md)
 
+<a id="us04"></a>
 ## US04 — Visualizar oportunidades de voluntariado
 
 > Como usuário, quero visualizar oportunidades de voluntariado, para encontrar vagas e formas de ajudar a ONG.
@@ -12,18 +13,17 @@
 - Cada oportunidade apresenta título, descrição e requisitos.
 - A listagem é acessível sem autenticação.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → Lista de oportunidades de voluntariado`
-
-**Protótipo:**
+**Protótipo da US:**
 
 ![Colaboração](../../../assets/colaboracao.png)
+
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → Lista de oportunidades de voluntariado`
 
 **PR associado:** 🔗[Pull Request #38](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/38)
 
 ---
 
+<a id="us08"></a>
 ## US08 — Inscrever-se como voluntário 🔧 *(débito técnico)*
 
 > Como usuário, quero me inscrever para colaborar como voluntário, para participar ativamente preenchendo meus dados dentro do próprio app.
@@ -34,13 +34,11 @@
 - A inscrição é registrada e visível para o administrador no painel Streamlit.
 - O usuário recebe confirmação visual após envio bem-sucedido.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → selecionar oportunidade → Inscrever-se → Formulário de inscrição → Confirmação`
-
-**Protótipo:**
+**Protótipo da US:**
 
 ![Colaboração2](../../../assets/colaboracao2.png)
+
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → selecionar oportunidade → Inscrever-se → Formulário de inscrição → Confirmação`
 
 **PR associado:** 🔗[Pull Request #38](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/38)
 
@@ -49,6 +47,7 @@
 
 ---
 
+<a id="us20"></a>
 ## US20 — Registrar oportunidade de voluntariado (admin)
 
 > Como administrador da organização, quero registrar uma oportunidade de voluntariado, para divulgar vagas em aberto para os usuários.
@@ -59,7 +58,9 @@
 - A oportunidade é exibida imediatamente na listagem de voluntariado após criação.
 - Apenas administradores autenticados conseguem registrar oportunidades.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
+
+![Voluntariado](../../../assets/voluntario.png)
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🤝 Oportunidades** → aba **➕ Nova oportunidade**
 
@@ -67,6 +68,7 @@
 
 ---
 
+<a id="us21"></a>
 ## US21 — Deletar oportunidade de voluntariado (admin)
 
 > Como administrador da organização, quero deletar uma oportunidade de voluntariado, para encerrar uma vaga já preenchida.
@@ -85,6 +87,7 @@
 
 ---
 
+<a id="us22"></a>
 ## US22 — Atualizar oportunidade de voluntariado (admin)
 
 > Como administrador da organização, quero atualizar uma oportunidade de voluntariado, para alterar requisitos ou o escopo da ajuda necessária.

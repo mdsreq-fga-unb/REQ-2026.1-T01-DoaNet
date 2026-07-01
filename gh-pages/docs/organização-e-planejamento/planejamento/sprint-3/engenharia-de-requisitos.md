@@ -10,7 +10,6 @@ Critérios INVEST aplicados no Sprint Planning para as três histórias da sprin
 
 | User Story | I | N | V | E | S | T |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **US17** — Criar publicação no feed (evento) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US09** — Inscrever-se em evento divulgado | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US11** — Autenticar-se como administrador | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
@@ -18,7 +17,21 @@ Critérios INVEST aplicados no Sprint Planning para as três histórias da sprin
 
 ## Critérios de Aceite
 
-Verificação formal dos critérios de US17 (evento), US09 e US11 na revisão da sprint. Os critérios de aceite de cada história estão detalhados em [User Stories](user-stories.md).
+Verificação formal dos critérios na revisão da sprint.
+
+**US09 — Criar publicação no feed**
+
+- ✅ O usuário consegue se inscrever em um evento a partir da publicação no feed.
+- ✅ A inscrição é registrada e visível para o administrador.
+- ✅ O usuário recebe confirmação visual após inscrição bem-sucedida.
+- ✅ O sistema impede inscrição duplicada no mesmo evento.
+
+**US11 — Deletar publicação no feed**
+
+- ✅ O administrador consegue fazer login com credenciais válidas (e-mail + senha).
+- ✅ Credenciais inválidas retornam mensagem de erro sem expor detalhes técnicos.
+- ✅ Após autenticação, o painel exibe apenas as funcionalidades do nível hierárquico do admin.
+- ✅ A sessão é encerrada após logout explícito.
 
 ## Organização e Atualização do User Story Map
 

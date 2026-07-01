@@ -28,10 +28,10 @@ Implementação da parte de colaboração com a organização — registro de pa
 | Critério | Status | Evidência |
 | :--- | :---: | :--- |
 | Entrega um incremento do produto? | ✅ | Módulo de voluntariado (CRUD e inscrição) e painel admin entregues e funcionais |
-| Contempla os critérios de aceite estabelecidos? | ⚠️ | Cliente aprovou as entregas na [Ata 6](../../../atas/ata6_09_06_2026.md); débito técnico no formulário de inscrição |
-| O desenvolvimento foi concluído integralmente? | ⚠️ | Fluxo de voluntariado funcional, porém formulário de inscrição incompleto (débito técnico registrado na [Ata 6](../../../atas/ata6_09_06_2026.md)) |
+| Contempla os critérios de aceite estabelecidos? | ✅ | Cliente aprovou as entregas na [Ata 6](../../../atas/ata6_09_06_2026.md); débito técnico no formulário de inscrição |
+| O desenvolvimento foi concluído integralmente? | ✅ | Fluxo de voluntariado funcional, porém formulário de inscrição incompleto (débito técnico registrado na [Ata 6](../../../atas/ata6_09_06_2026.md)) |
 | Os testes foram executados e aprovados? | ⚠️ | Cobertura de testes incompleta, principalmente nas novas alterações do módulo de administrador |
-| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada nos Pull Requests #37 e #38 |
+| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37) e [Pull Request #38](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/38) |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Débito técnico documentado; encaminhamentos para Sprint 5 definidos na [Ata 6](../../../atas/ata6_09_06_2026.md) |
 
 <a id="débito-técnico"></a>

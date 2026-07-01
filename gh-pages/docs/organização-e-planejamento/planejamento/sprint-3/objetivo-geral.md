@@ -15,7 +15,7 @@ Implementar posts de eventos com inscrição, suporte a imagens em todos os tipo
 
 | Seção | Conteúdo |
 | :--- | :--- |
-| [User Stories](user-stories.md) | US17 (evento), US09 e US11 — critérios de aceite, protótipo e rota de acesso |
+| [User Stories](user-stories.md) | US09 e US11 — critérios de aceite, protótipo e rota de acesso |
 | [Engenharia de Requisitos](engenharia-de-requisitos.md) | Atividades de ER realizadas e suas evidências |
 | [Reuniões Realizadas](reunioes-realizadas.md) | Cerimônias do Scrum, atas e descrições |
 | [Engenharia de Software](engenharia-de-software.md) | DoR, DoD e descrição da entrega técnica |

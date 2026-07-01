@@ -66,13 +66,13 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
 
   var ST={
     PROB:'am',
-    OE1:'am',OE2:'vd',OE3:'vd',OE4:'am',OE5:'am',OE6:'am',OE7:'am',
-    CP1:'vd',CP2:'am',CP3:'am',CP4:'am',CP5:'vd',CP6:'vm',CP7:'am',CP8:'vm',
-    RF01:'vm',RF02:'vd',RF03:'vm',RF04:'vd',RF05:'vm',RF06:'am',RF07:'am',
-    RF08:'am',RF09:'vd',RF10:'vd',RF11:'vd',RF12:'vm',RF13:'vm',RF14:'vm',
+    OE1:'vd',OE2:'vd',OE3:'vd',OE4:'vd',OE5:'am',OE6:'vd',OE7:'vd',
+    CP1:'vd',CP2:'vd',CP3:'vd',CP4:'vd',CP5:'vd',CP6:'vm',CP7:'vd',CP8:'vd',
+    RF01:'vd',RF02:'vd',RF03:'vm',RF04:'vd',RF05:'vm',RF06:'vd',RF07:'vd',
+    RF08:'vd',RF09:'vd',RF10:'vd',RF11:'vd',RF12:'vd',RF13:'vd',RF14:'vd',
     RF15:'vd',RF16:'vd',RF17:'vd',RF18:'vd',RF19:'vd',RF20:'vd',RF21:'vd',RF22:'vd',
-    US01:'vm',US02:'vd',US03:'vm',US04:'vd',US05:'vm',US06:'am',US07:'am',
-    US08:'am',US09:'vd',US10:'vd',US11:'vd',US12:'vm',US13:'vm',US14:'vm',
+    US01:'vd',US02:'vd',US03:'vm',US04:'vd',US05:'vm',US06:'vd',US07:'vd',
+    US08:'vd',US09:'vd',US10:'vd',US11:'vd',US12:'vd',US13:'vd',US14:'vd',
     US15:'vd',US16:'vd',US17:'vd',US18:'vd',US19:'vd',US20:'vd',US21:'vd',US22:'vd'
   };
   var CL={

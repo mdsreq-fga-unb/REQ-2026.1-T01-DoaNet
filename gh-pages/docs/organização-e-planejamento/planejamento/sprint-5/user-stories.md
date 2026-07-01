@@ -2,6 +2,7 @@
 
 [← Voltar ao Objetivo Geral](objetivo-geral.md)
 
+<a id="us06"></a>
 ## US06 — Filtrar publicações do feed
 
 > Como usuário, quero restringir a exibição do feed por tipo, para visualizar rapidamente atualizações ou eventos específicos.
@@ -12,16 +13,17 @@
 - O filtro é aplicado sem recarregar a tela.
 - Ao remover o filtro, o feed retorna ao estado padrão com todas as publicações.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → Filtro por tipo (normal/evento)`
-
-**Protótipo:**
+**Protótipo da US:**
 
 ![Filtro](../../../assets/filtro.png)
 
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → Filtro por tipo (normal/evento)`
+
+**PR associado:** 🔗[Pull Request #60](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/60)
+
 ---
 
+<a id="us07"></a>
 ## US07 — Buscar publicações por título
 
 > Como usuário, quero localizar publicações por título, para localizar postagens de meu interesse.
@@ -32,16 +34,17 @@
 - A busca não diferencia maiúsculas de minúsculas.
 - Quando nenhum resultado é encontrado, uma mensagem informativa é exibida.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → Campo de busca por título`
-
-**Protótipo:**
+**Protótipo da US:**
 
 ![Buscar](../../../assets/buscar.png)
 
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → Campo de busca por título`
+
+**PR associado:** 🔗[Pull Request #60](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/60)
+
 ---
 
+<a id="us10"></a>
 ## US10 — Realizar doação
 
 > Como doador, quero realizar uma doação escolhendo seu direcionamento e visibilidade (pública/anônima), para apoiar financeiramente a causa.
@@ -53,18 +56,17 @@
 - O registro é imutável após confirmação do pagamento.
 - A transação é processada por gateway de pagamento com criptografia.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → Fazer Doação → Selecionar valor e visibilidade → Confirmar doação`
-
-**Protótipo:**
+**Protótipo da US:**
 
 ![Colaboração](../../../assets/colaboracao.png)
+
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → Fazer Doação → Selecionar valor e visibilidade → Confirmar doação`
 
 **PR associado:** 🔗[Pull Request #59](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/59)
 
 ---
 
+<a id="us15"></a>
 ## US15 — Lançar doações manuais (admin)
 
 > Como administrador da organização, quero lançar manualmente doações feitas fora do aplicativo, para centralizar e imortalizar os registros na transparência.
@@ -75,7 +77,9 @@
 - O registro é imediatamente visível no histórico de transparência para os usuários.
 - O registro é imutável após confirmação — não pode ser editado ou excluído.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
+
+![Doação Externa](../../../assets/doacaoexterna.png)
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **💵 Financeiro** → **Lançar Doação Externa**
 
@@ -83,6 +87,7 @@
 
 ---
 
+<a id="us16"></a>
 ## US16 — Lançar despesas operacionais (admin)
 
 > Como administrador da organização, quero lançar despesas operacionais, para prestar contas aos doadores publicamente.
@@ -93,7 +98,9 @@
 - O registro é imediatamente visível no histórico de transparência para os usuários.
 - O registro é imutável após confirmação — não pode ser editado ou excluído.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
+
+![Lançar Despesas](../../../assets/lancardespesa.png)
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **💵 Financeiro** → **Lançar Despesa**
 

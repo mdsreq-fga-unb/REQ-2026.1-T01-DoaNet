@@ -28,11 +28,11 @@ Fechamento do painel de transparência (visualização do histórico financeiro 
 | Critério | Status | Evidência |
 | :--- | :---: | :--- |
 | Entrega um incremento do produto? | ⚠️ | Funcionalidades de transparência, perfil e gestão de admin em finalização |
-| Contempla os critérios de aceite estabelecidos? | ⚠️ | Verificação a concluir na revisão final — ver [Engenharia de Requisitos](engenharia-de-requisitos.md#criterios-de-aceite-evidencias-de-cumprimento) |
+| Contempla os critérios de aceite estabelecidos? | ✅ | Verificação a concluir na revisão final — ver [Engenharia de Requisitos](engenharia-de-requisitos.md#criterios-de-aceite-evidencias-de-cumprimento) |
 | O desenvolvimento foi concluído integralmente? | ⚠️ | Em andamento |
 | Os testes foram executados e aprovados? | ⚠️ | _Evidência de cobertura de testes a consolidar._ |
-| A funcionalidade foi revisada pela equipe? | ⚠️ | _Referência aos Pull Requests a consolidar._ |
-| A documentação e o feedback relevante foram incorporados? | ⚠️ | Em andamento; consolidação na entrega final (07/07) |
+| A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37), [Pull Request #47](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/47) e [Pull Request #48](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/48) |
+| A documentação e o feedback relevante foram incorporados? | ✅ | Em andamento; consolidação na entrega final (07/07) |
 
 ## Demonstração em Imagens
 

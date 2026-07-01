@@ -2,25 +2,7 @@
 
 [← Voltar ao Objetivo Geral](objetivo-geral.md)
 
-## US17 — Criar publicação no feed (evento)
-
-> Como administrador da organização, quero criar uma nova publicação no feed (normal ou evento), para me comunicar com os apoiadores.
-
-**Critérios de aceite:**
-
-- O administrador consegue criar uma publicação de evento com título, texto, data do evento e imagem opcional.
-- A publicação de evento é exibida imediatamente no feed após criação.
-- O usuário consegue se inscrever no evento a partir da publicação.
-- Apenas administradores autenticados conseguem criar publicações.
-
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
-
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **➕ Nova publicação** → tipo **📅 Evento**
-
-**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
-
----
-
+<a id="us09"></a>
 ## US09 — Inscrever-se em evento
 
 > Como usuário, quero me inscrever para atender a um evento divulgado, para confirmar minha presença e participação.
@@ -32,18 +14,17 @@
 - O usuário recebe confirmação visual após inscrição bem-sucedida.
 - O sistema impede inscrição duplicada no mesmo evento.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
+
+![Evento](../../../assets/evento2.png)
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → publicação de evento → Inscrever-se → Confirmação`
-
-**Protótipo:**
-
-![X](../../../assets/Y.png)
 
 **PR associado:** 🔗[Pull Request #36](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/36)
 
 ---
 
+<a id="us11"></a>
 ## US11 — Autenticar login de administradores
 
 > Como administrador, quero me autenticar na plataforma, para acessar o painel de gestão correspondente ao meu nível hierárquico.
@@ -55,7 +36,9 @@
 - Após autenticação, o painel exibe apenas as funcionalidades do nível hierárquico do admin.
 - A sessão é encerrada após logout explícito.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
+
+![Login](../../../assets/login.png)
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → tela de **Login** do painel administrativo
 
