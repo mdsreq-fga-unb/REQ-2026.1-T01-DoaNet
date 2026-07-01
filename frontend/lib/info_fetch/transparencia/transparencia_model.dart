@@ -11,6 +11,7 @@ class TransacaoModel {
     required this.valor,
     required this.data,
     required this.descricao,
+    this.destino,
     this.createdAt,
     this.createdBy,
   });
@@ -20,6 +21,7 @@ class TransacaoModel {
   double valor;
   DateTime data;
   String descricao;
+  String? destino;
   DateTime? createdAt;
   String? createdBy;
 
@@ -29,6 +31,7 @@ class TransacaoModel {
         valor: json["valor"].toDouble(),
         data: DateTime.parse(json["data"]),
         descricao: json["descricao"],
+        destino: json["destino"],
         createdAt: json["created_at"] != null ? DateTime.parse(json["created_at"]) : null,
         createdBy: json["created_by"],
       );
@@ -39,6 +42,7 @@ class TransacaoModel {
         "valor": valor,
         "data": data.toIso8601String(),
         "descricao": descricao,
+        "destino": destino,
         "created_at": createdAt?.toIso8601String(),
         "created_by": createdBy,
       };

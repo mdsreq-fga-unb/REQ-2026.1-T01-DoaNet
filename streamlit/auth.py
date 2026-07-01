@@ -14,14 +14,60 @@ def check_first_admin():
         return None  # backend offline
 
 
+_LOGIN_CSS = """
+<style>
+/* ---- Estilos exclusivos da tela de login (injetados só aqui) ---- */
+/* Sem contorno externo: o formulário fica limpo sobre o fundo */
+[data-testid="stForm"] {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+/* Campos maiores */
+[data-baseweb="input"], [data-baseweb="base-input"] {
+    min-height: 52px !important;
+}
+[data-testid="stTextInput"] input {
+    font-size: 1.05rem !important;
+}
+[data-testid="stTextInput"] label {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 2px !important;
+}
+/* Botão Entrar maior */
+[data-testid="stFormSubmitButton"] button {
+    padding: .85rem 1.4rem !important;
+    font-size: 1.1rem !important;
+    border-radius: 12px !important;
+    margin-top: .4rem;
+}
+/* Badge da logo maior e centralizado */
+.auth-badge {
+    width: 74px !important;
+    height: 74px !important;
+    border-radius: 22px !important;
+    font-size: 32px !important;
+    margin: 0 !important;
+}
+</style>
+"""
+
+
 def login_page():
-    col = st.columns([1, 1.3, 1])[1]
+    st.markdown(_LOGIN_CSS, unsafe_allow_html=True)
+    # Espaço no topo para centralizar verticalmente
+    st.markdown('<div style="height:7vh"></div>', unsafe_allow_html=True)
+    _, col, _ = st.columns([1, 1.6, 1])
     with col:
         st.markdown(
+            '<div style="display:flex;flex-direction:column;align-items:center;'
+            'text-align:center;margin-bottom:1.75rem;">'
             '<div class="auth-badge">D</div>'
-            '<h2 style="text-align:center;margin:0;">DoaNet</h2>'
-            '<p style="text-align:center;color:#6B7280;margin:.2rem 0 1.4rem;">'
-            'Painel do Administrador</p>',
+            '<h2 style="margin:1rem 0 0;font-size:1.9rem;font-weight:800;color:#0F172A;">DoaNet</h2>'
+            '<p style="color:#6B7280;margin:.35rem 0 0;font-size:1.05rem;">Painel do Administrador</p>'
+            '</div>',
             unsafe_allow_html=True,
         )
 
@@ -36,7 +82,7 @@ def login_page():
         with st.form("login_form"):
             email = st.text_input("E-mail", placeholder="voce@exemplo.com")
             password = st.text_input("Senha", type="password", placeholder="••••••••")
-            submitted = st.form_submit_button("Entrar")
+            submitted = st.form_submit_button("Entrar", width='stretch')
             if submitted:
                 try:
                     response = requests.post(

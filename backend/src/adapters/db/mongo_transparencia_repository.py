@@ -23,6 +23,7 @@ class MongoTransparenciaRepository(TransparenciaRepository):
                     valor=doc.get("valor"),
                     data=doc.get("data"),
                     descricao=doc.get("descricao"),
+                    destino=doc.get("destino"),
                     created_at=doc.get("created_at"),
                     created_by=doc.get("created_by"),
                 )

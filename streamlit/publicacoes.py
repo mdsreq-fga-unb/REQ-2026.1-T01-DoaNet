@@ -96,7 +96,7 @@ def render_feed_card(item):
 
     with st.container(border=True):
         if image_url:
-            st.image(image_url, use_container_width=True)
+            st.image(image_url, width='stretch')
 
         event_meta = ""
         if is_evento:

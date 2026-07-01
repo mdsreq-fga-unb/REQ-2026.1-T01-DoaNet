@@ -17,6 +17,8 @@ class TransparenciaRecord(BaseModel):
     valor: float
     data: datetime
     descricao: str
+    # Destino da doação (ex: "Projeto: X" ou "Instituição"). Só se aplica a doações.
+    destino: Optional[str] = None
     created_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(timezone.utc))
     created_by: Optional[str] = None
 

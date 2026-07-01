@@ -53,7 +53,7 @@ def financeiro_section():
                 "Essa ação não pode ser desfeita."
             )
             c1, c2 = st.columns(2)
-            if c1.button("Sim, confirmar doação", type="primary", use_container_width=True, key="btn_confirma_doacao"):
+            if c1.button("Sim, confirmar doação", type="primary", width='stretch', key="btn_confirma_doacao"):
                 with st.spinner("Registrando doação..."):
                     resp = make_request("POST", "/transparencia/doacao-externa", data=pending)
                 if resp is not None and resp.status_code == 200:
@@ -62,7 +62,7 @@ def financeiro_section():
                     st.rerun()
                 elif resp is not None:
                     st.error(error_detail(resp))
-            if c2.button("Cancelar", use_container_width=True, key="btn_cancela_doacao"):
+            if c2.button("Cancelar", width='stretch', key="btn_cancela_doacao"):
                 del st.session_state["pending_doacao"]
                 st.rerun()
 
@@ -92,7 +92,7 @@ def financeiro_section():
                 "Essa ação não pode ser desfeita."
             )
             c1, c2 = st.columns(2)
-            if c1.button("Sim, confirmar despesa", type="primary", use_container_width=True, key="btn_confirma_despesa"):
+            if c1.button("Sim, confirmar despesa", type="primary", width='stretch', key="btn_confirma_despesa"):
                 with st.spinner("Registrando despesa..."):
                     resp = make_request("POST", "/transparencia/despesa", data=pending)
                 if resp is not None and resp.status_code == 200:
@@ -101,7 +101,7 @@ def financeiro_section():
                     st.rerun()
                 elif resp is not None:
                     st.error(error_detail(resp))
-            if c2.button("Cancelar", use_container_width=True, key="btn_cancela_despesa"):
+            if c2.button("Cancelar", width='stretch', key="btn_cancela_despesa"):
                 del st.session_state["pending_despesa"]
                 st.rerun()
 
@@ -159,6 +159,11 @@ def render_transparencia_card(r):
                 unsafe_allow_html=True,
             )
             st.markdown(f'<div class="card-title">{r["descricao"]}</div>', unsafe_allow_html=True)
+            if r.get("destino"):
+                st.markdown(
+                    f'<div class="card-meta">📍 {r["destino"]}</div>',
+                    unsafe_allow_html=True,
+                )
             st.markdown(f'<div class="card-meta">{data_fmt}</div>', unsafe_allow_html=True)
         with col_valor:
             st.markdown(

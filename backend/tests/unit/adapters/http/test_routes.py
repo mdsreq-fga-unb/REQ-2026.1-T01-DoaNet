@@ -335,7 +335,6 @@ def test_add_oportunidade(client):
         "horario": "Sábados, 14h às 16h",
         "vagas_totais": 10,
         "vagas_preenchidas": 0,
-        "imagem_url": "http://foto.com/img.png",
     }
     response = client.post("/oportunidades", json=nova_vaga)
     assert response.status_code == 200
@@ -349,7 +348,6 @@ def test_update_oportunidade(client):
         "horario": "Sábados, 14h às 16h",
         "vagas_totais": 10,
         "vagas_preenchidas": 1,
-        "imagem_url": "http://foto.com/img.png",
     }
     response = client.put("/oportunidades/fake-id-123", json=vaga_atualizada)
     assert response.status_code == 200

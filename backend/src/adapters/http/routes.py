@@ -357,6 +357,27 @@ def innit_routes() -> APIRouter:
             "logo_url": org.logo_url,
         }
 
+    @router.delete("/orgs/{org_id}/logo")
+    async def delete_org_logo(
+        org_id: str,
+        current_admin: Admin = Depends(get_current_admin),
+    ):
+        if current_admin.role != "master" and current_admin.org_id != org_id:
+            raise HTTPException(status_code=403, detail="Você só pode configurar a sua própria organização")
+        existing = organization_service.get_config(org_id)
+        if not existing:
+            raise HTTPException(status_code=404, detail="Organização não encontrada")
+        org = Organization(
+            org_id=existing.org_id,
+            name=existing.name,
+            description=existing.description,
+            primary_color=existing.primary_color,
+            background_color=existing.background_color,
+            logo_url=None,
+        )
+        organization_service.create_or_update(org)
+        return {"message": "Logo removida com sucesso"}
+
     @router.post("/orgs")
     async def create_or_update_org(
         org_id: Annotated[str, Form()],

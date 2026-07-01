@@ -20,7 +20,6 @@ def oportunidades_section():
             local = c1.text_input("Local")
             horario = c2.text_input("Horário", placeholder="ex: Sáb 9h–12h")
             link_inscricao = st.text_input("Link de inscrição (URL)")
-            imagem_url = st.text_input("URL da imagem (opcional)")
             if st.form_submit_button("Publicar oportunidade"):
                 if not (titulo and descricao and local and horario):
                     st.error("Preencha título, descrição, local e horário.")
@@ -31,7 +30,6 @@ def oportunidades_section():
                         "local": local,
                         "horario": horario,
                         "link_inscricao": link_inscricao or None,
-                        "imagem_url": imagem_url or None,
                     }
                     with st.spinner("Publicando..."):
                         resp = make_request("POST", "/oportunidades", payload)
@@ -57,12 +55,9 @@ def oportunidades_section():
 
 
 def render_oportunidade_card(op):
-    imagem = op.get("imagem_url")
     link = op.get("link_inscricao")
 
     with st.container(border=True):
-        if imagem:
-            st.image(imagem, use_container_width=True)
         st.markdown(
             f'<div class="card-title">{op.get("titulo","(sem título)")}</div>'
             f'<div class="card-meta">{op.get("local","")} &nbsp;·&nbsp; {op.get("horario","")}</div>'
@@ -80,7 +75,6 @@ def render_oportunidade_card(op):
                 e_local = ec1.text_input("Local", value=op.get("local", ""))
                 e_horario = ec2.text_input("Horário", value=op.get("horario", ""))
                 e_link = st.text_input("Link de inscrição (URL)", value=op.get("link_inscricao") or "", key=f"link_{op['id']}")
-                e_img = st.text_input("URL da imagem", value=op.get("imagem_url") or "")
                 oc1, oc2 = st.columns(2)
                 save = oc1.form_submit_button("Salvar alterações")
                 delete = oc2.form_submit_button("Remover")
@@ -92,7 +86,6 @@ def render_oportunidade_card(op):
                     "local": e_local,
                     "horario": e_horario,
                     "link_inscricao": e_link or None,
-                    "imagem_url": e_img or None,
                 }
                 with st.spinner("Salvando alterações..."):
                     r = make_request("PUT", f"/oportunidades/{op['id']}", payload)

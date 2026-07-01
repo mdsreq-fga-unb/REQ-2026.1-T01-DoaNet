@@ -20,11 +20,13 @@ def main_dashboard():
 
     with st.sidebar:
         st.markdown(
-            '<div class="side-brand"><span class="side-logo">D</span>'
-            '<span class="side-name">DoaNet</span></div>',
+            '<div class="side-brand">'
+            '<span class="side-logo">D</span>'
+            '<span class="side-name">DoaNet</span>'
+            '</div>'
+            f'<span class="side-email">{st.session_state.get("admin_email", "")}</span>',
             unsafe_allow_html=True,
         )
-        st.caption(st.session_state.get("admin_email", ""))
         st.markdown("---")
         menu = st.radio(
             "Navegação",
@@ -32,7 +34,7 @@ def main_dashboard():
             label_visibility="collapsed",
         )
         st.markdown("---")
-        if st.button("Sair", use_container_width=True):
+        if st.button("Sair", width='stretch'):
             for key in DEFAULTS:
                 st.session_state[key] = DEFAULTS[key]
             st.rerun()

@@ -3,7 +3,7 @@ import requests
 import streamlit as st
 
 from config import BACKEND_URL, DEFAULT_ORG_ID
-from api import make_multipart_request, error_detail
+from api import make_request, make_multipart_request, error_detail
 from ui import flash, show_flash
 
 
@@ -49,7 +49,7 @@ def organizacao_section():
             st.image(current["logo_url"], width=120, caption="Logo atual")
 
         logo = st.file_uploader(
-            "Logo da organização (opcional — mantém o atual se vazio)",
+            "Nova logo (opcional — mantém a atual se vazio)",
             type=["png", "jpg", "jpeg", "webp"],
         )
 
@@ -72,6 +72,18 @@ def organizacao_section():
                     r = make_multipart_request("POST", "/orgs", data=data, files=files)
                 if r is not None and r.status_code == 200:
                     flash("Configurações salvas! O app já reflete as mudanças.")
+                    st.rerun()
+                elif r is not None:
+                    st.error(error_detail(r))
+
+    if current.get("logo_url"):
+        with st.form("remove_logo_form"):
+            st.caption("Logo atual definida. Para usar o nome da organização como logo no app, remova a imagem:")
+            if st.form_submit_button("🗑️ Remover logo", type="secondary"):
+                with st.spinner("Removendo logo..."):
+                    r = make_request("DELETE", f"/orgs/{org_id}/logo")
+                if r is not None and r.status_code == 200:
+                    flash("Logo removida. O app passará a exibir o nome da organização.")
                     st.rerun()
                 elif r is not None:
                     st.error(error_detail(r))

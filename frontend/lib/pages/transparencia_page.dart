@@ -199,6 +199,21 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                if (transacao.destino != null && transacao.destino!.isNotEmpty) ...[
+                                  const SizedBox(height: 4),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.place_outlined, size: 13, color: Color(0xFF505050)),
+                                      const SizedBox(width: 3),
+                                      Flexible(
+                                        child: Text(
+                                          transacao.destino!,
+                                          style: const TextStyle(fontSize: 12, color: Color(0xFF505050)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                                 const SizedBox(height: 4),
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),

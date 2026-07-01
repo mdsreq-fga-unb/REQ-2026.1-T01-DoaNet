@@ -12,5 +12,4 @@ class OportunidadeVoluntariado(BaseModel):
     vagas_totais: int = 0
     vagas_preenchidas: int = 0
     link_inscricao: Optional[str] = None
-    imagem_url: Optional[str] = None
     org_id: Optional[str] = DEFAULT_ORG_ID
