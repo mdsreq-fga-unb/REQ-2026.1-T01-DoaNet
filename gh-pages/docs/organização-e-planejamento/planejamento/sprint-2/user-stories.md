@@ -17,6 +17,12 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **➕ Nova publicação**
 
+**Protótipo:**
+
+![X](../../../assets/Y.png)
+
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
+
 ---
 
 ## US18 — Deletar publicação no feed
@@ -33,6 +39,8 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **🗂️ Gerenciar** → **🗑️ Remover**
 
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
+
 ---
 
 ## US19 — Atualizar publicação no feed
@@ -48,6 +56,8 @@
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
+
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
 ---
 

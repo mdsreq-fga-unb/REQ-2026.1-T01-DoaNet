@@ -17,6 +17,8 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **➕ Nova publicação** → tipo **📅 Evento**
 
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
+
 ---
 
 ## US09 — Inscrever-se em evento
@@ -34,9 +36,15 @@
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → publicação de evento → Inscrever-se → Confirmação`
 
+**Protótipo:**
+
+![X](../../../assets/Y.png)
+
+**PR associado:** 🔗[Pull Request #36](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/36)
+
 ---
 
-## US11 — Autenticar administradores
+## US11 — Autenticar login de administradores
 
 > Como administrador, quero me autenticar na plataforma, para acessar o painel de gestão correspondente ao meu nível hierárquico.
 
@@ -50,6 +58,8 @@
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → tela de **Login** do painel administrativo
+
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
 ---
 

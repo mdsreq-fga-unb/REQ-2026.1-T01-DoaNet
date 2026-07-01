@@ -36,7 +36,3 @@ Implementação de posts de eventos com inscrição, adição de imagens em todo
 ![Feed](../../../assets/Feed.png)
 
 ![Feed2](../../../assets/Feed2.png)
-
-![Adm](../../../assets/Adm.png)
-
-![Adm2](../../../assets/Adm2.png)

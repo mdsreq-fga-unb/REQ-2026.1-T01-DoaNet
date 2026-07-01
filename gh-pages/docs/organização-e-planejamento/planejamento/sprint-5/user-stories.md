@@ -16,6 +16,10 @@
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → Filtro por tipo (normal/evento)`
 
+**Protótipo:**
+
+![Filtro](../../../assets/filtro.png)
+
 ---
 
 ## US07 — Buscar publicações por título
@@ -32,6 +36,10 @@
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → Campo de busca por título`
 
+**Protótipo:**
+
+![Buscar](../../../assets/buscar.png)
+
 ---
 
 ## US10 — Realizar doação
@@ -47,7 +55,13 @@
 
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Doar → Selecionar valor e visibilidade → Confirmar doação`
+**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → Fazer Doação → Selecionar valor e visibilidade → Confirmar doação`
+
+**Protótipo:**
+
+![Colaboração](../../../assets/colaboracao.png)
+
+**PR associado:** 🔗[Pull Request #59](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/59)
 
 ---
 
@@ -65,6 +79,8 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **💵 Financeiro** → **Lançar Doação Externa**
 
+**PR associado:** 🔗[Pull Request #55](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/55)
+
 ---
 
 ## US16 — Lançar despesas operacionais (admin)
@@ -80,6 +96,8 @@
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **💵 Financeiro** → **Lançar Despesa**
+
+**PR associado:** 🔗[Pull Request #55](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/55)
 
 ---
 

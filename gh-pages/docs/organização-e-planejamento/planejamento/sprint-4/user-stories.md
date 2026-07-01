@@ -16,6 +16,12 @@
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → Lista de oportunidades de voluntariado`
 
+**Protótipo:**
+
+![Colaboração](../../../assets/colaboracao.png)
+
+**PR associado:** 🔗[Pull Request #38](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/38)
+
 ---
 
 ## US08 — Inscrever-se como voluntário 🔧 *(débito técnico)*
@@ -31,6 +37,12 @@
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Colaboração → selecionar oportunidade → Inscrever-se → Formulário de inscrição → Confirmação`
+
+**Protótipo:**
+
+![Colaboração2](../../../assets/colaboracao2.png)
+
+**PR associado:** 🔗[Pull Request #38](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/38)
 
 !!! warning "Débito técnico"
     O preenchimento do formulário da oportunidade de voluntariado **não foi inteiramente concluído** nesta sprint. Item formalmente registrado e encaminhado para a Sprint 5 — ver [Engenharia de Software](engenharia-de-software.md#débito-técnico) e [Ata de Validação S4](../../../atas/ata6_09_06_2026.md).
@@ -51,6 +63,8 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🤝 Oportunidades** → aba **➕ Nova oportunidade**
 
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
+
 ---
 
 ## US21 — Deletar oportunidade de voluntariado (admin)
@@ -67,6 +81,8 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **🗑️ Remover**
 
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
+
 ---
 
 ## US22 — Atualizar oportunidade de voluntariado (admin)
@@ -82,6 +98,8 @@
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
+
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
 ---
 

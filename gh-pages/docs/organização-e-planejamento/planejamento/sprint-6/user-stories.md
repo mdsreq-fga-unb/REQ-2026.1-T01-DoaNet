@@ -17,6 +17,12 @@
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Transparência → Histórico de doações e despesas`
 
+**Protótipo:**
+
+![Transparência](../../../assets/transparencia.png)
+
+**PR associado:** 🔗[Pull Request #47](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/47)
+
 ---
 
 ## US03 — Visualizar descrição da ONG
@@ -33,6 +39,10 @@
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Descrição institucional`
 
+**Protótipo:**
+
+![Perfil](../../../assets/perfil.png)
+
 ---
 
 ## US05 — Contactar a organização
@@ -47,6 +57,10 @@
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Contato (WhatsApp/e-mail)`
+
+**Protótipo:**
+
+![Perfil](../../../assets/perfil.png)
 
 ---
 
@@ -64,6 +78,8 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **👥 Administradores** → aba **➕ Novo admin**
 
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
+
 ---
 
 ## US13 — Remover administrador de organização (admin)
@@ -80,6 +96,8 @@
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **👥 Administradores** → aba **🗂️ Gerenciar** → **Desativar**
 
+**PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
+
 ---
 
 ## US14 — Configurar dados institucionais (admin)
@@ -95,6 +113,8 @@
 **Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
 
 **Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🏢 Organização**
+
+**PR associado:** 🔗[Pull Request #48](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/48)
 
 ---
 
