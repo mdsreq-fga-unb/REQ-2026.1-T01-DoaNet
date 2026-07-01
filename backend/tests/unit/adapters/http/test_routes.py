@@ -320,7 +320,6 @@ def test_get_oportunidades_without_org_id_returns_all(client):
         "horario": "Sáb 9h",
         "vagas_totais": 5,
         "vagas_preenchidas": 0,
-        "ativo": True,
     })
 
     response = client.get("/oportunidades")
@@ -337,7 +336,6 @@ def test_add_oportunidade(client):
         "vagas_totais": 10,
         "vagas_preenchidas": 0,
         "imagem_url": "http://foto.com/img.png",
-        "ativo": True,
     }
     response = client.post("/oportunidades", json=nova_vaga)
     assert response.status_code == 200
@@ -352,7 +350,6 @@ def test_update_oportunidade(client):
         "vagas_totais": 10,
         "vagas_preenchidas": 1,
         "imagem_url": "http://foto.com/img.png",
-        "ativo": True,
     }
     response = client.put("/oportunidades/fake-id-123", json=vaga_atualizada)
     assert response.status_code == 200

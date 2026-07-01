@@ -40,8 +40,8 @@ def oportunidade_to_dict(item: OportunidadeVoluntariado) -> dict:
         "horario": data.get("horario"),
         "vagas_totais": data.get("vagas_totais"),
         "vagas_preenchidas": data.get("vagas_preenchidas"),
+        "link_inscricao": data.get("link_inscricao"),
         "imagem_url": data.get("imagem_url"),
-        "ativo": data.get("ativo"),
     }
 
 def oportunidades_to_list(items: List[OportunidadeVoluntariado]) -> list:

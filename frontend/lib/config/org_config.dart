@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/config/app_config.dart';
 
 class OrgConfig {
   final String orgId;
@@ -19,7 +20,7 @@ class OrgConfig {
 
   factory OrgConfig.fromJson(Map<String, dynamic> json) {
     return OrgConfig(
-      orgId: json['org_id'] as String? ?? 'move-educa',
+      orgId: json['org_id'] as String? ?? kDefaultOrgId,
       name: json['name'] as String,
       description: json['description'] as String,
       logoUrl: json['logo_url'] as String?,
@@ -30,7 +31,7 @@ class OrgConfig {
 
   
   static const OrgConfig fallback = OrgConfig(
-    orgId: 'move-educa',
+    orgId: kDefaultOrgId,
     name: 'MoveEduca',
     description: 'A MoveEduca é uma organização que promove a educação.',
     primaryColor: Color(0xFF0088FF),

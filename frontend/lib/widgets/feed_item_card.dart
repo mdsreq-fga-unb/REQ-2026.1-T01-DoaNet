@@ -178,9 +178,14 @@ class _FeedItemCardState extends State<FeedItemCard> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () async {
+                        final messenger = ScaffoldMessenger.of(context);
                         final url = Uri.parse(widget.eventLinkUrl!);
                         if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
+                          await launchUrl(url, mode: LaunchMode.externalApplication);
+                        } else {
+                          messenger.showSnackBar(
+                            const SnackBar(content: Text('Não foi possível abrir o link do evento.')),
+                          );
                         }
                       },
                       style: ElevatedButton.styleFrom(
