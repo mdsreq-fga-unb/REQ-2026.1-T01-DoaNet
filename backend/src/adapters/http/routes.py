@@ -501,7 +501,8 @@ def innit_routes() -> APIRouter:
                 hashed_password=hashed_password,
                 role="master",
                 is_active=True,
-                created_at=datetime.now(timezone.utc)
+                created_at=datetime.now(timezone.utc),
+                org_id= "move-educa"
             )
 
             created_admin = await admin_repo.create(admin)

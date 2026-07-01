@@ -849,20 +849,21 @@ def admins_page():
             name = st.text_input("Nome")
             email = st.text_input("E-mail")
             password = st.text_input("Senha", type="password")
-            org_id = st.text_input("ID da organização", placeholder="ex: move-educa")
-            st.caption("O admin só poderá configurar a organização com esse ID.")
             if st.form_submit_button("Criar administrador"):
-                if not org_id:
-                    st.error("Informe o ID da organização.")
+                if not (name and email and password):
+                    st.error("Preencha todos os campos.")
                 else:
-                    resp = make_request("POST", "/admin/create",
-                                    {"name": name, "email": email,
-                                     "password": password, "org_id": org_id})
-                if resp is not None and resp.status_code == 200:
-                    st.success("Administrador criado!")
-                    st.rerun()
-                elif resp is not None:
-                    st.error(error_detail(resp))
+                    resp = make_request("POST", "/admin/create", {
+                        "name": name,
+                        "email": email,
+                        "password": password,
+                        "org_id": "move-educa",
+                    })
+                    if resp is not None and resp.status_code == 200:
+                        st.success("Administrador criado!")
+                        st.rerun()
+                    elif resp is not None:
+                        st.error(error_detail(resp))
 
     with tab_manage:
         resp = make_request("GET", "/admin/list")
@@ -896,18 +897,9 @@ def admins_page():
 def organizacao_section():
     st.subheader("Minha Organização")
 
-    role = st.session_state.get("admin_role")
-    if role == "master":
-        org_id = st.text_input("ID da organização a configurar", placeholder="ex: move-educa")
-        if not org_id:
-            st.info("Informe o ID da organização para carregar ou criar as configurações.")
-            return
-    else:
-        org_id = st.session_state.get("admin_org_id")
-        if not org_id:
-            st.error("Sua conta não está vinculada a nenhuma organização. Contate o administrador principal.")
-            return
-        st.caption(f"Configurando: **{org_id}**")
+    org_id = st.session_state.get("admin_org_id") or "move-educa"  # <- fallback
+    st.caption(f"Configurando: **{org_id}**")
+
 
     resp = requests.get(f"{BACKEND_URL}/orgs/{org_id}/config", timeout=10)
     current = resp.json() if resp.status_code == 200 else {}
