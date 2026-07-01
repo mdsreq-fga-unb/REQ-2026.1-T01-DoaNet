@@ -76,7 +76,7 @@ Nesta sprint, o grupo se propôs a estruturar a base do projeto DoaNet e a valid
 
 ---
 
-### Protótipo de Alta Fidelidade
+### Protótipo de Baixa Fidelidade
 
 > Protótipo interativo desenvolvido no Figma e validado com o cliente durante esta sprint.
 

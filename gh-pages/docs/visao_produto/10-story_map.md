@@ -328,7 +328,7 @@ A tabela a seguir apresenta cada um dos requisitos funcionais (RFs) declarados u
   svgG.appendChild(mkTxt(PAD/2+19,MVP_LINE_Y+MVP_BAND_H/2,'MVP',9,'#fff','middle',true));
   /* label zona abaixo */
   if(maxNonMvpUS>0){
-    svgG.appendChild(mkTxt(PAD/2+46,MVP_LINE_Y+MVP_BAND_H/2,'Linha do MVP - Tudo abaixo dessa linha não será incluido dentro do MVP definido',9,'#1976D2','start',false));
+    svgG.appendChild(mkTxt(PAD/2+46,MVP_LINE_Y+MVP_BAND_H/2,'Linha do MVP - Tudo abaixo dessa linha não será incluído dentro do MVP definido',9,'#1976D2','start',false));
   }
 
   /* ── ZOOM / PAN ── */
@@ -438,7 +438,7 @@ Para calcular o indice de prioridade:
 
 **IP = VN / ET**
 
-Quanto maior for o valor do IP, maior a priodade.
+Quanto maior for o valor do IP, maior a prioridade.
 
 Sendo:
 

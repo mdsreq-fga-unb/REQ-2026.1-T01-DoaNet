@@ -33,8 +33,6 @@
 
 ## **5.2 Engenharia de Requisitos e o ScrumXP**
 
-*Aqui, as atividades da ER, suas práticas e técnicas devem ser mapeadas, a partir das fases (etapas) do processo estabelecido pela equipe, para a condução do projeto. Essas informações devem ser apresentadas em uma tabela conforme indicado, a seguir.*
-
 | Fases do Processo (ScrumXP) | Atividades ER | Prática | Técnica | Resultado Esperado |
 | :--- | :--- | :--- | :--- | :--- |
 | **Planejamento da Release (Visão do Produto)** | Elicitação e Descoberta | Entendimento do Domínio de Negócio das ONGs | Entrevistas com Stakeholders e Brainstorming | Lista inicial de User Stories e levantamento macro das necessidades do app e painel administrativo. |

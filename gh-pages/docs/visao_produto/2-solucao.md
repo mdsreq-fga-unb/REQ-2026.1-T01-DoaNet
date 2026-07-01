@@ -68,7 +68,7 @@ Enquanto o mercado oferece ferramentas separadas voltadas aos processos de engaj
 A solução resolve o problema dos "dados desorganizados e gestão desordenada" identificados no cenário atual. Ao centralizar finanças, comunicação e voluntariado em uma única interface administrativa, o DoaNet elimina a necessidade de múltiplas planilhas e sistemas obsoletos.
 
 #### 2.5.2.3 Fortalecimento da Confiança (Trust-as-a-Service)
-O diferencial tecnológico na segurança e rastreabilidade das informações financeiras ataca diretamente a "falta de confiança do público externo". O DoaNet não apenas facilita a doação, mas prova o impacto social gerado, por meio das funcionalidades de transparência incluidas na solução.
+O diferencial tecnológico na segurança e rastreabilidade das informações financeiras ataca diretamente a "falta de confiança do público externo". O DoaNet não apenas facilita a doação, mas prova o impacto social gerado, por meio das funcionalidades de transparência incluídas na solução.
 
 ## 2.6 Viabilidade da Proposta
 

@@ -49,10 +49,10 @@
 ### **Lições Aprendidas e Melhorias no Processo**
 
 * **Definição melhorada de conceitos como requisitos e Story Map**:
-    * **Desafio:** Entender melhor cada conceito, porque isso causou algumas inconsistencias com relação a declaração de alguns elementos do nosso projeto.
+    * **Desafio:** Entender melhor cada conceito, porque isso causou algumas inconsistências com relação a declaração de alguns elementos do nosso projeto.
     * **Ação de Melhoria:** Revisar as nomenclaturas utilizadas no nosso documento, para que alguns requisitos ficassem melhor definidos, e revisão da nomenclatura utilizada para o artefato de escopo.
 * **Importância do registro de evidências:**
-    * **Desafio:** Embora houvessem validações realizadas com o cliente, nem sempre elas ficavam registradas de forma explícita, além da falta de evidências do andamento do projeto e dos processos de engenharia de requisitos e software.
+    * **Desafio:** Embora houvesse validações realizadas com o cliente, nem sempre elas ficavam registradas de forma explícita, além da falta de evidências do andamento do projeto e dos processos de engenharia de requisitos e software.
     * **Ação de Melhoria:** Formalizar evidências de validação dos artefatos, evidências das entregas do projeto e evidências relacionadas a aplicação dos processos de engenharia de requisitos e engenharia de software.
 
 ### **Dificuldades Enfrentadas e Superação**
