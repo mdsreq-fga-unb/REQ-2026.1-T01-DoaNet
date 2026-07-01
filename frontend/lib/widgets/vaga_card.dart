@@ -1,14 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class VagaCard extends StatelessWidget {
   final String titulo;
   final String subtitulo;
+  final String? descricao;
+  final String? local;
+  final String? linkInscricao;
 
   const VagaCard({
     super.key,
     required this.titulo,
     required this.subtitulo,
+    this.descricao,
+    this.local,
+    this.linkInscricao,
   });
+
+  Future<void> _abrirLinkInscricao(BuildContext context) async {
+    final link = linkInscricao;
+    if (link == null || link.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Link de inscrição não disponível para esta vaga.'),
+        ),
+      );
+      return;
+    }
+    final uri = Uri.parse(link);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Não foi possível abrir o link de inscrição.')),
+      );
+    }
+  }
 
   void _abrirPopupInscricao(BuildContext context, ThemeData theme) {
     showDialog(
@@ -78,24 +106,36 @@ class VagaCard extends StatelessWidget {
                           color: Color(0xFF505050),
                         ),
                       ),
-                      const SizedBox(height: 16),
-                      const Text(
-                        'Como você vai ajudar:\nApoio escolar para alunos do 5º ao 9º',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                      if (descricao != null && descricao!.isNotEmpty) ...[
+                        const SizedBox(height: 16),
+                        const Text(
+                          'Como você vai ajudar:',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 16),
-                      const Text(
-                        'Local: Sede Principal, Asa Norte',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                        const SizedBox(height: 4),
+                        Text(
+                          descricao!,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Color(0xFF505050),
+                          ),
                         ),
-                      ),
+                      ],
+                      if (local != null && local!.isNotEmpty) ...[
+                        const SizedBox(height: 16),
+                        Text(
+                          'Local: ${local!}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -104,7 +144,10 @@ class VagaCard extends StatelessWidget {
                   width: double.infinity,
                   height: 48,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(),
+                    onPressed: () async {
+                      await _abrirLinkInscricao(context);
+                      if (context.mounted) Navigator.of(context).pop();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF1C824C),
                       foregroundColor: Colors.white,

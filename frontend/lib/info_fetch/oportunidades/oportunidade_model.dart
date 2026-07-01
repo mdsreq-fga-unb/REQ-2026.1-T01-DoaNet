@@ -11,6 +11,7 @@ class OportunidadeItem {
   String horario;
   int vagasTotais;
   int vagasPreenchidas;
+  String? linkInscricao;
   String? imagemUrl;
   bool ativo;
 
@@ -22,6 +23,7 @@ class OportunidadeItem {
     required this.horario,
     required this.vagasTotais,
     required this.vagasPreenchidas,
+    this.linkInscricao,
     this.imagemUrl,
     required this.ativo,
   });
@@ -34,6 +36,7 @@ class OportunidadeItem {
     horario: json["horario"] ?? '',
     vagasTotais: json["vagas_totais"] ?? 0,
     vagasPreenchidas: json["vagas_preenchidas"] ?? 0,
+    linkInscricao: json["link_inscricao"],
     imagemUrl: json["imagem_url"],
     ativo: json["ativo"] ?? true,
   );

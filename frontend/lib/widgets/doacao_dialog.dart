@@ -6,16 +6,15 @@ import '../info_fetch/doacao/doacao_service.dart';
 import '../info_fetch/oportunidades/fetch_oportunidade.dart';
 import '../info_fetch/oportunidades/oportunidade_model.dart';
 
-void mostrarDoacaoDialog(BuildContext context, {required String orgId}) {
+void mostrarDoacaoDialog(BuildContext context) {
   showDialog(
     context: context,
-    builder: (_) => _DoacaoDialog(orgId: orgId),
+    builder: (_) => const _DoacaoDialog(),
   );
 }
 
 class _DoacaoDialog extends StatefulWidget {
-  final String orgId;
-  const _DoacaoDialog({required this.orgId});
+  const _DoacaoDialog();
 
   @override
   State<_DoacaoDialog> createState() => _DoacaoDialogState();
@@ -73,7 +72,7 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
       _erroOportunidades = null;
     });
     try {
-      final lista = await FetchOportunidade(orgId: widget.orgId).fetchOportunidades();
+      final lista = await FetchOportunidade().fetchOportunidades();
       if (mounted) {
         setState(() {
           _oportunidades = lista.where((o) => o.ativo).toList();

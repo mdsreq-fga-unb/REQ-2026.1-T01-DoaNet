@@ -21,6 +21,7 @@ class MongoOportunidadeRepository(OportunidadeRepository):
                     horario=item.get("horario", ""),
                     vagas_totais=item.get("vagas_totais", 0),
                     vagas_preenchidas=item.get("vagas_preenchidas", 0),
+                    link_inscricao=item.get("link_inscricao"),
                     imagem_url=item.get("imagem_url"),
                     ativo=item.get("ativo", True),
                     org_id=item.get("org_id")

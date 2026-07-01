@@ -405,14 +405,16 @@ def publicacoes_section():
         with st.form("create_feed", clear_on_submit=True):
             title = st.text_input("Título")
             description = st.text_area("Descrição", height=130)
-            image = st.file_uploader("Imagem (opcional)", type=["png", "jpg", "jpeg", "webp"])
+            # Upload de imagem apenas para posts comuns (eventos não têm imagem).
             if ptype == "evento":
+                image = None
                 st.markdown("**Dados do evento** (obrigatórios):")
                 ec1, ec2 = st.columns(2)
                 event_location = ec1.text_input("Local do evento")
                 event_date = ec2.text_input("Data do evento", placeholder="ex: 2026-06-20")
                 event_url = st.text_input("Link do evento (URL)")
             else:
+                image = st.file_uploader("Imagem (opcional)", type=["png", "jpg", "jpeg", "webp"])
                 event_location = event_date = event_url = ""
 
             if st.form_submit_button("Publicar"):
@@ -508,17 +510,19 @@ def render_feed_card(item):
             with st.form(f"edit_feed_{item['id']}"):
                 new_title = st.text_input("Título", value=item.get("title", ""))
                 new_desc = st.text_area("Descrição", value=item.get("description", ""), height=110)
-                new_image = st.file_uploader(
-                    "Trocar imagem (opcional — mantém a atual se vazio)",
-                    type=["png", "jpg", "jpeg", "webp"], key=f"img_{item['id']}",
-                )
+                # Upload de imagem apenas para posts comuns (eventos não têm imagem).
                 if new_type == "evento":
+                    new_image = None
                     st.caption("Dados do evento (obrigatórios):")
                     ec1, ec2 = st.columns(2)
                     new_loc = ec1.text_input("Local", value=item.get("event_location") or "", key=f"loc_{item['id']}")
                     new_date = ec2.text_input("Data", value=item.get("event_date") or "", key=f"date_{item['id']}")
                     new_url = st.text_input("Link (URL)", value=item.get("event_url") or "", key=f"url_{item['id']}")
                 else:
+                    new_image = st.file_uploader(
+                        "Trocar imagem (opcional — mantém a atual se vazio)",
+                        type=["png", "jpg", "jpeg", "webp"], key=f"img_{item['id']}",
+                    )
                     new_loc = new_date = new_url = ""
                 c1, c2 = st.columns(2)
                 save = c1.form_submit_button("Salvar alterações")
@@ -569,9 +573,7 @@ def oportunidades_section():
             c1, c2 = st.columns(2)
             local = c1.text_input("Local")
             horario = c2.text_input("Horário", placeholder="ex: Sáb 9h–12h")
-            c3, c4 = st.columns(2)
-            vagas_totais = c3.number_input("Vagas totais", min_value=1, value=10)
-            vagas_preenchidas = c4.number_input("Vagas preenchidas", min_value=0, value=0)
+            link_inscricao = st.text_input("Link de inscrição (URL)")
             imagem_url = st.text_input("URL da imagem (opcional)")
             ativo = st.checkbox("Ativa", value=True)
             if st.form_submit_button("Publicar oportunidade"):
@@ -583,8 +585,7 @@ def oportunidades_section():
                         "descricao": descricao,
                         "local": local,
                         "horario": horario,
-                        "vagas_totais": int(vagas_totais),
-                        "vagas_preenchidas": int(vagas_preenchidas),
+                        "link_inscricao": link_inscricao or None,
                         "imagem_url": imagem_url or None,
                         "ativo": ativo,
                     }
@@ -612,9 +613,8 @@ def oportunidades_section():
 
 def render_oportunidade_card(op):
     ativo = op.get("ativo", True)
-    vagas_t = op.get("vagas_totais", 0) or 0
-    vagas_p = op.get("vagas_preenchidas", 0) or 0
     imagem = op.get("imagem_url")
+    link = op.get("link_inscricao")
 
     with st.container(border=True):
         if imagem:
@@ -629,8 +629,8 @@ def render_oportunidade_card(op):
             f'<div class="card-title">{op.get("titulo","(sem título)")}</div>'
             f'<div class="card-meta">{op.get("local","")} &nbsp;·&nbsp; {op.get("horario","")}</div>'
             f'<div class="card-body">{op.get("descricao","")}</div>'
-            f'<div style="margin-top:8px;"><span class="vagas-badge">'
-            f'{vagas_p}/{vagas_t} vagas preenchidas</span></div>',
+            + (f'<div class="card-meta" style="margin-top:6px;">'
+               f'<a href="{link}" target="_blank">{link}</a></div>' if link else ''),
             unsafe_allow_html=True,
         )
 
@@ -641,9 +641,7 @@ def render_oportunidade_card(op):
                 ec1, ec2 = st.columns(2)
                 e_local = ec1.text_input("Local", value=op.get("local", ""))
                 e_horario = ec2.text_input("Horário", value=op.get("horario", ""))
-                ec3, ec4 = st.columns(2)
-                e_vt = ec3.number_input("Vagas totais", min_value=0, value=int(vagas_t), key=f"vt_{op['id']}")
-                e_vp = ec4.number_input("Vagas preenchidas", min_value=0, value=int(vagas_p), key=f"vp_{op['id']}")
+                e_link = st.text_input("Link de inscrição (URL)", value=op.get("link_inscricao") or "", key=f"link_{op['id']}")
                 e_img = st.text_input("URL da imagem", value=op.get("imagem_url") or "")
                 e_ativo = st.checkbox("Ativa", value=ativo, key=f"at_{op['id']}")
                 oc1, oc2 = st.columns(2)
@@ -656,8 +654,7 @@ def render_oportunidade_card(op):
                     "descricao": e_desc,
                     "local": e_local,
                     "horario": e_horario,
-                    "vagas_totais": int(e_vt),
-                    "vagas_preenchidas": int(e_vp),
+                    "link_inscricao": e_link or None,
                     "imagem_url": e_img or None,
                     "ativo": e_ativo,
                 }

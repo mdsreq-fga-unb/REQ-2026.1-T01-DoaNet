@@ -5,7 +5,9 @@ import 'oportunidade_model.dart' as model;
 class FetchOportunidade {
   final String orgId;
 
-  FetchOportunidade({required this.orgId});
+  // Igual ao FetchFeed: org_id vazio faz o backend retornar todas as
+  // oportunidades (sem filtrar por organização).
+  FetchOportunidade({this.orgId = ''});
 
   Future<List<model.OportunidadeItem>> fetchOportunidades() async {
     var client = http.Client();
