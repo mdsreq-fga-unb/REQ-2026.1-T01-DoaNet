@@ -43,13 +43,14 @@ _LOGIN_CSS = """
     border-radius: 12px !important;
     margin-top: .4rem;
 }
-/* Badge da logo maior e centralizado */
+/* Badge da logo maior e centralizado (margin auto garante o centro
+   mesmo se o contêiner flex não se aplicar ao HTML renderizado) */
 .auth-badge {
     width: 74px !important;
     height: 74px !important;
     border-radius: 22px !important;
     font-size: 32px !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
 }
 </style>
 """
@@ -65,8 +66,10 @@ def login_page():
             '<div style="display:flex;flex-direction:column;align-items:center;'
             'text-align:center;margin-bottom:1.75rem;">'
             '<div class="auth-badge">D</div>'
-            '<h2 style="margin:1rem 0 0;font-size:1.9rem;font-weight:800;color:#0F172A;">DoaNet</h2>'
-            '<p style="color:#6B7280;margin:.35rem 0 0;font-size:1.05rem;">Painel do Administrador</p>'
+            '<div style="margin:1rem 0 0;font-size:1.9rem;font-weight:800;color:#0F172A;'
+            'text-align:center;width:100%;">DoaNet</div>'
+            '<p style="color:#6B7280;margin:.35rem 0 0;font-size:1.05rem;'
+            'text-align:center;width:100%;">Painel do Administrador</p>'
             '</div>',
             unsafe_allow_html=True,
         )
