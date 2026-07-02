@@ -81,6 +81,10 @@ A partir dessas informações, foi gerada a seguinte tabela:
 .q4{background:#f22824;}
 .mvp-yes{color:#16a34a;font-weight:700;}
 .mvp-no{color:#d1d5db;}
+.legend{margin-top:12px;font-family:-apple-system,Segoe UI,Roboto,sans-serif;font-size:13px;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;background:#fafafa;}
+.legend-title{font-weight:700;margin-bottom:8px;color:#1f2937;}
+.legend-item{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.legend-item:last-child{margin-bottom:0;}
 </style>
 
 <table class="usmap-table">
@@ -114,3 +118,11 @@ A partir dessas informações, foi gerada a seguinte tabela:
 <tr><td><a href="../../organização-e-planejamento/planejamento/sprint-5/user-stories/#us06">US06</a></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td><span class="badge q4" title="Baixo valor / Baixa carga técnica">Q4</span></td><td>4</td><td class="mvp-no">—</td></tr>
 </tbody>
 </table>
+
+<div class="legend">
+<div class="legend-title">Legenda dos Quadrantes</div>
+<div class="legend-item"><span class="badge q1">Q1</span> Alto valor / Baixa carga técnica</div>
+<div class="legend-item"><span class="badge q2">Q2</span> Alto valor / Alta carga técnica</div>
+<div class="legend-item"><span class="badge q3">Q3</span> Médio valor / Baixa carga técnica</div>
+<div class="legend-item"><span class="badge q4">Q4</span> Baixo valor / Baixa carga técnica</div>
+</div>

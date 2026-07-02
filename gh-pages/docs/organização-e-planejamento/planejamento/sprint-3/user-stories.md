@@ -16,7 +16,7 @@
 
 **Protótipo da US:**
 
-![Evento](../../../assets/evento2.png)
+![Evento](../../../assets/evento3.png)
 
 **Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Feed → publicação de evento → Inscrever-se → Confirmação`
 

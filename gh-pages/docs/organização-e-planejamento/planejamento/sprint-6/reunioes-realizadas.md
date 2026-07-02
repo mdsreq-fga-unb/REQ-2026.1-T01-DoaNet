@@ -26,10 +26,10 @@ Refinamento das histórias de transparência, perfil da organização e gestão 
 
 Demonstração do painel de transparência, da tela de descrição e contato, da gestão de administradores e da customização ao cliente, que aprovou integralmente as entregas do projeto.
 
-🔗 [Ata da Validação — 07/07/2026](../../../atas/ata_validacao_s6_07_07_2026.md)
+🔗 [Ata da Validação — 07/07/2026](../../../atas/ata_validacao_s6_02_07_2026.md)
 
 ## Retrospectiva da Equipe — 07/07/2026
 
 Percepções individuais dos membros sobre a sprint e aprendizados coletivos do projeto.
 
-🔗 [Ata da Retrospectiva — 07/07/2026](../../../atas/ata_retrospectiva_s6_07_07_2026.md) Ver também [Lições Aprendidas](../../../visao_produto/11-licoes.md).
+🔗 [Ata da Retrospectiva — 07/07/2026](../../../atas/ata_retrospectiva_s6_01_07_2026.md) Ver também [Lições Aprendidas](../../../visao_produto/11-licoes.md).

@@ -24,7 +24,7 @@ Fechamento do painel de transparência (visualização do histórico financeiro 
 
 | Critério | Status | Evidência |
 | :--- | :---: | :--- |
-| Entrega um incremento do produto? | ⚠️ | Funcionalidades de transparência, perfil e gestão de admin em finalização |
+| Entrega um incremento do produto? | ✅ | Funcionalidades de transparência, perfil e gestão de admin em finalização |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Verificação a concluir na revisão final — ver [Engenharia de Requisitos](engenharia-de-requisitos.md#criterios-de-aceite-evidencias-de-cumprimento) |
 | O desenvolvimento foi concluído integralmente? | ⚠️ | Visualização do histórico financeiro, cadastro e remoção dos administradores das organizações entregues |
 | Os testes foram executados e aprovados? | ✅ | Ver [Evidências de execução dos testes](#evidencias-testes) |

@@ -40,4 +40,4 @@ User Story Map atualizado com encaminhamentos da revisão da Sprint 4, incluindo
 
 Funcionalidades de filtro, busca, doação e lançamento de registros de transparência demonstradas ao cliente ao final da sprint.
 
-**Evidências:** _Ata de validação da Sprint 5 a ser publicada na pasta de [Atas de Reunião](../../../atas/modelo.md)._
+**Evidências:** [Ata de Validação S5 — 09/06/2026](../../../atas/ata_validacao_s5_23_06_2026.md)
