@@ -10,7 +10,7 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
     <span style="font-size:11px;opacity:0.5;margin-left:4px;">Scroll para zoom · Arraste para mover · Passe o mouse nos nós para detalhes · Clique no texto para abrir documentação</span>
   </div>
   <div id="tz-wrap" style="width:100%;height:640px;overflow:hidden;border:1px solid rgba(128,128,128,0.2);border-radius:0 0 8px 8px;cursor:grab;box-sizing:border-box;">
-    <svg id="tz-svg" xmlns="http://www.w3.org/2000/svg" style="display:block;"></svg>
+    <svg id="tz-svg" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:100%;"></svg>
   </div>
   <div id="tz-tip" style="position:absolute;background:#222;color:#fff;padding:7px 11px;border-radius:6px;font-size:13px;pointer-events:none;display:none;max-width:340px;z-index:200;line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,0.4);"></div>
 </div>
@@ -188,7 +188,8 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
   var svg=document.getElementById('tz-svg');
   var wrap=document.getElementById('tz-wrap');
   var tip=document.getElementById('tz-tip');
-  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  /* O SVG preenche o contêiner (100%/100%) — dimensões fixas aqui fariam o
+     desenho ser recortado na borda do próprio SVG durante zoom/pan. */
 
   var g=document.createElementNS(NS,'g');
   svg.appendChild(g);
@@ -254,8 +255,10 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
   });
 
   /* ── ZOOM / PAN ── */
-  var cw=wrap.clientWidth||820;
-  var sc=Math.min((cw-16)/W,1), tx0=(cw-W*sc)/2, ty0=8;
+  var cw=wrap.clientWidth||820, ch=wrap.clientHeight||640;
+  var CH=LY[LY.length-1]+R+PAD; /* altura real do conteúdo (última linha + raio + margem) */
+  var sc=Math.min((cw-16)/W,(ch-16)/CH,1);
+  var tx0=(cw-W*sc)/2, ty0=Math.max((ch-CH*sc)/2,8);
   var scale=sc, txn=tx0, tyn=ty0, isDragging=false, sx,sy,stx,sty;
 
   function applyT(){g.setAttribute('transform','translate('+txn+','+tyn+') scale('+scale+')');}
@@ -281,8 +284,8 @@ O grafo abaixo representa a cadeia completa de rastreabilidade do DoaNet — do 
   });
   document.addEventListener('mouseup',function(){isDragging=false; wrap.style.cursor='grab';});
 
-  document.getElementById('tz-in').addEventListener('click',function(){scale=Math.min(scale*1.2,4);txn=(cw-W*scale)/2;tyn=8;applyT();});
-  document.getElementById('tz-out').addEventListener('click',function(){scale=Math.max(scale*0.8,0.2);txn=(cw-W*scale)/2;tyn=8;applyT();});
+  document.getElementById('tz-in').addEventListener('click',function(){scale=Math.min(scale*1.2,4);txn=(cw-W*scale)/2;tyn=Math.max((ch-CH*scale)/2,8);applyT();});
+  document.getElementById('tz-out').addEventListener('click',function(){scale=Math.max(scale*0.8,0.2);txn=(cw-W*scale)/2;tyn=Math.max((ch-CH*scale)/2,8);applyT();});
   document.getElementById('tz-reset').addEventListener('click',function(){scale=sc;txn=tx0;tyn=ty0;applyT();});
 })();
 </script>

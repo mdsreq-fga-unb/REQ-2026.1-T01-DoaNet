@@ -33,9 +33,9 @@
 <script>
 (function(){
   var COL_W=120, COL_GAP=6, GRP_GAP=18, PAD=20;
-  var PERSONA_H=22, OBJ_H=46, TASK_H=40, US_H=50, US_GAP=5;
+  var PERSONA_H=36, OBJ_H=46, TASK_H=40, US_H=50, US_GAP=5;
   var PERSONA_Y=8;
-  var OBJ_Y=PERSONA_Y+PERSONA_H+6;
+  var OBJ_Y=PERSONA_Y+PERSONA_H+8;
 
   /* US que fazem parte do MVP (conforme tabela de priorizacao 10.2) */
   var MVP={US01:1,US02:1,US04:1,US08:1,US09:1,US10:1,US11:1,US12:1,
@@ -216,12 +216,56 @@
   });
   if(lastP!==null) pGroups.push({label:lastP,x:pX0,w:pX1-pX0});
 
-  var pFill=['rgba(33,150,243,0.10)','rgba(156,39,176,0.10)'];
-  var pStroke=['rgba(33,150,243,0.35)','rgba(156,39,176,0.35)'];
+  /* Avatares circulares (estilo foto de perfil, como no USM de referência):
+     a persona fica no INÍCIO do seu alcance e a linha pontilhada à direita
+     representa até onde ela atua no mapa. Ícones = mesmos da legenda acima. */
+  var ICON={
+    user:'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z',
+    orgAdmin:'M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z',
+    adminGeral:'M17 11c.34 0 .67.04 1 .09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55-.69-.98-1.1-2.17-1.1-3.45 0-3.31 2.69-6 6-6zM10.5 10.96c-1.25 0-2.26-1.01-2.26-2.26s1.01-2.26 2.26-2.26 2.26 1.01 2.26 2.26-1.01 2.26-2.26 2.26z'
+  };
+  var PERSONA_ICONS={};
+  PERSONA_ICONS[LABEL.P1]=[ICON.user,ICON.orgAdmin];
+  PERSONA_ICONS[LABEL.P2]=[ICON.adminGeral,ICON.orgAdmin];
+
+  var pFillC=['#E3F2FD','#F3E5F5'];
   var pText=['#1565C0','#6A1B9A'];
+  var PR=13; /* raio do avatar */
   pGroups.forEach(function(pg,i){
-    svgG.appendChild(mkRect(pg.x,PERSONA_Y,pg.w,PERSONA_H,pFill[i%2],pStroke[i%2],0.8,4));
-    svgG.appendChild(mkTxt(pg.x+pg.w/2,PERSONA_Y+PERSONA_H/2,pg.label,9,pText[i%2],'middle',true));
+    var cy=PERSONA_Y+PERSONA_H/2;
+    var icons=PERSONA_ICONS[pg.label]||[ICON.user];
+    var cx0=pg.x+PR;
+    /* label à direita dos avatares */
+    var labelX=cx0+ (icons.length-1)*(2*PR+4) + PR + 8;
+    var estTextW=pg.label.length*5.2;
+    /* linha pontilhada do fim do label até o fim do alcance da persona */
+    var lineStart=labelX+estTextW+8, lineEnd=pg.x+pg.w;
+    if(lineEnd>lineStart){
+      var dl=document.createElementNS(NS,'line');
+      dl.setAttribute('x1',lineStart); dl.setAttribute('y1',cy);
+      dl.setAttribute('x2',lineEnd); dl.setAttribute('y2',cy);
+      dl.setAttribute('stroke',pText[i%2]); dl.setAttribute('stroke-width','1.2');
+      dl.setAttribute('stroke-dasharray','2,4'); dl.setAttribute('opacity','0.55');
+      dl.setAttribute('stroke-linecap','round');
+      svgG.appendChild(dl);
+    }
+    /* avatares circulares */
+    icons.forEach(function(path,j){
+      var cx=cx0+j*(2*PR+4);
+      var ci=document.createElementNS(NS,'circle');
+      ci.setAttribute('cx',cx); ci.setAttribute('cy',cy); ci.setAttribute('r',PR);
+      ci.setAttribute('fill',pFillC[i%2]); ci.setAttribute('stroke',pText[i%2]);
+      ci.setAttribute('stroke-width','1.6');
+      svgG.appendChild(ci);
+      var ig=document.createElementNS(NS,'g');
+      var s=0.75;
+      ig.setAttribute('transform','translate('+(cx-12*s)+','+(cy-12*s)+') scale('+s+')');
+      var ip=document.createElementNS(NS,'path');
+      ip.setAttribute('d',path); ip.setAttribute('fill',pText[i%2]);
+      ig.appendChild(ip);
+      svgG.appendChild(ig);
+    });
+    svgG.appendChild(mkTxt(labelX,cy,pg.label,9,pText[i%2],'start',true));
   });
 
   /* ── OBJECTIVES ── */
