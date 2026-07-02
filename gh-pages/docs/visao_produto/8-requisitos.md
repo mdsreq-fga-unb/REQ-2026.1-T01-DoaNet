@@ -1,59 +1,59 @@
-# 8.1) Requisitos Funcionais (RF)
+# 7.1) Requisitos Funcionais (RF)
 
 **Módulo Mobile (Público Geral)**
 
-- RF01: Visualizar o histórico de doações e despesas da organização [CP2 - Painel de Transparência Financeira]
+- <a id="rf01"></a>**RF01:** Visualizar o histórico de doações e despesas da organização [CP2 - Painel de Transparência Financeira]
 
-- RF02: Visualizar publicações no feed [CP3 - Feed de Comunicação]
+- <a id="rf02"></a>**RF02:** Visualizar publicações no feed [CP3 - Feed de Comunicação]
 
-- RF03: Visualizar uma descrição da organização [CP6 - Perfil Público da Organização]
+- <a id="rf03"></a>**RF03:** Visualizar uma descrição da organização [CP6 - Perfil Público da Organização]
 
-- RF04: Visualizar oportunidades de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf04"></a>**RF04:** Visualizar oportunidades de voluntariado [CP4 - Gestão de Voluntários]
 
-- RF05: Contactar administradores da organização [CP6 - Perfil Público da Organização]
+- <a id="rf05"></a>**RF05:** Contactar administradores da organização [CP6 - Perfil Público da Organização]
 
-- RF06: Restringir exibição do feed por categoria de publicação [CP3 - Feed de Comunicação]
+- <a id="rf06"></a>**RF06:** Restringir exibição do feed por categoria de publicação [CP3 - Feed de Comunicação]
 
-- RF07: Localizar publicação específica pelo título [CP3 - Feed de Comunicação]
+- <a id="rf07"></a>**RF07:** Localizar publicação específica pelo título [CP3 - Feed de Comunicação]
 
-- RF08: Inscrever-se para colaborar como voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf08"></a>**RF08:** Inscrever-se para colaborar como voluntariado [CP4 - Gestão de Voluntários]
 
-- RF09: Inscrever-se para atender a um evento [CP5 - Gestão de Eventos]
+- <a id="rf09"></a>**RF09:** Inscrever-se para atender a um evento [CP5 - Gestão de Eventos]
 
-- RF10: Realizar uma doação [CP1 - 	Gestão de Doações]
+- <a id="rf10"></a>**RF10:** Realizar uma doação [CP1 - Gestão de Doações]
 
 **Módulo Administrativo**
 
-- RF11: Autenticar administradores [CP7 - Controle de Acesso Administrativo]
+- <a id="rf11"></a>**RF11:** Autenticar administradores [CP7 - Controle de Acesso Administrativo]
 
-- RF12: Cadastrar um administrador da organização [CP7 - Controle de Acesso Administrativo]
+- <a id="rf12"></a>**RF12:** Cadastrar um administrador da organização [CP7 - Controle de Acesso Administrativo]
 
-- RF13: Remover administrador da organização [CP7 - Controle de Acesso Administrativos]
+- <a id="rf13"></a>**RF13:** Remover administrador da organização [CP7 - Controle de Acesso Administrativo]
 
-- RF14: Configurar dados de customização do aplicativo [CP8 - Customização da Organização]
+- <a id="rf14"></a>**RF14:** Configurar dados de customização do aplicativo [CP8 - Customização da Organização]
 
-- RF15: Lançar doação feita de forma externa ao aplicativo [CP2 - Painel de Transparência Financeira]
+- <a id="rf15"></a>**RF15:** Lançar doação feita de forma externa ao aplicativo [CP2 - Painel de Transparência Financeira]
 
-- RF16: Lançar despesa da organização [CP2 - Painel de Transparência Financeira]
+- <a id="rf16"></a>**RF16:** Lançar despesa da organização [CP2 - Painel de Transparência Financeira]
 
-- RF17: Realizar uma publicação no feed [CP3 - Feed de Comunicação]
+- <a id="rf17"></a>**RF17:** Realizar uma publicação no feed [CP3 - Feed de Comunicação]
 
-- RF18: Deletar uma publicação no feed [CP3 - Feed de Comunicação]
+- <a id="rf18"></a>**RF18:** Deletar uma publicação no feed [CP3 - Feed de Comunicação]
 
-- RF19: Atualizar uma publicação no feed [CP3 - Feed de Comunicação]
+- <a id="rf19"></a>**RF19:** Atualizar uma publicação no feed [CP3 - Feed de Comunicação]
 
-- RF20: Registrar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf20"></a>**RF20:** Registrar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
-- RF21: Deletar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf21"></a>**RF21:** Deletar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
-- RF22: Atualizar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
+- <a id="rf22"></a>**RF22:** Atualizar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
-# 8.2) Requisitos Não Funcionais 
+# 7.2) Requisitos Não Funcionais 
 
 | Identificador | Nome | Descrição | Classificação (URPS+) |
 | :--- | :--- | :--- | :--- |
 | **RNF01** | Arquitetura Multi-tenant (White Label) | O back-end deve ser centralizado e exigir o envio de um hash de 32 dígitos (partition key) em cada requisição aos endpoints para identificar a qual organização os dados pertencem, sem necessidade de cadastro da organização via sistema convencional. | Restrições de design |
-| **RNF02** | Configuração e Costumização do Aplicativo | A customização do aplicativo para cada organização (incluindo logo, nome, variáveis de tema da Ul e dados públicos institucionais) deve ser definida e consumida exclusivamente por meio de um arquivo JSON. | Requisitos de Implementação |
+| **RNF02** | Configuração e Customização do Aplicativo | A customização do aplicativo para cada organização (incluindo logo, nome, variáveis de tema da Ul e dados públicos institucionais) deve ser definida e consumida exclusivamente por meio de um arquivo JSON. | Requisitos de Implementação |
 | **RNF03** | Implementação das Diferentes Partes da Solução | O sistema deve ser implementado de ponta a ponta, com back-end em Python/FastAPI, banco de dados MongoDB, front-end em Flutter e painel administrativo em Streamlit, com versionamento no GitHub. | Requisitos de Implementação |
 | **RNF04** | Níveis de Acesso Administrativo | O módulo administrativo deve implementar um controle de acesso baseado em dois papéis hierárquicos rígidos: um "Administrador Geral" único (cujas credenciais são registradas diretamente no banco de dados, sem interface de cadastro público), que detém a permissão exclusiva de criar e gerenciar "Administradores da Organização". O papel de "Administrador da Organização" terá acesso total à gestão de conteúdo e finanças da organização, porém não terá permissões para provisionar novos administradores. | Confiabilidade |
 | **RNF05** | Privacidade e Anonimato no Processamento de Doações | O fluxo de doação deve prover, antes do processo de pagamento, uma opção explícita para que o usuário decida se a sua contribuição será pública ou anônima. Caso opte pelo anonimato, o sistema (ao receber os dados via webhook do gateway externo) deve omitir automaticamente qualquer dado de identificação pessoal (como nome ou CPF) antes da persistência no banco de dados, garantindo que a doação conste na aba de transparência financeira apenas como "Doador Anônimo", em conformidade com as diretrizes de proteção de dados. | Confiabilidade |
@@ -65,9 +65,9 @@
 | **RNF11** | Ações de Engajamento Dentro do Aplicativo | Qualquer ação do usuário no aplicativo que envolva o preenchimento de dados (confirmar presença em evento, voluntariado, contacto com a organização) deve ser realizada dentro do aplicativo, com formulários e envio de dados integrados à plataforma. | Funcionalidade |
 | **RNF12** | Suporte para a Destinação de Doações | O sistema deve obrigar o usuário a selecionar e definir antes do pagamento, se o valor será direcionado ao "Fundo Geral da Organização" ou a um projeto/campanha específica (selecionada pelo usuário) cadastrada pelo administrador. Essa escolha deve ser obrigatoriamente embutida nos metadados da requisição de pagamento, para que, ao ser devolvida via webhook, o sistema consiga categorizar e exibir o recurso corretamente no módulo de Transparência Financeira.| Restrições de design |
 
-**Observações:** RNF11 e RNF01 não fazem parte do escopo do MVP.
+**Observações:** RNF11 e RNF01 não fazem parte do escopo do MVP. O RNF02 inicialmente não estava incluso no escopo do MVP, mas ele foi parcialmente concluido e implementado ao MVP.
 
-# 8.3) Matriz-síntese de rastreabilidade
+# 7.3) Matriz-síntese de rastreabilidade
 
 A matriz a seguir apresenta a rastreabilidade entre OE (Objetivos Específicos), CP (Características do Produto), VN (Valor de negócio), RF (Requisitos Funcionais) e RNF (Requisitos Não Funcionais).
 
@@ -80,5 +80,4 @@ A matriz a seguir apresenta a rastreabilidade entre OE (Objetivos Específicos),
 | **OE5** (Ampliar a visibilidade do impacto social) | **OE6** (Impulsionar o engajamento contínuo da comunidade) | **CP5** (Gestão de eventos) | **VN5** (Engajamento social e organização de participantes de eventos) | **RF09** (Inscrever-se para atender a um evento) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF10** (Classificação de uma Publicação do Feed), **RNF11** (Ações de Engajamento Dentro do Aplicativo) |
 | **OE5** (Ampliar a visibilidade do impacto social) | **OE1** (Aumentar a transparência financeira) | **CP6** (Perfil público da organização) | **VN6** (Visibilidade pública e centralização das informações relevantes de uma organização) | **RF03** (Visualizar uma descrição da organização), **RF05** (Contactar administradores da organização) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF07** (Navegação e Estrutura de UI), **RNF11** (Ações de Engajamento Dentro do Aplicativo) |
 | **OE7** (Otimizar acesso a informação) | **OE4** (Facilitar a captação e gestão de voluntários) | **CP7** (Controle de acesso administrativo) | **VN7** (Segurança e organização da plataforma) | **RF11** (Autenticar administradores), **RF12** (Cadastrar um administrador da organização), **RF13** (Remover administrador da organização) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF04** (Níveis de Acesso Administrativo) |
-| **OE5** (Ampliar a visibilidade do impacto social) | **OE7** (Otimizar acesso a informação) | **CP8** (Customização da Organização) | **VN8** (Fortalecer a identidade da marca perante o público e viabilizar a escalabilidade do sistema (White-Label)) | **RF14** (Configurar dados de customização do aplicativo) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF02** (Configuração e Costumização do Aplicativo), **RNF04** (Níveis de Acesso Administrativo) |
-
+| **OE5** (Ampliar a visibilidade do impacto social) | **OE7** (Otimizar acesso a informação) | **CP8** (Customização da Organização) | **VN8** (Fortalecer a identidade da marca perante o público e viabilizar a escalabilidade do sistema (White-Label)) | **RF14** (Configurar dados de customização do aplicativo) | **RNF01** (Arquitetura Multi-tenant (White Label)), **RNF02** (Configuração e Customização do Aplicativo), **RNF04** (Níveis de Acesso Administrativo) |

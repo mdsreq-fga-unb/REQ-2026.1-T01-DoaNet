@@ -10,12 +10,60 @@ nav:
       - 3. Intervenção Social: visao_produto/3-IntervencaoSocial.md
       - 4. Estratégias de ES: visao_produto/4-estrategia.md
       - 5. Engenharia de Requisitos de ES: visao_produto/5-EngenhariadeRequisitos.md
-      - 6. Planejamento: visao_produto/6-planejamento.md
-      - 7. Interação com Cliente: visao_produto/7-interacao.md
-      - 8. Requisitos: visao_produto/8-requisitos.md
-      - 9. DOR e DOD: visao_produto/9-DorEDod.md
-      - 10. Story Map: visao_produto/10-story_map.md
-      - 11. Lições Aprendidas: visao_produto/11-licoes.md
+      - 6. Interação com Cliente: visao_produto/7-interacao.md
+      - 7. Requisitos: visao_produto/8-requisitos.md
+      - 8. DOR e DOD: visao_produto/9-DorEDod.md
+      - 9. MVP: visao_produto/10-story_map.md
+      - 10. Lições Aprendidas: visao_produto/11-licoes.md
+
+  - Organização e Planejamento:
+      - Rastreabilidade: organização-e-planejamento/rastreabilidade.md
+      - User Story Map: organização-e-planejamento/user-story-map.md
+      - Consolidação do feedback com cliente: organização-e-planejamento/tabela-consolidacao.md
+      - Planejamento:
+          - Sprint 0:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-0/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-0/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-0/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-0/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-0/engenharia-de-software.md
+          - Sprint 1:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-1/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-1/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-1/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-1/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-1/engenharia-de-software.md
+          - Sprint 2:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-2/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-2/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-2/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-2/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-2/engenharia-de-software.md
+          - Sprint 3:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-3/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-3/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-3/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-3/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-3/engenharia-de-software.md
+          - Sprint 4:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-4/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-4/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-4/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-4/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-4/engenharia-de-software.md
+          - Sprint 5:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-5/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-5/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-5/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-5/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-5/engenharia-de-software.md
+          - Sprint 6:
+              - Objetivo Geral: organização-e-planejamento/planejamento/sprint-6/objetivo-geral.md
+              - User Stories: organização-e-planejamento/planejamento/sprint-6/user-stories.md
+              - Engenharia de Requisitos: organização-e-planejamento/planejamento/sprint-6/engenharia-de-requisitos.md
+              - Reuniões Realizadas: organização-e-planejamento/planejamento/sprint-6/reunioes-realizadas.md
+              - Engenharia de Software: organização-e-planejamento/planejamento/sprint-6/engenharia-de-software.md
+    
   - Atas de Reunião:
       - Modelo: atas/modelo.md
       - Sprint 1:
@@ -23,24 +71,37 @@ nav:
           - Refinamento (21/04): atas/ata_refinamento_s1_21_04_2026.md
           - Revisão e Retrospectiva (27/04): atas/ata1_27_04_2026.md
           - Validação com Cliente (27/04): atas/ata_validacao_s1_27_04_2026.md
+          - Retrospectiva (27/04): atas/ata_retrospectiva_s1_27_04_2026.md
       - Sprint 2:
           - Planejamento e Pivoteamento (04/05): atas/ata2_04_05_2026.md
           - Refinamento (05/05): atas/ata_refinamento_s2_05_05_2026.md
           - Reunião Interna (11/05): atas/ata3_11_05_2026.md
           - Validação com Cliente (12/05): atas/ata4_12_05_2026.md
+          - Retrospectiva (12/05): atas/ata_retrospectiva_s2_12_05_2026.md
       - Sprint 3:
           - Planejamento (13/05): atas/ata_planejamento_s3_13_05_2026.md
           - Refinamento (19/05): atas/ata_refinamento_s3_19_05_2026.md
           - Validação com Cliente (26/05): atas/ata5_26_05_2026.md
+          - Retrospectiva (26/05): atas/ata_retrospectiva_s3_26_05_2026.md
       - Sprint 4:
           - Planejamento (27/05): atas/ata_planejamento_s4_27_05_2026.md
           - Refinamento (02/06): atas/ata_refinamento_s4_02_06_2026.md
           - Validação com Cliente (09/06): atas/ata6_09_06_2026.md
-  - Evidências:
-      - Sprint 1: evidencias/sprint1.md
-      - Sprint 2: evidencias/sprint2.md
-      - Sprint 3: evidencias/sprint3.md
-      - Sprint 4: evidencias/sprint4.md
+          - Retrospectiva (09/06): atas/ata_retrospectiva_s4_09_06_2026.md
+      - Sprint 5:
+          - Planejamento (09/06): atas/ata_planejamento_s5_09_06_2026.md
+          - Reunião (15/06): atas/ata7_15_06_2026.md
+          - Refinamento (16/06): atas/ata_refinamento_s5_16_06_2026.md
+          - Validação com Cliente (23/06): atas/ata_validacao_s5_23_06_2026.md
+          - Retrospectiva (23/06): atas/ata_retrospectiva_s5_23_06_2026.md
+      - Sprint 6:
+          - Reunião (22/06): atas/ata8_22_06_2026.md
+          - Planejamento (23/06): atas/ata_planejamento_s6_23_06_2026.md
+          - Refinamento (30/06): atas/ata_refinamento_s6_30_06_2026.md
+          - Validação com Cliente (07/07): atas/ata_validacao_s6_02_07_2026.md
+          - Retrospectiva (07/07): atas/ata_retrospectiva_s6_01_07_2026.md
+
+
   - Exemplos de Documentação: example.md
 
 
@@ -62,12 +123,17 @@ theme:
 
 markdown_extensions:
   - pymdownx.highlight
-  - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.details
   - pymdownx.tabbed
   - admonition
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       toc_depth: "2-4"
   - pymdownx.snippets:
       base_path: ["docs"]
+

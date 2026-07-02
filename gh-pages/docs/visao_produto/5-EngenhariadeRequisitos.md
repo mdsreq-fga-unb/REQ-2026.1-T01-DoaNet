@@ -33,13 +33,11 @@
 
 ## **5.2 Engenharia de Requisitos e o ScrumXP**
 
-*Aqui, as atividades da ER, suas práticas e técnicas devem ser mapeadas, a partir das fases (etapas) do processo estabelecido pela equipe, para a condução do projeto. Essas informações devem ser apresentadas em uma tabela conforme indicado, a seguir.*
-
 | Fases do Processo (ScrumXP) | Atividades ER | Prática | Técnica | Resultado Esperado |
 | :--- | :--- | :--- | :--- | :--- |
 | **Planejamento da Release (Visão do Produto)** | Elicitação e Descoberta | Entendimento do Domínio de Negócio das ONGs | Entrevistas com Stakeholders e Brainstorming | Lista inicial de User Stories e levantamento macro das necessidades do app e painel administrativo. |
-| **Planejamento da Release (Visão do Produto)** | Análise e Consenso | Estimativa em Equipe e Priorização de Escopo | Priorização Valor x Esforço | *Sprint Backlog* inicial definido e esforço de desenvolvimento alinhado e aprovado pela equipe. |
+| **Planejamento da Release (Visão do Produto)** | Análise e Consenso | Estimativa em Equipe e Priorização de Escopo | Priorização Valor x Esforço | *User Story Map* inicial definido e esforço de desenvolvimento alinhado e aprovado pela equipe. |
 | **Refinamento do User Story Map** | Declaração | Escrita Ágil e Focada no Usuário | Histórias de Usuário com Critérios de Aceitação | Histórias de usuário detalhadas, com critérios de aceite definidos e prontas para o desenvolvimento da semana seguinte. |
 | **Refinamento do User Story Map** | Organização e Atualização | Revisão e Atualização Contínua do Mapa de Histórias | Refinamento do User Story Map | User Story Map atualizado com novos aprendizados, prioridades ajustadas e histórias futuras detalhadas. |
 | **Refinamento do User Story Map** | Verificação de Requisitos | Checagem da Qualidade das Histórias de Usuário | Critérios INVEST | Histórias de Usuário verificadas e aprovadas para desenvolvimento: independentes, negociáveis, valiosas, estimáveis, pequenas e testáveis. |
-| **Revisão e Retrospectiva da Sprint** | Validação de Requisitos | Demonstração do Incremento e Coleta de Feedback | Protótipos e Feedback do Cliente | Incremento validado pelo cliente com base no protótipo de referência; feedbacks registrados em ata e incorporados ao backlog da próxima sprint. |
+| **Revisão e Retrospectiva da Sprint** | Validação de Requisitos | Demonstração do Incremento e Coleta de Feedback | Protótipos e Feedback do Cliente | Incremento validado pelo cliente com base no protótipo de referência; feedbacks registrados em ata e incorporados ao User Story Map da próxima sprint. |

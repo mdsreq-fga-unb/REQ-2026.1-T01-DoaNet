@@ -2,6 +2,7 @@
 
 A intervenção social do aplicativo DoaNet atua facilitando e dando transparência à relação entre a comunidade e a organização. Ela vai além do fluxo de arrecadação, alterando a cultura de transparência e os processos de captação da MoveEduca.  
 
+
 ## 3.1 Frentes de Impacto
 
 Essa intervenção social é articulada e distribuída em quatro frentes principais:
