@@ -65,7 +65,7 @@
 | **RNF11** | Ações de Engajamento Dentro do Aplicativo | Qualquer ação do usuário no aplicativo que envolva o preenchimento de dados (confirmar presença em evento, voluntariado, contacto com a organização) deve ser realizada dentro do aplicativo, com formulários e envio de dados integrados à plataforma. | Funcionalidade |
 | **RNF12** | Suporte para a Destinação de Doações | O sistema deve obrigar o usuário a selecionar e definir antes do pagamento, se o valor será direcionado ao "Fundo Geral da Organização" ou a um projeto/campanha específica (selecionada pelo usuário) cadastrada pelo administrador. Essa escolha deve ser obrigatoriamente embutida nos metadados da requisição de pagamento, para que, ao ser devolvida via webhook, o sistema consiga categorizar e exibir o recurso corretamente no módulo de Transparência Financeira.| Restrições de design |
 
-**Observações:** RNF11 e RNF01 não fazem parte do escopo do MVP.
+**Observações:** RNF11 e RNF01 não fazem parte do escopo do MVP. O RNF02 inicialmente não estava incluso no escopo do MVP, mas ele foi parcialmente concluido e implementado ao MVP.
 
 # 8.3) Matriz-síntese de rastreabilidade
 

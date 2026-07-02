@@ -10,12 +10,11 @@ nav:
       - 3. Intervenção Social: visao_produto/3-IntervencaoSocial.md
       - 4. Estratégias de ES: visao_produto/4-estrategia.md
       - 5. Engenharia de Requisitos de ES: visao_produto/5-EngenhariadeRequisitos.md
-      - 6. Planejamento: visao_produto/6-planejamento.md
-      - 7. Interação com Cliente: visao_produto/7-interacao.md
-      - 8. Requisitos: visao_produto/8-requisitos.md
-      - 9. DOR e DOD: visao_produto/9-DorEDod.md
-      - 10. Story Map: visao_produto/10-story_map.md
-      - 11. Lições Aprendidas: visao_produto/11-licoes.md
+      - 6. Interação com Cliente: visao_produto/7-interacao.md
+      - 7. Requisitos: visao_produto/8-requisitos.md
+      - 8. DOR e DOD: visao_produto/9-DorEDod.md
+      - 9. MVP: visao_produto/10-story_map.md
+      - 10. Lições Aprendidas: visao_produto/11-licoes.md
 
   - Organização e Planejamento:
       - Rastreabilidade: organização-e-planejamento/rastreabilidade.md
