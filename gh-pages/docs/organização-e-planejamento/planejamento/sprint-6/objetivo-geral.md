@@ -1,7 +1,7 @@
 # Sprint 6 — Transparência, Admin e Customização · Objetivo Geral
 
 **Período:** 23/06/2026 – 02/07/2026  
-**Status:** 🔄 Em andamento
+**Status:** ✅ Concluída
 
 ## Descrição Geral
 

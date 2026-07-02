@@ -22,7 +22,6 @@ Critérios INVEST aplicados no Sprint Planning para as seis histórias da sprint
 
 > **I** — Independente · **N** — Negociável · **V** — Valiosa · **E** — Estimável · **S** — Suficientemente pequena · **T** — Testável
 >
-> ⚠️ Sprint em andamento — verificação a ser concluída na revisão final.
 
 ## Critérios de Aceite — Evidências de Cumprimento
 

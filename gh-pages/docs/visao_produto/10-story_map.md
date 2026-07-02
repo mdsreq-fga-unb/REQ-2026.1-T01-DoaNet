@@ -1,6 +1,6 @@
-# 10 MVP
+# 9 MVP
 
-## 10.1 Priorização do User Story Map e MVP
+## 9.1 Priorização do User Story Map e MVP
 
 Para a priorização foram utilizados os seguintes critérios:
 

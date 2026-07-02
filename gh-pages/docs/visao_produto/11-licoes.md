@@ -1,6 +1,6 @@
-# 11 LIÇÕES APRENDIDAS
+# 10 LIÇÕES APRENDIDAS
 
-## 11.1 Unidade 1
+## 10.1 Unidade 1
 
 ### **Lições Aprendidas e Melhorias no Processo**
 
@@ -22,7 +22,7 @@
     * **Desafio:** Obstáculos na configuração e personalização da documentação via MkDocs devido à escassez de documentação formal clara compartilhada entre os membros do grupo para as necessidades específicas do projeto.
     * **Ação de Melhoria:** Criar um guia interno de padronização para o MkDocs para compartilhar o conhecimento técnico sobre a ferramenta entre todos os membros.
 
-## 11.2 Unidade 2
+## 10.2 Unidade 2
 
 ### **Lições Aprendidas e Melhorias no Processo**
 
@@ -44,7 +44,7 @@
     * **Desafio:** Replanejar a ordem das entregas e realinhar as atividades da equipe depois das mudanças de escopo e de tecnologias usadas.
     * **Ação de Melhoria:** Revisar o User Story Map com o cliente, reestimar as tarefas e ajustar o plano de sprints com base no novo escopo.
 
-## 11.3 Unidade 3
+## 10.3 Unidade 3
 
 ### **Lições Aprendidas e Melhorias no Processo**
 
@@ -63,7 +63,7 @@
     * **Desafio:** Implementar o Google Cloud Storage para armazenar imagens em buckets, lidando com autenticação, permissões e configuração adequada do ambiente para toda a equipe.
     * **Ação de Melhoria:** Padronizar o processo de configuração das credenciais e definir uma estratégia compartilhada para utilização dos serviços em nuvem.
 
-## 11.4 Unidade 4
+## 10.4 Unidade 4
 
 ### **Lições Aprendidas e Melhorias no Processo**
 

@@ -1,4 +1,4 @@
-# 8.1) Requisitos Funcionais (RF)
+# 7.1) Requisitos Funcionais (RF)
 
 **Módulo Mobile (Público Geral)**
 
@@ -48,7 +48,7 @@
 
 - <a id="rf22"></a>**RF22:** Atualizar uma oportunidade de voluntariado [CP4 - Gestão de Voluntários]
 
-# 8.2) Requisitos Não Funcionais 
+# 7.2) Requisitos Não Funcionais 
 
 | Identificador | Nome | Descrição | Classificação (URPS+) |
 | :--- | :--- | :--- | :--- |
@@ -67,7 +67,7 @@
 
 **Observações:** RNF11 e RNF01 não fazem parte do escopo do MVP. O RNF02 inicialmente não estava incluso no escopo do MVP, mas ele foi parcialmente concluido e implementado ao MVP.
 
-# 8.3) Matriz-síntese de rastreabilidade
+# 7.3) Matriz-síntese de rastreabilidade
 
 A matriz a seguir apresenta a rastreabilidade entre OE (Objetivos Específicos), CP (Características do Produto), VN (Valor de negócio), RF (Requisitos Funcionais) e RNF (Requisitos Não Funcionais).
 
