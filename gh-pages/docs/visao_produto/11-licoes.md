@@ -62,3 +62,19 @@
 * **Implementação do Google Cloud Storage**:
     * **Desafio:** Implementar o Google Cloud Storage para armazenar imagens em buckets, lidando com autenticação, permissões e configuração adequada do ambiente para toda a equipe.
     * **Ação de Melhoria:** Padronizar o processo de configuração das credenciais e definir uma estratégia compartilhada para utilização dos serviços em nuvem.
+
+## 11.4 Unidade 4
+
+### **Lições Aprendidas e Melhorias no Processo**
+
+* **Gestão de Débitos Técnicos**:
+    * **Desafio:** O acúmulo de débitos técnicos (como a US08) de sprints anteriores estava impactando a previsibilidade e o planejamento das entregas da reta final.
+    * **Ação de Melhoria:** Adotar a prática de mapear, priorizar e puxar as dívidas técnicas críticas logo no início das sprints de fechamento, garantindo a integridade do produto final.
+* **Alinhamento do Escopo de Fechamento**:
+    * **Desafio:** Assegurar que todas as funcionalidades essenciais para a operação da ONG, especialmente a parte de transparência, estivessem totalmente integradas e validadas.
+    * **Ação de Melhoria:** Focar o planejamento nas jornadas de maior valor (como lançamentos de doações manuais e configuração institucional), validando constantemente as prioridades com o cliente.
+
+### **Dificuldades Enfrentadas e Superação**
+* **Integração e Visualização de Dados no Streamlit**:
+    * **Desafio:** Dificuldade para compilar e exibir de forma intuitiva o histórico financeiro, as doações e as despesas no painel de administração da organização.
+    * **Ação de Melhoria:** Trabalho em pares e divisão clara de responsabilidades para criar componentes visuais mais limpos e painéis de fácil utilização para administradores leigos.
