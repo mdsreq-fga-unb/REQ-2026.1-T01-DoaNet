@@ -7,7 +7,7 @@
 Fechamento do painel de transparência (visualização do histórico financeiro pelo usuário), da tela de descrição e contato da organização, da gestão de administradores e da customização (White Label). Corresponde à entrega final do projeto.
 
 !!! info "Sprint em andamento"
-    A verificação final de DoR/DoD será concluída na revisão da sprint (entrega final em 07/07/2026).
+    A verificação final de DoR/DoD será concluída na revisão da sprint (entrega final em 02/07/2026).
 
 ## Definition of Ready — DoR
 
@@ -32,7 +32,7 @@ Fechamento do painel de transparência (visualização do histórico financeiro 
 | O desenvolvimento foi concluído integralmente? | ⚠️ | Em andamento |
 | Os testes foram executados e aprovados? | ⚠️ | _Evidência de cobertura de testes a consolidar._ |
 | A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37), [Pull Request #47](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/47) e [Pull Request #48](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/48) |
-| A documentação e o feedback relevante foram incorporados? | ✅ | Em andamento; consolidação na entrega final (07/07) |
+| A documentação e o feedback relevante foram incorporados? | ✅ | Em andamento; consolidação na entrega final (02/07) |
 
 ## Demonstração em Imagens
 

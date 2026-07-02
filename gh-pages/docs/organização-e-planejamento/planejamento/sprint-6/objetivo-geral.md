@@ -1,11 +1,11 @@
 # Sprint 6 — Transparência, Admin e Customização · Objetivo Geral
 
-**Período:** 23/06/2026 – 07/07/2026  
+**Período:** 23/06/2026 – 02/07/2026  
 **Status:** 🔄 Em andamento
 
 ## Descrição Geral
 
-Sprint de fechamento: finalização do painel de transparência, do painel de administração e da customização da organização (White Label), com a aba de descrição e contato funcionando. Corresponde à entrega final do projeto (07/07).
+Sprint de fechamento: finalização do painel de transparência, do painel de administração e da customização da organização (White Label), com a aba de descrição e contato funcionando. Corresponde à entrega final do projeto (02/07).
 
 ## Objetivo da Sprint
 
