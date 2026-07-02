@@ -27,7 +27,7 @@ Implementação das funcionalidades centrais da plataforma DoaNet, com foco na c
 | Entrega um incremento do produto? | ✅ | Feed com CRUD de posts normais funcionando ao final da sprint |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou e aprovou o CRUD do feed na [Ata 4 (12/05)](../../../atas/ata4_12_05_2026.md) |
 | O desenvolvimento foi concluído integralmente? | ✅ | Criação, edição e deleção de postagens normais funcionando de ponta a ponta |
-| Os testes foram executados e aprovados? | ✅ | Cobertura de testes mínima alcançada pela pipeline atualizada |
+| Os testes foram executados e aprovados? | ✅ | Ver [Evidências de execução dos testes](#evidencias-testes) |
 | A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #26](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/26) e [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37) |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Ajustes do pivoteamento refletidos conforme [Ata 2](../../../atas/ata2_04_05_2026.md) e validação da [Ata 4](../../../atas/ata4_12_05_2026.md) |
 
@@ -36,3 +36,14 @@ Implementação das funcionalidades centrais da plataforma DoaNet, com foco na c
 ![Feed](../../../assets/Feed.png)
 
 ![Feed2](../../../assets/Feed2.png)
+
+<a id="evidencias-testes"></a>
+## Evidências de execução dos testes
+
+### Front-end
+
+![Sprint 2 Front](../../../assets/sprint2front.png)
+
+### Back-end
+
+![Sprint 2 Back](../../../assets/sprint2back.png)

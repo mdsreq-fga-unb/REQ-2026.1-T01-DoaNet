@@ -81,7 +81,7 @@
 
 ![Doação Externa](../../../assets/doacaoexterna.png)
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **💵 Financeiro** → **Lançar Doação Externa**
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **💵 Financeiro** → **Lançar Doação Externa**
 
 **PR associado:** 🔗[Pull Request #55](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/55)
 
@@ -102,7 +102,7 @@
 
 ![Lançar Despesas](../../../assets/lancardespesa.png)
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **💵 Financeiro** → **Lançar Despesa**
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **💵 Financeiro** → **Lançar Despesa**
 
 **PR associado:** 🔗[Pull Request #55](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/55)
 

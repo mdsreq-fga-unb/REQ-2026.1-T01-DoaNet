@@ -62,7 +62,7 @@
 
 ![Voluntariado](../../../assets/voluntario.png)
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🤝 Oportunidades** → aba **➕ Nova oportunidade**
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **🤝 Oportunidades** → aba **➕ Nova oportunidade**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -79,9 +79,11 @@
 - A oportunidade é removida imediatamente da listagem após exclusão.
 - Apenas administradores autenticados conseguem excluir oportunidades.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:**
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **🗑️ Remover**
+![Voluntariado2](../../../assets/voluntariado2.png)
+
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **🗑️ Remover**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -98,9 +100,11 @@
 - As alterações são refletidas imediatamente na listagem após salvar.
 - Apenas administradores autenticados conseguem editar oportunidades.
 
-**Protótipo da US:** _Captura do protótipo de alta fidelidade desta US a ser inserida._
+**Protótipo da US:** 
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
+![Voluntariado3](../../../assets/voluntariado3.png)
+
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 

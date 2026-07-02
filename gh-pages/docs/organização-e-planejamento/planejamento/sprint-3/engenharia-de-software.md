@@ -27,7 +27,7 @@ Implementação de posts de eventos com inscrição, adição de imagens em todo
 | Entrega um incremento do produto? | ✅ | Feed completo com eventos e inscrição; início do módulo admin entregues |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Cliente validou e aprovou o feed completo e o módulo admin na [Ata 5 (26/05)](../../../atas/ata5_26_05_2026.md) |
 | O desenvolvimento foi concluído integralmente? | ✅ | CRUD de eventos, inscrição em eventos e autenticação admin funcionando de ponta a ponta |
-| Os testes foram executados e aprovados? | ✅ | Cobertura de testes mínima alcançada pela pipeline atualizada |
+| Os testes foram executados e aprovados? | ✅ | Ver [Evidências de execução dos testes](#evidencias-testes) |
 | A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #36](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/36) e no [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37) |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Protótipo final alinhado e validado pelo cliente; feedback da [Ata 5](../../../atas/ata5_26_05_2026.md) incorporado |
 
@@ -36,3 +36,14 @@ Implementação de posts de eventos com inscrição, adição de imagens em todo
 ![Feed2](../../../assets/Feed2.png)
 
 ![LoginR](../../../assets/loginreal.png)
+
+<a id="evidencias-testes"></a>
+## Evidências de execução dos testes
+
+### Front-end
+
+![Sprint 3 Front](../../../assets/sprint3front.png)
+
+### Back-end
+
+![Sprint 3 Back](../../../assets/sprint3back.png)

@@ -27,7 +27,7 @@ Implementação do fluxo de doações no aplicativo, da rastreabilidade e do reg
 | Entrega um incremento do produto? | ✅ | Fluxo de doações, filtro/busca no feed e lançamentos de transparência entregues |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Critérios de US06, US07, US10, US15 e US16 verificados — ver [Engenharia de Requisitos](engenharia-de-requisitos.md#criterios-de-aceite-evidencias-de-cumprimento) |
 | O desenvolvimento foi concluído integralmente? | ✅ | Funcionalidades de filtro, busca, doação e transparência funcionando |
-| Os testes foram executados e aprovados? | ⚠️ | _Evidência de cobertura de testes a consolidar._ |
+| Os testes foram executados e aprovados? | ✅ | Ver [Evidências de execução dos testes](#evidencias-testes) |
 | A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #55](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/55), [Pull Request #59](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/59) e [Pull Request #60](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/60) |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Débito técnico da US08 incorporado ao escopo; encaminhamentos da [Ata 6](../../../atas/ata6_09_06_2026.md) atendidos |
 
@@ -36,3 +36,14 @@ Implementação do fluxo de doações no aplicativo, da rastreabilidade e do reg
 ![Doação](../../../assets/doacao.png)
 
 ![Despesa](../../../assets/despesa.png)
+
+<a id="evidencias-testes"></a>
+## Evidências de execução dos testes
+
+### Front-end
+
+![Sprint 5 Front](../../../assets/sprint5front.png)
+
+### Back-end
+
+![Sprint 5 Back](../../../assets/sprint5back.png)

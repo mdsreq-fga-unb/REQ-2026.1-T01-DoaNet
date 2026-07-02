@@ -40,7 +40,7 @@
 
 ![Evento](../../../assets/evento.png)
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **➕ Nova publicação**
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **📋 Publicações** → aba **➕ Nova publicação**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -61,7 +61,7 @@
 
 ![Post2](../../../assets/gerenciapostevento.png)
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **🗂️ Gerenciar** → **🗑️ Remover**
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **📋 Publicações** → aba **🗂️ Gerenciar** → **🗑️ Remover**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -82,7 +82,7 @@
 
 ![Post2](../../../assets/gerenciapostevento.png)
 
-**Rota de acesso (Streamlit — painel admin):** `http://localhost:8501` → seção **📋 Publicações** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
+**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **📋 Publicações** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 

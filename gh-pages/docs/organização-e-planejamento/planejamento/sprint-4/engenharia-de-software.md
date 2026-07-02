@@ -30,7 +30,7 @@ Implementação da parte de colaboração com a organização — registro de pa
 | Entrega um incremento do produto? | ✅ | Módulo de voluntariado (CRUD e inscrição) e painel admin entregues e funcionais |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Cliente aprovou as entregas na [Ata 6](../../../atas/ata6_09_06_2026.md); débito técnico no formulário de inscrição |
 | O desenvolvimento foi concluído integralmente? | ✅ | Fluxo de voluntariado funcional, porém formulário de inscrição incompleto (débito técnico registrado na [Ata 6](../../../atas/ata6_09_06_2026.md)) |
-| Os testes foram executados e aprovados? | ⚠️ | Cobertura de testes incompleta, principalmente nas novas alterações do módulo de administrador |
+| Os testes foram executados e aprovados? | ✅ | Ver [Evidências de execução dos testes](#evidencias-testes) |
 | A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37) e [Pull Request #38](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/38) |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Débito técnico documentado; encaminhamentos para Sprint 5 definidos na [Ata 6](../../../atas/ata6_09_06_2026.md) |
 
@@ -57,3 +57,14 @@ Implementação da parte de colaboração com a organização — registro de pa
 ![Editar Post](../../../assets/editarpost.png)
 
 ![Editar Evento](../../../assets/editarevento.png)
+
+<a id="evidencias-testes"></a>
+## Evidências de execução dos testes
+
+### Front-end
+
+![Sprint 4 Front](../../../assets/sprint4front.png)
+
+### Back-end
+
+![Sprint 4 Back](../../../assets/sprint4back.png)
