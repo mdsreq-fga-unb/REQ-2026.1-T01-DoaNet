@@ -62,7 +62,7 @@
 
 ![Voluntariado](../../../assets/voluntario.png)
 
-**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **🤝 Oportunidades** → aba **➕ Nova oportunidade**
+**Rota de acesso (Streamlit — painel admin):** [painel-adm-lkhp.onrender.com](https://painel-adm-lkhp.onrender.com/) → seção **🤝 Oportunidades** → aba **➕ Nova oportunidade**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -83,7 +83,7 @@
 
 ![Voluntariado2](../../../assets/voluntariado2.png)
 
-**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **🗑️ Remover**
+**Rota de acesso (Streamlit — painel admin):** [painel-adm-lkhp.onrender.com](https://painel-adm-lkhp.onrender.com/) → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **🗑️ Remover**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -104,7 +104,7 @@
 
 ![Voluntariado3](../../../assets/voluntariado3.png)
 
-**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
+**Rota de acesso (Streamlit — painel admin):** [painel-adm-lkhp.onrender.com](https://painel-adm-lkhp.onrender.com/) → seção **🤝 Oportunidades** → aba **🗂️ Gerenciar** → **💾 Salvar alterações**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 

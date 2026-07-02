@@ -76,7 +76,7 @@
 
 ![Cadastro de Administrador](../../../assets/novoadm.png)
 
-**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **👥 Administradores** → aba **➕ Novo admin**
+**Rota de acesso (Streamlit — painel admin):** [painel-adm-lkhp.onrender.com](https://painel-adm-lkhp.onrender.com/) → seção **👥 Administradores** → aba **➕ Novo admin**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -97,7 +97,7 @@
 
 ![Remover Administrador](../../../assets/gerenciaradm.png)
 
-**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **👥 Administradores** → aba **🗂️ Gerenciar** → **Desativar**
+**Rota de acesso (Streamlit — painel admin):** [painel-adm-lkhp.onrender.com](https://painel-adm-lkhp.onrender.com/) → seção **👥 Administradores** → aba **🗂️ Gerenciar** → **Desativar**
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 
@@ -118,7 +118,7 @@
 
 ![Configurar dados institucionais](../../../assets/customizacao.png)
 
-**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → seção **🏢 Organização**
+**Rota de acesso (Streamlit — painel admin):** [painel-adm-lkhp.onrender.com](https://painel-adm-lkhp.onrender.com/) → seção **🏢 Organização**
 
 **PR associado:** 🔗[Pull Request #48](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/48)
 

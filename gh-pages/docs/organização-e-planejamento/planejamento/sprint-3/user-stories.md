@@ -40,7 +40,7 @@
 
 ![Login](../../../assets/login.png)
 
-**Rota de acesso (Streamlit — painel admin):** `https://painel-adm-lkhp.onrender.com/` → tela de **Login** do painel administrativo
+**Rota de acesso (Streamlit — painel admin):** [painel-adm-lkhp.onrender.com](https://painel-adm-lkhp.onrender.com/) → tela de **Login** do painel administrativo
 
 **PR associado:** 🔗[Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37)
 

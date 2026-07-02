@@ -1,6 +1,6 @@
 # Validação com o Cliente — Sprint 6 (Entrega Final)
 
-**Data:** 07/07/2026
+**Data:** 02/07/2026
 **Horário:** 19:00 - 19:50
 **Local:** Discord
 
@@ -48,5 +48,5 @@ O cliente **aprovou tudo o que foi implementado**, consolidando as entregas da S
 
 | Atividade | Responsável | Prazo |
 | :--- | :--- | :--- |
-| Consolidação e envio do pacote final da Unidade 4 | Todos | 07/07/2026 |
-| Publicação da documentação final do projeto | Todos | 07/07/2026 |
+| Consolidação e envio do pacote final da Unidade 4 | Todos | 02/07/2026 |
+| Publicação da documentação final do projeto | Todos | 02/07/2026 |

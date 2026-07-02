@@ -1,6 +1,6 @@
 # Retrospectiva — Sprint 6 (Encerramento do Projeto)
 
-**Data:** 07/07/2026  
+**Data:** 01/07/2026  
 **Local:** Discord  
 **Responsável pela Ata:** Davi Ursulino
 
@@ -23,7 +23,7 @@ Nenhum.
 ### Comentários dos Membros
 
 **Davi Ursulino**
-> A integração da página de transparência com o back-end fechou bem o ciclo, e ver o cliente aprovar tudo na validação final foi a melhor recompensa. A sprint foi corrida por causa do deploy, mas a divisão de tarefas feita ainda na semana anterior ajudou a não perder tempo.
+> A integração da página de transparência com o back-end fechou bem o ciclo, e chegar à reta final com o escopo completo pronto para a validação com o cliente foi a melhor recompensa. A sprint foi corrida por causa do deploy, mas a divisão de tarefas feita ainda na semana anterior ajudou a não perder tempo.
 
 **João Leles**
 > O back-end de transparência aproveitou a base que já tínhamos das doações, o que acelerou bastante. O maior aprendizado do projeto pra mim foi a importância de contratos de API bem definidos entre as frentes.
@@ -35,7 +35,7 @@ Nenhum.
 > A customização White Label foi desafiadora por mexer em todo o visual do app, mas o resultado ficou fiel ao que o cliente pediu. Encerramos o projeto com o escopo do MVP completo, o que nem sempre acontece.
 
 **Pedro Druck**
-> O deploy na nuvem trouxe imprevistos (configuração de credenciais, cold start do serviço), mas conseguimos resolver tudo antes da validação. Atender o feedback do ícone nas caixas de voluntariado logo no início da sprint evitou correria no final. Projeto entregue e aprovado — objetivo cumprido.
+> O deploy na nuvem trouxe imprevistos (configuração de credenciais, cold start do serviço), mas conseguimos resolver tudo antes da validação. Atender o feedback do ícone nas caixas de voluntariado logo no início da sprint evitou correria no final. Projeto entregue — objetivo cumprido.
 
 ### Principais Aprendizados do Projeto
 
@@ -46,11 +46,12 @@ Nenhum.
 
 ### Encerramento
 
-Com a aprovação integral do cliente na validação final, a equipe deu por encerrado o ciclo de desenvolvimento do projeto DoaNet, com o MVP completo: feed com publicações e eventos, oportunidades de voluntariado, doações com rastreabilidade, painel de transparência, painel administrativo e customização White Label.
+Com as entregas do MVP concluídas — feed com publicações e eventos, oportunidades de voluntariado, doações com rastreabilidade, painel de transparência, painel administrativo e customização White Label — a equipe deu por encerrado o ciclo de desenvolvimento do projeto DoaNet, restando apenas a validação final com o cliente, agendada para 02/07.
 
 ## Encaminhamentos e Responsabilidades
 
 | Atividade | Responsável | Prazo |
 | :--- | :--- | :--- |
-| Publicação das lições aprendidas na documentação | Todos | 07/07/2026 |
-| Arquivamento e organização final do repositório | Todos | 07/07/2026 |
+| Validação final com o cliente (entrega da Unidade 4) | Todos | 02/07/2026 |
+| Publicação das lições aprendidas na documentação | Todos | 02/07/2026 |
+| Arquivamento e organização final do repositório | Todos | 02/07/2026 |

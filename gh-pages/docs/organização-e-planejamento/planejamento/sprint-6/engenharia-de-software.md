@@ -29,7 +29,7 @@ Fechamento do painel de transparência (visualização do histórico financeiro 
 | O desenvolvimento foi concluído integralmente? | ⚠️ | Visualização do histórico financeiro, cadastro e remoção dos administradores das organizações entregues |
 | Os testes foram executados e aprovados? | ✅ | Ver [Evidências de execução dos testes](#evidencias-testes) |
 | A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37), [Pull Request #47](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/47) e [Pull Request #48](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/48) |
-| A documentação e o feedback relevante foram incorporados? | ✅ | Em andamento; consolidação na entrega final (02/07) |
+| A documentação e o feedback relevante foram incorporados? | ✅ | Feedback do cliente consolidado na [Tabela de Consolidação](../../tabela-consolidacao.md) e cerimônias registradas em [Reuniões Realizadas](reunioes-realizadas.md) |
 
 ## Demonstração em Imagens
 

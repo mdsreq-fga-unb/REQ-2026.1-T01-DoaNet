@@ -59,4 +59,4 @@ Conforme pré-alinhado na reunião interna de 22/06:
 | Implementação da customização (White Label) | Pedro Augusto | 30/06/2026 |
 | Adição do ícone nas caixas de oportunidades de voluntariado | Pedro Druck | 30/06/2026 |
 | Reunião de refinamento do User Story Map na semana intermediária | Equipe | 30/06/2026 |
-| Preparação da entrega final e validação com o cliente | Equipe | 07/07/2026 |
+| Preparação da entrega final e validação com o cliente | Equipe | 02/07/2026 |

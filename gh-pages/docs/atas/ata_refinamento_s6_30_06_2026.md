@@ -24,8 +24,8 @@
 
 | Atividade | Responsável | Prazo |
 | :--- | :--- | :--- |
-| Conclusão do deploy do back-end e do painel admin (Render) | Pedro Druck | 07/07/2026 |
-| Testes integrados do fluxo completo (app → back-end na nuvem) | Equipe | 07/07/2026 |
-| Ajustes finais de responsividade e navegação no app | Davi Ursulino e Letícia Vitória | 07/07/2026 |
-| Consolidação da documentação final (Unidade 4) | Pedro Druck | 07/07/2026 |
-| Preparação da apresentação da entrega final para o cliente | Letícia Vitória | 07/07/2026 |
+| Conclusão do deploy do back-end e do painel admin (Render) | Pedro Druck | 02/07/2026 |
+| Testes integrados do fluxo completo (app → back-end na nuvem) | Equipe | 02/07/2026 |
+| Ajustes finais de responsividade e navegação no app | Davi Ursulino e Letícia Vitória | 02/07/2026 |
+| Consolidação da documentação final (Unidade 4) | Pedro Druck | 02/07/2026 |
+| Preparação da apresentação da entrega final para o cliente | Letícia Vitória | 02/07/2026 |

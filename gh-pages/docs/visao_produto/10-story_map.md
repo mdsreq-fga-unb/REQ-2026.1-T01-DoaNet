@@ -2,6 +2,8 @@
 
 ## 9.1 Priorização do User Story Map e MVP
 
+> 🗺️ O mapa interativo completo está disponível em [User Story Map](../organização-e-planejamento/user-story-map.md).
+
 Para a priorização foram utilizados os seguintes critérios:
 
 - **VN** = Valor de negócio (1 a 5)

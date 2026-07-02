@@ -8,7 +8,7 @@ Atividades de Engenharia de Requisitos realizadas na Sprint 1 e suas evidências
 
 US01–US22 escritas, refinadas e formalizadas com personas, objetivos e critérios de aceite.
 
-**Evidências:** [User Story Map](../../../visao_produto/10-story_map.md) · [Requisitos](../../../visao_produto/8-requisitos.md)
+**Evidências:** [User Story Map](../../user-story-map.md) · [Requisitos](../../../visao_produto/8-requisitos.md)
 
 ## Representação de Requisitos
 
