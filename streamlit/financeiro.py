@@ -9,6 +9,26 @@ def formatar_real(valor):
     return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
+def _carregar_projetos():
+    """Busca os títulos das oportunidades/projetos cadastrados para o seletor."""
+    resp = make_request("GET", "/oportunidades")
+    if resp is None or resp.status_code != 200:
+        return []
+    ops = resp.json()
+    if not isinstance(ops, list):
+        return []
+    return [op.get("titulo") for op in ops if op.get("titulo")]
+
+
+def _destino_label(direcao, nome_projeto):
+    """Texto de destino exibido na confirmação (espelha a regra do backend)."""
+    if direcao == "projeto" and nome_projeto:
+        return f"Projeto: {nome_projeto}"
+    if direcao == "projeto":
+        return "Projeto"
+    return "Instituição"
+
+
 def financeiro_section():
     st.subheader("Financeiro")
     st.caption("Lance doações externas e despesas. Registros são permanentes e não podem ser editados.")
@@ -29,6 +49,24 @@ def financeiro_section():
 
     # doacao externa
     if aba_selecionada == "Lançar Doação Externa":
+        # Direcionamento fora do form para o dropdown de projeto reagir à seleção.
+        direcao_label = st.radio(
+            "Direcionamento",
+            ["Instituição", "Projeto"],
+            horizontal=True,
+            key="doacao_ext_direcao",
+            help="Atrele a doação à instituição de forma geral ou a um projeto específico.",
+        )
+        direcao = "projeto" if direcao_label == "Projeto" else "instituicao"
+
+        nome_projeto = None
+        if direcao == "projeto":
+            projetos = _carregar_projetos()
+            if projetos:
+                nome_projeto = st.selectbox("Projeto", projetos, key="doacao_ext_projeto")
+            else:
+                st.info("Nenhum projeto cadastrado. Cadastre em 'Oportunidades' ou atrele à instituição.")
+
         with st.form("form_doacao", clear_on_submit=True):
             col1, col2 = st.columns(2)
             valor = col1.number_input("Valor (R$)", min_value=0.01, step=0.01, format="%.2f")
@@ -43,13 +81,17 @@ def financeiro_section():
                         "valor": valor,
                         "data": data.isoformat(),
                         "descricao": descricao,
+                        "direcao": direcao,
+                        "nome_projeto": nome_projeto,
                     }
 
         pending = st.session_state.get("pending_doacao")
         if pending:
+            destino_txt = _destino_label(pending.get("direcao"), pending.get("nome_projeto"))
             st.warning(
                 f"Tem certeza que deseja registrar a doação de "
                 f"**R$ {pending['valor']:,.2f}** — \"{pending['descricao']}\"?\n\n"
+                f"Destino: **{destino_txt}**.\n\n"
                 "Essa ação não pode ser desfeita."
             )
             c1, c2 = st.columns(2)

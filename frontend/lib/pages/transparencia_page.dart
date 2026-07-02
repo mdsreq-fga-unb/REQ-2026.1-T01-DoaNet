@@ -22,7 +22,6 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
 
   @override
   Widget build(BuildContext context) {
-    final corAzulMoveEduca = const Color(0xFF0088FF);
     final corVerdeEntrada = const Color(0xFF4CAF50);
     final corVermelhoSaida = const Color(0xFFE53935);
 
@@ -199,6 +198,20 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                const SizedBox(height: 4),
+                                // Sinalização do tipo (Doação Interna/Externa/Despesa)
+                                // exibida acima do destino da doação.
+                                Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                  decoration: BoxDecoration(
+                                    color: corTipo.withValues(alpha: 0.12),
+                                    borderRadius: BorderRadius.circular(999),
+                                  ),
+                                  child: Text(
+                                    tipoLabel,
+                                    style: TextStyle(fontSize: 11, color: corTipo, fontWeight: FontWeight.w700),
+                                  ),
+                                ),
                                 if (transacao.destino != null && transacao.destino!.isNotEmpty) ...[
                                   const SizedBox(height: 4),
                                   Row(
@@ -214,18 +227,6 @@ class _TransparenciaPageState extends State<TransparenciaPage> {
                                     ],
                                   ),
                                 ],
-                                const SizedBox(height: 4),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                                  decoration: BoxDecoration(
-                                    color: corTipo.withValues(alpha: 0.12),
-                                    borderRadius: BorderRadius.circular(999),
-                                  ),
-                                  child: Text(
-                                    tipoLabel,
-                                    style: TextStyle(fontSize: 11, color: corTipo, fontWeight: FontWeight.w700),
-                                  ),
-                                ),
                                 const SizedBox(height: 3),
                                 Text(
                                   _formatarData(transacao.data),

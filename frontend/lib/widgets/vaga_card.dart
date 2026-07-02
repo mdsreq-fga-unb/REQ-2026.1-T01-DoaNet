@@ -185,23 +185,23 @@ class VagaCard extends StatelessWidget {
         side: BorderSide(color: theme.colorScheme.surfaceContainerLow, width: 1.5),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // Ícone da vaga — inspirado no avatar do feed, mas com forma
             // arredondada e ícone de voluntariado (não idêntico ao feed).
             Container(
-              width: 44,
-              height: 44,
+              width: 40,
+              height: 40,
               decoration: BoxDecoration(
                 color: theme.colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 Icons.volunteer_activism_outlined,
                 color: theme.colorScheme.primary,
-                size: 24,
+                size: 22,
               ),
             ),
             const SizedBox(width: 12),
@@ -211,18 +211,24 @@ class VagaCard extends StatelessWidget {
                 children: [
                   Text(
                     titulo,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 13.5,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF171616),
+                      height: 1.25,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 3),
                   Text(
                     subtitulo,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 12,
+                      fontSize: 11.5,
                       color: Color(0xFF505050),
+                      height: 1.25,
                     ),
                   ),
                 ],
@@ -238,11 +244,13 @@ class VagaCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                minimumSize: const Size(0, 34),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               ),
               child: const Text(
                 'Inscrever',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
               ),
             ),
           ],

@@ -130,8 +130,11 @@ class FeedPageState extends State<FeedPage> {
             }
 
             return SingleChildScrollView(
+              // Considera o teclado (viewInsets) e a barra de navegação do
+              // sistema (viewPadding) para o "Cancelar" não ficar encoberto.
               padding: EdgeInsets.only(
-                bottom: MediaQuery.of(sheetContext).viewInsets.bottom,
+                bottom: MediaQuery.of(sheetContext).viewInsets.bottom +
+                    MediaQuery.of(sheetContext).viewPadding.bottom,
               ),
               child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),

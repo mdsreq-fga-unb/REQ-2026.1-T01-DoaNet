@@ -84,12 +84,29 @@ class DoacaoData(BaseModel):
     valor: float
     data: str
     descricao: str
+    direcao: Optional[str] = None       # "instituicao" | "projeto"
+    nome_projeto: Optional[str] = None
 
 
 class DespesaData(BaseModel):
     valor: float
     data: str
     categoria: str
+
+
+def _destino_from_direcao(direcao: Optional[str], nome_projeto: Optional[str]) -> Optional[str]:
+    """Deriva o texto de destino da doação a partir do direcionamento.
+
+    Mesma regra usada nas doações internas (ver doacao_service.py):
+    "Projeto: X", "Projeto" ou "Instituição".
+    """
+    if direcao == "projeto" and nome_projeto:
+        return f"Projeto: {nome_projeto}"
+    if direcao == "projeto":
+        return "Projeto"
+    if direcao == "instituicao":
+        return "Instituição"
+    return None
 
 
 def _render_doacao_page(accent: str, icon: str, title: str, message: str, note: str) -> str:
@@ -656,6 +673,7 @@ def innit_routes() -> APIRouter:
                 valor=doacao.valor,
                 data=datetime.fromisoformat(doacao.data),
                 descricao=doacao.descricao,
+                destino=_destino_from_direcao(doacao.direcao, doacao.nome_projeto),
                 created_by=current_admin.email,
             )
             transparencia_service.add_record(record)
@@ -677,6 +695,7 @@ def innit_routes() -> APIRouter:
                 valor=doacao.valor,
                 data=datetime.fromisoformat(doacao.data),
                 descricao=doacao.descricao,
+                destino=_destino_from_direcao(doacao.direcao, doacao.nome_projeto),
                 created_by=current_admin.email,
             )
             transparencia_service.add_record(record)

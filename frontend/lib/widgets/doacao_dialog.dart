@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../utils/input_formatters.dart';
 import '../info_fetch/doacao/doacao_model.dart';
 import '../info_fetch/doacao/doacao_service.dart';
 import '../info_fetch/oportunidades/fetch_oportunidade.dart';
@@ -297,14 +298,15 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
                       TextFormField(
                         controller: _cpfController,
                         keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(
-                              RegExp(r'[0-9.\-]')),
-                        ],
+                        inputFormatters: [CpfInputFormatter()],
                         decoration: _inputDecoration('000.000.000-00'),
                         validator: (v) {
                           if (v == null || v.trim().isEmpty) {
                             return 'Informe o CPF';
+                          }
+                          final digits = v.replaceAll(RegExp(r'\D'), '');
+                          if (digits.length != 11) {
+                            return 'CPF incompleto';
                           }
                           return null;
                         },
@@ -380,14 +382,15 @@ class _DoacaoDialogState extends State<_DoacaoDialog> {
                             child: TextFormField(
                               controller: _cepController,
                               keyboardType: TextInputType.number,
-                              inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'[0-9\-]')),
-                              ],
-                              decoration: _inputDecoration('CEP'),
+                              inputFormatters: [CepInputFormatter()],
+                              decoration: _inputDecoration('00000-000'),
                               validator: (v) {
                                 if (v == null || v.trim().isEmpty) {
                                   return 'Informe o CEP';
+                                }
+                                final digits = v.replaceAll(RegExp(r'\D'), '');
+                                if (digits.length != 8) {
+                                  return 'CEP incompleto';
                                 }
                                 return null;
                               },
