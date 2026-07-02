@@ -2,6 +2,21 @@
 
 ## User Story Map
 
+<div style="font-size: 13px; margin-bottom: 12px; padding: 10px 14px; background: rgba(128,128,128,0.05); border: 1px solid rgba(128,128,128,0.2); border-radius: 8px;">
+  <strong style="display:block; margin-bottom:6px;">Atores (identificados no canto inferior direito dos cartões):</strong>
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <span style="display:flex; align-items:center; gap:6px;">
+      <svg viewBox="0 0 24 24" width="18" height="18" style="fill:currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg> Usuário / Doador
+    </span>
+    <span style="display:flex; align-items:center; gap:6px;">
+      <svg viewBox="0 0 24 24" width="18" height="18" style="fill:currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path></svg> Administrador da Organização
+    </span>
+    <span style="display:flex; align-items:center; gap:6px;">
+      <svg viewBox="0 0 24 24" width="18" height="18" style="fill:currentColor"><path d="M17 11c.34 0 .67.04 1 .09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55-.69-.98-1.1-2.17-1.1-3.45 0-3.31 2.69-6 6-6zM10.5 10.96c-1.25 0-2.26-1.01-2.26-2.26s1.01-2.26 2.26-2.26 2.26 1.01 2.26 2.26-1.01 2.26-2.26 2.26z"></path></svg> Administrador Geral
+    </span>
+  </div>
+</div>
+
 <div style="position:relative;width:100%;max-width:100%;font-family:sans-serif;user-select:none;margin-top:8px;">
   <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;background:rgba(128,128,128,0.08);border:1px solid rgba(128,128,128,0.2);border-bottom:none;border-radius:8px 8px 0 0;">
     <button id="sm-in" style="width:28px;height:28px;border:1px solid rgba(128,128,128,0.35);border-radius:4px;background:transparent;cursor:pointer;font-size:16px;line-height:1;">+</button>
@@ -259,6 +274,21 @@
         }
         card.appendChild(mkTxt(x+w-4,y+8,'S'+info.sprint,7,c.t,'end',false));
         card.appendChild(mkTxt(x+4,y+8,info.rf,7,c.t,'start',false));
+        
+        var iconPath = '';
+        if(info.persona === 'Usuário' || info.persona === 'Doador') iconPath = 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z';
+        else if(info.persona === 'Admin da org.') iconPath = 'M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z';
+        else if(info.persona === 'Admin geral') iconPath = 'M17 11c.34 0 .67.04 1 .09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55-.69-.98-1.1-2.17-1.1-3.45 0-3.31 2.69-6 6-6zM10.5 10.96c-1.25 0-2.26-1.01-2.26-2.26s1.01-2.26 2.26-2.26 2.26 1.01 2.26 2.26-1.01 2.26-2.26 2.26z';
+        
+        if(iconPath !== '') {
+          var iconG = document.createElementNS(NS, 'g');
+          iconG.setAttribute('transform', 'translate(' + (x+w-17) + ',' + (y+h-17) + ') scale(0.6)');
+          var pIcon = document.createElementNS(NS, 'path');
+          pIcon.setAttribute('d', iconPath);
+          pIcon.setAttribute('fill', c.t);
+          iconG.appendChild(pIcon);
+          card.appendChild(iconG);
+        }
         card.addEventListener('mouseenter',function(){
           r.setAttribute('stroke-width','2.5');
           tip.innerHTML='<b>'+usId+'</b> \xb7 '+info.rf+'<br>'+info.desc+'<br><span style="opacity:0.7;font-size:11px">Persona: '+info.persona+' \xb7 Sprint '+info.sprint+'</span><br><span style="font-size:11px;font-style:italic;opacity:0.6">Clique para abrir evid\xeancias</span>';
