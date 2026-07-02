@@ -22,4 +22,4 @@ Sprint inicial de definição do projeto DoaNet. O foco foi o entendimento do do
 | [Reuniões Realizadas](reunioes-realizadas.md) | Cerimônias do Scrum, atas e descrições |
 | [Engenharia de Software](engenharia-de-software.md) | DoR, DoD e descrição da entrega técnica |
 
-> Referências gerais: [Cenário Atual](../../../visao_produto/1-cenario.md) · [Solução Proposta](../../../visao_produto/2-solucao.md) · [Planejamento (visão geral)](../../../visao_produto/6-planejamento.md)
+> Referências gerais: [Cenário Atual](../../../visao_produto/1-cenario.md) · [Solução Proposta](../../../visao_produto/2-solucao.md)

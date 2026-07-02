@@ -23,13 +23,13 @@ Fechamento do painel de transparência (visualização do histórico financeiro 
 
 ## Definition of Done — DoD
 
-> Critérios verificados **ao final** da sprint (em andamento).
+> Critérios verificados **ao final** da sprint.
 
 | Critério | Status | Evidência |
 | :--- | :---: | :--- |
 | Entrega um incremento do produto? | ⚠️ | Funcionalidades de transparência, perfil e gestão de admin em finalização |
 | Contempla os critérios de aceite estabelecidos? | ✅ | Verificação a concluir na revisão final — ver [Engenharia de Requisitos](engenharia-de-requisitos.md#criterios-de-aceite-evidencias-de-cumprimento) |
-| O desenvolvimento foi concluído integralmente? | ⚠️ | Em andamento |
+| O desenvolvimento foi concluído integralmente? | ⚠️ | Visualização do histórico financeiro, cadastro e remoção dos administradores das organizações entregues |
 | Os testes foram executados e aprovados? | ⚠️ | _Evidência de cobertura de testes a consolidar._ |
 | A funcionalidade foi revisada pela equipe? | ✅ | Revisão realizada no [Pull Request #37](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/37), [Pull Request #47](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/47) e [Pull Request #48](https://github.com/mdsreq-fga-unb/REQ-2026.1-T01-DoaNet/pull/48) |
 | A documentação e o feedback relevante foram incorporados? | ✅ | Em andamento; consolidação na entrega final (02/07) |
