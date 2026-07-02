@@ -10,8 +10,8 @@ Critérios INVEST aplicados no Sprint Planning para as cinco histórias da sprin
 
 | User Story | I | N | V | E | S | T |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **US06** — Filtrar publicações do feed | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **US07** — Buscar publicações por título | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **US06** — Filtrar o feed por tipo de publicação | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **US07** — Buscar publicação no feed por título | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US10** — Realizar doação | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US15** — Lançar doações manuais | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US16** — Lançar despesas operacionais | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -22,8 +22,8 @@ Critérios INVEST aplicados no Sprint Planning para as cinco histórias da sprin
 
 Verificação formal dos critérios na revisão da sprint.
 
-- **US06** — Filtrar publicações do feed: ✅ Todos os critérios verificados
-- **US07** — Buscar publicações por título: ✅ Todos os critérios verificados
+- **US06** — Filtrar o feed por tipo de publicação: ✅ Todos os critérios verificados
+- **US07** — Buscar publicação no feed por título: ✅ Todos os critérios verificados
 - **US10** — Realizar doação: ✅ Todos os critérios verificados
 - **US15** — Lançar doações manuais: ✅ Todos os critérios verificados
 - **US16** — Lançar despesas operacionais: ✅ Todos os critérios verificados

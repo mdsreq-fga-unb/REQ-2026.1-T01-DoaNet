@@ -15,7 +15,7 @@ Finalizar o painel de transparência, o painel de admin e a customização da or
 
 | Seção | Conteúdo |
 | :--- | :--- |
-| [User Stories](user-stories.md) | US01, US03, US05, US12, US13 e US14 — critérios de aceite, protótipo e rota de acesso |
+| [User Stories](user-stories.md) | US01, US12, US13 e US14 — critérios de aceite, protótipo e rota de acesso. US03 e US05 foram retiradas do MVP — ver [Observações Gerais](../observacoes-gerais.md#us03) |
 | [Engenharia de Requisitos](engenharia-de-requisitos.md) | Atividades de ER realizadas e suas evidências |
 | [Reuniões Realizadas](reunioes-realizadas.md) | Cerimônias do Scrum, atas e descrições |
 | [Engenharia de Software](engenharia-de-software.md) | DoR, DoD e descrição da entrega técnica |

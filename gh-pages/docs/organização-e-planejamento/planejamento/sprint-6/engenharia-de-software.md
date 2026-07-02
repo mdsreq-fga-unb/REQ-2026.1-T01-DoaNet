@@ -12,10 +12,10 @@ Fechamento do painel de transparência (visualização do histórico financeiro 
 
 | Critério | Status | Evidência |
 | :--- | :---: | :--- |
-| O requisito possui informação necessária para ser trabalhado? | ✅ | US01, US03, US05, US12, US13 e US14 detalhadas no Story Map |
-| O requisito cabe em uma Sprint? | ✅ | 6 USs planejadas para a sprint de fechamento |
+| O requisito possui informação necessária para ser trabalhado? | ✅ | US01, US12, US13 e US14 detalhadas no Story Map |
+| O requisito cabe em uma Sprint? | ✅ | 4 USs planejadas para a sprint de fechamento — US03 e US05 retiradas do MVP ([Observações Gerais](../observacoes-gerais.md#us03)) |
 | Os critérios de aceitação estão definidos? | ✅ | Critérios formalizados em [User Stories](user-stories.md) |
-| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados por US01, US03, US05, US12, US13 e US14 |
+| O requisito está representado por uma história de usuário? | ✅ | Requisitos representados por US01, US12, US13 e US14 |
 | As definições de arquitetura e contratos de API estão claras? | ✅ | Endpoints de transparência, organização e administração definidos sobre a arquitetura consolidada |
 
 ## Definition of Done — DoD

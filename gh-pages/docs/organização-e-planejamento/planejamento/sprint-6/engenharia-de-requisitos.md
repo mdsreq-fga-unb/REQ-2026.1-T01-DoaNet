@@ -6,13 +6,11 @@ Atividades de Engenharia de Requisitos realizadas na Sprint 6 e suas evidências
 
 ## Verificação de Requisitos (INVEST)
 
-Critérios INVEST aplicados no Sprint Planning para as seis histórias da sprint (US01, US03, US05, US12, US13, US14). Verificação a ser concluída na revisão final.
+Critérios INVEST aplicados no Sprint Planning para as histórias da sprint (US01, US12, US13, US14). As histórias US03 e US05 foram retiradas do escopo por prioridade baixa e baixa entrega de valor — ver [Observações Gerais](../observacoes-gerais.md#us03).
 
 | User Story | I | N | V | E | S | T |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **US01** — Visualizar histórico financeiro | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **US03** — Visualizar descrição da ONG | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **US05** — Contactar a organização | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US12** — Cadastrar administrador de organização | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US13** — Remover administrador de organização | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **US14** — Configurar dados institucionais | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -25,8 +23,7 @@ Critérios INVEST aplicados no Sprint Planning para as seis histórias da sprint
 Verificação formal dos critérios a ser concluída na revisão da sprint.
 
 - **US01** — Visualizar histórico financeiro: ✅ Todos os critérios verificados
-- **US03** — Visualizar descrição da ONG: ⚠️ Funcionalidade não concluida
-- **US05** — Contactar a organização: ⚠️ Funcionalidade não concluida
+- **US03** e **US05** — retiradas do MVP (prioridade baixa e baixa entrega de valor) — ver [Observações Gerais](../observacoes-gerais.md#us03)
 - **US12** — Cadastrar administrador de organização: ✅ Todos os critérios verificados
 - **US13** — Remover administrador de organização: ✅ Todos os critérios verificados
 - **US14** — Configurar dados institucionais: ✅ Todos os critérios verificados

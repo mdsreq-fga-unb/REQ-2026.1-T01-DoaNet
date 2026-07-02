@@ -21,6 +21,7 @@ nav:
       - User Story Map: organização-e-planejamento/user-story-map.md
       - Consolidação do feedback com cliente: organização-e-planejamento/tabela-consolidacao.md
       - Planejamento:
+          - Observações Gerais: organização-e-planejamento/planejamento/observacoes-gerais.md
           - Sprint 0:
               - Objetivo Geral: organização-e-planejamento/planejamento/sprint-0/objetivo-geral.md
               - User Stories: organização-e-planejamento/planejamento/sprint-0/user-stories.md

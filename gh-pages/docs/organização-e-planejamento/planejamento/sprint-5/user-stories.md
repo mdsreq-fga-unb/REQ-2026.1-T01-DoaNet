@@ -3,9 +3,9 @@
 [← Voltar ao Objetivo Geral](objetivo-geral.md)
 
 <a id="us06"></a>
-## US06 — Filtrar publicações do feed
+## US06 — Filtrar o feed por tipo de publicação
 
-> Como usuário, quero restringir a exibição do feed por tipo, para visualizar rapidamente atualizações ou eventos específicos.
+> Como usuário, quero filtrar o feed por tipo de publicação (normal ou evento), para visualizar rapidamente atualizações ou eventos específicos.
 
 **Critérios de aceite:**
 
@@ -24,9 +24,9 @@
 ---
 
 <a id="us07"></a>
-## US07 — Buscar publicações por título
+## US07 — Buscar publicação no feed por título
 
-> Como usuário, quero localizar publicações por título, para localizar postagens de meu interesse.
+> Como usuário, quero buscar publicações no feed pelo título, para encontrar rapidamente postagens de meu interesse.
 
 **Critérios de aceite:**
 

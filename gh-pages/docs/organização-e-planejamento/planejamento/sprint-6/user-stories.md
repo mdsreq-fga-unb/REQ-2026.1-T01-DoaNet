@@ -24,40 +24,8 @@
 
 ---
 
-<a id="us03"></a>
-## US03 — Visualizar descrição da ONG
-
-> Como usuário, quero visualizar uma descrição institucional da organização, para entender seu propósito e áreas de atuação.
-
-**Critérios de aceite:**
-
-- A tela exibe nome, missão e descrição da organização.
-- As informações refletem os dados configurados pelo administrador.
-- A página é acessível sem autenticação.
-
-**Protótipo da US:**
-
-![Perfil](../../../assets/perfil.png)
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Descrição institucional`
-
----
-
-<a id="us05"></a>
-## US05 — Contactar a organização
-
-> Como usuário, quero contactar os administradores da organização de forma integrada, para tirar dúvidas ou buscar mais informações.
-
-**Critérios de aceite:**
-
-- O usuário acessa um canal de contato direto com a organização a partir da tela de perfil.
-- O canal redireciona corretamente para o meio configurado (ex: WhatsApp, e-mail).
-
-**Protótipo da US:** 
-
-![Perfil](../../../assets/perfil.png)
-
-**Fluxo de navegação (aplicativo mobile):** `Abrir app → aba Perfil da Organização → Contato (WhatsApp/e-mail)`
+!!! note "US03 e US05 — fora do MVP"
+    As histórias **US03 — Visualizar descrição da ONG** e **US05 — Contactar a organização** foram removidas do escopo da Sprint 6 por apresentarem prioridade baixa e baixa entrega de valor. Ver [Observações Gerais sobre o Planejamento](../observacoes-gerais.md#us03).
 
 ---
 

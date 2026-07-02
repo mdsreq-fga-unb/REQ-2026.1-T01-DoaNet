@@ -24,8 +24,8 @@ Nenhum.
 
 A equipe alinhou que a Sprint 5 teria foco em **doações e rastreabilidade**, iniciando o registro no painel de transparência. Os entregáveis acordados foram:
 
-- **US06** — filtro de publicações do feed por tipo (normal/evento)
-- **US07** — busca de publicações por título
+- **US06** — filtrar o feed por tipo de publicação (normal/evento)
+- **US07** — buscar publicação no feed por título
 - **US10** — realização de doação no aplicativo, com direcionamento e visibilidade (pública/anônima)
 - **US15** — lançamento manual de doações externas pelo administrador
 - **US16** — lançamento de despesas operacionais pelo administrador
